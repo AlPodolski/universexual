@@ -14,7 +14,8 @@
                 <div class="single-option m-bottom-20"><span class="bold-text">Район:</span> Район</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Метро: </span>Метро</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Возраст: </span>{{ $post->age }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Национальность: </span>{{ $post->value }}</div>
+                <div class="single-option m-bottom-20"><span class="bold-text">Национальность: </span>{{ $post->national_value }}</div>
+                <div class="single-option m-bottom-20"><span class="bold-text">Цвет волос: </span>{{ $post->hair_color }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Вес: </span>{{ $post->ves }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Грудь: </span>{{ $post->breast }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Не моложе: </span>{{ $post->not_younger }}</div>

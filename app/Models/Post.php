@@ -53,6 +53,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereNotYounger($value)
  * @property int $national_id
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereNationalId($value)
+ * @property int $hair_color_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereHairColorId($value)
  */
 class Post extends Model
 {
