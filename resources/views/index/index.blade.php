@@ -23,9 +23,12 @@
                             От {{ $post->price }}р.
                         </div>
                     </div>
-                    <div data-phone="{{ $post->phone }}" class="yellow-btn phone ">Показать телефон</div>
+                    <div data-phone="{{ $post->phone }}" onclick="phone(this)" class="yellow-btn phone ">Показать телефон</div>
                 </div>
             </div>
         @endforeach
     </div>
+@endsection
+@section('main-menu')
+    @include('include.main-menu', compact('data'))
 @endsection

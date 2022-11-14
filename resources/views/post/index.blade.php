@@ -8,12 +8,13 @@
         <div class="post-single d-flex">
             <div class="left"><img src="{{ $post->avatar }}" alt=""></div>
             <div class="right">
-                <h1>Страница товара</h1>
+                <h1>{{ $post->name }}</h1>
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
                 <div onclick="phone(this)" data-phone="{{ $post->phone }}" class="yellow-btn phone single-phone m-bottom-20">Показать телефон</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Район:</span> Район</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Метро: </span>Метро</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Возраст: </span>{{ $post->age }}</div>
+                <div class="single-option m-bottom-20"><span class="bold-text">Национальность: </span>{{ $post->value }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Вес: </span>{{ $post->ves }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Грудь: </span>{{ $post->breast }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Не моложе: </span>{{ $post->not_younger }}</div>
@@ -52,4 +53,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('main-menu')
+    @include('include.main-menu', compact('data'))
 @endsection

@@ -8,8 +8,12 @@ class PostController extends Controller
 {
     public function __invoke($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::where('posts.id', $id)
+            ->join('nationals', 'national_id', '=', 'nationals.id')
+            ->first();
 
-        return view('post.index', compact('post'));
+        $data = $this->dataRepository->getData();
+
+        return view('post.index', compact('post', 'data'));
     }
 }

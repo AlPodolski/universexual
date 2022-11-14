@@ -51,6 +51,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $not_younger
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereContactsPerHour($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereNotYounger($value)
+ * @property int $national_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereNationalId($value)
  */
 class Post extends Model
 {

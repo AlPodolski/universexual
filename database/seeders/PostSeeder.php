@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\National;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -14,6 +15,8 @@ class PostSeeder extends Seeder
         $i = 0;
 
         $price = array(1000, 1500, 2000, 3000, 5000, 10000);
+
+        $national = National::get()->toArray();
 
         while ($i <= 150){
 
@@ -34,6 +37,7 @@ class PostSeeder extends Seeder
                 'clothing_size' => rand(36,46),
                 'contacts_per_hour' => rand(1,3),
                 'not_younger' => rand(18,70),
+                'national_id' => $national[array_rand($national)]['id'],
                 'avatar' => '/img/girl.jpg'
             ];
 
