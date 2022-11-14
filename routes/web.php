@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', \App\Http\Controllers\IndexController::class);
+Route::get('/post/{id}', \App\Http\Controllers\PostController::class);
+
+Route::get('/post', function () {
+    return view('post');
 });
