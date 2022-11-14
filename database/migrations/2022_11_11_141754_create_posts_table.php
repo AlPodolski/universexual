@@ -29,6 +29,7 @@ return new class extends Migration {
             $table->tinyInteger('not_younger')->unsigned()->default(18);
             $table->tinyInteger('national_id')->unsigned()->index()->default(1);
             $table->tinyInteger('hair_color_id')->unsigned()->index()->default(1);
+            $table->tinyInteger('intim_hair_id')->unsigned()->index()->default(1);
 
             $table->timestamps();
         });

@@ -19,7 +19,7 @@
                 <div class="single-option m-bottom-20"><span class="bold-text">Вес: </span>{{ $post->ves }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Грудь: </span>{{ $post->breast }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Не моложе: </span>{{ $post->not_younger }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Интимная стрижка: </span>Интимная стрижка</div>
+                <div class="single-option m-bottom-20"><span class="bold-text">Интимная стрижка: </span>{{ $post->intim_hair }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Размер одежды: </span>{{ $post->clothing_size }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Размер обуви: </span>{{ $post->shoe_size }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Контактов в час: </span>{{ $post->contacts_per_hour }}</div>
