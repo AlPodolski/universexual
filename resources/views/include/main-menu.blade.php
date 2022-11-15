@@ -97,11 +97,10 @@
                                 @endphp
                                 <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
-
                         </div>
                     </div>
-                    <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 2</a></div>
-                    <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 3</a></div>
+                    <div class="sub-menu-item-wrap"><a href="/molodye-prostitutki" class="sub-menu-item">Молодые проститутки</a></div>
+                    <div class="sub-menu-item-wrap"><a href="/starye-prostitutki" class="sub-menu-item">Старые проститутки</a></div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 4</a></div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 5</a></div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 6</a></div>

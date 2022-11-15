@@ -32,4 +32,17 @@ class PostRepository
 
         return $post;
     }
+
+    public function getForFilter($cityId, $search)
+    {
+        $posts = Post::where(['city_id' => $cityId]);
+
+        if (strpos($search, 'molodye-prostitutki') !== false) $posts = $posts->where('age', '<', 26);
+        if (strpos($search, 'starye-prostitutki') !== false) $posts = $posts->where('age', '>', 45);
+
+        $posts = $posts->paginate(20);
+
+        return $posts;
+
+    }
 }
