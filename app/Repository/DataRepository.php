@@ -6,6 +6,7 @@ use App\Models\HairColor;
 use App\Models\IntimHair;
 use App\Models\Metro;
 use App\Models\National;
+use App\Models\Rayon;
 use App\Models\Service;
 
 class DataRepository
@@ -17,6 +18,7 @@ class DataRepository
         $data['intimHair'] = IntimHair::all();
         $data['service'] = Service::all();
         $data['metro'] = Metro::where(['city_id' => $cityId])->get();
+        $data['rayon'] = Rayon::where(['city_id' => $cityId])->get();
 
         return $data;
     }

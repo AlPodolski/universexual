@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\HairColor;
 use App\Models\IntimHair;
 use App\Models\National;
+use App\Models\Rayon;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
@@ -21,6 +22,7 @@ class PostSeeder extends Seeder
         $national = National::get()->toArray();
         $hair = HairColor::get()->toArray();
         $intimHair = IntimHair::get()->toArray();
+        $rayon = Rayon::get()->toArray();
 
         while ($i <= 300){
 
@@ -44,6 +46,7 @@ class PostSeeder extends Seeder
                 'national_id' => $national[array_rand($national)]['id'],
                 'hair_color_id' => $hair[array_rand($hair)]['id'],
                 'intim_hair_id' => $intimHair[array_rand($intimHair)]['id'],
+                'rayon_id' => $rayon[array_rand($rayon)]['id'],
                 'avatar' => '/img/girl.jpg'
             ];
 

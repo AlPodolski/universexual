@@ -59,6 +59,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIntimHairId($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PostService[] $service
  * @property-read int|null $service_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PostMetro[] $metro
+ * @property-read int|null $metro_count
  */
 class Post extends Model
 {

@@ -13,11 +13,13 @@
                 <div onclick="phone(this)" data-phone="{{ $post->phone }}"
                      class="yellow-btn phone single-phone m-bottom-20">Показать телефон
                 </div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Район:</span> Район</div>
+                <div class="single-option m-bottom-20"><span class="bold-text">Район:</span>
+                    <a href="/{{ $post->rayon_url }}">{{ $post->rayon_value }}</a>
+                </div>
                 @if($post->metro->first())
                     <div class="single-option m-bottom-20"><span class="bold-text">Метро: </span>
                         @foreach($post->metro as $item)
-                            <a href="{{ $item->metro_url }}">{{ $item->metro_value }}</a>
+                            <a href="/{{ $item->metro_url }}">{{ $item->metro_value }}</a>
                             @if($post->metro->last() != $item)
                                 ,
                             @endif

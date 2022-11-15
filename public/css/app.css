@@ -4359,6 +4359,8 @@ a{
     width: 100%;
     display: none;
     flex-direction: column;
+    max-height: 500px;
+    overflow-y: auto;
 }
 .sub-menu-list-item{
     margin-bottom: 10px;
@@ -4488,5 +4490,11 @@ h1{
     flex: 0 0 33%;
     margin-right: 0;
     padding: 5px;
+    text-decoration: line-through;
+    color: #707070;
+}
+.service-list .exist {
+    text-decoration: none;
+    color: #242424;
 }
 

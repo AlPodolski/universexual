@@ -12,12 +12,16 @@ return new class extends Migration {
 
             $table->bigInteger('user_id');
             $table->smallInteger('city_id');
+            $table->tinyInteger('national_id')->unsigned()->index()->default(1);
+            $table->tinyInteger('hair_color_id')->unsigned()->index()->default(1);
+            $table->tinyInteger('intim_hair_id')->unsigned()->index()->default(1);
+            $table->smallInteger('rayon_id')->unsigned()->index()->default(1);
             $table->string('name');
             $table->string('phone');
             $table->string('url');
             $table->string('avatar');
             $table->text('about');
-            $table->smallInteger('price')->unsigned();
+            $table->smallInteger('price')->index()->unsigned();
             $table->tinyInteger('publication_status')->default(0);
             $table->tinyInteger('age')->default(0);
             $table->tinyInteger('rost')->default(0)->unsigned();
@@ -27,9 +31,6 @@ return new class extends Migration {
             $table->tinyInteger('clothing_size')->default(null);
             $table->tinyInteger('contacts_per_hour')->default(1);
             $table->tinyInteger('not_younger')->unsigned()->default(18);
-            $table->tinyInteger('national_id')->unsigned()->index()->default(1);
-            $table->tinyInteger('hair_color_id')->unsigned()->index()->default(1);
-            $table->tinyInteger('intim_hair_id')->unsigned()->index()->default(1);
 
             $table->timestamps();
         });
