@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\IndexController::class);
-Route::get('/post/{id}', \App\Http\Controllers\PostController::class);
-
-Route::get('/post', function () {
-    return view('post');
+Route::domain('{city}.'.env('DOMAIN'))->group(function () {
+    Route::get('/', \App\Http\Controllers\IndexController::class);
+    Route::get('/post/{id}', \App\Http\Controllers\PostController::class);
 });
+
+

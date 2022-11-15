@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @php
-/* @var $post \App\Models\Post */
+    /* @var $post \App\Models\Post */
 @endphp
 
 @section('content')
@@ -10,21 +10,53 @@
             <div class="right">
                 <h1>{{ $post->name }}</h1>
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
-                <div onclick="phone(this)" data-phone="{{ $post->phone }}" class="yellow-btn phone single-phone m-bottom-20">Показать телефон</div>
+                <div onclick="phone(this)" data-phone="{{ $post->phone }}"
+                     class="yellow-btn phone single-phone m-bottom-20">Показать телефон
+                </div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Район:</span> Район</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Метро: </span>Метро</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Возраст: </span>{{ $post->age }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Национальность: </span>{{ $post->national_value }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Цвет волос: </span>{{ $post->hair_color }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Национальность: </span>{{ $post->national_value }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Цвет волос: </span>{{ $post->hair_color }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Вес: </span>{{ $post->ves }}</div>
                 <div class="single-option m-bottom-20"><span class="bold-text">Грудь: </span>{{ $post->breast }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Не моложе: </span>{{ $post->not_younger }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Интимная стрижка: </span>{{ $post->intim_hair }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Размер одежды: </span>{{ $post->clothing_size }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Размер обуви: </span>{{ $post->shoe_size }}</div>
-                <div class="single-option m-bottom-20"><span class="bold-text">Контактов в час: </span>{{ $post->contacts_per_hour }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Не моложе: </span>{{ $post->not_younger }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Интимная стрижка: </span>{{ $post->intim_hair }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Размер одежды: </span>{{ $post->clothing_size }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Размер обуви: </span>{{ $post->shoe_size }}</div>
+                <div class="single-option m-bottom-20"><span
+                        class="bold-text">Контактов в час: </span>{{ $post->contacts_per_hour }}</div>
             </div>
             <div class="more-post-info m-top-20">
+                <div class="bold-text m-bottom-20">Услуги</div>
+                <div class="service-list d-flex m-bottom-20">
+                    @foreach($data['service'] as $item)
+                        @php
+                            /* @var $item \App\Models\Service */
+                        @endphp
+                        @php
+                            $class = '';
+                        @endphp
+
+                        @foreach($post->service as $postServiceItem)
+
+                            @if($postServiceItem->service_original_id == $item->id)
+                                @php
+                                    $class = 'exist';
+                                @endphp
+                            @endif
+
+                        @endforeach
+
+                        <a  href="/{{ $item->url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
+                    @endforeach
+                </div>
                 <div class="about-text">
                     <div class="bold-text m-bottom-20">Описание</div>
                     {{ $post->about }}

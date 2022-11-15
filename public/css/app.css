@@ -4478,4 +4478,15 @@ h1{
 .post-info-item {
     margin-bottom: 5px;
 }
+.service-list .service-list-item:nth-child(2n+1) {
+    background: #ECECEC;
+}
+.service-list{
+    flex-wrap: wrap;
+}
+.service-list .service-list-item {
+    flex: 0 0 33%;
+    margin-right: 0;
+    padding: 5px;
+}
 

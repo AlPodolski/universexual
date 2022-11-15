@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\CityRepository;
 use App\Repository\DataRepository;
+use App\Repository\PostRepository;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -12,10 +14,14 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $dataRepository;
+    protected DataRepository $dataRepository;
+    protected PostRepository $postRepository;
+    protected CityRepository $cityRepository;
 
     public function __construct()
     {
         $this->dataRepository = new DataRepository();
+        $this->postRepository = new PostRepository();
+        $this->cityRepository = new CityRepository();
     }
 }

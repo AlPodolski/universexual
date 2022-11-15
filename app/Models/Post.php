@@ -55,7 +55,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereNationalId($value)
  * @property int $hair_color_id
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereHairColorId($value)
+ * @property int $intim_hair_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereIntimHairId($value)
  */
 class Post extends Model
 {
+    public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(PostService::class, 'posts_id', 'id')
+            ->join('services', 'service_id', '=', 'services.id')
+            ->select('services.id as service_original_id', 'posts_id');
+    }
 }

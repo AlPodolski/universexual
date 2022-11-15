@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
         $hair = HairColor::get()->toArray();
         $intimHair = IntimHair::get()->toArray();
 
-        while ($i <= 150){
+        while ($i <= 300){
 
             $postsData[] = [
                 'user_id' => rand(1,3),
@@ -34,7 +34,7 @@ class PostSeeder extends Seeder
                 'rost' => rand(150,180),
                 'ves' => rand(50,80),
                 'age' => rand(18,62),
-                'city_id' => 1,
+                'city_id' => rand(1,2),
                 'about' => $faker->realText(500),
                 'breast' => rand(1,6),
                 'shoe_size' => rand(36,46),

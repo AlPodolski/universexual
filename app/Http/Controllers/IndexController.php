@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-use App\Repository\DataRepository;
-
 class IndexController extends Controller
 {
-
-    public function __invoke()
+    public function __invoke($city)
     {
-        $posts = Post::paginate(20);
-        $data = $this->dataRepository->getData();
+        $cityInfo = $this->cityRepository->getCity($city);
+        $posts = $this->postRepository->getForMain($cityInfo['id']);
+        $data = $this->dataRepository->getData($cityInfo['id']);
+
         return view('index.index', compact('posts', 'data'));
     }
 }
