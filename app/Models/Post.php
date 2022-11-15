@@ -57,6 +57,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereHairColorId($value)
  * @property int $intim_hair_id
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereIntimHairId($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PostService[] $service
+ * @property-read int|null $service_count
  */
 class Post extends Model
 {
@@ -65,5 +67,12 @@ class Post extends Model
         return $this->hasMany(PostService::class, 'posts_id', 'id')
             ->join('services', 'service_id', '=', 'services.id')
             ->select('services.id as service_original_id', 'posts_id');
+    }
+
+    public function metro(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(PostMetro::class, 'posts_id', 'id')
+            ->join('metros', 'metros_id', 'metros.id')
+            ->select('metros.url as metro_url', 'metros.value as metro_value', 'posts_id');
     }
 }
