@@ -18,7 +18,7 @@
                                 @php
                                     /* @var $item \App\Models\Metro */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                 @php
                                     /* @var $item \App\Models\Rayon */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                                 @php
                                     /* @var $item \App\Models\Service */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                 @php
                                     /* @var $item \App\Models\National */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
 
                         </div>
@@ -79,7 +79,7 @@
                                 @php
                                     /* @var $item \App\Models\HairColor */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
 
                         </div>
@@ -95,12 +95,22 @@
                                 @php
                                     /* @var $item \App\Models\IntimHair */
                                 @endphp
-                                <a href="/{{ $item->url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
                             @endforeach
                         </div>
                     </div>
-                    <div class="sub-menu-item-wrap"><a href="/molodye-prostitutki" class="sub-menu-item">Молодые проститутки</a></div>
-                    <div class="sub-menu-item-wrap"><a href="/starye-prostitutki" class="sub-menu-item">Старые проститутки</a></div>
+                    <div class="sub-menu-item-wrap">
+                        <a href="/molodye-prostitutki" class="sub-menu-item">Молодые проститутки</a>
+                    </div>
+                    <div class="sub-menu-item-wrap">
+                        <a href="/starye-prostitutki" class="sub-menu-item">Старые проститутки</a>
+                    </div>
+                    <div class="sub-menu-item-wrap">
+                        <a href="/dorogie-prostitutki" class="sub-menu-item">Дорогие проститутки</a>
+                    </div>
+                    <div class="sub-menu-item-wrap">
+                        <a href="/deshevye-prostitutki" class="sub-menu-item">Дешевые проститутки</a>
+                    </div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 4</a></div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 5</a></div>
                     <div class="sub-menu-item-wrap"><a href="#" class="sub-menu-item">Меню 6</a></div>

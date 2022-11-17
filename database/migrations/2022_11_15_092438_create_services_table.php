@@ -45,7 +45,7 @@ return new class extends Migration {
 ('Рабыня', 'rabynya', 'Рабыни'),
 ('Эскорт', 'eskort', 'Эскорта'),
 ('БДСМ', 'bdsm', 'БДСМа'),
-('Cекс по телефону', 'ceks-po-telefonu', 'Cекса по телефону'),
+('Секс по телефону', 'ceks-po-telefonu', 'Секса по телефону'),
 ('Виртуальный секс', 'virtualynyy-seks', 'Виртуального секса'),
 ('Игрушки', 'igrushki', 'Игрушки'),
 ('Клизма', 'klizma', 'Клизма'),
@@ -63,7 +63,7 @@ return new class extends Migration {
 ('Фингеринг', 'fingering', 'Фингеринга'),
 ('Фото/видео съемка', 'foto-video-syemka', 'Фото/видео съемки'),
 ('Целуюсь', 'celuyusy', 'Целуюсь'),
-('экспресс', 'ehkspress', 'экспресса');";
+('Экспресс', 'ehkspress', 'экспресса');";
 
         DB::statement($sql);
     }

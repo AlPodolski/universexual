@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Models\Filter;
 use App\Models\Post;
 
 class PostRepository
@@ -37,8 +38,51 @@ class PostRepository
     {
         $posts = Post::where(['city_id' => $cityId]);
 
-        if (strpos($search, 'molodye-prostitutki') !== false) $posts = $posts->where('age', '<', 26);
-        if (strpos($search, 'starye-prostitutki') !== false) $posts = $posts->where('age', '>', 45);
+        if (strpos($search, 'molodye-prostitutki') !== false)
+            $posts = $posts->where('age', '<', 26);
+
+        if (strpos($search, 'starye-prostitutki') !== false)
+            $posts = $posts->where('age', '>', 45);
+
+        if (strpos($search, 'dorogie-prostitutki') !== false)
+            $posts = $posts->where('price', '>', 4999);
+
+        if (strpos($search, 'deshevye-prostitutki') !== false)
+            $posts = $posts->where('price', '<', 3001);
+
+        if ($filter = Filter::where('url', $search)->first()){
+
+            if ($filter->related_table == 'post_services'){
+
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where '.$filter->related_column.' =  ?) ',
+                    [ $filter->related_id] );
+
+            }
+            if ($filter->related_table == 'post_metros'){
+
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where '.$filter->related_column.' =  ?) ',
+                    [$filter->related_id] );
+
+            }
+            if ($filter->related_table == 'rayons'){
+                $posts = $posts->where($filter->related_column, $filter->related_id);
+            }
+
+            if ($filter->related_table == 'nationals'){
+                $posts = $posts->where($filter->related_column, $filter->related_id);
+            }
+
+            if ($filter->related_table == 'hair_color'){
+                $posts = $posts->where($filter->related_column, $filter->related_id);
+            }
+
+            if ($filter->related_table == 'intim_hair'){
+                $posts = $posts->where($filter->related_column, $filter->related_id);
+            }
+
+        }
+
+        //dd($posts->getQuery()->wheres);
 
         $posts = $posts->paginate(20);
 
