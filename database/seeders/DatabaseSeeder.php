@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostServiceSeeder::class);
         $this->call(PostMetroSeeder::class);
         $this->call(PostPlaceSeeder::class);
+        $this->call(PostTimeSeeder::class);
 
         \Artisan::call('add:filter');
     }

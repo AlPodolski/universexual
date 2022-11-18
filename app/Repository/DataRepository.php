@@ -9,6 +9,7 @@ use App\Models\National;
 use App\Models\Place;
 use App\Models\Rayon;
 use App\Models\Service;
+use App\Models\Time;
 
 class DataRepository
 {
@@ -23,6 +24,12 @@ class DataRepository
         $data['place'] = Place::select('places.*', 'filters.url as filter_url')
             ->join('filters', 'places.id', '=', 'filters.related_id')
             ->where('filters.related_table', 'post_places')
+            ->orderBy('value')
+            ->get();
+
+        $data['time'] = Time::select('times.*', 'filters.url as filter_url')
+            ->join('filters', 'times.id', '=', 'filters.related_id')
+            ->where('filters.related_table', 'post_times')
             ->orderBy('value')
             ->get();
 

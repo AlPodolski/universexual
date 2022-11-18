@@ -69,6 +69,12 @@ class PostRepository
                     [$filter->related_id] );
 
             }
+            if ($filter->related_table == 'post_times'){
+
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_times` where '.$filter->related_column.' =  ?) ',
+                    [$filter->related_id] );
+
+            }
             if ($filter->related_table == 'rayons'){
                 $posts = $posts->where($filter->related_column, $filter->related_id);
             }

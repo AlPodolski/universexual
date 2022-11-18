@@ -10,6 +10,7 @@ use App\Models\National;
 use App\Models\Place;
 use App\Models\Rayon;
 use App\Models\Service;
+use App\Models\Time;
 use App\Services\FilterUrlService;
 use Illuminate\Console\Command;
 
@@ -22,6 +23,20 @@ class AddFilterCommand extends Command
     public function handle(FilterUrlService $filterUrlService)
     {
 
+        $service = Time::all();
+
+        foreach ($service as $item){
+
+            $filter = new Filter();
+
+            $filter->url = $filterUrlService->makeUrlForFilterTable($item->value);
+            $filter->related_table = 'post_times';
+            $filter->related_id = $item->id;
+            $filter->related_column = 'times_id';
+
+            $filter->save();
+
+        }
         $service = Place::all();
 
         foreach ($service as $item){
