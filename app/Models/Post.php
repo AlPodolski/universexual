@@ -74,7 +74,14 @@ class Post extends Model
     public function metro(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostMetro::class, 'posts_id', 'id')
-            ->join('metros', 'metros_id', 'metros.id')
+            ->join('metros', 'metros_id', '=', 'metros.id')
             ->select('metros.url as metro_url', 'metros.value as metro_value', 'posts_id');
+    }
+
+    public function place(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(PostPlace::class, 'posts_id', 'id')
+            ->join('places', 'place_id', '=','places.id')
+            ->select('places.url as places_url', 'places.value as places_value', 'posts_id');
     }
 }

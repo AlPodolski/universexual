@@ -24,7 +24,7 @@ class PostSeeder extends Seeder
         $intimHair = IntimHair::get()->toArray();
         $rayon = Rayon::get()->toArray();
 
-        while ($i <= 300){
+        while ($i <= 600){
 
             $postsData[] = [
                 'user_id' => rand(1,3),

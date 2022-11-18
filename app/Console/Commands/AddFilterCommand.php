@@ -7,6 +7,7 @@ use App\Models\HairColor;
 use App\Models\IntimHair;
 use App\Models\Metro;
 use App\Models\National;
+use App\Models\Place;
 use App\Models\Rayon;
 use App\Models\Service;
 use App\Services\FilterUrlService;
@@ -20,6 +21,21 @@ class AddFilterCommand extends Command
 
     public function handle(FilterUrlService $filterUrlService)
     {
+
+        $service = Place::all();
+
+        foreach ($service as $item){
+
+            $filter = new Filter();
+
+            $filter->url = $filterUrlService->makeUrlForFilterTable($item->value);
+            $filter->related_table = 'post_places';
+            $filter->related_id = $item->id;
+            $filter->related_column = 'place_id';
+
+            $filter->save();
+
+        }
 
         $service = Service::all();
 

@@ -22,8 +22,7 @@ class PostRepository
             'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
             'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
         )
-            ->with('service')
-            ->with('metro')
+            ->with('service', 'metro', 'place')
             ->where('posts.id', $id)
             ->join('nationals', 'national_id', '=', 'nationals.id')
             ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
@@ -61,6 +60,12 @@ class PostRepository
             if ($filter->related_table == 'post_metros'){
 
                 $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where '.$filter->related_column.' =  ?) ',
+                    [$filter->related_id] );
+
+            }
+            if ($filter->related_table == 'post_places'){
+
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_places` where '.$filter->related_column.' =  ?) ',
                     [$filter->related_id] );
 
             }

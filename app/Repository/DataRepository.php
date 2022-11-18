@@ -6,6 +6,7 @@ use App\Models\HairColor;
 use App\Models\IntimHair;
 use App\Models\Metro;
 use App\Models\National;
+use App\Models\Place;
 use App\Models\Rayon;
 use App\Models\Service;
 
@@ -16,6 +17,12 @@ class DataRepository
         $data['national'] = National::select('nationals.*', 'filters.url as filter_url')
             ->join('filters', 'nationals.id', '=', 'filters.related_id')
             ->where('filters.related_table', 'nationals')
+            ->orderBy('value')
+            ->get();
+
+        $data['place'] = Place::select('places.*', 'filters.url as filter_url')
+            ->join('filters', 'places.id', '=', 'filters.related_id')
+            ->where('filters.related_table', 'post_places')
             ->orderBy('value')
             ->get();
 

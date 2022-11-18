@@ -26,6 +26,16 @@
                         @endforeach
                     </div>
                 @endif
+                @if($post->place->first())
+                    <div class="single-option m-bottom-20"><span class="bold-text">Место встречи: </span>
+                        @foreach($post->place as $item)
+                            <a href="/{{ $item->places_url }}">{{ $item->places_value }}</a>
+                            @if($post->place->last() != $item)
+                                ,
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
                 <div class="single-option m-bottom-20"><span class="bold-text">Возраст: </span>{{ $post->age }}</div>
                 <div class="single-option m-bottom-20"><span
                         class="bold-text">Национальность: </span>{{ $post->national_value }}</div>

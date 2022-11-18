@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\PostPlace;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(PostServiceSeeder::class);
         $this->call(PostMetroSeeder::class);
+        $this->call(PostPlaceSeeder::class);
+
+        \Artisan::call('add:filter');
     }
 }
