@@ -29,7 +29,7 @@
                 <div class="search">
                     <form action="/poisk" class="search-form position-relative">
                         @csrf
-                        <input type="text" class="text-input" name="name">
+                        <input type="text" class="text-input" name="name" placeholder="Поиск по имени">
                         <button class="yellow-btn position-absolute" type="submit">Поиск</button>
                     </form>
                 </div>
