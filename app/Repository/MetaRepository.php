@@ -74,7 +74,18 @@ class MetaRepository
 
     }
 
-    public function replaceParams($meta, $filterParamsList)
+    public function getForSearch(): array
+    {
+        $data = [
+            'title' => 'Поиск',
+            'des' => 'Поиск',
+            'h1' => 'Поиск',
+        ];
+
+        return $data;
+    }
+
+    private function replaceParams($meta, $filterParamsList)
     {
 
         foreach ($meta as &$metaItem) {

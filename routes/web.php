@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::domain('{city}.'.env('DOMAIN'))->group(function () {
     Route::get('/', \App\Http\Controllers\IndexController::class);
     Route::get('/post/{id}', \App\Http\Controllers\PostController::class);
+    Route::get('/poisk',  \App\Http\Controllers\SearchController::class);
     Route::get('/{search}',  \App\Http\Controllers\FilterController::class)
         ->where('search', '.*');
 });

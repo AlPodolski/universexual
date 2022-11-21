@@ -27,8 +27,9 @@
                     <a href="/"><img src="/img/logo.webp" alt=""></a>
                 </div>
                 <div class="search">
-                    <form action="" class="search-form position-relative">
-                        <input type="text" class="text-input">
+                    <form action="/poisk" class="search-form position-relative">
+                        @csrf
+                        <input type="text" class="text-input" name="name">
                         <button class="yellow-btn position-absolute" type="submit">Поиск</button>
                     </form>
                 </div>

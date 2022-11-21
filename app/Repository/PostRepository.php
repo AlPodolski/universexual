@@ -100,4 +100,14 @@ class PostRepository
         return $posts;
 
     }
+
+    public function getForSearch($cityId, $name)
+    {
+        $posts = Post::where('city_id', $cityId)
+            ->where('name' , 'like', '%'.$name.'%')
+            ->paginate(20);
+
+        return $posts;
+
+    }
 }
