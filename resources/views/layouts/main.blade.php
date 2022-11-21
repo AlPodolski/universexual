@@ -8,6 +8,11 @@
 
     <meta name="description" content="@yield('des')">
 
+    @if(View::hasSection('can'))
+        <link rel="canonical" href="@yield('can')">
+        <meta name="robots" content="noindex, follow">
+    @endif
+
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>

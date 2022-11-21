@@ -1,6 +1,12 @@
 @extends('layouts.main')
+
 @section('title', $meta['title'])
 @section('des', $meta['des'])
+
+@if(isset($path) and $path)
+    @section('can', $path)
+@endif
+
 @section('content')
     <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex">
@@ -29,7 +35,11 @@
                 </div>
             </div>
         @endforeach
+
     </div>
+    @if($posts->total() > $posts->count())
+        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+    @endif
 @endsection
 @section('main-menu')
     @include('include.main-menu', compact('data'))

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Canonical;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,8 @@ class IndexController extends Controller
 
         $meta = $metaRepository->getForMain('/', $cityInfo, $request);
 
-        return view('index.index', compact('posts', 'data', 'meta'));
+        $path = (new Canonical())->get($request->getRequestUri());
+
+        return view('index.index', compact('posts', 'data', 'meta', 'path'));
     }
 }
