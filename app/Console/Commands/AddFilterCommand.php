@@ -33,6 +33,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'post_times';
             $filter->related_id = $item->id;
             $filter->related_column = 'times_id';
+            $filter->parent_class = Time::class;
+            $filter->short_name = 'time';
 
             $filter->save();
 
@@ -47,6 +49,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'post_places';
             $filter->related_id = $item->id;
             $filter->related_column = 'place_id';
+            $filter->parent_class = Place::class;
+            $filter->short_name = 'place';
 
             $filter->save();
 
@@ -62,6 +66,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'post_services';
             $filter->related_id = $item->id;
             $filter->related_column = 'service_id';
+            $filter->parent_class = Service::class;
+            $filter->short_name = 'service';
 
             $filter->save();
 
@@ -77,6 +83,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'post_metros';
             $filter->related_id = $item->id;
             $filter->related_column = 'metros_id';
+            $filter->parent_class = Metro::class;
+            $filter->short_name = 'metro';
 
             $filter->save();
 
@@ -92,6 +100,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'rayons';
             $filter->related_id = $item->id;
             $filter->related_column = 'rayon_id';
+            $filter->parent_class = Rayon::class;
+            $filter->short_name = 'rayon';
 
             $filter->save();
 
@@ -107,6 +117,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'nationals';
             $filter->related_id = $item->id;
             $filter->related_column = 'national_id';
+            $filter->parent_class = National::class;
+            $filter->short_name = 'national';
 
             $filter->save();
 
@@ -122,6 +134,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'hair_color';
             $filter->related_id = $item->id;
             $filter->related_column = 'hair_color_id';
+            $filter->parent_class = HairColor::class;
+            $filter->short_name = 'color';
 
             $filter->save();
 
@@ -137,6 +151,8 @@ class AddFilterCommand extends Command
             $filter->related_table = 'intim_hair';
             $filter->related_id = $item->id;
             $filter->related_column = 'intim_hair_id';
+            $filter->parent_class = IntimHair::class;
+            $filter->short_name = 'intimhair';
 
             $filter->save();
 

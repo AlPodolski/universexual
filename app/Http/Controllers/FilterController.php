@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\MetaRepository;
+use Illuminate\Http\Request;
+
 class FilterController extends Controller
 {
-    public function __invoke($city, $search)
+    public function __invoke($city, $search, MetaRepository $metaRepository, Request $request)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $posts = $this->postRepository->getForFilter($cityInfo['id'], $search);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        return view('index.index', compact('posts', 'data'));
+        \Cache::flush();
+        $meta = $metaRepository->getForFilter($search, $cityInfo, $request);
+
+        return view('index.index', compact('posts', 'data', 'meta'));
     }
 }

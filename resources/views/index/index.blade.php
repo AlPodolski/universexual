@@ -1,6 +1,8 @@
 @extends('layouts.main')
+@section('title', $meta['title'])
+@section('des', $meta['des'])
 @section('content')
-    <h1>Главная страница</h1>
+    <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex">
         @foreach($posts as $post)
             <div class="post">

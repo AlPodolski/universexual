@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->string('related_table');
             $table->string('related_id');
             $table->string('related_column');
+            $table->string('parent_class');
+            $table->string('short_name');
 
             $table->timestamps();
         });
