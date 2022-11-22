@@ -84,4 +84,9 @@ class Post extends Model
             ->join('places', 'place_id', '=','places.id')
             ->select('places.url as places_url', 'places.value as places_value', 'posts_id');
     }
+
+    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Review::class, 'posts_id', 'id');
+    }
 }

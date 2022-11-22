@@ -75,20 +75,28 @@
 
                         @endforeach
 
-                        <a  href="/{{ $item->url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
+                        <a href="/{{ $item->url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
                     @endforeach
                 </div>
                 <div class="about-text">
                     <div class="bold-text m-bottom-20">Описание</div>
                     {{ $post->about }}
                 </div>
-                <div class="review-list m-top-20">
-                    <div class="bold-text m-bottom-20">Отзывы</div>
-                    <div class="review-item">
-                        <div class="user-name bold-text">Игор</div>
-                        <div class="review-text">Єто мой сайт</div>
+                @if($post->reviews->first())
+                    <div class="review-list m-top-20">
+
+                        <div class="bold-text m-bottom-20">Отзывы</div>
+
+                        @foreach($post->reviews as $item)
+                            <div class="review-item m-bottom-20">
+                                <div class="user-name bold-text">{{ $item->name }}</div>
+                                <div class="review-text">{{ $item->text }}</div>
+                            </div>
+                        @endforeach
+
                     </div>
-                </div>
+                @endif
+
                 <form action="/review/add" method="post" class="review-form m-top-20 m-bottom-20">
                     <div class="bold-text m-bottom-20">Написать отзыв</div>
                     @csrf

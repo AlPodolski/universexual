@@ -22,7 +22,7 @@ class PostRepository
             'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
             'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
         )
-            ->with('service', 'metro', 'place')
+            ->with('service', 'metro', 'place', 'reviews')
             ->where('posts.id', $id)
             ->join('nationals', 'national_id', '=', 'nationals.id')
             ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
