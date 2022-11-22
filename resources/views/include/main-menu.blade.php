@@ -144,10 +144,8 @@
                 </nav>
             </div>
             <nav class="main-menu">
-                <a href="#" class="main-menu-item">Главная</a>
-                <a href="#" class="main-menu-item">Еще страница</a>
-                <a href="#" class="main-menu-item">Еще страница 2</a>
-                <a href="#" class="main-menu-item">Блог</a>
+                <a href="/" class="main-menu-item">Главная</a>
+                <a href="/proverennye" class="main-menu-item">Проверенные</a>
             </nav>
         </div>
     </div>

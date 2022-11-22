@@ -17,7 +17,7 @@ class PostRepository
     public function getSingle($id)
     {
         $post = Post::select('name', 'posts.id', 'not_younger', 'clothing_size', 'about', 'breast', 'avatar',
-            'shoe_size', 'contacts_per_hour',
+            'shoe_size', 'contacts_per_hour','check_photo_status',
             'rayons.url as rayon_url', 'rayons.value as rayon_value',
             'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
             'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
@@ -48,6 +48,9 @@ class PostRepository
 
         if (strpos($search, 'deshevye-prostitutki') !== false)
             $posts = $posts->where('price', '<', 3001);
+
+        if (strpos($search, 'proverennye') !== false)
+                $posts = $posts->where('check_photo_status', 1);
 
         if ($filter = Filter::where('url', $search)->first()){
 

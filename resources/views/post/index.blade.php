@@ -9,6 +9,9 @@
             <div class="left"><img src="{{ $post->avatar }}" alt=""></div>
             <div class="right">
                 <h1>{{ $post->name }}</h1>
+                @if($post->check_photo_status)
+                    <div class="bold-text green-text big-text m-bottom-20">Фото проверенно</div>
+                @endif
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
                 <div onclick="phone(this)" data-phone="{{ $post->phone }}"
                      class="yellow-btn phone single-phone m-bottom-20">Показать телефон
