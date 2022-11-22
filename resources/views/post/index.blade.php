@@ -89,9 +89,10 @@
                         <div class="review-text">Єто мой сайт</div>
                     </div>
                 </div>
-                <form class="review-form m-top-20 m-bottom-20">
+                <form action="/review/add" method="post" class="review-form m-top-20 m-bottom-20">
                     <div class="bold-text m-bottom-20">Написать отзыв</div>
                     @csrf
+                    <input type="hidden" name="posts_id" value="{{ $post->id }}">
                     <div class="form-group">
                         <label for="name">Имя</label>
                         <input placeholder="Имя" type="text" name="name" id="name">

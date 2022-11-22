@@ -16,6 +16,9 @@
                     <a href="/post/{{ $post->id }}"><img src="{{ $post->avatar }}" alt=""></a>
                     <div class="post-info">
                         <div class="post-info-item">
+                            <span class="bold-text">{{ $post->name }}</span>
+                        </div>
+                        <div class="post-info-item">
                             <span class="bold-text">Рост:</span> {{ $post->rost }}
                         </div>
                         <div class="post-info-item">

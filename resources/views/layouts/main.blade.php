@@ -48,6 +48,7 @@
 <main>
     <div class="content-wrap">
         <div class="container">
+            @include('include.message')
             @yield('content')
         </div>
     </div>

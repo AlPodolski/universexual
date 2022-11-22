@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/review/add', \App\Http\Controllers\ReviewController::class);
+
 Route::domain('{city}.'.env('DOMAIN'))->group(function () {
     Route::get('/', \App\Http\Controllers\IndexController::class);
     Route::get('/post/{id}', \App\Http\Controllers\PostController::class);
