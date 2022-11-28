@@ -8,3 +8,6 @@ function phone(object){
     object.innerHTML = phone;
     window.location.href='tel:+'+phone;
 }
+function show_sub_menu(obj){
+    obj.nextElementSibling.classList.toggle('show_sub_menu')
+}
