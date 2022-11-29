@@ -64,7 +64,13 @@ class PostRepository
         if (strpos($search, 'proverennye') !== false)
             $posts = $posts->where('check_photo_status', 1);
 
-        if ($filter = Filter::where('url', $search)->first()) {
+        $expire = Carbon::now()->addHours(1200);
+
+        $filter = Cache::remember('filter_' . $search, $expire, function () use ($search) {
+            return Filter::where('url', $search)->first();
+        });
+
+        if ($filter) {
 
             if ($filter->related_table == 'post_services') {
 
