@@ -49,6 +49,12 @@ class PostRepository
     {
         $posts = Post::where(['city_id' => $cityId]);
 
+        if (strpos($search, 'tolstye') !== false)
+            $posts = $posts->where('ves', '>=', 80);
+
+        if (strpos($search, 'hudye') !== false)
+            $posts = $posts->where('ves', '<', 60);
+
         if (strpos($search, 'molodye-prostitutki') !== false)
             $posts = $posts->where('age', '<', 26);
 
