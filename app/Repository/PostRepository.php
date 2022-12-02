@@ -70,6 +70,12 @@ class PostRepository
         if (strpos($search, 'proverennye') !== false)
             $posts = $posts->where('check_photo_status', 1);
 
+        if (strpos($search, 'video') !== false)
+            $posts = $posts->where('video', '<>', null);
+
+        if (strpos($search, 'novye') !== false)
+            $posts = $posts->orderByDesc('id');
+
         $expire = Carbon::now()->addHours(1200);
 
         $filter = Cache::remember('filter_' . $search, $expire, function () use ($search) {

@@ -163,6 +163,8 @@
             <nav class="main-menu">
                 <a href="/" class="main-menu-item">Главная</a>
                 <a href="/proverennye" class="main-menu-item">Проверенные</a>
+                <a href="/video" class="main-menu-item">Анкеты с видео</a>
+                <a href="/novye" class="main-menu-item">Новые</a>
             </nav>
         </div>
     </div>
