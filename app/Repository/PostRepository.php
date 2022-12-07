@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Models\City;
 use App\Models\Filter;
 use App\Models\Post;
+use App\Models\PostMetro;
 use Cache;
 use Carbon\Carbon;
 
@@ -45,7 +46,7 @@ class PostRepository
         return $post;
     }
 
-    public function getForFilter($cityId, $search)
+    public function getForFilterCatalog($cityId, $search)
     {
         $posts = Post::where(['city_id' => $cityId]);
 
@@ -142,5 +143,31 @@ class PostRepository
 
         return $posts;
 
+    }
+
+    public function getForFilter($cityId, $data)
+    {
+        $posts = Post::where('age' , '>=', $data['age-from'])
+            ->where('age' , '<=', $data['age-to'])
+            ->where('rost' , '>=', $data['rost-from'])
+            ->where('rost' , '<=', $data['rost-to'])
+            ->where('ves' , '>=', $data['ves-from'])
+            ->where('ves' , '<=', $data['ves-to'])
+            ->where('breast' , '>=', $data['grud-from'])
+            ->where('breast' , '<=', $data['grud-to'])
+            ->where('price' , '>=', $data['price-from'])
+            ->where('price' , '<=', $data['price-to'])
+            ->where(['city_id' => $cityId]);
+
+        if (isset($data['metro']) and $data['metro']){
+
+            $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where `metros_id` =  ?) ',
+                [ $data['metro'] ]);
+
+        }
+
+        $posts = $posts->paginate(20);
+
+        return $posts;
     }
 }

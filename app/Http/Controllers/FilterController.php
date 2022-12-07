@@ -11,7 +11,7 @@ class FilterController extends Controller
     public function __invoke($city, $search, MetaRepository $metaRepository, Request $request)
     {
         $cityInfo = $this->cityRepository->getCity($city);
-        $posts = $this->postRepository->getForFilter($cityInfo['id'], $search);
+        $posts = $this->postRepository->getForFilterCatalog($cityInfo['id'], $search);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
         $path = (new Canonical())->get($request->getRequestUri());

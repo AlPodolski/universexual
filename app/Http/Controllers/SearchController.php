@@ -17,4 +17,18 @@ class SearchController extends Controller
 
         return view('index.index', compact('posts', 'data', 'meta', 'path'));
     }
+
+    public function filter($city, Request $request)
+    {
+        $cityInfo = $this->cityRepository->getCity($city);
+        $data = $request->all();
+        $posts = $this->postRepository->getForFilter($cityInfo['id'], $data);
+        $meta = $this->metaRepository->getForSearch();
+        $path = '/';
+
+        $data = $this->dataRepository->getData($cityInfo['id']);
+
+        return view('index.index', compact('posts', 'data', 'meta', 'path'));
+
+    }
 }

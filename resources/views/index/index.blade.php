@@ -6,8 +6,8 @@
 @if(isset($path) and $path)
     @section('can', $path)
 @endif
-
 @section('content')
+@include('include.filter' , compact('data'))
     <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex">
         @foreach($posts as $post)
