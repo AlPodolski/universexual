@@ -1,4 +1,4 @@
-<form action="/filter" class="filter-wrap d-flex">
+<form action="/filter" class="filter-wrap d-flex" id="filter">
     @csrf
     @if($data['metro'])
         <div class="filter-item">

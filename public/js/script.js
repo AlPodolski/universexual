@@ -128,4 +128,6 @@ sliderPrice.noUiSlider.on('update', function (values, handle) {
     to.value = values[1];
 });
 
-
+function showFilter(){
+    document.getElementById('filter').classList.toggle('show-filter')
+}
