@@ -13,7 +13,7 @@
         @foreach($posts as $post)
             <div class="post">
                 <div class="post-content">
-                    <a href="/post/{{ $post->id }}"><img src="/storage{{ $post->avatar }}" alt=""></a>
+                    <a href="/post/{{ $post->id }}"><img src="/storage/{{ $post->avatar }}" alt=""></a>
                     <div class="post-info">
                         <div class="post-info-item">
                             <a href="/post/{{ $post->id }}" class="bold-text">{{ $post->name }}</a>
