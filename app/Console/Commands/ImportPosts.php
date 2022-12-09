@@ -87,11 +87,16 @@ class ImportPosts extends Command
 
         foreach ($posts as $record){
 
+            if (!$record['mini']) continue;
+
             $post = new Post();
 
             $phone = preg_replace('/[^0-9]/', '', $record['phone']);
 
             $phone = '7'.mb_substr($phone, 1);
+
+            $price = 3000;
+            if ($record['price']) $price = $record['price'];
 
             $post->name = $record['name'];
             $post->age = $record['age'];
@@ -102,7 +107,7 @@ class ImportPosts extends Command
             $post->about = strip_tags($record['anket-about']);
             $post->city_id = $cityId;
             $post->check_photo_status = rand(0,1);
-            $post->price = $record['price'];
+            $post->price = $price;
             $post->publication_status = 1;
             $post->user_id = 0;
             $post->url = '';
@@ -245,14 +250,7 @@ class ImportPosts extends Command
 
             }
 
-            if ($i > 1) break;
-
-            $i++;
-
-            exit();
-
         }
-
 
     }
 
