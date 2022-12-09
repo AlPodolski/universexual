@@ -16,7 +16,7 @@
                     <a href="/post/{{ $post->id }}"><img src="{{ $post->avatar }}" alt=""></a>
                     <div class="post-info">
                         <div class="post-info-item">
-                            <span class="bold-text">{{ $post->name }}</span>
+                            <a href="/post/{{ $post->id }}" class="bold-text">{{ $post->name }}</a>
                         </div>
                         <div class="post-info-item">
                             <span class="bold-text">Рост:</span> {{ $post->rost }}
