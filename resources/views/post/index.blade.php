@@ -9,7 +9,7 @@
             <div class="left">
                 <img loading="lazy"
                      title="Проститутка {{ $post->name }}"
-                     srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
+                     srcset="/600-700/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
             </div>
             <div class="right">
                 <h1>{{ $post->name }}</h1>
