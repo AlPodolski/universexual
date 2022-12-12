@@ -4220,6 +4220,7 @@ a:not([class]) {
 img {
     max-width: 100%;
     display: block;
+    width: 100%;
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
@@ -4243,6 +4244,11 @@ select {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+.img-wrap{
+    height: 250px;
+    display: block;
+    overflow: hidden;
 }
 .container {
     max-width: 1500px;

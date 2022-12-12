@@ -13,7 +13,7 @@
         @foreach($posts as $post)
             <div class="post">
                 <div class="post-content">
-                    <a href="/post/{{ $post->id }}">
+                    <a class="img-wrap" href="/post/{{ $post->id }}">
                         <img
                              loading="lazy"
                              title="Проститутка {{ $post->name }}"
