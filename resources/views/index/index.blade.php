@@ -14,7 +14,7 @@
             <div class="post">
                 <div class="post-content">
                     <a href="/post/{{ $post->id }}">
-                        <img width="211" height="300"
+                        <img
                              loading="lazy"
                              title="Проститутка {{ $post->name }}"
                              srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">

@@ -7,8 +7,7 @@
     <div class="content ">
         <div class="post-single d-flex">
             <div class="left">
-                <img width="211" height="300"
-                     loading="lazy"
+                <img loading="lazy"
                      title="Проститутка {{ $post->name }}"
                      srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
             </div>
