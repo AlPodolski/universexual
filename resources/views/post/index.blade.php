@@ -6,7 +6,12 @@
 @section('content')
     <div class="content ">
         <div class="post-single d-flex">
-            <div class="left"><img src="/storage/{{ $post->avatar }}" alt=""></div>
+            <div class="left">
+                <img width="211" height="300"
+                     loading="lazy"
+                     title="Проститутка {{ $post->name }}"
+                     srcset="/211-300/thumbs{{$post->avatar}}" alt="{{ $post->name }}">
+            </div>
             <div class="right">
                 <h1>{{ $post->name }}</h1>
                 @if($post->check_photo_status)
