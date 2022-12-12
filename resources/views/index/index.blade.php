@@ -17,7 +17,7 @@
                         <img width="211" height="300"
                              loading="lazy"
                              title="Проститутка {{ $post->name }}"
-                             srcset="/211-300/thumbs{{$post->avatar}}" alt="{{ $post->name }}">
+                             srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
                     </a>
                     <div class="post-info">
                         <div class="post-info-item">
