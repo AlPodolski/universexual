@@ -596,6 +596,9 @@ main{
     }
 }
 @media (max-width: 576px){
+    .img-wrap{
+        height: inherit;
+    }
     .post {
         -ms-flex: 0 0 100%;
         flex: 0 0 100%;
