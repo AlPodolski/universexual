@@ -4,6 +4,7 @@
 @endphp
 
 @section('content')
+    @include('include.filter' , compact('data'))
     <div class="content ">
         <div class="post-single d-flex">
             <div class="left">

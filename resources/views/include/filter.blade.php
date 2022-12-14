@@ -1,6 +1,6 @@
 <form action="/filter" class="filter-wrap d-flex" id="filter">
     @csrf
-    @if($data['metro'])
+    @if($data['metro'] and $data['metro']->first())
         <div class="filter-item">
             <div class="bold-text">Метро</div>
             <select class="metro-select" name="metro" id="">
