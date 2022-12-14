@@ -112,7 +112,7 @@
                         <div class="popular-list post-photo">
                             @foreach($post->photo as $item)
                                 <div class="post-photo-item">
-                                    <img src="/600-700/thumbs/{{$item->file}}" alt="">
+                                    <img src="/600-700/thumbs{{$item->file}}" alt="">
                                 </div>
                             @endforeach
                         </div>
