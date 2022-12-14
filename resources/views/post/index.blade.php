@@ -104,6 +104,21 @@
                     </div>
                 @endif
 
+                @if($post->photo->first())
+                    <div class="photo-wrap">
+                        <div class="bold-text m-bottom-20">
+                            Фото
+                        </div>
+                        <div class="popular-list post-photo">
+                            @foreach($post->photo as $item)
+                                <div class="post-photo-item">
+                                    <img src="/600-700/thumbs/{{$item->file}}" alt="">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+
                 <form action="/review/add" method="post" class="review-form m-top-20 m-bottom-20">
                     <div class="bold-text m-bottom-20">Написать отзыв</div>
                     @csrf

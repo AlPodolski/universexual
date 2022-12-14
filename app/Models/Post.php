@@ -89,4 +89,9 @@ class Post extends Model
     {
         return $this->hasMany(Review::class, 'posts_id', 'id');
     }
+
+    public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Photo::class, 'posts_id', 'id');
+    }
 }
