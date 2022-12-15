@@ -1,4 +1,8 @@
 @extends('layouts.main')
+
+@section('title', $meta['title'])
+@section('des', $meta['des'])
+
 @php
     /* @var $post \App\Models\Post */
 @endphp
