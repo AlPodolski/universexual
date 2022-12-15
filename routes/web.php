@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/review/add', \App\Http\Controllers\ReviewController::class);
+Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 'store']);
 Route::get('/{size}/thumbs/{path}', ImageController::class)
     ->where('size', '.*')->where('path', '.*');
 Route::domain('{city}.'.env('DOMAIN'))->group(function () {

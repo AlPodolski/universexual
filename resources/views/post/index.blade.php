@@ -22,9 +22,27 @@
                     <div class="bold-text green-text big-text m-bottom-20">Фото проверенно</div>
                 @endif
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
-                <div onclick="phone(this)" data-phone="{{ $post->phone }}"
-                     class="yellow-btn phone single-phone m-bottom-20">Показать телефон
-                </div>
+                @if($post->phone)
+                    <div onclick="phone(this)" data-phone="{{ $post->phone }}"
+                         class="yellow-btn phone single-phone m-bottom-20">Показать телефон
+                    </div>
+                @else
+                    <form action="/message/add" method="post" class="review-form m-top-20 m-bottom-20">
+                        <div class="bold-text green-text big-text m-bottom-20">Написать сообщение</div>
+                        @csrf
+                        <input type="hidden"  name="posts_id" value="{{ $post->id }}">
+                        <div class="form-group">
+                            <label for="email">Ваша почта</label>
+                            <input required type="text" name="email" id="email" placeholder="email">
+                        </div>
+                        <div class="form-group m-top-20">
+                            <label for="text">Ваше сообщение</label>
+                            <textarea required name="text" id="text" placeholder="Введите сообщение"></textarea>
+                        </div>
+                        <button class="yellow-btn m-top-20" type="submit">Отправить</button>
+                    </form>
+                @endif
+
                 <div class="single-option m-bottom-20"><span class="bold-text">Район:</span>
                     <a href="/{{ $post->rayon_url }}">{{ $post->rayon_value }}</a>
                 </div>
