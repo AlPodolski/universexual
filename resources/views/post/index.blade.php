@@ -167,3 +167,7 @@
 @section('main-menu')
     @include('include.main-menu', compact('data'))
 @endsection
+
+@section('open-graph')
+    @include('include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => "/600-700/thumbs/$post->avatar"])
+@endsection
