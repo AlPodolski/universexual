@@ -3,11 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Actions\Canonical;
+use App\Actions\GenerateMicroDataForCatalog;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+
+    private GenerateMicroDataForCatalog $microData;
+
+    public function __construct()
+    {
+        $this->microData = new GenerateMicroDataForCatalog();
+        parent::__construct();
+    }
+
     public function __invoke($city, MetaRepository $metaRepository, Request $request)
     {
         $cityInfo = $this->cityRepository->getCity($city);
@@ -18,6 +28,12 @@ class IndexController extends Controller
 
         $path = (new Canonical())->get($request->getRequestUri());
 
-        return view('index.index', compact('posts', 'data', 'meta', 'path'));
+        $productMicro = false;
+
+        if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
+
+        return view('index.index', compact(
+            'posts', 'data', 'meta', 'path', 'productMicro'
+        ));
     }
 }

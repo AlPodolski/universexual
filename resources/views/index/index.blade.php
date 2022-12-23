@@ -9,6 +9,9 @@
 
 @section('content')
 @include('include.filter' , compact('data'))
+    @if($productMicro)
+        {!! $productMicro !!}
+    @endif
     <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex">
         @foreach($posts as $post)
