@@ -513,6 +513,28 @@ main{
     width: 191px;
     flex: 0 0 16.333%;
 }
+.breadcrumb {
+    background: #fff;
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px!important;
+}
+.breadcrumb, .breadcrumb li a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #C4C4C4;
+}
+.breadcrumb .active::before {
+    float: left;
+    margin-right: 2px;
+    content: "/";
+}
+.breadcrumb li {
+    display: inline-block;
+}
 @media (max-width: 1199px){
     .filter-wrap{
         display: none!important;

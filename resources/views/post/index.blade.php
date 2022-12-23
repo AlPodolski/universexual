@@ -9,6 +9,8 @@
 
 @section('content')
     @include('include.filter' , compact('data'))
+    @include('include.breadcrumb' , ['title' => $post->name])
+
     <div class="content ">
         <div class="post-single d-flex">
             <div class="left">

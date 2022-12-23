@@ -18,6 +18,10 @@ class PostRepository
         return $posts;
     }
 
+    /**
+     * @param $id
+     * @return Post|null
+     */
     public function getSingle($id)
     {
 
