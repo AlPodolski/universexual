@@ -1,4 +1,4 @@
-<div class="header-bottom-area">
+<div class="header-bottom-area" itemscope itemtype="https://schema.org/SiteNavigationElement">
     <div class="container">
         <div class="d-flex">
             <div class="all-menu position-relative" id="all-menu">
@@ -50,7 +50,9 @@
                                     @php
                                         /* @var $item \App\Models\Rayon */
                                     @endphp
-                                    <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                    <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                        <span itemprop="name">{{ $item->value }}</span>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>
@@ -68,7 +70,9 @@
                                 @php
                                     /* @var $item \App\Models\Service */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -85,7 +89,9 @@
                                 @php
                                     /* @var $item \App\Models\National */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
 
                         </div>
@@ -103,7 +109,9 @@
                                 @php
                                     /* @var $item \App\Models\HairColor */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
 
                         </div>
@@ -121,7 +129,9 @@
                                 @php
                                     /* @var $item \App\Models\IntimHair */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -138,7 +148,9 @@
                                 @php
                                     /* @var $item \App\Models\Place */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -155,7 +167,9 @@
                                 @php
                                     /* @var $item \App\Models\Time */
                                 @endphp
-                                <a href="/{{ $item->filter_url }}" class="sub-menu-list-item">{{ $item->value }}</a>
+                                <a itemprop="url" href="/{{ $item->filter_url }}" class="sub-menu-list-item">
+                                    <span itemprop="name">{{ $item->value }}</span>
+                                </a>
                             @endforeach
                         </div>
                     </div>
@@ -169,29 +183,29 @@
                             </svg>
                         </a>
                         <div class="sub-menu-list position-absolute">
-                            <a href="/tolstye" class="sub-menu-list-item">Толстые</a>
-                            <a href="/hudye" class="sub-menu-list-item">Худые</a>
+                            <a itemprop="url" href="/tolstye" class="sub-menu-list-item"><span itemprop="name">Толстые</span></a>
+                            <a itemprop="url" href="/hudye" class="sub-menu-list-item"><span itemprop="name">Худые</span></a>
                         </div>
                     </div>
                     <div class="sub-menu-item-wrap">
-                        <a href="/molodye-prostitutki" class="sub-menu-item">Молодые проститутки</a>
+                        <a itemprop="url" href="/molodye-prostitutki" class="sub-menu-item"><span itemprop="name">Молодые проститутки</span></a>
                     </div>
                     <div class="sub-menu-item-wrap">
-                        <a href="/starye-prostitutki" class="sub-menu-item">Старые проститутки</a>
+                        <a itemprop="url" href="/starye-prostitutki" class="sub-menu-item"><span itemprop="name">Старые проститутки</span></a>
                     </div>
                     <div class="sub-menu-item-wrap">
-                        <a href="/dorogie-prostitutki" class="sub-menu-item">Дорогие проститутки</a>
+                        <a itemprop="url" href="/dorogie-prostitutki" class="sub-menu-item"><span itemprop="name">Дорогие проститутки</span></a>
                     </div>
                     <div class="sub-menu-item-wrap">
-                        <a href="/deshevye-prostitutki" class="sub-menu-item">Дешевые проститутки</a>
+                        <a itemprop="url" href="/deshevye-prostitutki" class="sub-menu-item"><span itemprop="name">Дешевые проститутки</span></a>
                     </div>
                 </nav>
             </div>
             <nav class="main-menu">
-                <a href="/" class="main-menu-item">Главная</a>
-                <a href="/proverennye" class="main-menu-item">Проверенные</a>
-                <a href="/video" class="main-menu-item">Анкеты с видео</a>
-                <a href="/novye" class="main-menu-item">Новые</a>
+                <a itemprop="url" href="/" class="main-menu-item"><span itemprop="name">Главная</span></a>
+                <a itemprop="url" href="/proverennye" class="main-menu-item"><span itemprop="name">Проверенные</span></a>
+                <a itemprop="url" href="/video" class="main-menu-item"><span itemprop="name">Анкеты с видео</span></a>
+                <a itemprop="url" href="/novye" class="main-menu-item"><span itemprop="name">Новые</span></a>
             </nav>
         </div>
     </div>
