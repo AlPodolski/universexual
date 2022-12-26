@@ -21,10 +21,10 @@ class PostController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city,$id, SingleMetaService $metaService, Request $request)
+    public function __invoke($city,$url, SingleMetaService $metaService, Request $request)
     {
         $cityInfo = $this->cityRepository->getCity($city);
-        $post = $this->postRepository->getSingle($id);
+        $post = $this->postRepository->getSingle($url);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
         $meta = $metaService->makeMetaTags($post, $cityInfo);

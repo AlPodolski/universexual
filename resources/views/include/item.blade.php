@@ -3,7 +3,7 @@
 @endphp
 <div class="post">
     <div class="post-content">
-        <a class="img-wrap" href="/post/{{ $post->id }}">
+        <a class="img-wrap" href="/post/{{ $post->url }}">
             <img
                 loading="lazy"
                 title="Проститутка {{ $post->name }}"
