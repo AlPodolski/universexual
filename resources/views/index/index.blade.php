@@ -13,6 +13,9 @@
         {!! $productMicro !!}
     @endif
     <h1>{{ $meta['h1'] }}</h1>
+
+    @include('include.limit_and_order')
+
     <div class="content d-flex">
         @foreach($posts as $post)
             @include('include.item', compact('post'))

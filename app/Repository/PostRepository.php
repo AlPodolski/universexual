@@ -2,18 +2,27 @@
 
 namespace App\Repository;
 
-use App\Models\City;
+use App\Actions\GetSort;
 use App\Models\Filter;
 use App\Models\Post;
-use App\Models\PostMetro;
 use Cache;
 use Carbon\Carbon;
 
 class PostRepository
 {
+
+    protected string $sort;
+
+    public function __construct()
+    {
+        $this->sort = (new GetSort())->get(\Cookie::get('sort') ?? 'default');
+    }
+
     public function getForMain($cityId)
     {
-        $posts = Post::where('city_id', $cityId)->paginate(20);
+        $posts = Post::where('city_id', $cityId)
+            ->orderByRaw($this->sort)
+            ->paginate(20);
 
         return $posts;
     }
@@ -133,7 +142,9 @@ class PostRepository
 
         //dd($posts->getQuery()->wheres);
 
-        $posts = $posts->paginate(20);
+        $posts = $posts
+            ->orderByRaw($this->sort)
+            ->paginate(20);
 
         return $posts;
 
@@ -143,6 +154,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
+            ->orderByRaw($this->sort)
             ->paginate(20);
 
         return $posts;
@@ -170,7 +182,9 @@ class PostRepository
 
         }
 
-        $posts = $posts->paginate(20);
+        $posts = $posts
+            ->orderByRaw($this->sort)
+            ->paginate(20);
 
         return $posts;
     }

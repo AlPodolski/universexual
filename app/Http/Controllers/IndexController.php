@@ -32,8 +32,10 @@ class IndexController extends Controller
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
 
+        $sort = $this->sort;
+
         return view('index.index', compact(
-            'posts', 'data', 'meta', 'path', 'productMicro'
+            'posts', 'data', 'meta', 'path', 'productMicro', 'sort'
         ));
     }
 }

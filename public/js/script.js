@@ -131,3 +131,15 @@ sliderPrice.noUiSlider.on('update', function (values, handle) {
 function showFilter(){
     document.getElementById('filter').classList.toggle('show-filter')
 }
+
+function setSort(){
+
+    var select = document.getElementById('sort-select');
+
+    if (select.value) {
+        document.cookie =  'sort=' + select.value;
+    }
+
+    window.location.href = location.pathname;
+
+}

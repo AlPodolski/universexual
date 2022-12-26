@@ -527,6 +527,12 @@ main{
     line-height: 16px;
     color: #C4C4C4;
 }
+.sort-block{
+    margin-bottom: 20px;
+}
+#sort-select{
+    width: 250px;
+}
 .breadcrumb .active::before {
     float: left;
     margin-right: 2px;

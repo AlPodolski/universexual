@@ -20,11 +20,17 @@ class Controller extends BaseController
     protected CityRepository $cityRepository;
     protected MetaRepository $metaRepository;
 
+    protected $limit;
+    protected $sort;
+
     public function __construct()
     {
         $this->dataRepository = new DataRepository();
         $this->postRepository = new PostRepository();
         $this->cityRepository = new CityRepository();
         $this->metaRepository = new MetaRepository();
+
+        $this->limit = \Cookie::get('post_limit') ?? 15;
+        $this->sort = \Cookie::get('sort') ?? 'default';
     }
 }
