@@ -11,6 +11,8 @@
     @include('include.filter' , compact('data'))
     @include('include.breadcrumb' , ['title' => $post->name])
 
+    {!! $imageMicro !!}
+
     <div class="content ">
         <div class="post-single d-flex">
             <div class="left">

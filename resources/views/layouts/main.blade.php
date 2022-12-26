@@ -75,6 +75,9 @@
         </div>
     </div>
 </main>
+<footer>
+    <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+</footer>
 <script src="{{ asset('js/nouislider.min.js') }}"></script>
 <script src="{{ asset('js/wNumb.min.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
