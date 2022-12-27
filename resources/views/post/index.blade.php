@@ -25,6 +25,7 @@
                 @if($post->check_photo_status)
                     <div class="bold-text green-text big-text m-bottom-20">Фото проверенно</div>
                 @endif
+                <div class="view-count"><img src="/img/view.png" alt=""> {{ $post->single_view }}</div>
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
                 @if($post->phone)
                     <div onclick="phone(this)" data-phone="{{ $post->phone }}"

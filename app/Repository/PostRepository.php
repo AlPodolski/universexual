@@ -39,7 +39,7 @@ class PostRepository
         $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
 
             $post = Post::select('name', 'posts.id', 'posts.url', 'not_younger', 'clothing_size', 'about', 'breast', 'avatar',
-                'shoe_size', 'contacts_per_hour', 'check_photo_status',
+                'shoe_size', 'contacts_per_hour', 'check_photo_status','single_view',
                 'rayons.url as rayon_url', 'rayons.value as rayon_value',
                 'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
@@ -55,6 +55,9 @@ class PostRepository
             return $post;
 
         });
+
+        $post->single_view = $post->single_view + 1;
+        $post->save();
 
         return $post;
     }

@@ -567,6 +567,16 @@ footer{
     transform: rotate(270deg);
     background-position: center;
 }
+.view-count{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.view-count img{
+    max-width: 25px;
+    margin-right: 5px;
+}
 @media (max-width: 1199px){
     .filter-wrap{
         display: none!important;
