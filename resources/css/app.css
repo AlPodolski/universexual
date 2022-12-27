@@ -533,6 +533,13 @@ main{
 #sort-select{
     width: 250px;
 }
+.get-more{
+    display: block;
+    width: 166px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
 .breadcrumb .active::before {
     float: left;
     margin-right: 2px;

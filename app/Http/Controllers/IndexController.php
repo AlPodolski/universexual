@@ -38,4 +38,18 @@ class IndexController extends Controller
             'posts', 'data', 'meta', 'path', 'productMicro', 'sort'
         ));
     }
+
+    public function more($city)
+    {
+
+        $cityInfo = $this->cityRepository->getCity($city);
+
+        $posts = $this->postRepository->getForMain($cityInfo['id']);
+
+        $data['posts'] = view('include.more', compact('posts', 'cityInfo'))->render();
+        $data['next_page'] = str_replace('http', 'https', $posts->nextPageUrl());
+
+        return json_encode($data);
+    }
+
 }

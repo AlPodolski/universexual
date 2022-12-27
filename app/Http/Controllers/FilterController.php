@@ -41,4 +41,18 @@ class FilterController extends Controller
             compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro')
         );
     }
+
+    public function more($city, $search)
+    {
+
+        $cityInfo = $this->cityRepository->getCity($city);
+
+        $posts = $this->postRepository->getForFilterCatalog($cityInfo['id'], $search);
+
+        $data['posts'] = view('include.more', compact('posts', 'cityInfo'))->render();
+        $data['next_page'] = str_replace('http', 'https', $posts->nextPageUrl());
+
+        return json_encode($data);
+    }
+
 }

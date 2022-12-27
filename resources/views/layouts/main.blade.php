@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title')</title>
 
     <meta name="description" content="@yield('des')">
@@ -78,9 +81,10 @@
 <footer>
     <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
 </footer>
-<script src="{{ asset('js/nouislider.min.js') }}"></script>
-<script src="{{ asset('js/wNumb.min.js') }}"></script>
-<script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ asset('js/script.js') }}"></script>
+<script defer src="{{ asset('js/nouislider.min.js') }}"></script>
+<script defer  src="{{ asset('js/wNumb.min.js') }}"></script>
+<script defer src="{{ asset('js/axios.js') }}"></script>
+<script defer src="{{ mix('js/app.js') }}"></script>
+<script defer src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

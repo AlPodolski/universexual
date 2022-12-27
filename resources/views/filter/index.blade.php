@@ -10,13 +10,17 @@
     @include('include.filter' , compact('data'))
     @include('include.breadcrumb' , ['title' => $meta['h1']])
     <h1>{{ $meta['h1'] }}</h1>
-    <div class="content d-flex">
+    <div class="content d-flex" id="content">
         @foreach($posts as $post)
             @include('include.item', compact('post'))
         @endforeach
 
     </div>
     @if($posts->total() > $posts->count())
+        <div data-url="{{ str_replace('http', 'http', $posts->nextPageUrl()) }}"
+             onclick="getMorePosts(this)"
+             class="get-more yellow-btn get-more-post-btn">Показать еще
+        </div>
         {{ $posts->links('vendor.pagination.bootstrap-4') }}
     @endif
 @endsection

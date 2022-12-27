@@ -1,14 +1,15 @@
-function toggle_class_to_block(target, className){
+function toggle_class_to_block(target, className) {
     var targetElement = document.getElementById(target);
     targetElement.classList.toggle(className);
 }
 
-function phone(object){
+function phone(object) {
     var phone = object.getAttribute('data-phone');
     object.innerHTML = phone;
-    window.location.href='tel:+'+phone;
+    window.location.href = 'tel:+' + phone;
 }
-function show_sub_menu(obj){
+
+function show_sub_menu(obj) {
     obj.nextElementSibling.classList.toggle('show_sub_menu')
 }
 
@@ -128,16 +129,40 @@ sliderPrice.noUiSlider.on('update', function (values, handle) {
     to.value = values[1];
 });
 
-function showFilter(){
+function showFilter() {
     document.getElementById('filter').classList.toggle('show-filter')
 }
 
-function setSort(){
+function getMorePosts(object) {
+
+    var url = object.getAttribute('data-url');
+    var token = document.querySelector('meta[name="csrf-token"]').content;
+
+    axios.post(url, {
+        headers: {'X-CSRF-TOKEN': token},
+    })
+        .then(function (response) {
+
+            var posts = document.getElementById('content');
+
+            if (response.data.posts) posts.innerHTML += response.data.posts
+
+            if (response.data.next_page) object.setAttribute('data-url', response.data.next_page)
+            else object.remove()
+
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+}
+
+function setSort() {
 
     var select = document.getElementById('sort-select');
 
     if (select.value) {
-        document.cookie =  'sort=' + select.value;
+        document.cookie = 'sort=' + select.value;
     }
 
     window.location.href = location.pathname;
