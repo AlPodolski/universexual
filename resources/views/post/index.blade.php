@@ -17,11 +17,11 @@
         <div class="post-single d-flex">
             <div class="left">
                 <img loading="lazy"
-                     title="Проститутка {{ $post->name }}"
+                         title="Проститутка {{ $post->name }}"
                      srcset="/600-700/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
             </div>
             <div class="right">
-                <h1>{{ $post->name }}</h1>
+                <h1>Проститутка {{ $post->name }} ID {{ $post->id }}</h1>
                 @if($post->check_photo_status)
                     <div class="bold-text green-text big-text m-bottom-20">Фото проверенно</div>
                 @endif

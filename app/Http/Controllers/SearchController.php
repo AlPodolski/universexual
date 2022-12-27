@@ -15,7 +15,13 @@ class SearchController extends Controller
 
         $path = '/';
 
-        return view('index.index', compact('posts', 'data', 'meta', 'path'));
+        $sort = $this->sort;
+
+        $search = true;
+
+        return view('index.index', compact(
+            'posts', 'data', 'meta', 'path', 'sort', 'search'
+        ));
     }
 
     public function filter($city, Request $request)
@@ -26,9 +32,15 @@ class SearchController extends Controller
         $meta = $this->metaRepository->getForSearch();
         $path = '/';
 
+        $sort = $this->sort;
+
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        return view('index.index', compact('posts', 'data', 'meta', 'path'));
+        $search = true;
+
+        return view('index.index', compact(
+            'posts', 'data', 'meta', 'path', 'sort', 'search'
+        ));
 
     }
 }

@@ -9,7 +9,7 @@
 
 @section('content')
     @include('include.filter' , compact('data'))
-    @if($productMicro)
+    @if(isset($productMicro))
         {!! $productMicro !!}
     @endif
     <h1>{{ $meta['h1'] }}</h1>
@@ -23,10 +23,12 @@
     </div>
 
     @if($posts->total() > $posts->count())
-        <div data-url="{{ str_replace('http', 'http', $posts->nextPageUrl()) }}"
-             onclick="getMorePosts(this)"
-             class="get-more yellow-btn get-more-post-btn">Показать еще
-        </div>
+        @if(!isset($search))
+            <div data-url="{{ str_replace('http', 'http', $posts->nextPageUrl()) }}"
+                 onclick="getMorePosts(this)"
+                 class="get-more yellow-btn get-more-post-btn">Показать еще
+            </div>
+        @endif
         {{ $posts->links('vendor.pagination.bootstrap-4') }}
     @endif
 @endsection
