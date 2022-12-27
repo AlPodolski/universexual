@@ -25,6 +25,7 @@ Route::domain('{city}.'.env('DOMAIN'))->group(function () {
     Route::get('/post/{url}', \App\Http\Controllers\PostController::class);
     Route::get('/poisk',  \App\Http\Controllers\SearchController::class);
     Route::get('/filter',  [\App\Http\Controllers\SearchController::class, 'filter']);
+    Route::get('/sitemap.xml',  \App\Http\Controllers\SiteMapController::class);
 
     Route::get('/{search}',  \App\Http\Controllers\FilterController::class)
         ->where('search', '.*');
