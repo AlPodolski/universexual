@@ -139,9 +139,9 @@
                         </div>
                         <div class="popular-list post-photo">
                             @foreach($post->photo as $item)
-                                <div class="post-photo-item">
+                                <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}" data-lightbox="image-{{ $post->id }}">
                                     <img data-lightbox="roadtrip" src="/600-700/thumbs{{$item->file}}" alt="">
-                                </div>
+                                </a>
                             @endforeach
                         </div>
                     </div>
