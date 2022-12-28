@@ -27,6 +27,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lightgallery.min.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>

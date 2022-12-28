@@ -6,7 +6,7 @@
 @php
     /* @var $post \App\Models\Post */
 @endphp
-@section('lightbox', '/js/lightbox.min.js')
+@section('lightbox', '/js/lightgallery-all.min.js')
 @section('content')
     @include('include.filter' , compact('data'))
     @include('include.breadcrumb' , ['title' => $post->name])
@@ -137,7 +137,7 @@
                         <div class="bold-text m-bottom-20">
                             Фото
                         </div>
-                        <div class="popular-list post-photo">
+                        <div class="popular-list post-photo" id="gallery">
                             @foreach($post->photo as $item)
                                 <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}" data-lightbox="image-{{ $post->id }}">
                                     <img data-lightbox="roadtrip" src="/600-700/thumbs{{$item->file}}" alt="">

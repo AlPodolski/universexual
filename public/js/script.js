@@ -177,3 +177,9 @@ arrowTop.onclick = function () {
 window.addEventListener('scroll', function () {
     arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
 });
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    var gallery = document.getElementById('gallery');
+    gallery.lightGallery();
+});
