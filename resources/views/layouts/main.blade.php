@@ -87,5 +87,8 @@
 <script defer src="{{ asset('js/axios.js') }}"></script>
 <script defer src="{{ mix('js/app.js') }}"></script>
 <script defer src="{{ asset('js/script.js') }}"></script>
+@if(View::hasSection('lightbox'))
+    <script src="@yield('lightbox')" defer></script>
+@endif
 </body>
 </html>
