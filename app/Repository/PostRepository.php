@@ -191,4 +191,14 @@ class PostRepository
 
         return $posts;
     }
+
+    public function getMore($cityId, $limit)
+    {
+        $posts = Post::where(['city_id' => $cityId])
+            ->orderByRaw('RAND()')
+            ->limit($limit)->get();
+
+        return $posts;
+    }
+
 }

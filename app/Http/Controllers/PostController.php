@@ -31,8 +31,10 @@ class PostController extends Controller
         $breadMicro = $this->breadMicro->generate($request, $post->name);
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
 
+        $morePosts = $this->postRepository->getMore($cityInfo['id'], 5);
+
         return view('post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts'
         ));
     }
 }

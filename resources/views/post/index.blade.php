@@ -165,7 +165,18 @@
                 </form>
             </div>
         </div>
+
     </div>
+    @if($morePosts)
+        <div class="bold-text m-bottom-20">Подобные анкеты</div>
+        <div class="more-posts content d-flex">
+
+            @foreach($morePosts as $post)
+                @include('include.item')
+            @endforeach
+        </div>
+    @endif
+
 @endsection
 @section('main-menu')
     @include('include.main-menu', compact('data'))
