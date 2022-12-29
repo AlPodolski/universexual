@@ -184,10 +184,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var gallery = document.getElementById('gallery');
 
     if (gallery){
-        lightGallery(gallery, {
-            speed: 500,
-            controls: true,
-        });
+        gallery.lightGallery();
     }
 
 });
