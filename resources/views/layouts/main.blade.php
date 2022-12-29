@@ -90,7 +90,7 @@
 <script defer src="{{ asset('js/axios.js') }}"></script>
 <script defer src="{{ mix('js/app.js') }}"></script>
 
-<script defer src="{{ asset('js/script.js?v=1') }}"></script>
+<script defer src="{{ asset('js/script.js?v=2') }}"></script>
 
 </body>
 </html>
