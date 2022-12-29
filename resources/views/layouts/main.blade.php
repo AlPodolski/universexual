@@ -10,12 +10,13 @@
     <title>@yield('title')</title>
 
     <meta name="description" content="@yield('des')">
-    @if(View::hasSection('lightbox'))
-        <script src="@yield('lightbox')"></script>
-    @endif
     @if(View::hasSection('jquery'))
         <script src="@yield('jquery')"></script>
     @endif
+    @if(View::hasSection('lightbox'))
+        <script src="@yield('lightbox')"></script>
+    @endif
+
     @if(View::hasSection('can'))
         <link rel="canonical" href="@yield('can')">
         <meta name="robots" content="noindex, follow">
