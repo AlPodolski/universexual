@@ -181,10 +181,7 @@ window.addEventListener('scroll', function () {
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    var gallery = document.getElementById('gallery');
-
-    if (gallery){
-        gallery.lightGallery();
-    }
+    var singleGallery = $('#gallery');
+    singleGallery.lightGallery();
 
 });

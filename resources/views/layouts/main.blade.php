@@ -10,12 +10,6 @@
     <title>@yield('title')</title>
 
     <meta name="description" content="@yield('des')">
-    @if(View::hasSection('jquery'))
-        <script src="@yield('jquery')"></script>
-    @endif
-    @if(View::hasSection('lightbox'))
-        <script src="@yield('lightbox')"></script>
-    @endif
 
     @if(View::hasSection('can'))
         <link rel="canonical" href="@yield('can')">
@@ -89,12 +83,20 @@
 <footer>
     <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
 </footer>
+
+@if(View::hasSection('jquery'))
+    <script src="@yield('jquery')"></script>
+@endif
+@if(View::hasSection('lightbox'))
+    <script src="@yield('lightbox')"></script>
+@endif
+
 <script defer src="{{ asset('js/nouislider.min.js') }}"></script>
 <script defer  src="{{ asset('js/wNumb.min.js') }}"></script>
 <script defer src="{{ asset('js/axios.js') }}"></script>
 <script defer src="{{ mix('js/app.js') }}"></script>
 
-<script defer src="{{ asset('js/script.js?v=3') }}"></script>
+<script defer src="{{ asset('js/script.js?v=4') }}"></script>
 
 </body>
 </html>
