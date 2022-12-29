@@ -6,7 +6,7 @@
 @php
     /* @var $post \App\Models\Post */
 @endphp
-@section('lightbox', '/js/lightgallery-all.min.js')
+@section('lightbox', '/js/lightgallery-all.min.js?v=1')
 @section('content')
     @include('include.filter' , compact('data'))
     @include('include.breadcrumb' , ['title' => $post->name])
