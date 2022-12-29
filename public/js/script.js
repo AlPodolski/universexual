@@ -180,6 +180,14 @@ window.addEventListener('scroll', function () {
 
 
 document.addEventListener('DOMContentLoaded', function(){
+
     var gallery = document.getElementById('gallery');
-    gallery.lightGallery();
+
+    if (gallery){
+        lightGallery(gallery, {
+            speed: 500,
+            controls: true,
+        });
+    }
+
 });
