@@ -6,7 +6,7 @@
 @php
     /* @var $post \App\Models\Post */
 @endphp
-@section('lightbox', '/js/jquery-3.5.1.min.js')
+@section('jquery', '/js/jquery-3.5.1.min.js')
 @section('lightbox', '/js/lightgallery-all.min.js?v=2')
 @section('content')
     @include('include.filter' , compact('data'))
