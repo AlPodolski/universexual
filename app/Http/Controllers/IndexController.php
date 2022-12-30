@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Actions\Canonical;
 use App\Actions\GenerateMicroDataForCatalog;
+use App\Models\Webmaster;
 use App\Repository\MetaRepository;
+use App\Repository\WebmasterRepository;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -18,7 +20,7 @@ class IndexController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city, MetaRepository $metaRepository, Request $request)
+    public function __invoke($city, MetaRepository $metaRepository, Request $request, WebmasterRepository $webmasterRepository)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $posts = $this->postRepository->getForMain($cityInfo['id']);
@@ -34,8 +36,10 @@ class IndexController extends Controller
 
         $sort = $this->sort;
 
+        $webmaster = $webmasterRepository->get($city);
+
         return view('index.index', compact(
-            'posts', 'data', 'meta', 'path', 'productMicro', 'sort'
+            'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
         ));
     }
 

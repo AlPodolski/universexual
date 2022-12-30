@@ -7,6 +7,10 @@
     @section('can', $path)
 @endif
 
+@if(isset($webmaster) and $webmaster)
+    @section('webmaster', $webmaster['tag'])
+@endif
+
 @section('content')
     @include('include.filter' , compact('data'))
     @if(isset($productMicro))
