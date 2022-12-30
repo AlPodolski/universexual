@@ -28,7 +28,7 @@
 
     @if($posts->total() > $posts->count())
         @if(!isset($search))
-            <div data-url="{{ str_replace('http', 'http', $posts->nextPageUrl()) }}"
+            <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}"
                  onclick="getMorePosts(this)"
                  class="get-more yellow-btn get-more-post-btn">Показать еще
             </div>
