@@ -103,26 +103,26 @@ class PostRepository
 
             if ($filter->related_table == 'post_services') {
 
-                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where ' . $filter->related_column . ' =  ?) ',
-                    [$filter->related_id]);
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where ' . $filter->related_column . ' =  ? and `city_id` = ?) ',
+                    [$filter->related_id, $cityId]);
 
             }
             if ($filter->related_table == 'post_metros') {
 
-                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where ' . $filter->related_column . ' =  ?) ',
-                    [$filter->related_id]);
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where ' . $filter->related_column . ' =  ? ? and `city_id` = ?) ',
+                    [$filter->related_id, $cityId]);
 
             }
             if ($filter->related_table == 'post_places') {
 
-                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_places` where ' . $filter->related_column . ' =  ?) ',
-                    [$filter->related_id]);
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_places` where ' . $filter->related_column . ' =  ? ? and `city_id` = ?) ',
+                    [$filter->related_id, $cityId]);
 
             }
             if ($filter->related_table == 'post_times') {
 
-                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_times` where ' . $filter->related_column . ' =  ?) ',
-                    [$filter->related_id]);
+                $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_times` where ' . $filter->related_column . ' =  ? ? and `city_id` = ?) ',
+                    [$filter->related_id, $cityId]);
 
             }
             if ($filter->related_table == 'rayons') {
