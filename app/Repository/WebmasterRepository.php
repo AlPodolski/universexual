@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-use App\Models\Meta;
 use App\Models\Webmaster;
 
 class WebmasterRepository
