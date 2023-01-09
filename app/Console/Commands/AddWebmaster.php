@@ -115,7 +115,7 @@ class AddWebmaster extends Command
 
             $meta_model = new Webmaster();
 
-            $meta_model->url = $city['id'];
+            $meta_model->url = $city['url'];
             $meta_model->tag = $meta2;
 
             $meta_model->save();
