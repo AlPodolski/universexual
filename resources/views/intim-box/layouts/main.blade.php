@@ -136,7 +136,7 @@
                         <div class=" main-top-menu">
                             <ul class=" main-top-menu__list">
                                 <li class="main-top-menu__item">
-                                    <a href="#" class="main-top-menu__link link-reset">
+                                    <a href="/individualki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="svg/dest/stack/sprite.svg#home"></use>
                                         </svg>
@@ -144,7 +144,7 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a href="#" class="main-top-menu__link link-reset">
+                                    <a href="/proverennye" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="svg/dest/stack/sprite.svg#verif"></use>
                                         </svg>
@@ -152,7 +152,7 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a href="#" class="main-top-menu__link link-reset">
+                                    <a href="/novye" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="svg/dest/stack/sprite.svg#new"></use>
                                         </svg>
@@ -160,7 +160,7 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a href="#" class="main-top-menu__link link-reset">
+                                    <a href="/deshevye-prostitutki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="svg/dest/stack/sprite.svg#"></use>
                                         </svg>
@@ -168,7 +168,7 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a href="#" class="main-top-menu__link link-reset">
+                                    <a href="/dorogie-prostitutki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="svg/dest/stack/sprite.svg#crown"></use>
                                         </svg>

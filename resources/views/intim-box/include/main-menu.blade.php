@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a href="#" class="sidebar__types-link link-reset">
+                <a href="/intim-salony" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="svg/dest/stack/sprite.svg#home-location"></use>
                     </svg>

@@ -64,6 +64,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+
+    const INDI_TYPE = 0;
+    const SALON_TYPE = 1;
+
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostService::class, 'posts_id', 'id')

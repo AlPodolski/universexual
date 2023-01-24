@@ -55,7 +55,8 @@ class PostSeeder extends Seeder
                 'intim_hair_id' => $intimHair[array_rand($intimHair)]['id'],
                 'rayon_id' => $rayon[array_rand($rayon)]['id'],
                 'check_photo_status' => rand(0, 1),
-                'avatar' => $photo[array_rand($photo)]
+                'avatar' => $photo[array_rand($photo)],
+                'type' => rand(0,1)
             ];
 
             $i++;

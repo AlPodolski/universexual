@@ -65,7 +65,17 @@ class PostRepository
 
     public function getForFilterCatalog($cityId, $search)
     {
+
+        $salon = false;
+        $indi = false;
+
         $posts = Post::where(['city_id' => $cityId]);
+
+        if (strpos($search, 'intim-salony') !== false)
+            $salon = true;
+
+        if (strpos($search, 'individualki') !== false)
+            $indi = true;
 
         if (strpos($search, 'tolstye') !== false)
             $posts = $posts->where('ves', '>=', 80);
@@ -151,6 +161,9 @@ class PostRepository
         }
 
         //dd($posts->getQuery()->wheres);
+
+        if ($salon) $posts = $posts->where('type', Post::SALON_TYPE);
+        if ($indi) $posts = $posts->where('type', Post::INDI_TYPE);
 
         $posts = $posts
             ->orderByRaw($this->sort)
