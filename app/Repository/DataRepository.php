@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Models\City;
 use App\Models\HairColor;
 use App\Models\IntimHair;
 use App\Models\Metro;
@@ -69,6 +70,10 @@ class DataRepository
                 ->where('filters.related_table', 'rayons')
                 ->orderBy('value')
                 ->get();
+
+            $data['city_list'] = City::all();
+
+            $data['current_city'] = City::where('id', $cityId)->first();
 
             return $data;
 

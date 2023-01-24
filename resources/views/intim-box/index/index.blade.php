@@ -39,8 +39,13 @@
         </div>
     </div>
 @endsection
+
 @section('main-menu')
     @include('intim-box.include.main-menu', compact('data'))
+@endsection
+
+@section('location')
+    @include('intim-box.include.location', compact('data'))
 @endsection
 
 @section('open-graph')

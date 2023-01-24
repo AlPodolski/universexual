@@ -37,74 +37,15 @@
                         </div>
                     </div>
                     <div class="header__logo header__col">
-                        <a href="#">
+                        <a href="/">
                             <svg class="header__logo-img">
                                 <use xlink:href='svg/dest/stack/sprite.svg#logo'></use>
                             </svg>
                         </a>
                     </div>
-                    <div class="header__location header__col">
-                        <ul class="header__location-list">
-                            <li class="header__location-list__item">
-                                <svg class="header__location-icon">
-                                    <use xlink:href='svg/dest/stack/sprite.svg#map'></use>
-                                </svg>
-                                <div class="header__location-text">
-                                    Москва
-                                </div>
-                                <svg class="header__location-arrow">
-                                    <use xlink:href='svg/dest/stack/sprite.svg#arrow-down'></use>
-                                </svg>
-                                <ul class="header__location-list__sub">
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Ставрополь
-                                        </a>
-                                    </li>
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Калининград
-                                        </a>
-                                    </li>
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Санк-Петербург
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="header__location-list__item">
-                                <svg class="header__location-icon">
-                                    <use xlink:href='svg/dest/stack/sprite.svg#metro'></use>
-                                </svg>
-                                <div class="header__location-text">
-                                    Метро
-                                </div>
-                                <svg class="header__location-arrow">
-                                    <use xlink:href='svg/dest/stack/sprite.svg#arrow-down'></use>
-                                </svg>
-                                <ul class="header__location-list__sub">
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Ставрополь
-                                        </a>
-                                    </li>
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Калининград
-                                        </a>
-                                    </li>
-                                    <li class="header__location-list__sub-item">
-                                        <a href="#" class="header__location-list__sub-link link-reset">
-                                            Санк-Петербург
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="header__location-city">
-                        </div>
-                    </div>
+                    @if(View::hasSection('location'))
+                        @yield('location')
+                    @endif
                     <div class="header__ui header__col">
                         <button class="header__ui-search btn">
                             <svg class="header__ui-search-icon">
