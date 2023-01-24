@@ -24,6 +24,13 @@ class PostSeeder extends Seeder
         $intimHair = IntimHair::get()->toArray();
         $rayon = Rayon::get()->toArray();
 
+        $photo = [
+            'files/1c6b4dff067c04d654ebc.jpg',
+            'files/shelli_13376.jpg',
+            'files/shelli_13379.jpg',
+            'files/shelli_13383.jpg',
+        ];
+
         while ($i <= 600){
 
             $postsData[] = [
@@ -48,7 +55,7 @@ class PostSeeder extends Seeder
                 'intim_hair_id' => $intimHair[array_rand($intimHair)]['id'],
                 'rayon_id' => $rayon[array_rand($rayon)]['id'],
                 'check_photo_status' => rand(0, 1),
-                'avatar' => '/img/girl.jpg'
+                'avatar' => $photo[array_rand($photo)]
             ];
 
             $i++;

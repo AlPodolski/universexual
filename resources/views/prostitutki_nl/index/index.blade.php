@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('prostitutki_nl.layouts.main')
 
 @section('title', $meta['title'])
 @section('des', $meta['des'])
@@ -12,17 +12,17 @@
 @endif
 
 @section('content')
-    @include('include.filter' , compact('data'))
+    @include('prostitutki_nl.include.filter' , compact('data'))
     @if(isset($productMicro))
         {!! $productMicro !!}
     @endif
     <h1>{{ $meta['h1'] }}</h1>
 
-    @include('include.limit_and_order')
+    @include('prostitutki_nl.include.limit_and_order')
 
     <div class="content d-flex" id="content">
         @foreach($posts as $post)
-            @include('include.item', compact('post'))
+            @include('prostitutki_nl.include.item', compact('post'))
         @endforeach
     </div>
 
@@ -38,9 +38,9 @@
 @endsection
 
 @section('main-menu')
-    @include('include.main-menu', compact('data'))
+    @include('.prostitutki_nl.include.main-menu', compact('data'))
 @endsection
 
 @section('open-graph')
-    @include('include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
+    @include('prostitutki_nl.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
 @endsection

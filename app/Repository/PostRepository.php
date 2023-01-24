@@ -21,6 +21,7 @@ class PostRepository
     public function getForMain($cityId)
     {
         $posts = Post::where('city_id', $cityId)
+            ->with('metro')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -71,6 +72,12 @@ class PostRepository
 
         if (strpos($search, 'hudye') !== false)
             $posts = $posts->where('ves', '<', 60);
+
+        if (strpos($search, 'visokie') !== false)
+            $posts = $posts->where('rost', '>=', 170);
+
+        if (strpos($search, 'nizkie') !== false)
+            $posts = $posts->where('rost', '<', 170);
 
         if (strpos($search, 'molodye-prostitutki') !== false)
             $posts = $posts->where('age', '<', 26);

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Actions\Canonical;
 use App\Actions\GenerateMicroDataForCatalog;
-use App\Models\Webmaster;
 use App\Repository\MetaRepository;
 use App\Repository\WebmasterRepository;
 use Illuminate\Http\Request;
@@ -38,7 +37,7 @@ class IndexController extends Controller
 
         $webmaster = $webmasterRepository->get($city);
 
-        return view('index.index', compact(
+        return view(PATH.'.index.index', compact(
             'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
         ));
     }

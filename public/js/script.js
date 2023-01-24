@@ -179,7 +179,7 @@ window.addEventListener('scroll', function () {
 });
 
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
 
     var singleGallery = $('#gallery');
     singleGallery.lightGallery();

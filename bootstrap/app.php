@@ -11,6 +11,27 @@
 |
 */
 
+if (strpos($_SERVER['HTTP_HOST'], 'agr.loc')){
+    define("SITE", 'agr.loc');
+    define("PATH", 'prostitutki_nl');
+    define("SITE_ID", 1);
+}
+elseif (strpos($_SERVER['HTTP_HOST'], 'prostitutki.nl')){
+    define("SITE", 'prostitutki.nl');
+    define("PATH", 'prostitutki_nl');
+    define("SITE_ID", 1);
+}
+elseif (strpos($_SERVER['HTTP_HOST'], 'intim-box.loc')){
+    define("SITE", 'intim-box.loc');
+    define("PATH", 'intim-box');
+    define("SITE_ID", 2);
+}else{
+    define("SITE", '');
+    define("PATH", '');
+    define("SITE_ID", 0);
+}
+
+
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );

@@ -76,20 +76,25 @@ select {
         scroll-behavior: auto !important;
     }
 }
+
 .container {
     max-width: 1500px;
     display: block;
     margin: auto;
 }
-.position-relative{
+
+.position-relative {
     position: relative;
 }
-.position-absolute{
+
+.position-absolute {
     position: absolute;
 }
-.d-flex{
+
+.d-flex {
 
 }
-.yellow-btn{
+
+.yellow-btn {
 
 }

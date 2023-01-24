@@ -20,7 +20,7 @@ Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 's
 Route::get('/{size}/thumbs/{path}', ImageController::class)
     ->where('size', '.*')->where('path', '.*');
 
-Route::domain('{city}.'.env('DOMAIN'))->group(function () {
+Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/politika-konfidencialnosti', [\App\Http\Controllers\CustomController::class, 'politic']);
     Route::get('/', \App\Http\Controllers\IndexController::class);
     Route::post('/',  [\App\Http\Controllers\IndexController::class, 'more']);
