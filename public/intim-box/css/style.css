@@ -2834,8 +2834,6 @@ footer {
 }
 
 .profile-main-info__slider-main-img {
-    max-width: 251px;
-    max-height: 239px;
     width: 100%;
     border-radius: 7px
 }

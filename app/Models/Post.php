@@ -89,6 +89,12 @@ class Post extends Model
             ->select('places.url as places_url', 'places.value as places_value', 'posts_id');
     }
 
+    public function rayon(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Rayon::class, 'id', 'rayon_id')
+            ->with('filter');
+    }
+
     public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Review::class, 'posts_id', 'id');

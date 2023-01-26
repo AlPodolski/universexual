@@ -39,18 +39,17 @@ class PostRepository
 
         $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
 
-            $post = Post::select('name', 'posts.id', 'posts.url', 'not_younger', 'clothing_size', 'about', 'breast', 'avatar',
-                'shoe_size', 'contacts_per_hour', 'check_photo_status','single_view',
-                'rayons.url as rayon_url', 'rayons.value as rayon_value',
+            $post = Post::select('name', 'posts.*', 'rayon_id','posts.url', 'not_younger',
+                'clothing_size', 'about', 'breast', 'avatar',
+                'shoe_size', 'single_view','contacts_per_hour', 'check_photo_status',
                 'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
-                ->with('service', 'metro', 'place', 'reviews', 'photo')
+                ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')
                 ->where('posts.url', $url)
                 ->join('nationals', 'national_id', '=', 'nationals.id')
                 ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
                 ->join('intim_hairs', 'intim_hair_id', '=', 'intim_hairs.id')
-                ->join('rayons', 'rayon_id', '=', 'rayons.id')
                 ->first();
 
             return $post;

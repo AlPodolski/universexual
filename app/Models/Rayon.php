@@ -24,4 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Rayon extends Model
 {
+    public function filter(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Filter::class, 'related_id', 'id')->where('related_table', 'rayons');
+    }
 }

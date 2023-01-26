@@ -23,6 +23,7 @@ class PostController extends Controller
 
     public function __invoke($city,$url, SingleMetaService $metaService, Request $request)
     {
+        \Cache::flush();
         $cityInfo = $this->cityRepository->getCity($city);
         $post = $this->postRepository->getSingle($url);
         $data = $this->dataRepository->getData($cityInfo['id']);
@@ -33,7 +34,7 @@ class PostController extends Controller
 
         $morePosts = $this->postRepository->getMore($cityInfo['id'], 5);
 
-        return view('post.index', compact(
+        return view(PATH.'.post.index', compact(
             'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts'
         ));
     }

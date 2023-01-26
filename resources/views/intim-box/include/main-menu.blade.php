@@ -1,13 +1,13 @@
 <div class="sidebar">
     <div class="sidebar__header">
         <svg class="sidebar__header-burger">
-            <use xlink:href="svg/dest/stack/sprite.svg#burger"></use>
+            <use xlink:href="/svg/dest/stack/sprite.svg#burger"></use>
         </svg>
         <div class="sidebar__header-text">
             Каталог
         </div>
         <svg class="sidebar__header-arrow">
-            <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+            <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
         </svg>
     </div>
     <div class="sidebar__types">
@@ -15,7 +15,7 @@
             <li class="sidebar__types-item">
                 <a href="/video" class="sidebar__types-link link-reset link-reset">
                     <svg class="sidebar__types-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#video"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#video"></use>
                     </svg>
                     С видео
                 </a>
@@ -23,7 +23,7 @@
             <li class="sidebar__types-item">
                 <a href="/intim-salony" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#home-location"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#home-location"></use>
                     </svg>
                     Интим-салоны
                 </a>
@@ -31,7 +31,7 @@
             <li class="sidebar__types-item">
                 <a href="/eroticeskii-massaz" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#massage"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#massage"></use>
                     </svg>
                     Массажистки
                 </a>
@@ -39,7 +39,7 @@
             <li class="sidebar__types-item">
                 <a href="#" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#location"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#location"></use>
                     </svg>
                     Интим-карта
                 </a>
@@ -55,7 +55,7 @@
                         Цена
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list">
@@ -79,7 +79,7 @@
                         Национальность
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list ul-columns">
@@ -103,7 +103,7 @@
                         Возраст
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list">
@@ -126,7 +126,7 @@
                         Рост
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list">
@@ -148,7 +148,7 @@
                         Вес
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list">
@@ -170,7 +170,7 @@
                         Цвет волос
                     </div>
                     <svg class="sidebar-filters__item-icon">
-                        <use xlink:href="svg/dest/stack/sprite.svg#arrow"></use>
+                        <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
                     </svg>
                 </div>
                 <ul class="sidebar-filters-sub__list">
@@ -196,7 +196,7 @@
         <div class="sidebar-tags__item sidebar-tags-item item">
             <div class="sidebar-tags-item__title item-content-title item-content-btn">
                 <svg class="sidebar-tags-item__icon">
-                    <use xlink:href="svg/dest/stack/sprite.svg#sex"></use>
+                    <use xlink:href="/svg/dest/stack/sprite.svg#sex"></use>
                 </svg>
                 Секс
             </div>
@@ -221,7 +221,7 @@
         <div class="sidebar-tags__item sidebar-tags-item item">
             <div class="sidebar-tags-item__title item-content-title item-content-btn">
                 <svg class="sidebar-tags-item__icon">
-                    <use xlink:href="svg/dest/stack/sprite.svg#drop"></use>
+                    <use xlink:href="/svg/dest/stack/sprite.svg#drop"></use>
                 </svg>
                 Окончание
             </div>
@@ -244,7 +244,7 @@
         <div class="sidebar-tags__item sidebar-tags-item item">
             <div class="sidebar-tags-item__title item-content-title item-content-btn">
                 <svg class="sidebar-tags-item__icon">
-                    <use xlink:href="svg/dest/stack/sprite.svg#massage"></use>
+                    <use xlink:href="/svg/dest/stack/sprite.svg#massage"></use>
                 </svg>
                 Массаж
             </div>
@@ -267,7 +267,7 @@
         <div class="sidebar-tags__item sidebar-tags-item item">
             <div class="sidebar-tags-item__title item-content-title item-content-btn">
                 <svg class="sidebar-tags-item__icon">
-                    <use xlink:href="svg/dest/stack/sprite.svg#sado"></use>
+                    <use xlink:href="/svg/dest/stack/sprite.svg#sado"></use>
                 </svg>
                 Садо-мазо
             </div>
@@ -290,7 +290,7 @@
         <div class="sidebar-tags__item sidebar-tags-item item">
             <div class="sidebar-tags-item__title item-content-title item-content-btn">
                 <svg class="sidebar-tags-item__icon">
-                    <use xlink:href="svg/dest/stack/sprite.svg#dif"></use>
+                    <use xlink:href="/svg/dest/stack/sprite.svg#dif"></use>
                 </svg>
                 Разное
             </div>

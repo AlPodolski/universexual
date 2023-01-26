@@ -39,7 +39,7 @@
                     <div class="header__logo header__col">
                         <a href="/">
                             <svg class="header__logo-img">
-                                <use xlink:href='svg/dest/stack/sprite.svg#logo'></use>
+                                <use xlink:href='/svg/dest/stack/sprite.svg#logo'></use>
                             </svg>
                         </a>
                     </div>
