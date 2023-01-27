@@ -26,6 +26,8 @@ class PostServiceSeeder extends Seeder
                 $data[] = [
                     'service_id' => $nationals[array_rand($nationals)]->id,
                     'posts_id' => $post->id,
+                    'sympathy' => rand(0,1),
+                    'pay' => rand(0,1),
                     'city_id' => $post->city_id
                 ];
 

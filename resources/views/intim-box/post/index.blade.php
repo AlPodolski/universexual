@@ -417,174 +417,333 @@
                     </li>
                 </ul>
             </div>
+
             <div class="profile-main__services-body">
                 <div class="profile-main__services-item">
                     Секс
                     <ul class="profile-main__services-list">
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
+
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'sex')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
+
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Секс
+                    Окончание
                     <ul class="profile-main__services-list">
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'cum')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Секс
+                    Массаж
                     <ul class="profile-main__services-list">
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'mass')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Секс
+                    Садо-мазо
                     <ul class="profile-main__services-list">
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'bdsm')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
                     </ul>
                 </div>
                 <div class="profile-main__services-item profile-main__services-item_special">
-                    Секс
+                    Разное
                     <ul class="profile-main__services-list">
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
-                        <li class="profile-main__services-list-item">
-                            <img src="images/graphics/icons/onprice.svg" alt="">
-                            Групповой
-                        </li>
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'other')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
                     </ul>
                 </div>
             </div>

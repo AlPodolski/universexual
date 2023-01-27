@@ -71,8 +71,8 @@ class Post extends Model
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostService::class, 'posts_id', 'id')
-            ->join('services', 'service_id', '=', 'services.id')
-            ->select('services.id as service_original_id', 'posts_id');
+            ->join('services', 'service_id', '=', 'services.id');
+
     }
 
     public function metro(): \Illuminate\Database\Eloquent\Relations\HasMany
