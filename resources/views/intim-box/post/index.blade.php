@@ -748,17 +748,26 @@
                 </div>
             </div>
         </div>
-        <div class="profile-main__location profile-main__block">
-            <div class="profile-main__location-title profile-main__title">
-                Расположение
+
+        @if($metro = $post->metro->first())
+            <div class="profile-main__location profile-main__block">
+                <div class="profile-main__location-title profile-main__title">
+                    Расположение
+                </div>
+                <div class="profile-main__location-map">
+                    <div id="map"
+                         class="yandex-map map-not-exist" data-id="{{ $post->id }}"
+
+                         data-x="{{ $metro->x }}"
+                         data-y="{{ $metro->y }}"
+
+                         style="height: 200px">
+                    </div>
+                </div>
             </div>
-            <div class="profile-main__location-map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81561.71249034205!2d57.00232709726561!3d50.2955955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x418223ab0c58cc63%3A0x41755c735d177cd!2zMtCT0JjQoQ!5e0!3m2!1sru!2skz!4v1672078297402!5m2!1sru!2skz"
-                    width="" height="" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
+        @endif
+
+
         <div class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
              data-tab="reviews">
             <div class="profile-main__title profile-main-reviews__title">Отзывы</div>
@@ -769,57 +778,138 @@
                     Оставить отзыв
                 </button>
             </div>
-            <div class="profile-main-reviews__items">
-                <div class="profile-main-reviews__item">
-                    <div class="profile-main-reviews__item-header">
-                        <img src="/intim-box/images/content/comments/avatar.png" alt=""
-                             class="profile-main-reviews__item-avatar">
-                        <div class="profile-main-reviews__item-info">
-                            <div class="profile-main-reviews__item-name">
-                                nickname
-                                <svg class="profile-main-reviews__item-icon">
-                                    <use xlink:href='/svg/dest/stack/sprite.svg#verif2'></use>
-                                </svg>
+
+            @if($post->reviews->first())
+                <div class="profile-main-reviews__items">
+                    @foreach($post->reviews as $item)
+                        <div class="profile-main-reviews__item">
+                            <div class="profile-main-reviews__item-header">
+                                <div class="profile-main-reviews__item-info">
+                                    <div class="profile-main-reviews__item-name">
+                                        {{ $item->name }}
+                                        <svg class="profile-main-reviews__item-icon">
+                                            <use xlink:href='/svg/dest/stack/sprite.svg#verif2'></use>
+                                        </svg>
+                                    </div>
+                                    <div class="raiting profile-main-reviews__item-raiting">
+
+                                        <svg viewBox="0 0 190 32">
+                                            <defs>
+                                                <mask id="perc{{$item->id}}">
+                                                    <rect x="0%" y="0" width="100%" height="100%" fill="white"/>
+                                                    <!-- Для бэкенда, чтобы указать рейтинг укажите ниже в x="" процентное соотношение + 2 -->
+                                                    @php
+                                                        $rating = $item->rating * 20;
+                                                    @endphp
+                                                    <rect x="<?php echo $rating?>%" y="0" width="100%" height="100%" fill="black"/>
+                                                </mask>
+
+                                                <symbol viewBox="0 0 29 29" id="star">
+                                                    <path
+                                                        d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z"/>
+                                                </symbol>
+                                                <symbol viewBox="0 0 190 32" id="stars">
+                                                    <use xlink:href="#star" x="-64" y="0"></use>
+                                                    <use xlink:href="#star" x="-30" y="0"></use>
+                                                    <use xlink:href="#star" x="4" y="0"></use>
+                                                    <use xlink:href="#star" x="38" y="0"></use>
+                                                    <use xlink:href="#star" x="74" y="0"></use>
+                                                </symbol>
+                                            </defs>
+
+                                            <use xlink:href="#stars" fill="none" stroke="#FFCF03"></use>
+                                            <use xlink:href="#stars" fill="#FFCF03" stroke="#FFCF03" mask="url(#perc{{$item->id}})"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="profile-main-reviews__item-date">
+                                    {{ \Carbon\Carbon::parse($item->created_at, 'Y-m-d')->format('Y-m-d') }}
+                                </div>
                             </div>
-                            <div class="raiting profile-main-reviews__item-raiting">
-
-                                <svg viewBox="0 0 190 32">
-                                    <defs>
-                                        <mask id="perc">
-                                            <rect x="0%" y="0" width="100%" height="100%" fill="white"/>
-                                            <!-- Для бэкенда, чтобы указать рейтинг укажите ниже в x="" процентное соотношение + 2 -->
-                                            <rect x="52%" y="0" width="100%" height="100%" fill="black"/>
-                                        </mask>
-
-                                        <symbol viewBox="0 0 29 29" id="star">
-                                            <path
-                                                d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z"/>
-                                        </symbol>
-                                        <symbol viewBox="0 0 190 32" id="stars">
-                                            <use xlink:href="#star" x="-64" y="0"></use>
-                                            <use xlink:href="#star" x="-30" y="0"></use>
-                                            <use xlink:href="#star" x="4" y="0"></use>
-                                            <use xlink:href="#star" x="38" y="0"></use>
-                                            <use xlink:href="#star" x="74" y="0"></use>
-                                        </symbol>
-                                    </defs>
-
-                                    <use xlink:href="#stars" fill="none" stroke="#FFCF03"></use>
-                                    <use xlink:href="#stars" fill="#FFCF03" stroke="#FFCF03" mask="url(#perc)"></use>
-                                </svg>
+                            <div class="profile-main-reviews__body">
+                                {{ $item->text }}
                             </div>
                         </div>
-                        <div class="profile-main-reviews__item-date">
-                            2 дня назад
-                        </div>
-                    </div>
-                    <div class="profile-main-reviews__body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </div>
+                    @endforeach
+
+                </div>
+            @endif
+
+        </div>
+    </div>
+    <div class="profile__modal-bg">
+        <div class="profile__modal" id="review">
+            <div class="profile__modal-header">
+                <div class="profile__modal-title">
+                    Добавить отзыв
+                </div>
+                <div class="profile__modal-close profile__modal-toggle">
+                    <svg>
+                        <use xlink:href='svg/dest/stack/sprite.svg#close'></use>
+                    </svg>
                 </div>
             </div>
+            <div class="profile__modal-text">
+                Оцените по 5 балльной шкале качество выполненной работы и оставить отзыв.
+            </div>
+            <form action="/review/add" method="post" class="profile__modal-form">
+                @csrf
+                <input type="hidden" value="{{ $post->id }}" name="posts_id">
+
+                <ul class="profile__modal-form-raiting">
+                    <li class="profile__modal-form-raiting-item">
+                        <input type="radio" name="rating" value="1" class="profile__modal-form-radio">
+                        <input type="radio" name="rating" value="1" class="profile__modal-form-radio">
+                    </li>
+                    <li class="profile__modal-form-raiting-item">
+                        <input type="radio" name="rating" value="2" class="profile__modal-form-radio">
+                        <input type="radio" name="rating" value="2" class="profile__modal-form-radio">
+                    </li>
+                    <li class="profile__modal-form-raiting-item">
+                        <input type="radio" name="rating" value="3" class="profile__modal-form-radio">
+                        <input type="radio" name="rating" value="3" class="profile__modal-form-radio">
+                    </li>
+                    <li class="profile__modal-form-raiting-item">
+                        <input type="radio" name="rating" value="4" class="profile__modal-form-radio">
+                        <input type="radio" name="rating" value="4" class="profile__modal-form-radio">
+                    </li>
+                    <li class="profile__modal-form-raiting-item">
+                        <input type="radio" name="rating" value="5" class="profile__modal-form-radio">
+                        <input type="radio" name="rating" value="5" class="profile__modal-form-radio">
+                    </li>
+                    <svg class="profile__modal-form-raiting-stars" viewBox="15 0 190 32">
+                        <defs>
+                            <mask id="perc2">
+                                <rect x="0%" y="0" width="100%" height="100%" fill="white" />
+                                <!-- Для бэкенда, чтобы указать рейтинг укажите ниже в x="" процентное соотношение + 2 -->
+                                <rect class="profile__modal-form-raiting-stars-rect" x="20%" y="0" width="200px" height="100%" fill="black" />
+                            </mask>
+
+                            <symbol viewBox="0 0 29 29" id="star2">
+                                <path d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z" />
+                            </symbol>
+                            <symbol viewBox="0 0 190 32" id="stars2">
+                                <use xlink:href="#star2" x="-64" y="0"></use>
+                                <use xlink:href="#star2" x="-32" y="0"></use>
+                                <use xlink:href="#star2" x="0" y="0"></use>
+                                <use xlink:href="#star2" x="32" y="0"></use>
+                                <use xlink:href="#star2" x="64" y="0"></use>
+                            </symbol>
+                        </defs>
+
+                        <use xlink:href="#stars2" fill="none" stroke="#FFCF03"></use>
+                        <use xlink:href="#stars2" fill="#FFCF03" stroke="#FFCF03"  mask="url(#perc2)"></use>
+                    </svg>
+                </ul>
+
+                <input type="text" value="Имя" name="name" class="form-input">
+
+                <textarea class="profile__modal-form-textarea" name="text" placeholder="Комментарий"></textarea>
+                <div class="profile__modal-form-captcha"></div>
+                <button type="submit" class="profile__modal-form-btn btn">
+                    Опубликовать
+                </button>
+            </form>
         </div>
     </div>
 

@@ -79,7 +79,7 @@ class Post extends Model
     {
         return $this->hasMany(PostMetro::class, 'posts_id', 'id')
             ->join('metros', 'metros_id', '=', 'metros.id')
-            ->select('metros.url as metro_url', 'metros.value as metro_value', 'posts_id');
+            ->select('metros.x','metros.y', 'metros.url as metro_url', 'metros.value as metro_value', 'posts_id');
     }
 
     public function place(): \Illuminate\Database\Eloquent\Relations\HasMany

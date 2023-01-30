@@ -11,6 +11,7 @@ class ReviewRequest extends FormRequest
         return [
             'posts_id' => 'required|exists:posts,id',
             'name' => 'required|string|max:255',
+            'rating' => 'integer|max:5',
             'text' => 'required|string|max:600',
         ];
     }

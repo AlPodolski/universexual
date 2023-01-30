@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    public $fillable = ['posts_id', 'name', 'text'];
+    public $fillable = ['posts_id', 'name', 'text', 'rating', 'site_id'];
 }

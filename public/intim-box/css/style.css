@@ -2768,7 +2768,7 @@ footer {
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .1);
     box-shadow: 0 0 15px rgba(0, 0, 0, .1);
     border-radius: 10px;
-    padding: 5px 56px 20px 34px
+    padding: 20px 56px 20px 34px
 }
 
 .profile-main-reviews__item-header {
@@ -3204,6 +3204,12 @@ footer {
     -ms-flex: 0 1 20%;
     flex: 0 1 33%;
     margin-bottom: 15px;
+}
+.form-input{
+    border: 1px solid #eee;
+    padding: 8px;
+    border-radius: 7px;
+    color: #b8b8b8;
 }
 
 .profile-main__services-item_special {

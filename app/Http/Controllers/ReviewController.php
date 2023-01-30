@@ -11,8 +11,10 @@ class ReviewController extends Controller
     {
         $data = $reviewRequest->validated();
 
+        $data['site_id'] = SITE_ID;
+
         Review::create($data);
 
-        return redirect('/post/'.$data['posts_id'] )->with('message', 'Отзыв добавлен');
+        return back()->with('message', 'Отзыв добавлен');
     }
 }
