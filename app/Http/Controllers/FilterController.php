@@ -37,7 +37,7 @@ class FilterController extends Controller
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
 
-        return view('filter.index',
+        return view(PATH.'.filter.index',
             compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro')
         );
     }

@@ -128,9 +128,9 @@
         <div class="container">
             <div class="row footer__row">
                 <div class="footer__about footer__col">
-                    <a href="#">
+                    <a href="/">
                         <svg class="footer__about-logo">
-                            <use xlink:href='svg/dest/stack/sprite.svg#logo'></use>
+                            <use xlink:href='/svg/dest/stack/sprite.svg#logo'></use>
                         </svg>
                     </a>
                     <p class="footer__about-text">
@@ -141,49 +141,49 @@
                 <div class="footer__menu footer__col">
                     <ul class="footer__menu-list">
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/individualki">
                                 Индивидуалки
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/proverennye">
                                 Проверенные
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/novye">
                                 Новые
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/deshevye-prostitutki">
                                 Дешевые
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/dorogie-prostitutki">
                                 Элитные
                             </a>
                         </li>
                     </ul>
                     <ul class="footer__menu-list">
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/video">
                                 С видео
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/intim-salony">
                                 Интим-салоны
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/eroticeskii-massaz">
                                 Массажистки
                             </a>
                         </li>
                         <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
+                            <a class="footer__menu-link link-reset" href="/intim-karta">
                                 Интим-карта
                             </a>
                         </li>
@@ -191,17 +191,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer__mail footer__col">
-                    <p class="footer__mail-descr">
-                        Обращайтесь на почту по всем интересующим вопрсам
-                    </p>
-                    <a href="mailto:#" class="footer__mail-link link-reset">
-                        <svg class="footer__mail-icon">
-                            <use xlink:href='svg/dest/stack/sprite.svg#mail'></use>
-                        </svg>
-                        <span>mail.@mail.ru</span>
-                    </a>
-                </div>
+
             </div>
         </div>
     </footer>

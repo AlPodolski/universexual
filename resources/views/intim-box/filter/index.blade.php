@@ -11,16 +11,20 @@
 @endif
 @section('content')
     <div class="catalog__body">
+        <nav class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a href="#" class="breadcrumbs__link link-reset">
+                        Главная
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
         <div class="catalog-descr">
             <h1 class="catalog-descr__title">
                 {{ $meta['h1'] }}
             </h1>
-            <p class="catalog-descr__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-            </p>
         </div>
         <div class="catalog-items">
             @foreach($posts as $post)

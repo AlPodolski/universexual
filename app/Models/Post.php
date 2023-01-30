@@ -86,7 +86,7 @@ class Post extends Model
     {
         return $this->hasMany(PostPlace::class, 'posts_id', 'id')
             ->join('places', 'place_id', '=','places.id')
-            ->select('places.url as places_url', 'places.value as places_value', 'posts_id');
+            ->select('places.url as places_url','places.id', 'places.value as places_value', 'posts_id');
     }
 
     public function rayon(): \Illuminate\Database\Eloquent\Relations\HasOne

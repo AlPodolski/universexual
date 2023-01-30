@@ -30,6 +30,7 @@ Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/sitemap.xml',  \App\Http\Controllers\SiteMapController::class);
 
     Route::get('/robots.txt', \App\Http\Controllers\RobotController::class);
+    Route::get('/intim-karta', \App\Http\Controllers\MapController::class);
 
     Route::get('/{search}',  \App\Http\Controllers\FilterController::class)
         ->where('search', '.*');

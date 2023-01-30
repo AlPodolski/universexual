@@ -53,17 +53,25 @@
                 <div class="catalog-item__item-space">
                 </div>
                 <div class="catalog-item__item-cur catalog-item__item-cur_price">
-                    4 000
+                    {{ $post->apartament_2_hour_price }}
                 </div>
             </li>
         </ul>
         <div class="catalog-item__tags">
-            <a class="tag">
-                #инди
-            </a>
-            <a class="tag">
-                #выезд
-            </a>
+            @if($post->type == \App\Models\Post::INDI_TYPE)
+                <a class="tag">
+                    #инди
+                </a>
+            @endif
+            @if($post->place->first())
+                @foreach($post->place as $item)
+                    @if($item->id == 1)
+                        <a class="tag">
+                            #выезд
+                        </a>
+                    @endif
+                @endforeach
+            @endif
         </div>
         <ul class="catalog-item__list">
             <li class="catalog-item__item">

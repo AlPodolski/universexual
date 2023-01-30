@@ -11,23 +11,15 @@
 @endif
 @section('content')
     <div class="catalog__body">
-
-        <div class="catalog-descr">
-            <h1 class="catalog-descr__title">
-                {{ $meta['h1'] }}
-            </h1>
-            <p class="catalog-descr__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-            </p>
+        <h1>{{ $meta['h1'] }}</h1>
+        <div class="map-data d-none">
+            {!! $posts !!}
         </div>
-        <div class="catalog-items">
-            @foreach($posts as $post)
-                @include('intim-box.include.item')
-            @endforeach
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+        <div id="yandex-map" style="height: 500px">
 
         </div>
+        <script src="{{ asset('js/map.js') }}"></script>
     </div>
 @endsection
 

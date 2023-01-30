@@ -2770,7 +2770,9 @@ footer {
     border-radius: 10px;
     padding: 20px 56px 20px 34px
 }
-
+.d-none{
+    display: none;
+}
 .profile-main-reviews__item-header {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -39,9 +39,9 @@ class PostRepository
 
         $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
 
-            $post = Post::select('name', 'posts.*', 'rayon_id','posts.url', 'not_younger',
+            $post = Post::select('name', 'posts.*', 'rayon_id', 'posts.url', 'not_younger',
                 'clothing_size', 'about', 'breast', 'avatar',
-                'shoe_size', 'single_view','contacts_per_hour', 'check_photo_status',
+                'shoe_size', 'single_view', 'contacts_per_hour', 'check_photo_status',
                 'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
@@ -165,6 +165,7 @@ class PostRepository
         if ($indi) $posts = $posts->where('type', Post::INDI_TYPE);
 
         $posts = $posts
+            ->with('place')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -183,24 +184,54 @@ class PostRepository
 
     }
 
+    public function getForMap($cityId): string
+    {
+        $posts = Post::where('city_id', $cityId)
+            ->with('metro')
+            ->limit(2000)
+            ->get();
+
+        $result = array();
+
+        foreach ($posts as $post) {
+
+            if ($metro = $post->metro->first()) {
+
+                $result[] = [
+                    'avatar' => '/211-300/thumbs/'.$post->avatar,
+                    'phone' => $post->phone,
+                    'url' => $post->url,
+                    'price' => $post->price,
+                    'x' => $metro->x,
+                    'y' => $metro->y,
+                ];
+
+            }
+
+        }
+
+        return json_encode($result);
+
+    }
+
     public function getForFilter($cityId, $data)
     {
-        $posts = Post::where('age' , '>=', $data['age-from'])
-            ->where('age' , '<=', $data['age-to'])
-            ->where('rost' , '>=', $data['rost-from'])
-            ->where('rost' , '<=', $data['rost-to'])
-            ->where('ves' , '>=', $data['ves-from'])
-            ->where('ves' , '<=', $data['ves-to'])
-            ->where('breast' , '>=', $data['grud-from'])
-            ->where('breast' , '<=', $data['grud-to'])
-            ->where('price' , '>=', $data['price-from'])
-            ->where('price' , '<=', $data['price-to'])
+        $posts = Post::where('age', '>=', $data['age-from'])
+            ->where('age', '<=', $data['age-to'])
+            ->where('rost', '>=', $data['rost-from'])
+            ->where('rost', '<=', $data['rost-to'])
+            ->where('ves', '>=', $data['ves-from'])
+            ->where('ves', '<=', $data['ves-to'])
+            ->where('breast', '>=', $data['grud-from'])
+            ->where('breast', '<=', $data['grud-to'])
+            ->where('price', '>=', $data['price-from'])
+            ->where('price', '<=', $data['price-to'])
             ->where(['city_id' => $cityId]);
 
-        if (isset($data['metro']) and $data['metro']){
+        if (isset($data['metro']) and $data['metro']) {
 
             $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where `metros_id` =  ?) ',
-                [ $data['metro'] ]);
+                [$data['metro']]);
 
         }
 
