@@ -13,11 +13,14 @@ class MetaRepository
     public function getForMain($url, $cityInfo, $request)
     {
 
-        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id']);
+        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE);
 
         if (!$value){
 
-            $meta = Meta::where(['url' => $url])->select('title', 'des', 'h1')->get()->first()->toArray();
+            $meta = Meta::where(['url' => $url])
+                ->where('site_id', SITE_ID)
+                ->select('title', 'des', 'h1')
+                ->get()->first()->toArray();
 
             $value = $this->replaceCity($meta, $cityInfo);
 
@@ -36,11 +39,14 @@ class MetaRepository
 
         $filterParams = Filter::where('url', $url )->get();
 
-        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id']);
+        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE);
 
         if (!$value){
 
-            if ($meta = Meta::where(['url' => $url])->select('title', 'des', 'h1')->get()->first()) {
+            if ($meta = Meta::where(['url' => $url])
+                ->where('site_id', SITE_ID)
+                ->select('title', 'des', 'h1')
+                ->get()->first()) {
 
                 $meta = $meta->toArray();
 
@@ -66,7 +72,7 @@ class MetaRepository
 
             }
 
-            \Cache::set('meta_'.$url.'_'.$cityInfo['id'], $value);
+            \Cache::set('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE, $value);
 
         }
 

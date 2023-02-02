@@ -38,7 +38,7 @@ class PostRepository
 
         $expire = Carbon::now()->addHours(1200);
 
-        $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
+        $post = Cache::remember('post_' . $url.'_site_id_'.SITE, $expire, function () use ($url) {
 
             $post = Post::select('name', 'posts.*', 'rayon_id', 'posts.url', 'not_younger',
                 'clothing_size', 'about', 'breast', 'avatar',
