@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('prostitutki_nl.layouts.main')
 
 @section('title', $meta['title'])
 @section('des', $meta['des'])
@@ -9,8 +9,8 @@
 @section('jquery', '/js/jquery-3.5.1.min.js')
 @section('lightbox', '/js/lightgallery-all.min.js?v=2')
 @section('content')
-    @include('include.filter' , compact('data'))
-    @include('include.breadcrumb' , ['title' => $post->name])
+    @include('prostitutki_nl.include.filter' , compact('data'))
+    @include('prostitutki_nl.include.breadcrumb' , ['title' => $post->name])
 
     {!! $imageMicro !!}
 
@@ -173,16 +173,16 @@
         <div class="more-posts content d-flex">
 
             @foreach($morePosts as $post)
-                @include('include.item')
+                @include('prostitutki_nl.include.item')
             @endforeach
         </div>
     @endif
 
 @endsection
 @section('main-menu')
-    @include('include.main-menu', compact('data'))
+    @include('prostitutki_nl.include.main-menu', compact('data'))
 @endsection
 
 @section('open-graph')
-    @include('include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => "/600-700/thumbs/$post->avatar"])
+    @include('prostitutki_nl.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => "/600-700/thumbs/$post->avatar"])
 @endsection

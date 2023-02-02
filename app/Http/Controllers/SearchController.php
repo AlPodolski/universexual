@@ -19,7 +19,7 @@ class SearchController extends Controller
 
         $search = true;
 
-        return view('index.index', compact(
+        return view(PATH.'.index.index', compact(
             'posts', 'data', 'meta', 'path', 'sort', 'search'
         ));
     }
@@ -38,7 +38,7 @@ class SearchController extends Controller
 
         $search = true;
 
-        return view('index.index', compact(
+        return view(PATH.'.index.index', compact(
             'posts', 'data', 'meta', 'path', 'sort', 'search'
         ));
 

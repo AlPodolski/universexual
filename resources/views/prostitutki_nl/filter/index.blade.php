@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('prostitutki_nl.layouts.main')
 
 @section('title', $meta['title'])
 @section('des', $meta['des'])
@@ -7,12 +7,12 @@
     @section('can', $path)
 @endif
 @section('content')
-    @include('include.filter' , compact('data'))
-    @include('include.breadcrumb' , ['title' => $meta['h1']])
+    @include('prostitutki_nl.include.filter' , compact('data'))
+    @include('prostitutki_nl.include.breadcrumb' , ['title' => $meta['h1']])
     <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex" id="content">
         @foreach($posts as $post)
-            @include('include.item', compact('post'))
+            @include('prostitutki_nl.include.item', compact('post'))
         @endforeach
 
     </div>
@@ -21,13 +21,13 @@
              onclick="getMorePosts(this)"
              class="get-more yellow-btn get-more-post-btn">Показать еще
         </div>
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+        {{ $posts->links('prostitutki_nl.vendor.pagination.bootstrap-4') }}
     @endif
 @endsection
 @section('main-menu')
-    @include('include.main-menu', compact('data'))
+    @include('prostitutki_nl.include.main-menu', compact('data'))
 @endsection
 
 @section('open-graph')
-    @include('include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
+    @include('prostitutki_nl.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
 @endsection

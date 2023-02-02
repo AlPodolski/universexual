@@ -33,7 +33,7 @@
                  class="get-more yellow-btn get-more-post-btn">Показать еще
             </div>
         @endif
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+        {{ $posts->links('prostitutki_nl.vendor.pagination.bootstrap-4') }}
     @endif
 @endsection
 

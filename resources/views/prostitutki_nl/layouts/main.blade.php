@@ -78,7 +78,7 @@
 <main>
     <div class="content-wrap">
         <div class="container">
-            @include('include.message')
+            @include('prostitutki_nl.include.message')
             @yield('content')
             <div id="arrowTop" hidden=""></div>
         </div>
