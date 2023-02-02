@@ -31,10 +31,11 @@ class PostSeeder extends Seeder
             'files/shelli_13383.jpg',
         ];
 
-        while ($i <= 600){
+        while ($i <= 900){
 
             $postsData[] = [
                 'user_id' => rand(1,3),
+                'site_id' => rand(1,2),
                 'name' => $name = $faker->name,
                 'whats_ap' => 'https://'.\Str::slug( $faker->name),
                 'telegram' => 'https://'.\Str::slug( $faker->name),

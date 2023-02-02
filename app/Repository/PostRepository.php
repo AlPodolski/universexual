@@ -21,6 +21,7 @@ class PostRepository
     public function getForMain($cityId)
     {
         $posts = Post::where('city_id', $cityId)
+            ->where('site_id', SITE_ID)
             ->with('metro')
             ->orderByRaw($this->sort)
             ->paginate(20);
@@ -47,6 +48,7 @@ class PostRepository
             )
                 ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')
                 ->where('posts.url', $url)
+                ->where('site_id', SITE_ID)
                 ->join('nationals', 'national_id', '=', 'nationals.id')
                 ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
                 ->join('intim_hairs', 'intim_hair_id', '=', 'intim_hairs.id')
@@ -68,7 +70,8 @@ class PostRepository
         $salon = false;
         $indi = false;
 
-        $posts = Post::where(['city_id' => $cityId]);
+        $posts = Post::where(['city_id' => $cityId])
+            ->where('site_id', SITE_ID);
 
         if (strpos($search, 'intim-salony') !== false)
             $salon = true;
@@ -177,6 +180,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
+            ->where('site_id', SITE_ID)
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -187,6 +191,7 @@ class PostRepository
     public function getForMap($cityId): string
     {
         $posts = Post::where('city_id', $cityId)
+            ->where('site_id', SITE_ID)
             ->with('metro')
             ->limit(2000)
             ->get();
@@ -217,6 +222,7 @@ class PostRepository
     public function getForFilter($cityId, $data)
     {
         $posts = Post::where('age', '>=', $data['age-from'])
+            ->where('site_id', SITE_ID)
             ->where('age', '<=', $data['age-to'])
             ->where('rost', '>=', $data['rost-from'])
             ->where('rost', '<=', $data['rost-to'])
@@ -245,6 +251,7 @@ class PostRepository
     public function getMore($cityId, $limit)
     {
         $posts = Post::where(['city_id' => $cityId])
+            ->where('site_id', SITE_ID)
             ->orderByRaw('RAND()')
             ->limit($limit)->get();
 
