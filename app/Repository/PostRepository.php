@@ -40,10 +40,7 @@ class PostRepository
 
         $post = Cache::remember('post_' . $url.'_site_id_'.SITE, $expire, function () use ($url) {
 
-            $post = Post::select('name', 'posts.*', 'rayon_id', 'posts.url', 'not_younger',
-                'clothing_size', 'about', 'breast', 'avatar',
-                'shoe_size', 'single_view', 'contacts_per_hour', 'check_photo_status',
-                'phone', 'rost', 'ves', 'age', 'price', 'nationals.value as national_value',
+            $post = Post::select('posts.*', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
                 ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')

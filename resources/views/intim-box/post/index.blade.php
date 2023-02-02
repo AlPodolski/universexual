@@ -182,7 +182,7 @@
                                                 </svg>
                                                 <div class="catalog-item__location-text">
                                                     <a class="catalog-item__location-text"
-                                                       href="/{{ $item->metro_url }}">{{ $item->metro_value }}</a>
+                                                       href="/{{ $item->filter->url }}">{{ $item->metro_value }}</a>
                                                 </div>
                                             </a>
                                         </li>
