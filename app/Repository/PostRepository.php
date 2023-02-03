@@ -22,7 +22,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('site_id', SITE_ID)
-            ->with('metro')
+            ->with('metro', 'reviews')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -38,7 +38,7 @@ class PostRepository
 
         $expire = Carbon::now()->addHours(1200);
 
-        $post = Cache::remember('post_' . $url.'_site_id_'.SITE, $expire, function () use ($url) {
+        $post = Cache::remember('post_' . $url . '_site_id_' . SITE, $expire, function () use ($url) {
 
             $post = Post::select('posts.*', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
@@ -165,7 +165,7 @@ class PostRepository
         if ($indi) $posts = $posts->where('type', Post::INDI_TYPE);
 
         $posts = $posts
-            ->with('place')
+            ->with('place', 'reviews')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -178,6 +178,7 @@ class PostRepository
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
             ->where('site_id', SITE_ID)
+            ->with('reviews')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -200,7 +201,7 @@ class PostRepository
             if ($metro = $post->metro->first()) {
 
                 $result[] = [
-                    'avatar' => '/211-300/thumbs/'.$post->avatar,
+                    'avatar' => '/211-300/thumbs/' . $post->avatar,
                     'phone' => $post->phone,
                     'url' => $post->url,
                     'price' => $post->price,

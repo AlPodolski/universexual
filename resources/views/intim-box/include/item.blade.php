@@ -116,28 +116,38 @@
             </li>
         </ul>
         <ul class="catalog-item__ui">
-            <li class="catalog-item__ui-item">
-                <a href="#" class="catalog-item__ui-link link-reset btn">
-                    <svg>
-                        <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
-                    </svg>
-                </a>
-            </li>
-            <li class="catalog-item__ui-item">
-                <a data-fancybox="video" href="https://www.youtube.com/watch?v=z2X2HaTvkl8"
-                   class="catalog-item__ui-link link-reset btn">
-                    <svg>
-                        <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
-                    </svg>
-                </a>
-            </li>
-            <li class="catalog-item__ui-item">
-                <a href="#" class="catalog-item__ui-link link-reset btn">
-                    <svg>
-                        <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
-                    </svg>
-                </a>
-            </li>
+
+            @if($post->check_photo_status)
+                <li class="catalog-item__ui-item">
+                    <a href="#" class="catalog-item__ui-link link-reset btn">
+                        <svg>
+                            <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
+                        </svg>
+                    </a>
+                </li>
+            @endif
+
+            @if($post->video)
+                <li class="catalog-item__ui-item">
+                    <a data-fancybox="video"
+                       class="catalog-item__ui-link link-reset btn">
+                        <svg>
+                            <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
+                        </svg>
+                    </a>
+                </li>
+            @endif
+
+            @if($post->reviews->first())
+                <li class="catalog-item__ui-item">
+                    <a href="#" class="catalog-item__ui-link link-reset btn">
+                        <svg>
+                            <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
+                        </svg>
+                    </a>
+                </li>
+            @endif
+
         </ul>
     </div>
     <a href="#" class="catalog-item__link"></a>
