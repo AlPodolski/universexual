@@ -26,8 +26,12 @@
             @foreach($posts as $post)
                 @include('intim-box.include.item')
             @endforeach
-
         </div>
+
+        @if($posts->total() > $posts->count())
+            {{ $posts->links('intim-box.vendor.pagination.bootstrap-4') }}
+        @endif
+
     </div>
 @endsection
 
