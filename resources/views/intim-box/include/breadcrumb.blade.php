@@ -1,6 +1,15 @@
 @if(isset($breadMicro))
     {!! $breadMicro !!}
 @endif
-<ul class="breadcrumb" style=""><li class="breadcrumb-item"><a href="/" title="Первая страница сайта">Главная </a></li>
-    <li class="active">{{ $title }}</li>
-</ul>
+<nav class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+            <a href="/" class="breadcrumbs__link link-reset">
+                Главная
+            </a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__link link-reset">
+            {{ $title }}
+        </li>
+    </ul>
+</nav>

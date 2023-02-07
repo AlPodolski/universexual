@@ -11,15 +11,8 @@
 @endif
 @section('content')
     <div class="catalog__body">
-        <nav class="breadcrumbs">
-            <ul class="breadcrumbs__list">
-                <li class="breadcrumbs__item">
-                    <a href="#" class="breadcrumbs__link link-reset">
-                        Главная
-                    </a>
-                </li>
-            </ul>
-        </nav>
+
+        @include('intim-box.include.breadcrumb' , ['title' => $meta['h1']])
 
         <div class="catalog-descr">
             <h1 class="catalog-descr__title">
@@ -32,6 +25,9 @@
             @endforeach
 
         </div>
+        @if($posts->total() > $posts->count())
+            {{ $posts->links('intim-box.vendor.pagination.bootstrap-4') }}
+        @endif
     </div>
 @endsection
 

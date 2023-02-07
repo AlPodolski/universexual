@@ -9,9 +9,8 @@
 
 @section('content')
 
-    {!! $imageMicro !!}
-
     <div class="profile-main">
+        @include('intim-box.include.breadcrumb' , ['title' => $post->name])
         <h1 class="profile__title">
             <div class="profile__title-text">
                 Индивидуалка {{ $post->name }} {{ $post->id }}
