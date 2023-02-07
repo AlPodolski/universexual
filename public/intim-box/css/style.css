@@ -3525,6 +3525,15 @@ footer {
     display: none;
 }
 @media (max-width: 650px) {
+    .profile-main__sim-item {
+        min-width: 325px;
+        max-width: 325px;
+        width: 100%;
+        padding: 0 15px 15px 0;
+    }
+    .profile-main__sim-items.tabs-show{
+        flex-wrap: wrap;
+    }
     .profile-main-info__media{
         flex: 0 0 100%;
     }

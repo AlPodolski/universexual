@@ -28,16 +28,16 @@
                     <a href="#" class="profile-main-nav__link link-reset">Фото</a>
                 </li>
                 <li class="profile-main-nav__item" data-tab-title="about">
-                    <a href="#" class="profile-main-nav__link link-reset">О приститутке </a>
+                    <a href="#about" class="profile-main-nav__link link-reset">О приститутке </a>
                 </li>
                 <li class="profile-main-nav__item" data-tab-title="service">
-                    <a href="#" class="profile-main-nav__link link-reset">Услуги</a>
+                    <a href="#service" class="profile-main-nav__link link-reset">Услуги</a>
                 </li>
-                <li class="profile-main-nav__item">
-                    <a href="#" class="profile-main-nav__link link-reset" data-tab-title="reviews">Отзывы</a>
+                <li class="profile-main-nav__item" data-tab-title="reviews">
+                    <a href="#reviews" class="profile-main-nav__link link-reset" >Отзывы</a>
                 </li>
-                <li class="profile-main-nav__item">
-                    <a href="#" class="profile-main-nav__link link-reset">Похожие анкеты</a>
+                <li class="profile-main-nav__item" data-tab-title="sim">
+                    <a href="#sim" class="profile-main-nav__link link-reset">Похожие анкеты</a>
                 </li>
             </ul>
         </nav>
@@ -390,10 +390,11 @@
                 </ul>
             </div>
         </div>
-        <div class="profile-main__about profile-main__block profile-main__tab" data-tab="about">
+        <div id="about" class="profile-main__about profile-main__block profile-main__tab" data-tab="about">
+
             <span class="profile-main__title">О себе:</span>{{ $post->about }}
         </div>
-        <div data-tab="service" class="profile-main__services profile-main__block profile-main__tab">
+        <div data-tab="service" id="service" class="profile-main__services profile-main__block profile-main__tab">
             <div class="profile-main__services-header">
                 <div class="profile-main__title">
                     Предоставляемые услуги:
@@ -767,7 +768,7 @@
             </div>
         @endif
 
-        <div data-tab="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
+        <div data-tab="reviews" id="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
         >
             <div class="profile-main__title profile-main-reviews__title">Отзывы</div>
 
