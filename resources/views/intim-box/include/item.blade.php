@@ -4,9 +4,15 @@
 <div class="catalog-item">
     <div class="catalog-item__header">
         <a href="/post/{{ $post->url }}">
-            <img class="catalog-item__img" src="/211-300/thumbs/{{$post->avatar}}" alt="">
+            <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}" alt="">
         </a>
-        <div class="catalog-item__favorite">
+        <div data-id="{{ $post->id }}" onclick="add_to_favorite(this)"
+             class="
+             @if(\App\Actions\AddFavoriteToCookie::check($post->id))
+                 catalog-item__favorite_add
+             @endif
+             catalog-item__favorite
+             ">
             <img src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
         </div>
     </div>

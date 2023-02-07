@@ -32,6 +32,8 @@ Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/robots.txt', \App\Http\Controllers\RobotController::class);
     Route::get('/intim-karta', \App\Http\Controllers\MapController::class);
 
+    Route::post('/favorite/add', [\App\Http\Controllers\FavoriteController::class, 'add']);
+
     Route::get('/{search}',  \App\Http\Controllers\FilterController::class)
         ->where('search', '.*');
 

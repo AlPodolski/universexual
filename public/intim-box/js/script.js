@@ -4323,3 +4323,26 @@ function init(map_name, x, y) {
 $(document).ready(function () {
     init_yandex_map('map');
 });
+
+function add_to_favorite(object){
+
+    var id = $(object).attr('data-id');
+
+    $.ajax({
+        type: 'POST',
+        url: "/favorite/add", //Путь к обработчику
+        data: 'id=' + id,
+        response: 'text',
+        dataType: "html",
+        cache: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        success: function (data) {
+
+            $(object).toggleClass('catalog-item__favorite_add');
+
+        }
+    })
+
+}

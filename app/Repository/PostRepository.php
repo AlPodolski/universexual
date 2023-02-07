@@ -246,10 +246,29 @@ class PostRepository
         return $posts;
     }
 
+    public function getView()
+    {
+        if ($ids = \Cookie::get('post_view')) {
+
+            $data = unserialize($ids);
+
+            $posts = Post::with('metro')
+                ->whereIn('id', $data)
+                ->get();
+
+            return $posts;
+
+        }
+
+        return false;
+
+    }
+
     public function getMore($cityId, $limit)
     {
         $posts = Post::where(['city_id' => $cityId])
             ->where('site_id', SITE_ID)
+            ->with('metro')
             ->orderByRaw('RAND()')
             ->limit($limit)->get();
 

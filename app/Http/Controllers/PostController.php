@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\AddViewToCookie;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateImageMicro;
 use App\Services\SingleMetaService;
@@ -21,7 +22,7 @@ class PostController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city,$url, SingleMetaService $metaService, Request $request)
+    public function __invoke($city,$url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
     {
         \Cache::flush();
         $cityInfo = $this->cityRepository->getCity($city);
@@ -32,10 +33,14 @@ class PostController extends Controller
         $breadMicro = $this->breadMicro->generate($request, $post->name);
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
 
-        $morePosts = $this->postRepository->getMore($cityInfo['id'], 5);
+        $morePosts = $this->postRepository->getMore($cityInfo['id'], 3);
+
+        $addViewToCookie->add($post->id);
+
+        $viewPosts = $this->postRepository->getView();
 
         return view(PATH.'.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts'
         ));
     }
 }

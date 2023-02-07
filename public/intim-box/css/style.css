@@ -2109,10 +2109,17 @@ footer {
 }
 
 .catalog-item__favorite {
+    filter: grayscale(100%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    right: 0;
-    bottom: -40px;
-    background: rgba(0, 0, 0, 0);
+    right: 20px;
+    bottom: -28px;
+    background: #FFFFFF;
     padding: 0;
     margin: 0;
     cursor: pointer;
@@ -2122,7 +2129,11 @@ footer {
     transition: .3s;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
-    transform: scale(1)
+    transform: scale(1);
+    box-shadow: 0px 0px 7px rgba(31, 31, 31, 0.21);
+}
+.catalog-item__favorite_add{
+    filter: grayscale(0%);
 }
 
 .catalog-item__favorite:hover {
@@ -3416,8 +3427,158 @@ footer {
     height: 16px;
     fill: #4926e8
 }
-
+.profile-main__sim {
+    margin-top: 2.1428571429rem;
+    padding: 1.8571428571rem 2.4285714286rem;
+}
+.profile-main__block {
+    border: 1px solid #d9d9d9;
+}
+.profile-main__sim-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 0 19px 0;
+}
+.profile-main__sim-items.tabs-show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.profile-main__sim-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 28.777%;
+    flex: 0 1 28.777%;
+    padding: 0 15px 15px 0;
+    margin-right: 3.7857142857rem;
+}
+.profile-main__sim-header-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.profile-main__sim-header-item {
+    color: #bab9b9;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+.profile-main__sim-header-item.tabs-active {
+    color: #ff005c;
+}
+.profile-main__sim-items.tabs-show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.profile-main__sim-item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 28.777%;
+    flex: 0 1 28.777%;
+    padding: 0 15px 15px 0;
+    margin-right: 3.7857142857rem;
+}
+.profile-main__sim-item-name {
+    margin: 4px 0 3px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.metro {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.metro__icon {
+    fill: #ff005c;
+    width: 2.1428571429rem;
+    height: 1.9285714286rem;
+    margin-right: 5.7px;
+}
+.metro__text {
+    color: #ff005c;
+    font-size: 1.2857142857rem;
+}
+.profile-main__sim-item-photo img{
+    width: 100%;
+}
+.profile-main__sim-title-item-name-icon {
+    width: 17px;
+    height: 22px;
+    margin-left: 6px;
+}
+.profile-main__sim-item:last-child {
+    margin-right: 0;
+}
+.profile-main__sim-items.tabs-hide {
+    display: none;
+}
 @media (max-width: 650px) {
+    .profile-main-info__media{
+        flex: 0 0 100%;
+    }
+    .profile-main{
+        padding: 0;
+    }
+    .profile-main-nav__item{
+        margin: 0 0 0 5px;
+    }
+    .profile-main__services-header{
+        flex-wrap: wrap;
+    }
+    .profile-main__services-item, .profile-main__services-guide{
+        flex: 0 0 100%;
+    }
+    .profile-main__services-guide{
+        padding: 0;
+    }
+    .profile-main__title{
+        flex: 100%;
+        padding: 0;
+    }
+    .profile-main__services-item_special .profile-main__services-list{
+        column-count: 1;
+    }
+    .profile-main-info__characters{
+        flex: 0 0 100%;
+    }
+    .profile-main-info__characters-list-sec-item{
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile-main-info__characters-price{
+        padding: 0;
+    }
+    .profile-main-info__characters-price-sub-name{
+        margin-right: auto;
+    }
+    .profile-main-info__characters-price-sub-list{
+        flex: 0 1 50%;
+        margin-left: auto;
+    }
+    .profile-main-info__characters-price-name{
+        flex: 0 1 30%;
+    }
+    .profile-main-info__characters-list-sec-item{
+        flex-direction: row-reverse;
+    }
+    .profile-main-info__characters-list-sec{
+        flex-direction: column;
+    }
+    .profile-main-info__characters-list-sec-name{
+        margin-top: 0px;
+    }
     .footer__row {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;

@@ -24,7 +24,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/intim-box/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('des')">
 
     @if(View::hasSection('can'))

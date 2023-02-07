@@ -12,7 +12,7 @@
     {!! $imageMicro !!}
 
     <div class="profile-main">
-        <h2 class="profile__title">
+        <h1 class="profile__title">
             <div class="profile__title-text">
                 Индивидуалка {{ $post->name }} {{ $post->id }}
             </div>
@@ -21,7 +21,7 @@
                     <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
                 </svg>
             </div>
-        </h2>
+        </h1>
         <nav class="profile-main__nav profile-main-nav">
             <ul class="profile-main-nav__list">
                 <li class="profile-main-nav__item active" data-tab-title="photo">
@@ -30,7 +30,7 @@
                 <li class="profile-main-nav__item" data-tab-title="about">
                     <a href="#" class="profile-main-nav__link link-reset">О приститутке </a>
                 </li>
-                <li class="profile-main-nav__item">
+                <li class="profile-main-nav__item" data-tab-title="service">
                     <a href="#" class="profile-main-nav__link link-reset">Услуги</a>
                 </li>
                 <li class="profile-main-nav__item">
@@ -50,7 +50,7 @@
                             <div class="profile-main-info__slider-main-slide">
                                 <img class="profile-main-info__slider-main-img"
                                      loading="lazy"
-                                     src="/211-300/thumbs/{{$post->avatar}}" alt="">
+                                     src="/252-309/thumbs/{{$post->avatar}}" alt="">
 
                                 @if($post->check_photo_status)
                                     <div class="profile-main-info__slider-main-verif">
@@ -182,7 +182,7 @@
                                                 </svg>
                                                 <div class="catalog-item__location-text">
                                                     <a class="catalog-item__location-text"
-                                                       href="/{{ $item->filter->url }}">{{ $item->metro_value }}</a>
+                                                       href="/{{ $item->metro_url }}">{{ $item->metro_value }}</a>
                                                 </div>
                                             </a>
                                         </li>
@@ -393,7 +393,7 @@
         <div class="profile-main__about profile-main__block profile-main__tab" data-tab="about">
             <span class="profile-main__title">О себе:</span>{{ $post->about }}
         </div>
-        <div class="profile-main__services profile-main__block">
+        <div data-tab="service" class="profile-main__services profile-main__block profile-main__tab">
             <div class="profile-main__services-header">
                 <div class="profile-main__title">
                     Предоставляемые услуги:
@@ -767,17 +767,9 @@
             </div>
         @endif
 
-
-        <div class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
-             data-tab="reviews">
+        <div data-tab="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
+        >
             <div class="profile-main__title profile-main-reviews__title">Отзывы</div>
-            <div class="profile-main-reviews__noreviews">
-                <div class="profile-main-reviews__text">К этой анкете ещё нет ни одного отзыва. Вы можете
-                    быть первым <img class="emoji" src="images/graphics/icons/emoji.png" alt=""></div>
-                <button class="profile-main-reviews__btn btn profile__modal-toggle">
-                    Оставить отзыв
-                </button>
-            </div>
 
             @if($post->reviews->first())
                 <div class="profile-main-reviews__items">
@@ -801,7 +793,8 @@
                                                     @php
                                                         $rating = $item->rating * 20;
                                                     @endphp
-                                                    <rect x="<?php echo $rating?>%" y="0" width="100%" height="100%" fill="black"/>
+                                                    <rect x="<?php echo $rating?>%" y="0" width="100%" height="100%"
+                                                          fill="black"/>
                                                 </mask>
 
                                                 <symbol viewBox="0 0 29 29" id="star">
@@ -818,7 +811,8 @@
                                             </defs>
 
                                             <use xlink:href="#stars" fill="none" stroke="#FFCF03"></use>
-                                            <use xlink:href="#stars" fill="#FFCF03" stroke="#FFCF03" mask="url(#perc{{$item->id}})"></use>
+                                            <use xlink:href="#stars" fill="#FFCF03" stroke="#FFCF03"
+                                                 mask="url(#perc{{$item->id}})"></use>
                                         </svg>
                                     </div>
                                 </div>
@@ -833,8 +827,84 @@
                     @endforeach
 
                 </div>
+            @else
+                <div class="profile-main-reviews__noreviews">
+                    <div class="profile-main-reviews__text">К этой анкете ещё нет ни одного отзыва. Вы можете
+                        быть первым <img class="emoji" src="images/graphics/icons/emoji.png" alt=""></div>
+                    <button class="profile-main-reviews__btn btn profile__modal-toggle">
+                        Оставить отзыв
+                    </button>
+                </div>
             @endif
 
+        </div>
+        <div class="profile-main__sim profile-main__block tab-content" id="sim" data-tab="sim">
+            <div class="profile-main__sim-header">
+                <ul class="profile-main__sim-header-list">
+                    <li class="profile-main__sim-header-item tabs-active" data-tab="recAnkets">
+                        Рекомендации
+                    </li>
+                    <li class="profile-main__sim-header-item" data-tab="checkedAnkets">
+                        Просмотренные анкеты
+                    </li>
+                </ul>
+            </div>
+            <div class="profile-main__sim-items  tabs-show" data-tab="recAnkets">
+
+                @foreach($morePosts as $post)
+                    <div class="profile-main__sim-item">
+                        <div class="profile-main__sim-item-photo">
+                            <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
+                        </div>
+                        <div class="profile-main__sim-item-name item-name">
+                            <div class="item-name__text profile-main__sim-title-item-name-text">
+                                {{ $post->name }}
+                            </div>
+                            <img class="item-name__icon profile-main__sim-title-item-name-icon"
+                                 src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
+                        </div>
+                        @if($metro = $post->metro->first())
+                            <div class="profile-main__sim-item-location metro">
+                                <svg class="metro__icon">
+                                    <use xlink:href='/intim-box/svg/dest/stack/sprite.svg#metro'></use>
+                                </svg>
+                                <div class="metro__text">
+                                    {{ $metro->metro_value }}
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
+
+            </div>
+            @if($viewPosts->first())
+                <div class="profile-main__sim-items tabs-hide" data-tab="checkedAnkets">
+                    @foreach($viewPosts as $post)
+                        <div class="profile-main__sim-item">
+                            <div class="profile-main__sim-item-photo">
+                                <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
+                            </div>
+                            <div class="profile-main__sim-item-name item-name">
+                                <div class="item-name__text profile-main__sim-title-item-name-text">
+                                    {{ $post->name }}
+                                </div>
+                                <img class="item-name__icon profile-main__sim-title-item-name-icon"
+                                     src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
+                            </div>
+                            @if($metro = $post->metro->first())
+                                <div class="profile-main__sim-item-location metro">
+                                    <svg class="metro__icon">
+                                        <use xlink:href='/intim-box/svg/dest/stack/sprite.svg#metro'></use>
+                                    </svg>
+                                    <div class="metro__text">
+                                        {{ $metro->metro_value }}
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
     <div class="profile__modal-bg">
@@ -880,13 +950,15 @@
                     <svg class="profile__modal-form-raiting-stars" viewBox="15 0 190 32">
                         <defs>
                             <mask id="perc2">
-                                <rect x="0%" y="0" width="100%" height="100%" fill="white" />
+                                <rect x="0%" y="0" width="100%" height="100%" fill="white"/>
                                 <!-- Для бэкенда, чтобы указать рейтинг укажите ниже в x="" процентное соотношение + 2 -->
-                                <rect class="profile__modal-form-raiting-stars-rect" x="20%" y="0" width="200px" height="100%" fill="black" />
+                                <rect class="profile__modal-form-raiting-stars-rect" x="20%" y="0" width="200px"
+                                      height="100%" fill="black"/>
                             </mask>
 
                             <symbol viewBox="0 0 29 29" id="star2">
-                                <path d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z" />
+                                <path
+                                    d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z"/>
                             </symbol>
                             <symbol viewBox="0 0 190 32" id="stars2">
                                 <use xlink:href="#star2" x="-64" y="0"></use>
@@ -898,7 +970,7 @@
                         </defs>
 
                         <use xlink:href="#stars2" fill="none" stroke="#FFCF03"></use>
-                        <use xlink:href="#stars2" fill="#FFCF03" stroke="#FFCF03"  mask="url(#perc2)"></use>
+                        <use xlink:href="#stars2" fill="#FFCF03" stroke="#FFCF03" mask="url(#perc2)"></use>
                     </svg>
                 </ul>
 
