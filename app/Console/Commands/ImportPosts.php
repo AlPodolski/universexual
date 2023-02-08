@@ -92,8 +92,8 @@ class ImportPosts extends Command
             $post = new Post();
 
             $price = 3000;
-            if ($record['price']) $price = $record['hour'];
-//;;;;;;;;;;;;;;mini;gallery;video;selfi;hour;2hour;night;expres;hour_viezd;2hour_viezd;night_viezd;url
+            if ($record['hour']) $price = $record['hour'];
+//;;;;;;;;;;;;;;;;;;;;;;;;night_viezd;url
 
             $post->name = $record['name'];
             $post->age = $record['age'];
@@ -108,6 +108,11 @@ class ImportPosts extends Command
             $post->city_id = $cityId;
             $post->check_photo_status = rand(0,1);
             $post->price = $price;
+            $post->apartament_2_hour_price = $record['2hour'];
+            $post->apartament_night_price = $record['night'];
+            $post->exit_1_hour_price = $record['hour_viezd'];
+            $post->exit_2_hour_price = $record['2hour_viezd'];
+            $post->exit_night_price = $record['night_viezd'];
             $post->publication_status = 1;
             $post->user_id = 0;
             $post->url = '';
