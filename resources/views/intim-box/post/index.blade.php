@@ -877,7 +877,7 @@
                 @endforeach
 
             </div>
-            @if($viewPosts->first())
+            @if($viewPosts and $viewPosts->first())
                 <div class="profile-main__sim-items tabs-hide" data-tab="checkedAnkets">
                     @foreach($viewPosts as $post)
                         <div class="profile-main__sim-item">
