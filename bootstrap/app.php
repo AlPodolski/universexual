@@ -25,6 +25,11 @@ elseif (strpos($_SERVER['HTTP_HOST'], 'intim-box.loc')){
     define("SITE", 'intim-box.loc');
     define("PATH", 'intim-box');
     define("SITE_ID", 2);
+}
+elseif (strpos($_SERVER['HTTP_HOST'], 'intim-box.com')){
+    define("SITE", 'intim-box.com');
+    define("PATH", 'intim-box');
+    define("SITE_ID", 2);
 }else{
     define("SITE", '');
     define("PATH", '');
