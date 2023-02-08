@@ -55,7 +55,7 @@ class ImportPosts extends Command
     public function handle()
     {
 
-        $stream = \fopen(storage_path('import_09_12_2022.csv'), 'r');
+        $stream = \fopen(storage_path('import_08_02_2023.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
@@ -83,177 +83,170 @@ class ImportPosts extends Command
         }
 
         $i = 0;
+        $cityId = 1;
 
-        $cityList = City::where('url', '<>', 'moskva')->get();
+        $path = 'aaa/';
 
-        foreach ($cityList as $item){
+        foreach ($posts as $record){
 
-            $cityId = $item->id;
+            $post = new Post();
 
-            shuffle($posts);
+            $price = 3000;
+            if ($record['price']) $price = $record['hour'];
+//;;;;;;;;;;;;;;mini;gallery;video;selfi;hour;2hour;night;expres;hour_viezd;2hour_viezd;night_viezd;url
 
-            foreach ($posts as $record){
+            $post->name = $record['name'];
+            $post->age = $record['age'];
+            $post->site_id = 2;
+            $post->phone = $record['phone'];
+            $post->rost = $record['rost'];
+            $post->ves = $record['weight'];
+            $post->breast = $record['grud'];
+            $post->tatu = $record['tatu'];
+            $post->pircing = $record['pirsing'];
+            $post->about = strip_tags($record['anket-about']);
+            $post->city_id = $cityId;
+            $post->check_photo_status = rand(0,1);
+            $post->price = $price;
+            $post->publication_status = 1;
+            $post->user_id = 0;
+            $post->url = '';
+            $post->shoe_size = rand(36,40);
+            $post->clothing_size = 0;
 
-                $post = new Post();
+            $post->contacts_per_hour = rand(1, 3);
 
-                $price = 3000;
-                if ($record['price']) $price = $record['price'];
+            $post->avatar = $path.$record['mini'];
+            if ($record['video']) $post->video = $path.$record['video'];
 
-                $post->name = $record['name'];
-                $post->age = $record['age'];
-                $post->phone = '';
-                $post->rost = $record['rost'];
-                $post->ves = $record['weight'];
-                $post->breast = $record['grud'];
-                $post->about = strip_tags($record['anket-about']);
-                $post->city_id = $cityId;
-                $post->check_photo_status = rand(0,1);
-                $post->price = $price;
-                $post->publication_status = 1;
-                $post->user_id = 0;
-                $post->url = '';
-                $post->shoe_size = rand(36,40);
-                $post->clothing_size = 0;
+            if ($post->save()) {
 
-                $post->contacts_per_hour = rand(1, 3);
+                if ($record['metro']) {
 
-                $post->avatar = $record['mini'];
-                if ($record['video']) $post->video = $record['video'];
+                    $dataList = explode(',', $record['metro']);
 
-                if ($post->save()) {
+                    foreach ($dataList as $item) {
 
-                    if ($record['metro'] and false) {
+                        if ($temp = Metro::where(['value' => $item, 'city_id' => $cityId])->get()->first()) {
 
-                        $dataList = explode(',', $record['metro']);
-
-                        foreach ($dataList as $item) {
-
-                            if ($temp = Metro::where(['value' => $item, 'city_id' => $cityId])->get()->first()) {
-
-                                $postRelation = new PostMetro();
-                                $postRelation->city_id = $cityId;
-                                $postRelation->posts_id = $post->id;
-                                $postRelation->metros_id = $temp->id;
-
-                                $postRelation->save();
-
-                            }
-
-                        }
-
-                    }
-
-                    if ($record['gallery']) {
-
-                        $dataList = explode(',', $record['gallery']);
-
-                        foreach ($dataList as $item) {
-
-                            $file = new Photo();
-
-                            $file->posts_id = $post->id;
-                            $file->file = '/files/' . $item;
-                            $file->type = Photo::GALLERY_TYPE;
-
-                            $file->save();
-
-                        }
-
-                    }
-
-                    if (isset($record['intim']) and $record['intim']) {
-
-                        if ($temp = IntimHair::where(['value' => $item])->get()->first()) {
-
-                            $post->intim_hair_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if ($record['hair']) {
-
-                        if ($temp = HairColor::where(['value' => $item])->get()->first()) {
-
-                            $post->hair_color_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if (isset($record['rayon']) and $record['rayon'] and false) {
-
-                        if ($temp = Rayon::where(['value' => $item])->get()->first()) {
-
-                            $post->rayon_id = $temp->id;
-
-                        }
-
-                    }
-
-                    if (isset($record['ethnik']) and $record['ethnik']) {
-
-                        if ($temp = National::where(['value' => $record['ethnik']])->get()->first()) {
-
-                            $post->national_id = $temp->id;
-
-                        }
-
-                    }
-
-                    foreach ($serviceList as $service) {
-
-                        if (rand(0, 1)) {
-
-                            $postService = new PostService();
-
-                            $postService->posts_id = $post->id;
-                            $postService->service_id = $service->id;
-                            $postService->city_id = $cityId;
-
-                            $postService->save();
-
-                        }
-
-                    }
-
-                    foreach ($placeList as $item) {
-
-                        if (rand(0, 1)) {
-
-                            $postRelation = new PostPlace();
+                            $postRelation = new PostMetro();
                             $postRelation->city_id = $cityId;
                             $postRelation->posts_id = $post->id;
-                            $postRelation->place_id = $item->id;
+                            $postRelation->metros_id = $temp->id;
 
                             $postRelation->save();
 
                         }
 
                     }
-
-                    foreach ($timeList as $item) {
-
-                        if (rand(0, 1)) {
-
-                            $postRelation = new PostTime();
-                            $postRelation->city_id = $cityId;
-                            $postRelation->posts_id = $post->id;
-                            $postRelation->times_id = $item->id;
-
-                            $postRelation->save();
-
-                        }
-
-                    }
-
-                    $post->save();
 
                 }
 
-                $i++;
+                if ($record['gallery']) {
 
-                if ($i > 555) break;
+                    $dataList = explode(',', $record['gallery']);
+
+                    foreach ($dataList as $item) {
+
+                        $file = new Photo();
+
+                        $file->posts_id = $post->id;
+                        $file->file = $path. $item;
+                        $file->type = Photo::GALLERY_TYPE;
+
+                        $file->save();
+
+                    }
+
+                }
+
+                if (isset($record['intim']) and $record['intim']) {
+
+                    if ($temp = IntimHair::where(['value' => $record['intim']])->get()->first()) {
+
+                        $post->intim_hair_id = $temp->id;
+
+                    }
+
+                }
+
+                if ($record['hair']) {
+
+                    if ($temp = HairColor::where(['value' => $record['hair']])->get()->first()) {
+
+                        $post->hair_color_id = $temp->id;
+
+                    }
+
+                }
+
+                if (isset($record['rayon']) and $record['rayon']) {
+
+                    if ($temp = Rayon::where(['value' => $record['rayon']])->get()->first()) {
+
+                        $post->rayon_id = $temp->id;
+
+                    }
+
+                }
+
+                if (isset($record['eth']) and $record['eth']) {
+
+                    if ($temp = National::where(['value' => $record['eth']])->get()->first()) {
+
+                        $post->national_id = $temp->id;
+
+                    }
+
+                }
+
+                foreach ($serviceList as $service) {
+
+                    if (rand(0, 1)) {
+
+                        $postService = new PostService();
+
+                        $postService->posts_id = $post->id;
+                        $postService->service_id = $service->id;
+                        $postService->city_id = $cityId;
+
+                        $postService->save();
+
+                    }
+
+                }
+
+                foreach ($placeList as $item) {
+
+                    if (rand(0, 1)) {
+
+                        $postRelation = new PostPlace();
+                        $postRelation->city_id = $cityId;
+                        $postRelation->posts_id = $post->id;
+                        $postRelation->place_id = $item->id;
+
+                        $postRelation->save();
+
+                    }
+
+                }
+
+                foreach ($timeList as $item) {
+
+                    if (rand(0, 1)) {
+
+                        $postRelation = new PostTime();
+                        $postRelation->city_id = $cityId;
+                        $postRelation->posts_id = $post->id;
+                        $postRelation->times_id = $item->id;
+
+                        $postRelation->save();
+
+                    }
+
+                }
+
+                $post->save();
 
                 exit();
 
