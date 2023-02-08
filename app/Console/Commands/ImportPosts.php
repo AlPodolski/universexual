@@ -108,11 +108,11 @@ class ImportPosts extends Command
             $post->city_id = $cityId;
             $post->check_photo_status = rand(0,1);
             $post->price = $price;
-            $post->apartament_2_hour_price = $record['2hour'];
-            $post->apartament_night_price = $record['night'];
-            $post->exit_1_hour_price = $record['hour_viezd'];
-            $post->exit_2_hour_price = $record['2hour_viezd'];
-            $post->exit_night_price = $record['night_viezd'];
+            $post->apartament_2_hour_price = $record['2hour'] ?? 0;
+            $post->apartament_night_price = $record['night'] ?? 0;
+            $post->exit_1_hour_price = $record['hour_viezd'] ?? 0;
+            $post->exit_2_hour_price = $record['2hour_viezd'] ?? 0;
+            $post->exit_night_price = $record['night_viezd'] ?? 0;
             $post->publication_status = 1;
             $post->user_id = 0;
             $post->url = '';
