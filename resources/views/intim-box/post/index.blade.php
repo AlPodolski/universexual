@@ -100,7 +100,7 @@
                             <div class="profile-main-info__video-text">
                                 Видео
                             </div>
-                            <a data-fancybox="video" href="{{ $post->video }}"
+                            <a data-fancybox="video" href="/storage/{{ $post->video }}"
                                class="profile-main-info__video-bg">
                                 <img class="profile-main-info__video-img"
                                      src="/intim-box/images/content/profile/profile-photo.jpg" alt="">
