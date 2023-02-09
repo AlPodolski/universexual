@@ -1348,6 +1348,8 @@ footer {
 .catalog-item__ui-item{
     display: flex;
     width: 40px;
+    height: 32px;
+    fill: #4926e8;
 }
 .header__location-list__sub-link {
     color: #000;

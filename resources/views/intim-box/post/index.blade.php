@@ -846,7 +846,7 @@
                     <li class="profile-main__sim-header-item tabs-active" data-tab="recAnkets">
                         Рекомендации
                     </li>
-                    <li class="profile-main__sim-header-item" data-tab="checkedAnkets">
+                    <li class="profile-main__sim-header-item d-none" data-tab="checkedAnkets">
                         Просмотренные анкеты
                     </li>
                 </ul>
