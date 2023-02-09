@@ -390,8 +390,7 @@
             </div>
         </div>
         <div id="about" class="profile-main__about profile-main__block profile-main__tab" data-tab="about">
-
-            <span class="profile-main__title">О себе:</span>{{ $post->about }}
+            <span class="profile-main__title">О себе: </span>{{ $post->about }}
         </div>
         <div data-tab="service" id="service" class="profile-main__services profile-main__block profile-main__tab">
             <div class="profile-main__services-header">
