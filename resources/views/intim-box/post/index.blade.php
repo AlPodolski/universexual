@@ -750,7 +750,7 @@
         </div>
 
         @if($metro = $post->metro->first())
-            <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
             <div class="profile-main__location profile-main__block">
                 <div class="profile-main__location-title profile-main__title">
                     Расположение
@@ -768,8 +768,7 @@
             </div>
         @endif
 
-        <div data-tab="reviews" id="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab"
-        >
+        <div data-tab="reviews" id="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab">
             <div class="profile-main__title profile-main-reviews__title">Отзывы</div>
 
             @if($post->reviews->first())
@@ -831,7 +830,7 @@
             @else
                 <div class="profile-main-reviews__noreviews">
                     <div class="profile-main-reviews__text">К этой анкете ещё нет ни одного отзыва. Вы можете
-                        быть первым <img class="emoji" src="images/graphics/icons/emoji.png" alt=""></div>
+                        быть первым <img class="emoji" src="/images/graphics/icons/emoji.png" alt=""></div>
                 </div>
             @endif
 
@@ -840,6 +839,8 @@
             </button>
 
         </div>
+
+
         <div class="profile-main__sim profile-main__block tab-content" id="sim" data-tab="sim">
             <div class="profile-main__sim-header">
                 <ul class="profile-main__sim-header-list">
@@ -986,7 +987,7 @@
             </form>
         </div>
     </div>
-
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 @endsection
 @section('main-menu')
     @include('intim-box.include.main-menu', compact('data'))
