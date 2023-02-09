@@ -4251,40 +4251,16 @@
     e(860) && (n.menu.append(i), t(".sidebar-tags__item", ".sidebar-tags__item-list", ".sidebar-tags-item__title", ".sidebar-tags-item__title")), e(440) && n.menu.prepend(s)
 });
 
-function init_yandex_map(object) {
+function init_yandex_map(map_name) {
 
-    var x = $(object).attr('data-x');
-    var y = $(object).attr('data-y');
+    ymaps.ready(function () {
 
-    if (typeof ymaps == 'undefined') {
+        var x = $('#'+map_name).attr('data-x')
+        var y = $('#'+map_name).attr('data-y')
 
-        $.getScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU", function (data, textStatus, jqxhr) {
-            ymaps.ready(function () {
+        init('map', x, y)
 
-                if ($(object).hasClass('map-not-exist')) {
-
-                    $(object).removeClass('map-not-exist');
-
-                    $('.map').each(init(map_name, x, y));
-
-                }
-
-            })
-        });
-    } else {
-
-        ymaps.ready(function () {
-
-            if ($('#' + map_name).hasClass('map-not-exist')) {
-
-                $('#' + map_name).removeClass('map-not-exist');
-
-                $('.map').each(init('map', x, y));
-
-            }
-
-        })
-    }
+    })
 
 }
 
