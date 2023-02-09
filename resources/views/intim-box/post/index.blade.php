@@ -756,7 +756,7 @@
                 </div>
                 <div class="profile-main__location-map">
                     <div id="map"
-                         class="yandex-map map-not-exist" data-id="{{ $post->id }}"
+                         class="yandex-map map-not-exist"
 
                          data-x="{{ $metro->x }}"
                          data-y="{{ $metro->y }}"
