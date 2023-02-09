@@ -232,7 +232,7 @@
 
     </div>
 </div>
-<script defer src="{{ asset('intim-box/js/script.js?v=1') }}"></script>
+<script defer src="{{ asset('intim-box/js/script.js?v=2') }}"></script>
 
 </body>
 

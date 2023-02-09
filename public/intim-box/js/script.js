@@ -4285,7 +4285,7 @@ function init(map_name, x, y) {
         iconLayout: 'default#image',
 
         // Своё изображение иконки метки.
-        iconImageHref: '/intim-box/images/map.svg',
+        iconImageHref: '/intim-box/images/map.png',
         // Размеры метки.
         iconImageSize: [131, 62],
         // Смещение левого верхнего угла иконки относительно
