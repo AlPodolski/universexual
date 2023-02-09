@@ -1433,7 +1433,7 @@ footer {
 }
 
 .mobile-menu_main {
-    z-index: 1;
+    z-index: 1000;
     top: 104px;
     bottom: 0;
     padding: 0 0 104px 0
@@ -2950,6 +2950,8 @@ footer {
     display: flex;
     list-style: none;
     margin: 21px 0 0 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 0
 }
 
@@ -3533,9 +3535,8 @@ footer {
     display: none;
 }
 .profile-main-info .slick-dots li {
-    width: 79px;
     height: 75px;
-    margin: 0 0 10px 7.5px;
+    margin: 0 0 10px 0;
     cursor: pointer;
     width: 30%;
     max-height: 105px;
