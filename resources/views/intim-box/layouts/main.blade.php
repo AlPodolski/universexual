@@ -216,7 +216,7 @@
                     </p>
                     <a href="mailto:#" class="footer__mail-link link-reset">
                         <svg class="footer__mail-icon">
-                            <use xlink:href="svg/dest/stack/sprite.svg#mail"></use>
+                            <use xlink:href="/svg/dest/stack/sprite.svg#mail"></use>
                         </svg>
                         <span>mail.@mail.ru</span>
                     </a>
