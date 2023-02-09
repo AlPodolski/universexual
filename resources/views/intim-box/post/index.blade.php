@@ -976,7 +976,7 @@
                     </svg>
                 </ul>
 
-                <input type="text" value="Имя" name="name" class="form-input">
+                <input type="text" placeholder="Имя" required name="name" class="form-input">
 
                 <textarea class="profile__modal-form-textarea" name="text" placeholder="Комментарий"></textarea>
                 <div class="profile__modal-form-captcha"></div>

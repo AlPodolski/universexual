@@ -2250,9 +2250,6 @@ footer {
 
 .catalog-item__item-name {
     color: #9690b1;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 1 10%;
-    flex: 0 1 10%
 }
 
 .catalog-item__item-space {
@@ -2642,7 +2639,7 @@ footer {
 
 .profile__modal-form-textarea {
     max-width: 486px;
-    margin: 38px 0 0 0;
+    margin: 20px 0 0 0;
     width: 100%;
     resize: none;
     height: 65px;
@@ -3095,6 +3092,7 @@ footer {
 .profile-main-info__characters-price {
     max-width: 360px;
     width: 100%;
+    margin: auto;
     list-style: none
 }
 
@@ -3338,6 +3336,7 @@ footer {
 .footer {
     padding: 3.7142857143rem 0 5.8571428571rem 0;
     border-top: 1px solid #e8e8e8;
+    background: rgba(73, 38, 232, .07);
     font-size: 1.2857142857rem
 }
 
@@ -3545,6 +3544,15 @@ footer {
     overflow: hidden;
     border-radius: 7px;
 }
+.form-input {
+    border: 1px solid #eee;
+    padding: 8px 23px;
+    border-radius: 7px;
+    color: #b8b8b8;
+    max-width: 486px;
+    width: 100%;
+}
+
 @media (max-width: 650px) {
     .profile-main__sim-item {
         min-width: 325px;
