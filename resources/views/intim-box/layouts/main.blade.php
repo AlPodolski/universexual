@@ -66,9 +66,9 @@
                         @yield('location')
                     @endif
                     <div class="header__ui header__col">
-                        <button class="header__ui-search btn">
+                        <button class="header__ui-search btn d-none">
                             <svg class="header__ui-search-icon">
-                                <use xlink:href='svg/dest/stack/sprite.svg#search'></use>
+                                <use xlink:href='/svg/dest/stack/sprite.svg#search'></use>
                             </svg>
                         </button>
                         <button class="header__ui-add btn">
@@ -98,7 +98,7 @@
                                 <li class="main-top-menu__item">
                                     <a href="/individualki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
-                                            <use xlink:href="svg/dest/stack/sprite.svg#home"></use>
+                                            <use xlink:href="/svg/dest/stack/sprite.svg#home"></use>
                                         </svg>
                                         Индивидуалки
                                     </a>
@@ -106,7 +106,7 @@
                                 <li class="main-top-menu__item">
                                     <a href="/proverennye" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
-                                            <use xlink:href="svg/dest/stack/sprite.svg#verif"></use>
+                                            <use xlink:href="/svg/dest/stack/sprite.svg#verif"></use>
                                         </svg>
                                         Проверенные
                                     </a>
@@ -114,7 +114,7 @@
                                 <li class="main-top-menu__item">
                                     <a href="/novye" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
-                                            <use xlink:href="svg/dest/stack/sprite.svg#new"></use>
+                                            <use xlink:href="/svg/dest/stack/sprite.svg#new"></use>
                                         </svg>
                                         Новые
                                     </a>
@@ -122,7 +122,7 @@
                                 <li class="main-top-menu__item">
                                     <a href="/deshevye-prostitutki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
-                                            <use xlink:href="svg/dest/stack/sprite.svg#"></use>
+                                            <use xlink:href="/svg/dest/stack/sprite.svg#money"></use>
                                         </svg>
                                         Дешевые
                                     </a>
@@ -130,7 +130,7 @@
                                 <li class="main-top-menu__item">
                                     <a href="/dorogie-prostitutki" class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
-                                            <use xlink:href="svg/dest/stack/sprite.svg#crown"></use>
+                                            <use xlink:href="/svg/dest/stack/sprite.svg#crown"></use>
                                         </svg>
                                         Элитные
                                     </a>
@@ -209,6 +209,17 @@
                         <li class="footer__menu-item">
                         </li>
                     </ul>
+                </div>
+                <div class="footer__mail footer__col">
+                    <p class="footer__mail-descr">
+                        Обращайтесь на почту по всем интересующим вопрсам
+                    </p>
+                    <a href="mailto:#" class="footer__mail-link link-reset">
+                        <svg class="footer__mail-icon">
+                            <use xlink:href="svg/dest/stack/sprite.svg#mail"></use>
+                        </svg>
+                        <span>mail.@mail.ru</span>
+                    </a>
                 </div>
 
             </div>

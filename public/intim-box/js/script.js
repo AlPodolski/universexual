@@ -4170,7 +4170,7 @@
             <div class="mobile-menu__header">
                 <div class="mobile-menu__back" id="back${t}">
                     <svg class="mobile-menu__back-icon">
-                        <use xlink:href='svg/dest/stack/sprite.svg#arrow'></use>
+                        <use xlink:href='/svg/dest/stack/sprite.svg#arrow'></use>
                     </svg>
                 </div>
                 <div class="mobile-menu__title">${e.querySelector(i).innerText || e.querySelector(i).textContent}</div>

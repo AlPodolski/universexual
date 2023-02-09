@@ -1,14 +1,14 @@
 <div class="header__location header__col">
     <ul class="header__location-list">
-        <li class="header__location-list__item">
+        <li class="header__location-list__item city-location">
             <svg class="header__location-icon">
-                <use xlink:href='svg/dest/stack/sprite.svg#map'></use>
+                <use xlink:href='/svg/dest/stack/sprite.svg#map'></use>
             </svg>
             <div class="header__location-text">
                 {{ $data['current_city']->city }}
             </div>
             <svg class="header__location-arrow">
-                <use xlink:href='svg/dest/stack/sprite.svg#arrow-down'></use>
+                <use xlink:href='/svg/dest/stack/sprite.svg#arrow-down'></use>
             </svg>
             <ul class="header__location-list__sub">
 
@@ -27,13 +27,13 @@
 
             <li class="header__location-list__item">
                 <svg class="header__location-icon">
-                    <use xlink:href='svg/dest/stack/sprite.svg#metro'></use>
+                    <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
                 </svg>
                 <div class="header__location-text">
                     Метро
                 </div>
                 <svg class="header__location-arrow">
-                    <use xlink:href='svg/dest/stack/sprite.svg#arrow-down'></use>
+                    <use xlink:href='/svg/dest/stack/sprite.svg#arrow-down'></use>
                 </svg>
                 <ul class="header__location-list__sub">
 

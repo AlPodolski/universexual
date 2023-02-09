@@ -121,40 +121,38 @@
                 </div>
             </li>
         </ul>
-        <ul class="catalog-item__ui">
+        <div class="catalog-item__ui">
 
             @if($post->check_photo_status)
-                <li class="catalog-item__ui-item">
+                <div class="catalog-item__ui-item">
                     <a href="#" class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
                         </svg>
                     </a>
-                </li>
+                </div>
             @endif
 
             @if($post->video)
-                <li class="catalog-item__ui-item">
+                <div class="catalog-item__ui-item">
                     <a data-fancybox="video"
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
                         </svg>
                     </a>
-                </li>
+                </div>
             @endif
 
             @if($post->reviews->first())
-                <li class="catalog-item__ui-item">
-                    <a href="#" class="catalog-item__ui-link link-reset btn">
+                <div class="catalog-item__ui-item">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
                         </svg>
-                    </a>
-                </li>
+                </div>
             @endif
 
-        </ul>
+        </div>
     </div>
     <a href="#" class="catalog-item__link"></a>
 </div>

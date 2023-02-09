@@ -831,11 +831,12 @@
                 <div class="profile-main-reviews__noreviews">
                     <div class="profile-main-reviews__text">К этой анкете ещё нет ни одного отзыва. Вы можете
                         быть первым <img class="emoji" src="images/graphics/icons/emoji.png" alt=""></div>
-                    <button class="profile-main-reviews__btn btn profile__modal-toggle">
-                        Оставить отзыв
-                    </button>
                 </div>
             @endif
+
+            <button class="profile-main-reviews__btn btn profile__modal-toggle">
+                Оставить отзыв
+            </button>
 
         </div>
         <div class="profile-main__sim profile-main__block tab-content" id="sim" data-tab="sim">
@@ -853,13 +854,13 @@
 
                 @foreach($morePosts as $post)
                     <div class="profile-main__sim-item">
-                        <div class="profile-main__sim-item-photo">
+                        <a href="/post/{{ $post->url }}" class="profile-main__sim-item-photo">
                             <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
-                        </div>
+                        </a>
                         <div class="profile-main__sim-item-name item-name">
-                            <div class="item-name__text profile-main__sim-title-item-name-text">
+                            <a href="/post/{{ $post->url }}" class="item-name__text profile-main__sim-title-item-name-text">
                                 {{ $post->name }}
-                            </div>
+                            </a>
                             <img class="item-name__icon profile-main__sim-title-item-name-icon"
                                  src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
                         </div>
@@ -881,13 +882,13 @@
                 <div class="profile-main__sim-items tabs-hide" data-tab="checkedAnkets">
                     @foreach($viewPosts as $post)
                         <div class="profile-main__sim-item">
-                            <div class="profile-main__sim-item-photo">
+                            <a href="/post/{{ $post->url }}" class="profile-main__sim-item-photo">
                                 <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
-                            </div>
+                            </a>
                             <div class="profile-main__sim-item-name item-name">
-                                <div class="item-name__text profile-main__sim-title-item-name-text">
+                                <a href="/post/{{ $post->url }}" class="item-name__text profile-main__sim-title-item-name-text">
                                     {{ $post->name }}
-                                </div>
+                                </a>
                                 <img class="item-name__icon profile-main__sim-title-item-name-icon"
                                      src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
                             </div>
@@ -915,7 +916,7 @@
                 </div>
                 <div class="profile__modal-close profile__modal-toggle">
                     <svg>
-                        <use xlink:href='svg/dest/stack/sprite.svg#close'></use>
+                        <use xlink:href='/svg/dest/stack/sprite.svg#close'></use>
                     </svg>
                 </div>
             </div>
