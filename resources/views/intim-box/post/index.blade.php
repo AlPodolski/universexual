@@ -750,6 +750,7 @@
         </div>
 
         @if($metro = $post->metro->first())
+            <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
             <div class="profile-main__location profile-main__block">
                 <div class="profile-main__location-title profile-main__title">
                     Расположение
