@@ -8,7 +8,7 @@ class RobotController extends Controller
 {
     public function __invoke(Request $request)
     {
-        return response()->view('robot.index', ['host' => $request->getHttpHost()])
+        return response()->view(PATH.'.robot.index', ['host' => $request->getHttpHost()])
             ->header('Content-Type', 'text/plain; charset=UTF-8');
     }
 }
