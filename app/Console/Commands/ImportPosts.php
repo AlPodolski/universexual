@@ -82,7 +82,7 @@ class ImportPosts extends Command
             }
         }
 
-        $i = 0;
+
         $cityId = 1;
 
         $path = 'aaa/';
@@ -90,8 +90,10 @@ class ImportPosts extends Command
         $cityList = City::where('url', '<>', 'moskva')->get();
 
         foreach ($cityList as $cityItem){
-
+            $i = 0;
             $cityId = $cityItem->id;
+
+            shuffle($posts);
 
             foreach ($posts as $record){
 
@@ -260,7 +262,9 @@ class ImportPosts extends Command
 
                     $post->save();
 
-                    exit();
+                    $i++;
+
+                    if ($i > 600) break;
 
                 }
 
