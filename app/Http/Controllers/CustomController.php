@@ -10,6 +10,6 @@ class CustomController extends Controller
         $data = $this->dataRepository->getData($cityInfo['id']);
         $meta = ['title' => 'Политика конфиденциальности', 'des' => 'Политика конфиденциальности сайта prostitutki.nl'];
 
-        return view('custom.politic', compact('meta', 'data'));
+        return view(PATH.'.custom.politic', compact('meta', 'data'));
     }
 }
