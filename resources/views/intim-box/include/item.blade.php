@@ -4,7 +4,15 @@
 <div class="catalog-item">
     <div class="catalog-item__header">
         <a href="/post/{{ $post->url }}">
-            <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}" alt="">
+            <picture>
+
+                <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
+                <source srcset="/400-500/thumbs/{{$post->avatar}}" type="image/jpeg">
+
+                <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
+                     alt="Проститутка {{ $post->name }}">
+            </picture>
+
         </a>
         <div data-id="{{ $post->id }}" onclick="add_to_favorite(this)"
              class="
