@@ -95,6 +95,7 @@
         </header>
         <main>
             <div class="container">
+                <div id="arrowTop" hidden></div>
                 <div class="row">
                     @if(View::hasSection('main-menu'))
                         @yield('main-menu')

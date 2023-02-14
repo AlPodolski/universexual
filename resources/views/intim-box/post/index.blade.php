@@ -102,15 +102,11 @@
                             <div class="profile-main-info__video-text">
                                 Видео
                             </div>
-                            <a data-fancybox="video" href="/storage/{{ $post->video }}"
-                               class="profile-main-info__video-bg">
-                                <img class="profile-main-info__video-img"
-                                     src="/intim-box/images/content/profile/profile-photo.jpg" alt="">
 
-                                <img class="profile-main-info__video-icon"
-                                     src="/intim-box/images/graphics/icons/play.svg"
-                                     alt="">
-                            </a>
+                            <video controls="controls" class="video">
+                                <source src="/storage/{{ $post->video }}">
+                            </video>
+
                         </div>
                     @endif
 

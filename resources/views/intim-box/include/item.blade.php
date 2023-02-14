@@ -13,7 +13,11 @@
              @endif
              catalog-item__favorite
              ">
-            <img src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
+            <img
+                @if($i > 3)
+                    loading="lazy"
+                @endif
+                src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
         </div>
     </div>
     <div class="catalog-item__body">
@@ -21,8 +25,6 @@
             <a href="/post/{{ $post->url }}" class="catalog-item__title-text">
                 {{ $post->name }}
             </a>
-            <img class="catalog-item__title-icon" src="/intim-box/images/graphics/catalog-page/diamond.png"
-                 alt="">
             <a href="tel:+{{ $post->phone }}" data-tel="{{ $post->phone }}"
                onclick="show_phone(this)"
                class="catalog-item__phone">
@@ -127,7 +129,9 @@
 
             @if($post->check_photo_status)
                 <div class="catalog-item__ui-item">
-                    <a href="#" class="catalog-item__ui-link link-reset btn">
+                    <a href="#"
+                       title="Проверенное фото"
+                       class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
                         </svg>
@@ -138,6 +142,7 @@
             @if($post->video)
                 <div class="catalog-item__ui-item">
                     <a data-fancybox="video"
+                       title="Есть видео"
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
@@ -148,9 +153,11 @@
 
             @if($post->reviews->first())
                 <div class="catalog-item__ui-item">
+                    <a title="Есть отзывы" class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
                         </svg>
+                    </a>
                 </div>
             @endif
 
