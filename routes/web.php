@@ -27,7 +27,10 @@ Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/post/{url}', \App\Http\Controllers\PostController::class);
     Route::get('/poisk',  \App\Http\Controllers\SearchController::class);
     Route::get('/filter',  [\App\Http\Controllers\SearchController::class, 'filter']);
+
     Route::get('/sitemap.xml',  \App\Http\Controllers\SiteMapController::class);
+    Route::get('/sitemap_post.xml',  [\App\Http\Controllers\SiteMapController::class, 'post']);
+    Route::get('/sitemap_page.xml',  [\App\Http\Controllers\SiteMapController::class, 'page']);
 
     Route::get('/robots.txt', \App\Http\Controllers\RobotController::class);
     Route::get('/intim-karta', \App\Http\Controllers\MapController::class);
