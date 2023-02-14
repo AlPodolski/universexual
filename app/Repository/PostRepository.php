@@ -275,4 +275,21 @@ class PostRepository
         return $posts;
     }
 
+    public function getFavorite()
+    {
+        if ($ids = \Cookie::get('post_favorite')) {
+
+            $data = unserialize($ids);
+
+            $posts = Post::with('metro')
+                ->whereIn('id', $data)
+                ->paginate(20);
+
+            return $posts;
+
+        }
+
+        return false;
+    }
+
 }

@@ -32,5 +32,5 @@
 @endsection
 
 @section('open-graph')
-    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
+    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], '/intim-box/images/logo.png'])
 @endsection

@@ -23,11 +23,13 @@
             </a>
             <img class="catalog-item__title-icon" src="/intim-box/images/graphics/catalog-page/diamond.png"
                  alt="">
-            <a href="tel:+{{ $post->phone }}" class="catalog-item__phone">
+            <a href="tel:+{{ $post->phone }}" data-tel="{{ $post->phone }}"
+               onclick="show_phone(this)"
+               class="catalog-item__phone">
                 <svg class="catalog-item__phone-icon">
                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
                 </svg>
-                {{ $post->phone }}
+                Показать телефон
             </a>
         </div>
         @if($metro = $post->metro->first())

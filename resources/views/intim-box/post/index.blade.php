@@ -9,6 +9,8 @@
 
 @section('content')
 
+    {!! $imageMicro !!}
+
     <div class="profile-main">
         @include('intim-box.include.breadcrumb' , ['title' => $post->name])
         <h1 class="profile__title">
@@ -119,11 +121,14 @@
                             Номер телефона
                         </div>
                         <div class="profile-main-info__characters-cur">
-                            <a href="tel:+{{ $post->phone }}" class="catalog-item__phone">
+                            <a href="tel:+{{ $post->phone }}"
+                               data-tel="{{ $post->phone }}"
+                               onclick="show_phone(this)"
+                               class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
                                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
                                 </svg>
-                                {{ $post->phone }}
+                                Показать телефон
                             </a>
                         </div>
                     </li>
@@ -997,5 +1002,5 @@
 @endsection
 
 @section('open-graph')
-    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
+    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/252-309/thumbs/'.$post->avatar])
 @endsection

@@ -1,4 +1,5 @@
-<div class="sidebar">
+<div class="sidebar" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <meta itemprop="name" content="Каталог">
     <div class="sidebar__header">
         <svg class="sidebar__header-burger">
             <use xlink:href="/svg/dest/stack/sprite.svg#burger"></use>
@@ -13,35 +14,35 @@
     <div class="sidebar__types">
         <ul class="sidebar__types-list">
             <li class="sidebar__types-item">
-                <a href="/video" class="sidebar__types-link link-reset link-reset">
+                <a itemprop="url" href="/video" class="sidebar__types-link link-reset link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#video"></use>
                     </svg>
-                    С видео
+                    <span itemprop="name">С видео</span>
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a href="/intim-salony" class="sidebar__types-link link-reset">
+                <a itemprop="url" href="/intim-salony" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#home-location"></use>
                     </svg>
-                    Интим-салоны
+                    <span itemprop="name">Интим-салоны</span>
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a href="/eroticeskii-massaz" class="sidebar__types-link link-reset">
+                <a itemprop="url" href="/eroticeskii-massaz" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#massage"></use>
                     </svg>
-                    Массажистки
+                    <span itemprop="name">Массажистки</span>
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a href="/intim-karta" class="sidebar__types-link link-reset">
+                <a itemprop="url" href="/intim-karta" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#location"></use>
                     </svg>
-                    Интим-карта
+                    <span itemprop="name">Интим-карта</span>
                 </a>
             </li>
         </ul>

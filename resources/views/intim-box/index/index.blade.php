@@ -10,6 +10,11 @@
     @section('webmaster', $webmaster['tag'])
 @endif
 @section('content')
+
+    @if(isset($productMicro))
+        {!! $productMicro !!}
+    @endif
+
     <div class="catalog__body">
 
         <div class="catalog-descr">
@@ -44,5 +49,5 @@
 @endsection
 
 @section('open-graph')
-    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
+    @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/intim-box/images/logo.png'])
 @endsection

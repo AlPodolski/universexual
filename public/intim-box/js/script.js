@@ -4251,6 +4251,14 @@
     e(860) && (n.menu.append(i), t(".sidebar-tags__item", ".sidebar-tags__item-list", ".sidebar-tags-item__title", ".sidebar-tags-item__title")), e(440) && n.menu.prepend(s)
 });
 
+function show_phone(object){
+
+    var phone = $(object).attr('data-tel');
+
+    $(object).html(phone);
+
+}
+
 function init_yandex_map(map_name) {
 
     ymaps.ready(function () {

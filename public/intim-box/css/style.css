@@ -3552,7 +3552,20 @@ footer {
     max-width: 486px;
     width: 100%;
 }
-
+.catalog-item__phone{
+    font-size: 16px;
+}
+.favorite{
+    display: flex;
+}
+.favorite a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.favorite svg{
+    margin-right: 15px;
+}
 @media (max-width: 650px) {
     .profile-main__sim-item {
         min-width: 325px;
