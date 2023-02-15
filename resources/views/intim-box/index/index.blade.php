@@ -43,7 +43,7 @@
         </div>
 
         @if($posts->total() > $posts->count())
-            {{ $posts->links('intim-box.vendor.pagination.bootstrap-4') }}
+            {!! str_replace('http', 'https', $posts->links('intim-box.vendor.pagination.bootstrap-4')) !!}
         @endif
 
     </div>

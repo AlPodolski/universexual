@@ -24,6 +24,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/intim-box/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <meta name="googlebot" content="max-snippet:-1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('des')">
@@ -167,8 +168,8 @@
                         </svg>
                     </a>
                     <p class="footer__about-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua.
+                        «© {{ date('Y') }} INTIM-BOX»
+                        Администрация не несет ответственности за размещенную пользователями информацию.
                     </p>
                 </div>
                 <div class="footer__menu footer__col">
@@ -232,7 +233,6 @@
                         <svg class="footer__mail-icon">
                             <use xlink:href="/svg/dest/stack/sprite.svg#mail"></use>
                         </svg>
-                        <span>mail.@mail.ru</span>
                     </a>
                 </div>
 

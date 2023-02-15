@@ -25,6 +25,9 @@
             </h1>
         </div>
         <div class="catalog-items">
+            @php
+                $i = 0;
+            @endphp
             @foreach($posts as $post)
                 @include('intim-box.include.item')
             @endforeach

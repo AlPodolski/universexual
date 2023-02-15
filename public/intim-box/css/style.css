@@ -1418,7 +1418,7 @@ footer {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 1000;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -3582,6 +3582,9 @@ footer {
     background-position: center;
 }
 @media (max-width: 650px) {
+    .favorite{
+        display: none;
+    }
     .profile-main__sim-item {
         min-width: 325px;
         max-width: 325px;
