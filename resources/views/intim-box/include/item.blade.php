@@ -10,7 +10,8 @@
                 <source srcset="/400-500/thumbs/{{$post->avatar}}" type="image/jpeg">
 
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
-                     alt="Проститутка {{ $post->name }}">
+                     alt="{{ $post->alt }}"
+                     title="{{ $post->title }}">
             </picture>
 
         </a>

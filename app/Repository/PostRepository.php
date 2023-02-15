@@ -22,7 +22,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('site_id', SITE_ID)
-            ->with('metro', 'reviews')
+            ->with('metro', 'reviews', 'city')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -165,7 +165,7 @@ class PostRepository
         if ($indi) $posts = $posts->where('type', Post::INDI_TYPE);
 
         $posts = $posts
-            ->with('place', 'reviews')
+            ->with('place', 'reviews', 'city')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -178,7 +178,7 @@ class PostRepository
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
             ->where('site_id', SITE_ID)
-            ->with('reviews')
+            ->with('reviews', 'city')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -268,7 +268,7 @@ class PostRepository
     {
         $posts = Post::where(['city_id' => $cityId])
             ->where('site_id', SITE_ID)
-            ->with('metro')
+            ->with('metro', 'city')
             ->orderByRaw('RAND()')
             ->limit($limit)->get();
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * App\Models\Post
@@ -89,6 +90,11 @@ class Post extends Model
             ->select('places.url as places_url','places.id', 'places.value as places_value', 'posts_id');
     }
 
+    public function city(): HasOne
+    {
+        return $this->hasOne(City::class, 'id', 'city_id');
+    }
+
     public function rayon(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(Rayon::class, 'id', 'rayon_id')
@@ -103,5 +109,26 @@ class Post extends Model
     public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Photo::class, 'posts_id', 'id');
+    }
+
+    public function getAltAttribute(): string
+    {
+        $result = $this->name;
+
+        if ($metro = $this->metro->first()) $result .= ' метро ' . $metro->metro_value;
+        if ($this->city) $result .= ' Г. ' . $this->city->city;
+
+        return $result;
+
+    }
+
+    public function getTitleAttribute(): string
+    {
+        $result = 'Фото проститутки '.$this->name;
+
+        if ($this->city) $result .= ' в городе ' . $this->city->city;
+
+        return $result;
+
     }
 }

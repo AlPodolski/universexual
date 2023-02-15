@@ -21,11 +21,14 @@
             <h1 class="catalog-descr__title">
                 {{ $meta['h1'] }}
             </h1>
-            <p class="catalog-descr__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-            </p>
+            @if($data['current_city']->id == 1)
+                <p class="catalog-descr__text">
+                    Незаменимые и лучшие проститутки Москвы — это мечта каждого мужчины, как местного,
+                    так и гостя столицы. Наш сервис призван решить проблему быстрого и удобного поиска
+                    шлюх по всем параметрам: от цены до предоставляемых услуг. Наш каталог анкет с
+                    настоящими фото и разнообразными ценниками поможет вам сделать правильных и легкий выбор!
+                </p>
+            @endif
         </div>
         <div class="catalog-items">
             @php
