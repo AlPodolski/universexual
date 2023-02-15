@@ -43,7 +43,7 @@
             </ul>
         </nav>
         <div class="profile-main__info profile-main-info profile-main__block">
-            <div class="row">
+            <div class="row wrap">
                 <div class="profile-main-info__media profile-main__tab show" data-tab="photo">
                     <div class="profile-main-info__slider">
                         <div class="profile-main-info__slider-main">
@@ -987,7 +987,7 @@
             </form>
         </div>
     </div>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src1="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 @endsection
 @section('main-menu')
     @include('intim-box.include.main-menu', compact('data'))

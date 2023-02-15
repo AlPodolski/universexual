@@ -1206,16 +1206,6 @@ footer {
     padding: 28px 0;
     font-size: 20px
 }
-
-.header__row {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between
-}
-
 .header__mob-menu {
     display: none
 }
@@ -2819,8 +2809,6 @@ footer {
     margin-left: -1px;
     line-height: 1.25;
     color: #007bff;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
 }
 .page-link {
     border-radius: 50%;
@@ -2832,16 +2820,16 @@ footer {
     padding: 0;
     color: #000;
 }
-.page-item.active .page-link {
-    background-color: #333;
-    border-color: #333;
+.page-link{
+    text-decoration: none;
+    font-size: 18px;
+    color: #E0DAFB;
 }
 .page-item.active .page-link {
     z-index: 3;
-    color: #fff;
-    background-color: #755bed;
-    border-color: #755bed;
+    color: #4926E8;
 }
+
 .profile-main-reviews__item-avatar {
     width: 59px;
     height: 59px;
@@ -3078,6 +3066,7 @@ footer {
 .profile-main-info__characters-metro {
     display: -webkit-box;
     display: -ms-flexbox;
+    flex-wrap: wrap;
     display: flex
 }
 
@@ -3294,7 +3283,9 @@ footer {
     margin: 0;
     padding: 0
 }
-
+.wrap{
+    flex-wrap: wrap;
+}
 @media (max-width: 1050px) {
     .profile-main-info__characters-alert {
         max-width: 130px
@@ -3326,10 +3317,6 @@ footer {
         margin: 15px 0;
         position: relative;
         max-width: none
-    }
-
-    .profile-main__tab {
-        display: none
     }
 }
 

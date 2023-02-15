@@ -229,11 +229,6 @@
                     <p class="footer__mail-descr">
                         Обращайтесь на почту по всем интересующим вопрсам
                     </p>
-                    <a href="mailto:#" class="footer__mail-link link-reset">
-                        <svg class="footer__mail-icon">
-                            <use xlink:href="/svg/dest/stack/sprite.svg#mail"></use>
-                        </svg>
-                    </a>
                 </div>
 
             </div>
