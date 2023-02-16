@@ -1111,7 +1111,7 @@
             </form>
         </div>
     </div>
-    <script src1="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 @endsection
 @section('main-menu')
     @include('intim-box.include.main-menu', compact('data'))
