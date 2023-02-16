@@ -2,8 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Models\City;
 use App\Models\Post;
 use Illuminate\Console\Command;
+use League\Csv\Reader;
+use League\Csv\Statement;
 
 class CustCommand extends Command
 {
@@ -13,13 +16,34 @@ class CustCommand extends Command
 
     public function handle()
     {
-        $posts = Post::get();
+        $stream = \fopen(storage_path('city_kor.csv'), 'r');
 
-        foreach ($posts as $post){
+        $csv = Reader::createFromStream($stream);
+        $csv->setDelimiter(';');
+        $csv->setHeaderOffset(0);
+        //build a statement
+        $stmt = (new Statement());
 
-            $post->url = \Str::slug($post->name.'-'.$post->id);
+        $records = $stmt->process($csv);
 
-            $post->save();
+        $data = array();
+
+        foreach ($records as $value) {
+
+            $data[] = $value;
+
+        }
+
+        foreach ($data as $item){
+
+            if ($city = City::where('city', $item['city'])->first()){
+
+                $city->x = $item['x'];
+                $city->y = $item['y'];
+
+                $city->save();
+
+            }
 
         }
 

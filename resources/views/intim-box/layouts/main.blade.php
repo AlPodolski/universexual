@@ -31,7 +31,7 @@
 
     @if(View::hasSection('can'))
         <link rel="canonical" href="@yield('can')">
-        <meta name="robots" content="noindex, follow">
+        <meta name="robots" content="index, follow">
     @endif
 
     @if(View::hasSection('webmaster'))
@@ -42,7 +42,7 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="{{ asset('intim-box/css/style.css?v=2') }}">
+    <link rel="stylesheet" href="{{ asset('intim-box/css/style.css?v=3') }}">
 </head>
 
 <body>
@@ -241,7 +241,7 @@
 
     </div>
 </div>
-<script defer src="{{ asset('intim-box/js/script.js?v=3') }}"></script>
+<script defer src="{{ asset('intim-box/js/script.js?v=4') }}"></script>
 
 </body>
 

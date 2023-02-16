@@ -3573,6 +3573,12 @@ footer {
     transform: rotate(270deg);
     background-position: center;
 }
+.profile-main-info__characters-name {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
 @media (max-width: 650px) {
     .favorite{
         display: none;

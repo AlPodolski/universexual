@@ -51,7 +51,8 @@
                             <div class="profile-main-info__slider-main-slide">
                                 <img class="profile-main-info__slider-main-img"
                                      loading="lazy"
-                                     src="/252-309/thumbs/{{$post->avatar}}" alt="">
+                                     src="/252-309/thumbs/{{$post->avatar}}"
+                                     alt="Фото проститутки {{ $post->name }} №1 в городе {{ $data['current_city']->city }}">
 
                                 @if($post->check_photo_status)
                                     <div class="profile-main-info__slider-main-verif">
@@ -69,31 +70,44 @@
                                 @endif
                             </div>
 
-                            @foreach($post->photo as $item)
+                            @if($post->photo)
 
-                                <div class="profile-main-info__slider-main-slide">
-                                    <img class="profile-main-info__slider-main-img"
-                                         loading="lazy"
-                                         src="/211-300/thumbs/{{$item->file}}" alt="">
+                                @php
+                                    $i = 2;
+                                @endphp
 
-                                    @if($post->check_photo_status)
-                                        <div class="profile-main-info__slider-main-verif">
+                                @foreach($post->photo as $item)
+
+                                    <div class="profile-main-info__slider-main-slide">
+                                        <img class="profile-main-info__slider-main-img"
+                                             loading="lazy"
+                                             alt="Фото проститутки {{ $post->name }} №{{$i}} в городе {{ $data['current_city']->city }}"
+                                             src="/211-300/thumbs/{{$item->file}}" >
+
+                                        @php
+                                            $i++;
+                                        @endphp
+
+                                        @if($post->check_photo_status)
                                             <div class="profile-main-info__slider-main-verif">
-                                                <div class="profile-main-info__slider-main-verif-icon">
-                                                    <svg>
-                                                        <use xlink:href='/svg/dest/stack/sprite.svg#camera'></use>
-                                                    </svg>
-                                                </div>
-                                                <div class="profile-main-info__slider-main-verif-text">
-                                                    Проверено
+                                                <div class="profile-main-info__slider-main-verif">
+                                                    <div class="profile-main-info__slider-main-verif-icon">
+                                                        <svg>
+                                                            <use xlink:href='/svg/dest/stack/sprite.svg#camera'></use>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="profile-main-info__slider-main-verif-text">
+                                                        Проверено
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @endif
+                                        @endif
 
-                                </div>
+                                    </div>
 
-                            @endforeach
+                                @endforeach
+
+                            @endif
 
                         </div>
                     </div>
@@ -849,7 +863,7 @@
             </div>
         </div>
 
-        @if($metro = $post->metro->first())
+        @if($metro = $post->metro->first() or $data['current_city']->id != 1)
 
             <div class="profile-main__location profile-main__block">
                 <div class="profile-main__location-title profile-main__title">
@@ -859,8 +873,18 @@
                     <div id="map"
                          class="yandex-map map-not-exist"
 
-                         data-x="{{ $metro->x }}"
-                         data-y="{{ $metro->y }}"
+                         @php
+                         if ($metro){
+                             $x = $metro->x;
+                             $y = $metro->y;
+                         }else{
+                             $x = $data['current_city']->x;
+                             $y = $data['current_city']->y;
+                         }
+                         @endphp
+
+                         data-x="{{ $x}}"
+                         data-y="{{ $y }}"
 
                          style="height: 200px">
                     </div>
