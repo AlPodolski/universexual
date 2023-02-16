@@ -953,6 +953,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 700;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Bold.ttf) format("truetype")
 }
 
@@ -960,6 +961,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 700;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Bold.eot?) format("eot")
 }
 
@@ -967,6 +969,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 400;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Regular.ttf) format("truetype")
 }
 
@@ -974,6 +977,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 400;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Regular.eot?) format("eot")
 }
 
@@ -981,6 +985,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 300;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Light.ttf) format("truetype")
 }
 
@@ -988,6 +993,7 @@ body.compensate-for-scrollbar {
     font-family: Circe;
     font-weight: 300;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Circe/Circe-Light.eot?) format("eot")
 }
 
@@ -995,6 +1001,7 @@ body.compensate-for-scrollbar {
     font-family: Italiana;
     font-weight: 400;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Italiana/Italiana-Regular.ttf) format("truetype")
 }
 
@@ -1002,6 +1009,7 @@ body.compensate-for-scrollbar {
     font-family: Ubuntu;
     font-weight: 400;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf) format("truetype")
 }
 
@@ -1009,6 +1017,7 @@ body.compensate-for-scrollbar {
     font-family: Ubuntu;
     font-weight: 500;
     font-style: normal;
+    font-display:swap;
     src: url(../fonts/Ubuntu/Ubuntu-Medium.ttf) format("truetype")
 }
 
