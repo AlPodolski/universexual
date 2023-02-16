@@ -26,7 +26,8 @@
              catalog-item__favorite
              ">
             <img
-
+                width="27px"
+                height="23px"
                 src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
         </div>
     </div>
