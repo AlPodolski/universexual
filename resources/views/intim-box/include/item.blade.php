@@ -11,6 +11,9 @@
 
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
                      alt="{{ $post->alt }}"
+                     @if($i > 3)
+                         loading="lazy"
+                     @endif
                      title="{{ $post->title }}">
             </picture>
 
@@ -23,9 +26,7 @@
              catalog-item__favorite
              ">
             <img
-                @if($i > 3)
-                    loading="lazy"
-                @endif
+
                 src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
         </div>
     </div>
