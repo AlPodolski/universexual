@@ -14,7 +14,7 @@
     <div class="sidebar__types">
         <ul class="sidebar__types-list">
             <li class="sidebar__types-item">
-                <a itemprop="url" href="/video" class="sidebar__types-link link-reset link-reset">
+                <a title="Анкеты проституток с видео" itemprop="url" href="/video" class="sidebar__types-link link-reset link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#video"></use>
                     </svg>
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a itemprop="url" href="/intim-salony" class="sidebar__types-link link-reset">
+                <a itemprop="url" title="Интим-салоны {{ $data['current_city']->city }}" href="/intim-salony" class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#home-location"></use>
                     </svg>
@@ -30,7 +30,10 @@
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a itemprop="url" href="/eroticeskii-massaz" class="sidebar__types-link link-reset">
+                <a itemprop="url"
+                   title="Проститутки массажистки"
+                   href="/eroticeskii-massaz"
+                   class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#massage"></use>
                     </svg>
@@ -38,7 +41,10 @@
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a itemprop="url" href="/intim-karta" class="sidebar__types-link link-reset">
+                <a itemprop="url"
+                   title="Проститутки с расположением на карте"
+                   href="/intim-karta"
+                   class="sidebar__types-link link-reset">
                     <svg class="sidebar__types-icon">
                         <use xlink:href="/svg/dest/stack/sprite.svg#location"></use>
                     </svg>
@@ -62,13 +68,17 @@
                 <ul class="sidebar-filters-sub__list">
 
                     <div class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/dorogie-prostitutki" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Дорогие проститутки"
+                           href="/dorogie-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Дорогие проститутки</span>
                         </a>
                     </div>
 
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/deshevye-prostitutki" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Дешевые проститутки"
+                           href="/deshevye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Дешевые проститутки</span>
                         </a>
                     </li>
@@ -90,7 +100,9 @@
                             /* @var $item \App\Models\National */
                         @endphp
                         <li class="sidebar-filters-sub__item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки {{ $item->value2 }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-filters-sub__link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -109,13 +121,17 @@
                 </div>
                 <ul class="sidebar-filters-sub__list">
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/molodye-prostitutki" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Молодые проститутки"
+                           href="/molodye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Молодые проститутки</span>
                         </a>
                     </li>
 
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/starye-prostitutki" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Старые проститутки"
+                           href="/starye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Старые проститутки</span>
                         </a>
                     </li>
@@ -132,12 +148,17 @@
                 </div>
                 <ul class="sidebar-filters-sub__list">
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/visokie" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Высокие проститутки"
+                           href="/visokie" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Высокие</span>
                         </a>
                     </li>
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/nizkie" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Низкие проститутки"
+                           href="/nizkie"
+                           class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Низкие</span>
                         </a>
                     </li>
@@ -154,12 +175,17 @@
                 </div>
                 <ul class="sidebar-filters-sub__list">
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/tolstye" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url" href="/tolstye"
+                           title="Толстые проститутки"
+                           class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Толстые</span>
                         </a>
                     </li>
                     <li class="sidebar-filters-sub__item">
-                        <a itemprop="url" href="/hudye" class="sidebar-filters-sub__link link-reset">
+                        <a itemprop="url"
+                           title="Худые проститутки"
+                           href="/hudye"
+                           class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Худые</span>
                         </a>
                     </li>
@@ -180,7 +206,9 @@
                             /* @var $item \App\Models\HairColor */
                         @endphp
                         <li class="sidebar-filters-sub__item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки {{ $item->value2 }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-filters-sub__link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -209,7 +237,9 @@
                     @endphp
                     @if($item->type == 'sex')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -234,7 +264,9 @@
                     @endphp
                     @if($item->type == 'cum')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -259,7 +291,9 @@
                     @endphp
                     @if($item->type == 'minet')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -283,7 +317,9 @@
                     @endphp
                     @if($item->type == 'minet')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -307,7 +343,9 @@
                     @endphp
                     @if($item->type == 'mass')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -330,7 +368,9 @@
                     @endphp
                     @if($item->type == 'bdsm')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>
@@ -353,7 +393,9 @@
                     @endphp
                     @if($item->type == 'other')
                         <li class="sidebar-tags__item-list-item">
-                            <a itemprop="url" href="/{{ $item->filter_url }}"
+                            <a itemprop="url"
+                               title="Проститутки услугой {{ $item->value }}"
+                               href="/{{ $item->filter_url }}"
                                class="sidebar-tags__item-list-link link-reset">
                                 <span itemprop="name">{{ $item->value }}</span>
                             </a>

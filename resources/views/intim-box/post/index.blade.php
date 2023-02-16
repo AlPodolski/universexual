@@ -216,6 +216,26 @@
                         </li>
                     @endif
 
+                    @if($data['current_city']->id != 1)
+                        <li class="profile-main-info__characters-item">
+                            <div class="profile-main-info__characters-name">
+                                Работаю в:
+                            </div>
+                            <div class="profile-main-info__characters-cur">
+                                <ul class="profile-main-info__characters-metro">
+                                    <li class="catalog-item__location">
+                                        <a class="catalog-item__location link-reset">
+                                            <div class="catalog-item__location-text">
+                                                {{ $data['current_city']->city3 }}
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
+
 
                     <li class="profile-main-info__characters-item">
                         <ul class="profile-main-info__characters-price">
