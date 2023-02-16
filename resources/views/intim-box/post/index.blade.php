@@ -420,7 +420,9 @@
 
             <div class="profile-main__services-body">
                 <div class="profile-main__services-item">
-                    Секс
+                    <div class="profile-main__services-item-heading">
+                        Секс
+                    </div>
                     <ul class="profile-main__services-list">
 
                         @foreach($data['service'] as $item)
@@ -487,7 +489,10 @@
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Окончание
+                    <div class="profile-main__services-item-heading">
+                        Окончание
+                    </div>
+
                     <ul class="profile-main__services-list">
                         @foreach($data['service'] as $item)
 
@@ -552,7 +557,9 @@
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Массаж
+                    <div class="profile-main__services-item-heading">
+                        Массаж
+                    </div>
                     <ul class="profile-main__services-list">
                         @foreach($data['service'] as $item)
 
@@ -617,7 +624,9 @@
                     </ul>
                 </div>
                 <div class="profile-main__services-item">
-                    Садо-мазо
+                    <div class="profile-main__services-item-heading">
+                        Садо-мазо
+                    </div>
                     <ul class="profile-main__services-list">
                         @foreach($data['service'] as $item)
 
@@ -682,7 +691,9 @@
                     </ul>
                 </div>
                 <div class="profile-main__services-item profile-main__services-item_special">
-                    Разное
+                    <div class="profile-main__services-item-heading">
+                        Разное
+                    </div>
                     <ul class="profile-main__services-list">
                         @foreach($data['service'] as $item)
 

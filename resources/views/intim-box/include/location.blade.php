@@ -40,7 +40,7 @@
                     @foreach($data['metro'] as $item)
 
                         <li class="header__location-list__sub-item">
-                            <a href="{{ $item->filter_url }}" class="header__location-list__sub-link link-reset">
+                            <a href="/{{ $item->filter_url }}" class="header__location-list__sub-link link-reset">
                                 {{ $item->value }}
                             </a>
                         </li>

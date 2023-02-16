@@ -2669,7 +2669,12 @@ footer {
 
 .profile-main__about {
     padding: 27px 29px;
-    margin: 31px 0 0 0
+    margin: 31px 0 31px 0
+}
+
+.profile-main__services-item-heading{
+    text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 .profile-main__location {
