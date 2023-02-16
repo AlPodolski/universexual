@@ -490,6 +490,75 @@
                 </div>
                 <div class="profile-main__services-item">
                     <div class="profile-main__services-item-heading">
+                        Минет
+                    </div>
+                    <ul class="profile-main__services-list">
+
+                        @foreach($data['service'] as $item)
+
+                            @if($item->type == 'minet')
+                                <li class="profile-main__services-list-item">
+
+                                    @php
+                                        $exist = false;
+                                        $pay = false;
+                                        $sympathy = false;
+                                    @endphp
+
+                                    @foreach($post->service as $serviceItem)
+
+                                        @if($serviceItem->service_id == $item->id)
+
+                                            @php
+                                                $exist = true;
+                                            @endphp
+
+                                            @if($serviceItem->sympathy)
+                                                @php
+                                                    $sympathy = true;
+                                                @endphp
+                                            @endif
+
+                                            @if($serviceItem->pay)
+                                                @php
+                                                    $pay = true;
+                                                @endphp
+                                            @endif
+
+                                        @endif
+
+                                    @endforeach
+                                    @if($exist)
+
+                                        @if($pay or $sympathy)
+
+                                            @if($pay)
+                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                            @endif
+
+                                            @if($sympathy)
+                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                            @endif
+
+                                        @else
+
+                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
+                                        @endif
+
+                                    @else
+                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+                                    @endif
+                                    {{ $item->value }}
+                                </li>
+                            @endif
+
+                        @endforeach
+
+                    </ul>
+                </div>
+                <div class="profile-main__services-item">
+                    <div class="profile-main__services-item-heading">
                         Окончание
                     </div>
 
