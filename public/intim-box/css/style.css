@@ -3588,7 +3588,9 @@ footer {
     font-size: 18px;
     line-height: 27px;
 }
-
+.video {
+    max-width: 320px;
+}
 @media (max-width: 650px) {
     .favorite{
         display: none;

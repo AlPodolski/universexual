@@ -42,7 +42,7 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="{{ asset('intim-box/css/style.css?v=4') }}">
+    <link rel="stylesheet" href="{{ asset('intim-box/css/style.css?v=5') }}">
 </head>
 
 <body>
