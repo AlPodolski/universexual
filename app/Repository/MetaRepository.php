@@ -52,7 +52,9 @@ class MetaRepository
 
                 $value = $this->replaceCity($meta, $cityInfo);
 
-            } elseif (count($filterParams) == 1 and $meta = Meta::where(['url' => $filterParams[0]->short_name])->select('title', 'des', 'h1')->get()->first()) {
+            } elseif (count($filterParams) == 1 and $meta = Meta::where(['url' => $filterParams[0]->short_name])
+                    ->where('site_id', SITE_ID)
+                    ->select('title', 'des', 'h1')->get()->first()) {
 
                 $meta = $meta->toArray();
 
@@ -62,7 +64,9 @@ class MetaRepository
 
             } else {
 
-                $meta = Meta::where(['url' => 'default'])->select('title', 'des', 'h1')->get()->first();
+                $meta = Meta::where(['url' => 'default'])
+                    ->where('site_id', SITE_ID)
+                    ->select('title', 'des', 'h1')->get()->first();
 
                 $meta = $meta->toArray();
 
