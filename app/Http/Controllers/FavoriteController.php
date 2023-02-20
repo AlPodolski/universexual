@@ -15,7 +15,7 @@ class FavoriteController extends Controller
         $data = $this->dataRepository->getData($cityInfo['id']);
         $posts = $postRepository->getFavorite();
 
-        $meta = $metaRepository->getForFilter('/', $cityInfo, $request);
+        $meta = $metaRepository->getForFavorite();
 
         return view(PATH.'.index.index', compact('posts', 'data', 'meta'));
     }

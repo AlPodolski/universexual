@@ -35,12 +35,15 @@
             @php
                 $i = 0;
             @endphp
-            @foreach($posts as $post)
-                @include('intim-box.include.item')
-                @php
-                    $i ++;
-                @endphp
-            @endforeach
+
+            @if($posts)
+                @foreach($posts as $post)
+                    @include('intim-box.include.item')
+                    @php
+                        $i ++;
+                    @endphp
+                @endforeach
+            @endif
         </div>
 
         @if($posts->total() > $posts->count())

@@ -80,6 +80,15 @@ class MetaRepository
 
     }
 
+    public function getForFavorite(): array
+    {
+        return [
+            'title' => 'Избранные анкеты – intim-box.com',
+            'des' => 'Ваши избранные анкеты на сайте',
+            'h1' => 'Избранные анкеты',
+        ];
+    }
+
     public function getForSearch(): array
     {
         $data = [
