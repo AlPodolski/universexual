@@ -41,7 +41,7 @@ class GenerateMicroDataForCatalog
 
         });
 
-        $data = '<script type="application/json">'.json_encode($data).'</script>';
+        $data = '<script type="application/ld+json">'.json_encode($data).'</script>';
 
         return $data;
 
