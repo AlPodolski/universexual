@@ -228,6 +228,9 @@
                     <use xlink:href="/svg/dest/stack/sprite.svg#sex"></use>
                 </svg>
                 Секс
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
 
@@ -256,6 +259,9 @@
                     <use xlink:href="/svg/dest/stack/sprite.svg#drop"></use>
                 </svg>
                 Окончание
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
                 @foreach($data['service'] as $item)
@@ -283,6 +289,9 @@
                     <path d="M5.76411 24.5033C4.98601 23.7785 4.544 22.7632 4.54351 21.6998C4.54351 21.4858 4.71702 21.3123 4.93101 21.3123C5.145 21.3123 5.31851 21.4858 5.31851 21.6998C5.32093 22.6696 5.78041 23.5814 6.55851 24.1604C7.21828 24.579 7.98398 24.8008 8.76536 24.7998C8.79442 24.7998 8.82348 24.796 8.85445 24.796H8.86413C8.87001 24.796 8.87572 24.7941 8.88161 24.7941V24.7939C9.97422 24.7659 11.0111 24.3052 11.7645 23.5133C12.517 22.7248 12.923 21.6681 12.8923 20.5785C12.8613 19.4889 12.3959 18.4571 11.5998 17.7123C11.0551 17.1665 10.3583 16.7977 9.60041 16.6545V7.05377C9.10875 7.2918 8.56279 7.39508 8.01821 7.35304C7.47345 7.31118 6.94982 7.12539 6.50041 6.81488C6.05113 7.12574 5.52732 7.31137 4.9826 7.35322C4.43784 7.39491 3.89189 7.29129 3.40041 7.05256V15.9026C3.81697 15.8154 4.92326 15.4338 5.27201 13.8508C5.31595 13.6529 5.5116 13.528 5.70968 13.571C5.90758 13.6143 6.03334 13.8096 5.99079 14.0077C5.5763 15.8986 4.17352 16.5477 3.40043 16.6486V16.6505C2.5621 16.8055 1.80007 17.2374 1.23632 17.8768C0.483814 18.6649 0.077626 19.7214 0.108582 20.8107C0.139547 21.9001 0.604891 22.9316 1.40102 23.6758C1.97381 24.2152 2.68876 24.5797 3.46185 24.7262C4.23495 24.8727 5.03364 24.7954 5.76418 24.503L5.76411 24.5033Z" fill="#4926E8"/>
                 </svg>
                 Минет
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
                 @foreach($data['service'] as $item)
@@ -309,6 +318,9 @@
                     <use xlink:href="/svg/dest/stack/sprite.svg#massage"></use>
                 </svg>
                 Массаж
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
                 @foreach($data['service'] as $item)
@@ -334,6 +346,9 @@
                     <use xlink:href="/svg/dest/stack/sprite.svg#sado"></use>
                 </svg>
                 Садо-мазо
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
                 @foreach($data['service'] as $item)
@@ -359,6 +374,9 @@
                     <use xlink:href="/svg/dest/stack/sprite.svg#dif"></use>
                 </svg>
                 Разное
+                <svg class="sidebar-tags-item__title-icon">
+                    <use xlink:href="/svg/dest/stack/sprite.svg#arrow"></use>
+                </svg>
             </div>
             <ul class="sidebar-tags__item-list item-content">
                 @foreach($data['service'] as $item)

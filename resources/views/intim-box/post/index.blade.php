@@ -237,7 +237,7 @@
                     @if($data['current_city']->id != 1)
                         <li class="profile-main-info__characters-item">
                             <div class="profile-main-info__characters-name">
-                                Работаю в:
+                                Работаю:
                             </div>
                             <div class="profile-main-info__characters-cur">
                                 <ul class="profile-main-info__characters-metro">

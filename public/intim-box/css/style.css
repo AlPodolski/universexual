@@ -2683,7 +2683,6 @@ footer {
 }
 
 .profile-main__services-item-heading{
-    text-decoration: underline;
     margin-bottom: 10px;
 }
 
@@ -3606,7 +3605,24 @@ footer {
     width: 120px;
     text-align: center;
 }
+.sidebar-tags-item__title-icon{
+    display: none;
+}
+.profile-main__services-item-heading:after {
+    margin-top: 0px;
+    content: "";
+    width: 77px;
+    height: 2px;
+    background-color: #4926E8;
+    display: grid;
+}
 @media (max-width: 650px) {
+    .sidebar-tags-item__title-icon{
+        display: flex;
+        margin-left: auto;
+        max-width: 11px;
+        height: 16px;
+    }
     .favorite{
         display: none;
     }
