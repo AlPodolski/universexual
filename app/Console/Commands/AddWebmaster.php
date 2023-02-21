@@ -43,7 +43,7 @@ class AddWebmaster extends Command
 
         $access_token = env('TOKEN');
 
-        $host = 'prostitutki.nl';
+        $host = 'intim-box.com';
 
         foreach ($cityList as $city) {
 
@@ -117,6 +117,7 @@ class AddWebmaster extends Command
 
             $meta_model->url = $city['url'];
             $meta_model->tag = $meta2;
+            $meta_model->site_id = 2;
 
             $meta_model->save();
 
