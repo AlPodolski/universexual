@@ -233,7 +233,9 @@
     </div>
 </div>
 <script defer src="{{ asset('intim-box/js/script.js?v=4') }}"></script>
-
+@if(View::hasSection('yandex_script'))
+    <script defer src="@yield('yandex_script')"></script>
+@endif
 </body>
 
 </html>

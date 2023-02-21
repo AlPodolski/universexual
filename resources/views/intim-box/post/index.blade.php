@@ -1073,7 +1073,7 @@
             </form>
         </div>
     </div>
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
 @endsection
 @section('main-menu')
     @include('intim-box.include.main-menu', compact('data'))
@@ -1086,3 +1086,5 @@
 @section('open-graph')
     @include('intim-box.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/252-309/thumbs/'.$post->avatar])
 @endsection
+
+@section('yandex_script', '/intim-box/js/map.js')
