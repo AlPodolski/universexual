@@ -15,7 +15,6 @@ Allow: */*.woff
 Allow: */*.woff2
 Allow: */*.ttf
 
-User-agent: *
 Disallow: /filter?*
 Disallow: /poisk?*
 
