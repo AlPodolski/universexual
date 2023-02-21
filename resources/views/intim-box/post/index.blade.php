@@ -11,6 +11,10 @@
 
     {!! $imageMicro !!}
 
+    @if($productMicro)
+        <script type="application/ld+json">{{ json_encode( $productMicro) }}</script>
+    @endif
+
     <div class="profile-main">
         @include('intim-box.include.breadcrumb' , ['title' => $post->name])
         <h1 class="profile__title">

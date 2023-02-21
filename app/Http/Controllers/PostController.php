@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\AddViewToCookie;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateImageMicro;
+use App\Actions\GenerateProductMicroForSingle;
 use App\Services\SingleMetaService;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,7 @@ class PostController extends Controller
         $meta = $metaService->makeMetaTags($post, $cityInfo);
         $breadMicro = $this->breadMicro->generate($request, $post->name);
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
+        $productMicro = (new GenerateProductMicroForSingle($post))->generate();
 
         $morePosts = $this->postRepository->getMore($cityInfo['id'], 3);
 
@@ -40,7 +42,7 @@ class PostController extends Controller
         $viewPosts = $this->postRepository->getView();
 
         return view(PATH.'.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts', 'productMicro'
         ));
     }
 }
