@@ -978,57 +978,15 @@
             </div>
             <div class="profile-main__sim-items  tabs-show" data-tab="recAnkets">
 
-                @foreach($morePosts as $post)
-                    <div class="profile-main__sim-item">
-                        <a href="/post/{{ $post->url }}" class="profile-main__sim-item-photo">
-                            <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
-                        </a>
-                        <div class="profile-main__sim-item-name item-name">
-                            <a href="/post/{{ $post->url }}" class="item-name__text profile-main__sim-title-item-name-text">
-                                {{ $post->name }}
-                            </a>
-                            <img class="item-name__icon profile-main__sim-title-item-name-icon"
-                                 src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
-                        </div>
-                        @if($metro = $post->metro->first())
-                            <div class="profile-main__sim-item-location metro">
-                                <svg class="metro__icon">
-                                    <use xlink:href='/intim-box/svg/dest/stack/sprite.svg#metro'></use>
-                                </svg>
-                                <div class="metro__text">
-                                    {{ $metro->metro_value }}
-                                </div>
-                            </div>
-                        @endif
-                    </div>
+                @foreach($morePosts as $item)
+                    @include('intim-box.include.more-post-item')
                 @endforeach
 
             </div>
             @if($viewPosts and $viewPosts->first())
                 <div class="profile-main__sim-items tabs-hide" data-tab="checkedAnkets">
-                    @foreach($viewPosts as $post)
-                        <div class="profile-main__sim-item">
-                            <a href="/post/{{ $post->url }}" class="profile-main__sim-item-photo">
-                                <img src="/252-309/thumbs/{{$post->avatar}}" alt="">
-                            </a>
-                            <div class="profile-main__sim-item-name item-name">
-                                <a href="/post/{{ $post->url }}" class="item-name__text profile-main__sim-title-item-name-text">
-                                    {{ $post->name }}
-                                </a>
-                                <img class="item-name__icon profile-main__sim-title-item-name-icon"
-                                     src="/intim-box/images/graphics/catalog-page/diamond.png" alt="">
-                            </div>
-                            @if($metro = $post->metro->first())
-                                <div class="profile-main__sim-item-location metro">
-                                    <svg class="metro__icon">
-                                        <use xlink:href='/intim-box/svg/dest/stack/sprite.svg#metro'></use>
-                                    </svg>
-                                    <div class="metro__text">
-                                        {{ $metro->metro_value }}
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
+                    @foreach($viewPosts as $item)
+                        @include('intim-box.include.more-post-item')
                     @endforeach
                 </div>
             @endif
