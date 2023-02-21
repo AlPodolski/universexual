@@ -1349,6 +1349,7 @@ footer {
     width: 40px;
     height: 32px;
     fill: #4926e8;
+    position: relative;
 }
 .header__location-list__sub-link {
     color: #000;
@@ -3590,6 +3591,20 @@ footer {
 }
 .video {
     max-width: 320px;
+}
+.catalog-item__ui-item-title{
+    display: none;
+}
+.catalog-item__ui-item:hover .catalog-item__ui-item-title{
+    position: absolute;
+    background: #fff;
+    font-size: 12px;
+    white-space: nowrap;
+    top: -20px;
+    display: block;
+    left: -40px;
+    width: 120px;
+    text-align: center;
 }
 @media (max-width: 650px) {
     .favorite{

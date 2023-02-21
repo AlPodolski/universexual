@@ -140,8 +140,10 @@
 
             @if($post->check_photo_status)
                 <div class="catalog-item__ui-item">
+                    <div class="catalog-item__ui-item-title">
+                        Проверенное фото
+                    </div>
                     <a href="#"
-                       title="Проверенное фото"
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
@@ -152,8 +154,10 @@
 
             @if($post->video)
                 <div class="catalog-item__ui-item">
+                    <div class="catalog-item__ui-item-title">
+                        Есть видео
+                    </div>
                     <a data-fancybox="video"
-                       title="Есть видео"
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
@@ -164,7 +168,10 @@
 
             @if($post->reviews->first())
                 <div class="catalog-item__ui-item">
-                    <a title="Есть отзывы" class="catalog-item__ui-link link-reset btn">
+                    <div class="catalog-item__ui-item-title">
+                        Есть отзывы
+                    </div>
+                    <a class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
                         </svg>

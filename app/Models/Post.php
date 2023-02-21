@@ -113,7 +113,7 @@ class Post extends Model
 
     public function getAltAttribute(): string
     {
-        $result = $this->name;
+        $result = $this->name .',';
 
         if ($metro = $this->metro->first()) $result .= ' метро ' . $metro->metro_value;
         if ($this->city) $result .= ' Г. ' . $this->city->city;

@@ -6,9 +6,6 @@
     @section('can', $path)
 @endif
 
-@if(isset($webmaster) and $webmaster)
-    @section('webmaster', $webmaster['tag'])
-@endif
 @section('content')
 
     @if(isset($productMicro))
@@ -30,6 +27,9 @@
             @endphp
             @foreach($posts as $post)
                 @include('intim-box.include.item')
+                @php
+                    $i ++;
+                @endphp
             @endforeach
 
         </div>
