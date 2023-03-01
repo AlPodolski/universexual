@@ -60,7 +60,14 @@
                     @endif
                     <div class="favorite">
                         <a href="/favorite">
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"  width="21" height="21" x="0" y="0" viewBox="0 0 471.701 471.701" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M433.601 67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7 13.6-92.4 38.3l-12.9 12.9-13.1-13.1c-24.7-24.7-57.6-38.4-92.5-38.4-34.8 0-67.6 13.6-92.2 38.2-24.7 24.7-38.3 57.5-38.2 92.4 0 34.9 13.7 67.6 38.4 92.3l187.8 187.8c2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-3.9l188.2-187.5c24.7-24.7 38.3-57.5 38.3-92.4.1-34.9-13.4-67.7-38.1-92.4zm-19.2 165.7-178.7 178-178.3-178.3c-19.6-19.6-30.4-45.6-30.4-73.3s10.7-53.7 30.3-73.2c19.5-19.5 45.5-30.3 73.1-30.3 27.7 0 53.8 10.8 73.4 30.4l22.6 22.6c5.3 5.3 13.8 5.3 19.1 0l22.4-22.4c19.6-19.6 45.7-30.4 73.3-30.4 27.6 0 53.6 10.8 73.2 30.3 19.6 19.6 30.3 45.6 30.3 73.3.1 27.7-10.7 53.7-30.3 73.3z" fill="#ffffff" data-original="#000000"></path></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" x="0" y="0"
+                                 viewBox="0 0 471.701 471.701" style="enable-background:new 0 0 512 512"
+                                 xml:space="preserve" class=""><g>
+                                    <path
+                                        d="M433.601 67.001c-24.7-24.7-57.4-38.2-92.3-38.2s-67.7 13.6-92.4 38.3l-12.9 12.9-13.1-13.1c-24.7-24.7-57.6-38.4-92.5-38.4-34.8 0-67.6 13.6-92.2 38.2-24.7 24.7-38.3 57.5-38.2 92.4 0 34.9 13.7 67.6 38.4 92.3l187.8 187.8c2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-3.9l188.2-187.5c24.7-24.7 38.3-57.5 38.3-92.4.1-34.9-13.4-67.7-38.1-92.4zm-19.2 165.7-178.7 178-178.3-178.3c-19.6-19.6-30.4-45.6-30.4-73.3s10.7-53.7 30.3-73.2c19.5-19.5 45.5-30.3 73.1-30.3 27.7 0 53.8 10.8 73.4 30.4l22.6 22.6c5.3 5.3 13.8 5.3 19.1 0l22.4-22.4c19.6-19.6 45.7-30.4 73.3-30.4 27.6 0 53.6 10.8 73.2 30.3 19.6 19.6 30.3 45.6 30.3 73.3.1 27.7-10.7 53.7-30.3 73.3z"
+                                        fill="#ffffff" data-original="#000000"></path>
+                                </g></svg>
                             Избранное
                         </a>
                     </div>
@@ -124,7 +131,8 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a itemprop="url" href="/deshevye-prostitutki" class="main-top-menu__link link-reset">
+                                    <a itemprop="url" href="/deshevye-prostitutki"
+                                       class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="/svg/dest/stack/sprite.svg#money"></use>
                                         </svg>
@@ -133,7 +141,8 @@
                                     </a>
                                 </li>
                                 <li class="main-top-menu__item">
-                                    <a itemprop="url" href="/dorogie-prostitutki" class="main-top-menu__link link-reset">
+                                    <a itemprop="url" href="/dorogie-prostitutki"
+                                       class="main-top-menu__link link-reset">
                                         <svg class="main-top-menu__icon">
                                             <use xlink:href="/svg/dest/stack/sprite.svg#crown"></use>
                                         </svg>
@@ -236,6 +245,23 @@
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript"> (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+            if (document.scripts[j].src === r) {
+                return;
+            }
+        }
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    ym(92632574, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true}); </script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/92632574" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript> <!-- /Yandex.Metrika counter -->
 </body>
 
 </html>
