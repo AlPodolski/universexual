@@ -30,9 +30,9 @@
     <link rel="manifest" href="/img/icons/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/lightgallery.min.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="/css/nouislider.min.css">
+    <link rel="stylesheet" href="/css/lightgallery.min.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 <header>
@@ -95,10 +95,10 @@
     <script src="@yield('lightbox')"></script>
 @endif
 
-<script defer src="{{ asset('js/nouislider.min.js') }}"></script>
-<script defer src="{{ asset('js/wNumb.min.js') }}"></script>
-<script defer src="{{ asset('js/axios.js') }}"></script>
-<script defer src="{{ mix('js/app.js') }}"></script>
+<script defer src="/js/nouislider.min.js"></script>
+<script defer src="/js/wNumb.min.js"></script>
+<script defer src="/js/axios.js"></script>
+<script defer src="/js/app.js"></script>
 
 <script defer src="{{ asset('js/script.js?v=4') }}"></script>
 <!-- Yandex.Metrika counter -->
