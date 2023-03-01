@@ -36,7 +36,7 @@ class IndexController extends Controller
         $sort = $this->sort;
 
         return view(PATH.'.index.index', compact(
-            'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
+            'posts', 'data', 'meta', 'path', 'productMicro', 'sort'
         ));
     }
 
