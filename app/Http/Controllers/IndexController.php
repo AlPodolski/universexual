@@ -19,7 +19,7 @@ class IndexController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city, MetaRepository $metaRepository, Request $request, WebmasterRepository $webmasterRepository)
+    public function __invoke($city, MetaRepository $metaRepository, Request $request)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $posts = $this->postRepository->getForMain($cityInfo['id']);
@@ -34,8 +34,6 @@ class IndexController extends Controller
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
 
         $sort = $this->sort;
-
-        $webmaster = $webmasterRepository->get($city);
 
         return view(PATH.'.index.index', compact(
             'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'

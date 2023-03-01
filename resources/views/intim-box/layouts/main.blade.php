@@ -25,10 +25,6 @@
         <meta name="robots" content="index, follow">
     @endif
 
-    @if(View::hasSection('webmaster'))
-        <meta name="yandex-verification" content="@yield('webmaster')">
-    @endif
-
     @if(View::hasSection('open-graph'))
         @yield('open-graph')
     @endif
