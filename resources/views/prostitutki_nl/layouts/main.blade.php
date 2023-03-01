@@ -100,7 +100,7 @@
 <script defer src="/js/axios.js"></script>
 <script defer src="/js/app.js"></script>
 
-<script defer src="{{ asset('js/script.js?v=4') }}"></script>
+<script defer src="/js/script.js?v=4"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript"> (function (m, e, t, r, i, k, a) {
         m[i] = m[i] || function () {
