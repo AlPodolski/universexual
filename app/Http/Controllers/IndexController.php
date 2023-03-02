@@ -19,7 +19,7 @@ class IndexController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city, MetaRepository $metaRepository, Request $request)
+    public function __invoke($city, MetaRepository $metaRepository, Request $request, WebmasterRepository $webmasterRepository)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $posts = $this->postRepository->getForMain($cityInfo['id']);
@@ -35,8 +35,10 @@ class IndexController extends Controller
 
         $sort = $this->sort;
 
+        $webmaster = $webmasterRepository->get($city);
+
         return view(PATH.'.index.index', compact(
-            'posts', 'data', 'meta', 'path', 'productMicro', 'sort'
+            'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
         ));
     }
 
