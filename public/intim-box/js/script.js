@@ -4251,15 +4251,50 @@
     e(860) && (n.menu.append(i), t(".sidebar-tags__item", ".sidebar-tags__item-list", ".sidebar-tags-item__title", ".sidebar-tags-item__title")), e(440) && n.menu.prepend(s)
 });
 
-function show_phone(object){
+function show_phone(object) {
 
     var phone = $(object).attr('data-tel');
 
-    $(object).html(phone);
+    $(object).html( formatPhone(phone) );
+
+    window.location.href = 'tel:+' + phone;
 
 }
 
-function add_to_favorite(object){
+function formatPhone(phone) {
+
+    var lenPhone = phone.length;
+    var tt = phone.split('');
+    if (lenPhone == 11) {
+        tt.splice(0, "", "+");
+        tt.splice(2, "", "(");
+        tt.splice(6, "", ")");
+        tt.splice(10, "", "-");
+        tt.splice(13, "", "-");
+
+    } else if (lenPhone == 12) {
+        tt.splice(2, "", "(");
+        tt.splice(6, "", ")");
+        tt.splice(10, "", "-");
+        tt.splice(13, "", "-");
+    } else if (lenPhone == 10) {
+        tt.splice(0, "", "+7(");
+        tt.splice(4, "", ")");
+        tt.splice(8, "", "-");
+        tt.splice(11, "", "-");
+    }
+
+    phone = tt.join('');
+
+    console.log(phone);
+
+    return phone;
+
+}
+
+formatPhone();
+
+function add_to_favorite(object) {
 
     var id = $(object).attr('data-id');
 
@@ -4281,11 +4316,12 @@ function add_to_favorite(object){
     })
 
 }
-arrowTop.onclick = function() {
+
+arrowTop.onclick = function () {
     window.scrollTo(pageXOffset, 0);
     // после scrollTo возникнет событие "scroll", так что стрелка автоматически скроется
 };
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
 });

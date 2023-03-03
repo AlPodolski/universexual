@@ -135,7 +135,7 @@
                             Номер телефона
                         </div>
                         <div class="profile-main-info__characters-cur">
-                            <a href="tel:+{{ $post->phone }}"
+                            <a
                                data-tel="{{ $post->phone }}"
                                onclick="show_phone(this)"
                                class="catalog-item__phone">
