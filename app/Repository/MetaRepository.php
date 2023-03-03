@@ -28,7 +28,7 @@ class MetaRepository
 
         }
 
-        $value = $this->addPageAndSite($value, $request);
+        if (SITE_ID == 1) $value = $this->addPageAndSite($value, $request);
 
         return $value;
 
@@ -80,7 +80,9 @@ class MetaRepository
 
         }
 
-        return $this->addPageAndSite($value, $request);
+        if (SITE_ID == 1) $value = $this->addPageAndSite($value, $request);
+
+        return $value;
 
     }
 
