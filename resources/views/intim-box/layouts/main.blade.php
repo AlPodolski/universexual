@@ -61,7 +61,7 @@
                     <div class="favorite">
                         <a href="/favorite">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="21" x="0" y="0"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="25" x="0" y="0"
                                  viewBox="0 0 471.701 471.701" style="enable-background:new 0 0 512 512"
                                  xml:space="preserve" class=""><g>
                                     <path
