@@ -12,7 +12,7 @@
     {!! $imageMicro !!}
 
     @if($productMicro)
-        <script type="application/ld+json">{{ json_encode( $productMicro) }}</script>
+        <script type="application/ld+json">{!! json_encode( $productMicro) !!}</script>
     @endif
 
     <div class="profile-main">
