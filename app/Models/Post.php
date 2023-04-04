@@ -80,7 +80,9 @@ class Post extends Model
     {
         return $this->hasMany(PostMetro::class, 'posts_id', 'id')
             ->join('metros', 'metros_id', '=', 'metros.id')
-            ->select('metros.x','metros.y', 'metros.url as metro_url', 'metros.value as metro_value', 'posts_id');
+            ->join('filters', 'related_id', '=', 'metros.id')
+            ->where('filters.parent_class', Metro::class)
+            ->select('metros.x','metros.y', 'filters.url as metro_url', 'metros.value as metro_value', 'posts_id');
     }
 
     public function place(): \Illuminate\Database\Eloquent\Relations\HasMany

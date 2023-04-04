@@ -103,7 +103,7 @@
 
                         @foreach($post->service as $postServiceItem)
 
-                            @if($postServiceItem->service_original_id == $item->id)
+                            @if($postServiceItem->service_id == $item->id)
                                 @php
                                     $class = 'exist';
                                 @endphp
@@ -111,7 +111,7 @@
 
                         @endforeach
 
-                        <a href="/{{ $item->url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
+                        <a href="/{{ $item->filter_url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
                     @endforeach
                 </div>
                 <div class="about-text">
