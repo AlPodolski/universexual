@@ -5259,6 +5259,12 @@ select {
     border-radius: 3px;
     font-size: 14px;
     font-weight: 600;
+    cursor: pointer;
+}
+.metro-select{
+    cursor: pointer;
+    background: url("../img/down.svg") !important;
+    background-repeat: no-repeat!important;
 }
 
 body {
@@ -5528,9 +5534,11 @@ h1 {
 .service-list .service-list-item {
     flex: 0 0 33%;
     margin-right: 0;
-    padding: 5px;
+    padding: 10px;
     text-decoration: line-through;
     color: #707070;
+    display: flex;
+    align-items: center;
 }
 
 .service-list .exist {
@@ -5811,7 +5819,13 @@ footer {
     max-width: 25px;
     margin-right: 5px;
 }
-
+.service-list-item.exist {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
 @media (max-width: 1199px) {
     .filter-wrap {
         display: none !important;

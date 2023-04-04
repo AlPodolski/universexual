@@ -18,8 +18,9 @@
         <div class="post-single d-flex">
             <div class="left">
                 <img loading="lazy"
-                         title="Проститутка {{ $post->name }}"
-                     srcset="/600-700/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
+                     title="Проститутка {{ $post->name }}"
+                     srcset="/600-700/thumbs/{{$post->avatar}}"
+                     alt="{{ $post->name }}">
             </div>
             <div class="right">
                 <h1>Проститутка {{ $post->name }} ID {{ $post->id }}</h1>
@@ -111,7 +112,12 @@
 
                         @endforeach
 
-                        <a href="/{{ $item->filter_url }}" class="service-list-item {{ $class }}">{{ $item->value }}</a>
+                        <a href="/{{ $item->filter_url }}" class="service-list-item {{ $class }}">
+                            @if($class)
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 511.985 511.985" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z" fill="#f2cd85" data-original="#000000" class=""></path></g></svg>
+                            @endif
+                            {{ $item->value }}
+                        </a>
                     @endforeach
                 </div>
                 <div class="about-text">
