@@ -5839,6 +5839,26 @@ footer {
     align-items: center;
     padding: 5px;
 }
+
+.catalog-metro svg{
+    max-width: 15px;
+    max-height: 15px;
+}
+
+.name a{
+    display: flex;
+}
+
+.name a svg, .check-photo-single svg{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.catalog-metro{
+    margin-bottom: 10px;
+}
+
 @media (max-width: 1199px) {
     .filter-wrap {
         display: none !important;

@@ -1,8 +1,6 @@
 User-agent: *
-Allow: /
-
-Clean-param: p
-
+Disallow: /filter?*
+Disallow: /poisk?*
 Disallow: */?q=*
 Allow: */*.js
 Allow: */*.css
@@ -15,13 +13,12 @@ Allow: */*.woff
 Allow: */*.woff2
 Allow: */*.ttf
 
-Disallow: /filter?*
-Disallow: /poisk?*
-
 User-agent: Yandex
 Disallow: /filter?*
 Disallow: /poisk?*
 Disallow: */amp/*
+
+Clean-param: p
 
 Sitemap: https://{{$host}}/sitemap.xml
 Host: https://{{$host}}

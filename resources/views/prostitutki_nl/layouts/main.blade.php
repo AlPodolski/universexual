@@ -13,7 +13,6 @@
 
     @if(View::hasSection('can'))
         <link rel="canonical" href="@yield('can')">
-        <meta name="robots" content="noindex, follow">
     @endif
 
     @if(View::hasSection('webmaster'))

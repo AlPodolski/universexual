@@ -28,8 +28,6 @@ class MetaRepository
 
         }
 
-        if (SITE_ID == 1) $value = $this->addPageAndSite($value, $request);
-
         return $value;
 
     }
@@ -79,8 +77,6 @@ class MetaRepository
             \Cache::set('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE, $value);
 
         }
-
-        if (SITE_ID == 1) $value = $this->addPageAndSite($value, $request);
 
         return $value;
 

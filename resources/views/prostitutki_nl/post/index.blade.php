@@ -25,7 +25,23 @@
             <div class="right">
                 <h1>Проститутка {{ $post->name }} ID {{ $post->id }}</h1>
                 @if($post->check_photo_status)
-                    <div class="bold-text green-text big-text m-bottom-20">Фото проверенно</div>
+                    <div class="bold-text green-text big-text m-bottom-20 d-flex check-photo-single">
+                        Фото проверенно
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0"
+                             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+                             class=""><g>
+                                <path fill="#2ad352"
+                                      d="M256 0C114.62 0 0 114.58 0 256s114.62 256 256 256 256-114.65 256-256S397.38 0 256 0z"
+                                      data-original="#2ad352"></path>
+                                <path fill="#74da7f"
+                                      d="M0 256a254.87 254.87 0 0 0 30.49 121.23 278.76 278.76 0 0 0 78.73 11.29c153.9 0 278.66-124.76 278.66-278.66a278.7 278.7 0 0 0-11.64-79.94A254.86 254.86 0 0 0 256 0C114.62 0 0 114.58 0 256z"
+                                      data-original="#74da7f"></path>
+                                <path fill="#ffffff"
+                                      d="M402 213.58 248.13 375.17a45.16 45.16 0 0 1-32.48 14h-.2a45.11 45.11 0 0 1-32.4-13.71l-81.65-84.1a45.14 45.14 0 1 1 64.78-62.87l48.95 50.42 121.49-127.58A45.14 45.14 0 1 1 402 213.58z"
+                                      data-original="#ffffff"></path>
+                            </g></svg>
+                    </div>
                 @endif
                 <div class="view-count"><img src="/img/view.png" alt=""> {{ $post->single_view }}</div>
                 <div class="bold-text single-price m-bottom-20">От {{ $post->price }} р.</div>
@@ -37,7 +53,7 @@
                     <form action="/message/add" method="post" class="review-form m-top-20 m-bottom-20">
                         <div class="bold-text green-text big-text m-bottom-20">Написать сообщение</div>
                         @csrf
-                        <input type="hidden"  name="posts_id" value="{{ $post->id }}">
+                        <input type="hidden" name="posts_id" value="{{ $post->id }}">
                         <div class="form-group">
                             <label for="email">Ваша почта</label>
                             <input required type="text" name="email" id="email" placeholder="email">
@@ -116,7 +132,14 @@
 
                     <a href="/{{ $item->filter_url }}" class="service-list-item {{ $class }}">
                         @if($class)
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="24" height="24" x="0" y="0" viewBox="0 0 511.985 511.985" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z" fill="#f2cd85" data-original="#000000" class=""></path></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+                                 width="24" height="24" x="0" y="0" viewBox="0 0 511.985 511.985"
+                                 style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+                                    <path
+                                        d="M500.088 83.681c-15.841-15.862-41.564-15.852-57.426 0L184.205 342.148 69.332 227.276c-15.862-15.862-41.574-15.862-57.436 0-15.862 15.862-15.862 41.574 0 57.436l143.585 143.585c7.926 7.926 18.319 11.899 28.713 11.899 10.394 0 20.797-3.963 28.723-11.899l287.171-287.181c15.862-15.851 15.862-41.574 0-57.435z"
+                                        fill="#f2cd85" data-original="#000000" class=""></path>
+                                </g></svg>
                         @endif
                         {{ $item->value }}
                     </a>
@@ -149,7 +172,8 @@
                     </div>
                     <div class="popular-list post-photo" id="gallery">
                         @foreach($post->photo as $item)
-                            <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}" data-lightbox="image-{{ $post->id }}">
+                            <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}"
+                               data-lightbox="image-{{ $post->id }}">
                                 <img data-lightbox="roadtrip" src="/600-700/thumbs{{$item->file}}" alt="">
                             </a>
                         @endforeach
