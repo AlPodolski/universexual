@@ -4292,8 +4292,6 @@ function formatPhone(phone) {
 
 }
 
-formatPhone();
-
 function add_to_favorite(object) {
 
     var id = $(object).attr('data-id');

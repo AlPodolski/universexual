@@ -5,7 +5,7 @@ function toggle_class_to_block(target, className) {
 
 function phone(object) {
     var phone = object.getAttribute('data-phone');
-    object.innerHTML = phone;
+    object.innerHTML = formatPhone(phone);
     window.location.href = 'tel:+' + phone;
 }
 
@@ -185,3 +185,32 @@ document.addEventListener('DOMContentLoaded', function () {
     singleGallery.lightGallery();
 
 });
+
+function formatPhone(phone) {
+
+    var lenPhone = phone.length;
+    var tt = phone.split('');
+    if (lenPhone == 11) {
+        tt.splice(0, "", "+");
+        tt.splice(2, "", "(");
+        tt.splice(6, "", ")");
+        tt.splice(10, "", "-");
+        tt.splice(13, "", "-");
+
+    } else if (lenPhone == 12) {
+        tt.splice(2, "", "(");
+        tt.splice(6, "", ")");
+        tt.splice(10, "", "-");
+        tt.splice(13, "", "-");
+    } else if (lenPhone == 10) {
+        tt.splice(0, "", "+7(");
+        tt.splice(4, "", ")");
+        tt.splice(8, "", "-");
+        tt.splice(11, "", "-");
+    }
+
+    phone = tt.join('');
+
+    return phone;
+
+}

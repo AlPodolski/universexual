@@ -9,10 +9,15 @@
                 title="Проститутка {{ $post->name }}"
                 srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
         </a>
-        <div class="post-info">
-            <div class="post-info-item">
+        <div class="name-wrap">
+            <div class="name bold-text">
                 <a href="/post/{{ $post->id }}" class="bold-text">{{ $post->name }}</a>
             </div>
+            <div class="bold-text price">
+                От {{ $post->price }}р.
+            </div>
+        </div>
+        <div class="post-info">
             <div class="post-info-item">
                 <span class="bold-text">Рост:</span> {{ $post->rost }}
             </div>
@@ -25,10 +30,8 @@
             <div class="post-info-item">
                 <span class="bold-text">Возраст:</span> {{ $post->age }}
             </div>
-            <div class="post-info-item bold-text price">
-                От {{ $post->price }}р.
-            </div>
         </div>
-        <div data-phone="{{ $post->phone }}" onclick="phone(this)" class="yellow-btn phone ">Показать телефон</div>
+        <div data-phone="{{ $post->phone }}" onclick="phone(this)"
+             class="yellow-btn phone ">Показать телефон</div>
     </div>
 </div>

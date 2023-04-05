@@ -5252,7 +5252,9 @@ select {
     border: 2px solid #f2cd85;
     height: 45px;
 }
-
+*, ::before, ::after {
+    box-sizing: border-box;
+}
 .yellow-btn {
     background-color: #f2cd85;
     padding: 10px 30px;
@@ -5433,11 +5435,19 @@ h1 {
     border: 1px solid #e2e2e2;
     margin-top: 0;
 }
-
-.post-info {
-    padding-top: 10px;
+.name-wrap{
     padding-left: 10px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+}
+.name{
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+.post-info {
+    padding: 10px 10px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .phone {
@@ -5521,6 +5531,9 @@ h1 {
 
 .post-info-item {
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .service-list .service-list-item:nth-child(2n+1) {
@@ -5969,4 +5982,3 @@ footer {
         max-width: 100%;
     }
 }
-
