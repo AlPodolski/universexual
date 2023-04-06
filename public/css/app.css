@@ -5474,8 +5474,16 @@ h1 {
 }
 
 .single-price {
-    color: #f2cd85;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
     font-size: 18px;
+}
+
+.service-list-item svg{
+    max-height: 20px;
+    max-width: 20px;
+    margin-right: 10px;
 }
 
 .m-bottom-20 {
@@ -5821,6 +5829,34 @@ footer {
     background-position: center;
 }
 
+.check-block:hover::before {
+    content: 'Фото проверенно';
+    box-sizing: border-box;
+    display: none;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    padding: 9px;
+    position: absolute;
+    left: 50%;
+    top: -30px;
+    margin-left: -100px;
+    width: 200px;
+    height: 40px;
+    line-height: 25px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: .25s ease-in-out;
+    font-size: 12px;
+    text-align: center;
+}
+
+.check-block:hover::before {
+    opacity: 1;
+    top: -40px;
+    z-index: 1;
+    display: block;
+}
+
 .view-count {
     display: flex;
     align-content: center;
@@ -5847,6 +5883,7 @@ footer {
 
 .name a{
     display: flex;
+    position: relative;
 }
 
 .name a svg, .check-photo-single svg{
