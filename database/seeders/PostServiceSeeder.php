@@ -19,7 +19,7 @@ class PostServiceSeeder extends Seeder
 
             $i = 0;
 
-            while($i < 15){
+            while($i < 5){
 
                 $i++;
 

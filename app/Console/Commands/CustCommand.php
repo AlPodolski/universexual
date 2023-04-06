@@ -3,7 +3,9 @@
 namespace App\Console\Commands;
 
 use App\Models\City;
+use App\Models\Metro;
 use App\Models\Post;
+use App\Models\PostMetro;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use League\Csv\Statement;
@@ -16,7 +18,7 @@ class CustCommand extends Command
 
     public function handle()
     {
-        $stream = \fopen(storage_path('city_kor.csv'), 'r');
+        $stream = \fopen(storage_path('soot_metro.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
@@ -34,18 +36,57 @@ class CustCommand extends Command
 
         }
 
-        foreach ($data as $item){
+        $posts = Post::where(['city_id' => 1, 'site_id' => 1])->with('metro')->get();
 
-            if ($city = City::where('city', $item['city'])->first()){
+        foreach ($posts as $post) {
 
-                $city->x = $item['x'];
-                $city->y = $item['y'];
+            if ($post->metro->count() == 1) {
 
-                $city->save();
+                foreach ($data as $item) {
+
+                    $tmp = trim($item['osnova']);
+
+                    if ($post->metro[0]->metro_value == $tmp) {
+
+
+                        $newMetroInfo = Metro::where(['value' => trim($item['sosed1']), 'city_id' => 1])->first();
+
+                        if ($newMetroInfo) {
+
+                            $newMetro = new PostMetro();
+
+                            $newMetro->city_id = 1;
+                            $newMetro->posts_id = $post->id;
+                            $newMetro->metros_id = $newMetroInfo->id;
+
+                            $newMetro->save();
+
+                        }
+
+
+                        $newMetroInfo = Metro::where(['value' => trim($item['sosed2']), 'city_id' => 1])->first();
+
+                        if ($newMetroInfo) {
+
+                            $newMetro = new PostMetro();
+
+                            $newMetro->city_id = 1;
+                            $newMetro->posts_id = $post->id;
+                            $newMetro->metros_id = $newMetroInfo->id;
+
+                            $newMetro->save();
+
+                        }
+
+
+                    }
+
+                }
 
             }
 
         }
+
 
     }
 }
