@@ -1,3 +1,3 @@
 @foreach($posts as $post)
-    @include('include.item', compact('post'))
+    @include('prostitutki_nl.include.item', compact('post'))
 @endforeach
