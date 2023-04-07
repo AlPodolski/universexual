@@ -55,7 +55,7 @@
                     <div class="apartament-column">
                         <div class="single-price-heading bold-text">Апартаменты</div>
                         <div class="time-column-item">{{ $post->price }}</div>
-                        <div class="time-column-item">{{ $post->two_hour_price }}</div>
+                        <div class="time-column-item">{{ $post->apartament_2_hour_price }}</div>
                         <div class="time-column-item">{{ $post->apartament_night_price }}</div>
                     </div>
                     <div class="exit-column">

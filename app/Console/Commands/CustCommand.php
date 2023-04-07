@@ -18,75 +18,18 @@ class CustCommand extends Command
 
     public function handle()
     {
-        $stream = \fopen(storage_path('soot_metro.csv'), 'r');
+        $posts = Post::all();
 
-        $csv = Reader::createFromStream($stream);
-        $csv->setDelimiter(';');
-        $csv->setHeaderOffset(0);
-        //build a statement
-        $stmt = (new Statement());
+        foreach ($posts as $post){
 
-        $records = $stmt->process($csv);
+            if (!$post->apartament_2_hour_price) $post->apartament_2_hour_price = $post->price * 2;
+            if (!$post->apartament_night_price) $post->apartament_2_hour_price = $post->price * 5;
+            if (!$post->exit_1_hour_price) $post->exit_1_hour_price = $post->price + 1000;
+            if (!$post->exit_2_hour_price) $post->exit_2_hour_price = $post->exit_1_hour_price * 2;
+            if (!$post->exit_night_price) $post->exit_night_price = $post->exit_1_hour_price * 5;
 
-        $data = array();
-
-        foreach ($records as $value) {
-
-            $data[] = $value;
+            $post->save();
 
         }
-
-        $posts = Post::where(['city_id' => 1, 'site_id' => 1])->with('metro')->get();
-
-        foreach ($posts as $post) {
-
-            if ($post->metro->count() == 1) {
-
-                foreach ($data as $item) {
-
-                    $tmp = trim($item['osnova']);
-
-                    if ($post->metro[0]->metro_value == $tmp) {
-
-
-                        $newMetroInfo = Metro::where(['value' => trim($item['sosed1']), 'city_id' => 1])->first();
-
-                        if ($newMetroInfo) {
-
-                            $newMetro = new PostMetro();
-
-                            $newMetro->city_id = 1;
-                            $newMetro->posts_id = $post->id;
-                            $newMetro->metros_id = $newMetroInfo->id;
-
-                            $newMetro->save();
-
-                        }
-
-
-                        $newMetroInfo = Metro::where(['value' => trim($item['sosed2']), 'city_id' => 1])->first();
-
-                        if ($newMetroInfo) {
-
-                            $newMetro = new PostMetro();
-
-                            $newMetro->city_id = 1;
-                            $newMetro->posts_id = $post->id;
-                            $newMetro->metros_id = $newMetroInfo->id;
-
-                            $newMetro->save();
-
-                        }
-
-
-                    }
-
-                }
-
-            }
-
-        }
-
-
     }
 }
