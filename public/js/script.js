@@ -25,7 +25,7 @@ function phone(object) {
                 headers: {'X-CSRF-TOKEN': token},
             })
             .then(function (response) {
-                object.innerHTML = formatPhone(response.data);
+                object.innerHTML = response.data;
                 object.setAttribute('data-phone', response.data);
                 window.location.href = 'tel:+' + response.data;
             })
