@@ -51,6 +51,7 @@
                         <div class="time-column-item">Час</div>
                         <div class="time-column-item">Два</div>
                         <div class="time-column-item">Ночь</div>
+                        <div class="time-column-item">Экспресс</div>
                     </div>
                     <div class="apartament-column">
                         <div class="single-price-heading bold-text">Апартаменты</div>
@@ -65,6 +66,13 @@
                         <div class="time-column-item">
                             @if($post->apartament_night_price)
                                 {{ $post->apartament_night_price }}
+                            @else
+                                -
+                            @endif
+                        </div>
+                        <div class="time-column-item">
+                            @if($post->express)
+                                {{ $post->express }}
                             @else
                                 -
                             @endif
@@ -92,6 +100,9 @@
                             @else
                                 -
                             @endif
+                        </div>
+                        <div class="time-column-item">
+                                -
                         </div>
                     </div>
                 </div>
