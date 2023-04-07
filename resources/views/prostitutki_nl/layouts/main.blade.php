@@ -32,7 +32,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/app.css?v=1">
+    <link rel="stylesheet" href="/css/app.css?v=2">
 </head>
 <body>
 <header>
