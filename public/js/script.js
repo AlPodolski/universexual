@@ -4,9 +4,37 @@ function toggle_class_to_block(target, className) {
 }
 
 function phone(object) {
+
+    var id = object.getAttribute('data-id');
+    var city = object.getAttribute('data-city');
     var phone = object.getAttribute('data-phone');
-    object.innerHTML = formatPhone(phone);
-    window.location.href = 'tel:+' + phone;
+    var token = document.querySelector('meta[name="csrf-token"]').content;
+
+    if (phone) {
+
+        window.location.href = 'tel:+' + phone;
+
+    } else {
+
+        axios.post('/phone',
+            {
+                id: id,
+                city: city
+            },
+            {
+                headers: {'X-CSRF-TOKEN': token},
+            })
+            .then(function (response) {
+                object.innerHTML = formatPhone(response.data);
+                object.setAttribute('data-phone', response.data);
+                window.location.href = 'tel:+' + response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
 }
 
 function show_sub_menu(obj) {

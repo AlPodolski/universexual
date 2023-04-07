@@ -69,6 +69,9 @@ class Post extends Model
     const INDI_TYPE = 0;
     const SALON_TYPE = 1;
 
+    const POST_REAL = 1;
+    const POST_FAKE = 0;
+
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostService::class, 'posts_id', 'id')

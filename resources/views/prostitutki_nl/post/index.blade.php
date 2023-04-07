@@ -108,7 +108,7 @@
                 </div>
 
                 @if($post->phone)
-                    <div onclick="phone(this)" data-phone="{{ $post->phone }}"
+                    <div onclick="phone(this)" data-id="{{ $post->id }}" data-city="{{ $post->city_id }}"
                          class="yellow-btn phone single-phone m-bottom-20">Показать телефон
                     </div>
                 @else
