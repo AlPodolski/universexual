@@ -18,7 +18,7 @@ class PhoneRepository
 
         if ($realPost) {
 
-            $realPost->last_phone_view = time() - 900;
+            $realPost->last_phone_view = time();
 
             $realPost->save();
 
