@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/intim-box/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/intim-box/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/intim-box/icons/favicon-16x16.png">
+    <link rel="icon" href="/intim-box/icons/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/intim-box/icons/site.webmanifest">
     <link rel="mask-icon" href="/intim-box/icons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#ffffff">
