@@ -18,7 +18,7 @@ class PhoneController extends Controller
     public function __invoke(Request $request)
     {
         $postId = $request->post('id');
-        $cityId = $request->post('id');
+        $cityId = $request->post('city');
 
         $phone = $this->phoneRepository->getPhone($cityId, $postId);
 

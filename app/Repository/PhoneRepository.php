@@ -18,11 +18,32 @@ class PhoneRepository
 
         if ($realPost) {
 
-            $realPost->last_phone_view = time();
+            $realPost->last_phone_view = time() - 900;
 
             $realPost->save();
 
             return $realPost->phone;
+
+        }else{
+
+            // URL, куда будет отправлен запрос
+            $url = 'https://admin.sex-trust.com/phones/get';
+
+            $data = array(
+                'city_id' => $city,
+            );
+
+            $ch = curl_init($url);
+
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $result = curl_exec($ch);
+
+            if ($result) return $result;
+
+            curl_close($ch);
 
         }
 
