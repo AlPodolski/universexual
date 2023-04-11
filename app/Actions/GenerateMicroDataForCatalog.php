@@ -60,6 +60,8 @@ class GenerateMicroDataForCatalog
 
     private function getMinPrice( $posts){
 
+        if (!isset($posts->first()->price)) return false;
+
         $price = $posts->first()->price;
 
         foreach($posts as $post){
