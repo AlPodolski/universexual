@@ -16,6 +16,7 @@ class GenerateMicroDataForCatalog
 
             $minPrice = $this->getMinPrice($posts);
             $maxPrice = $this->getMaxPrice($posts);
+            if (!$maxPrice) return false;
             $rating = $this->getRandRating();
             $reviewCount = rand(50, 100);
 
