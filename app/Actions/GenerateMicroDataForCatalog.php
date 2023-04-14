@@ -15,8 +15,9 @@ class GenerateMicroDataForCatalog
         $data = Cache::remember('rating_'.$url.'_'.$cityId, $expire, function () use ($title, $posts) {
 
             $minPrice = $this->getMinPrice($posts);
+            if (!$minPrice) return false;
             $maxPrice = $this->getMaxPrice($posts);
-            if (!$maxPrice) return false;
+
             $rating = $this->getRandRating();
             $reviewCount = rand(50, 100);
 
