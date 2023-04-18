@@ -27,6 +27,7 @@ class PostController extends Controller
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $post = $this->postRepository->getSingle($url);
+        if (!$post) abort(404);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
         $meta = $metaService->makeMetaTags($post, $cityInfo);

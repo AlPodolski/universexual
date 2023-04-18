@@ -55,8 +55,12 @@ class PostRepository
 
         });
 
-        $post->single_view = $post->single_view + 1;
-        $post->save();
+        if (isset($post->single_view)){
+            $post->single_view = $post->single_view + 1;
+            $post->save();
+        }
+
+
 
         return $post;
     }
