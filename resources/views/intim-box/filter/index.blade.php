@@ -21,6 +21,11 @@
                 {{ $meta['h1'] }}
             </h1>
         </div>
+
+        <div class="count-post-find breadcrumbs__link">
+            Найдено анкет: {{ $posts->total() }}
+        </div>
+
         <div class="catalog-items">
             @php
                 $i = 0;

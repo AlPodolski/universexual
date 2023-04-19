@@ -20,11 +20,11 @@ class MetaRepository
             $meta = Meta::where(['url' => $url])
                 ->where('site_id', SITE_ID)
                 ->select('title', 'des', 'h1')
-                ->get()->first()->toArray();
+                ->get()->first();
 
-            $value = $this->replaceCity($meta, $cityInfo);
+            if ($meta) $value = $this->replaceCity($meta->toArray(), $cityInfo);
 
-            \Cache::set('meta_'.$url.'_'.$cityInfo['id'], $value);
+            \Cache::set('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE, $value);
 
         }
 

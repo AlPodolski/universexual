@@ -130,7 +130,7 @@
 
                 </div>
                 <ul class="profile-main-info__characters profile-main__tab" data-tab="about">
-                    <li class="profile-main-info__characters-item">
+                    <li class="profile-main-info__characters-item single-phone">
                         <div class="profile-main-info__characters-name">
                             Номер телефона
                         </div>
