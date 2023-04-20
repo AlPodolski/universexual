@@ -130,6 +130,14 @@
 
                     <li class="sidebar-filters-sub__item">
                         <a itemprop="url"
+                           title="Молодые проститутки"
+                           href="/vzroslye-prostitutki" class="sidebar-filters-sub__link link-reset">
+                            <span itemprop="name">Взрослые проститутки</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-filters-sub__item">
+                        <a itemprop="url"
                            title="Старые проститутки"
                            href="/starye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Старые проститутки</span>

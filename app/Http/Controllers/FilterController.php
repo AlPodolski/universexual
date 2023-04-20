@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\Canonical;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateMicroDataForCatalog;
+use App\Models\Filter;
+use App\Models\Metro;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
 
@@ -30,12 +32,17 @@ class FilterController extends Controller
 
         $path = (new Canonical())->get($request->getRequestUri());
 
-        $meta = $metaRepository->getForFilter($search, $cityInfo, $request);
+        $filterParams = Filter::where('url', $search )->get();
+
+        $meta = $metaRepository->getForFilter($search, $cityInfo, $filterParams);
         $breadMicro = $this->breadMicro->generate($request, $meta['h1']);
 
         $productMicro = false;
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
+
+        if ($filterParams[0]->short_name == 'metro')
+            $data['current_metro'] = Metro::where(['id' => $filterParams[0]->related_id ])->first();
 
         return view(PATH.'.filter.index',
             compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro')

@@ -95,6 +95,11 @@ class PostRepository
         if (strpos($search, 'molodye-prostitutki') !== false)
             $posts = $posts->where('age', '<', 26);
 
+        if (strpos($search, 'vzroslye-prostitutki') !== false){
+            $posts = $posts->where('age', '>', 34);
+            $posts = $posts->where('age', '<', 46);
+        }
+
         if (strpos($search, 'starye-prostitutki') !== false)
             $posts = $posts->where('age', '>', 45);
 

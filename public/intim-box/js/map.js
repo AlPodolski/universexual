@@ -56,6 +56,7 @@ function init(map_name, x, y) {
     });
 
     myMap.geoObjects.add(placemark4);
+
 }
 
 $(document).ready(function () {

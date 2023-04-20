@@ -32,10 +32,8 @@ class MetaRepository
 
     }
 
-    public function getForFilter($url, $cityInfo, $request)
+    public function getForFilter($url, $cityInfo, $filterParams)
     {
-
-        $filterParams = Filter::where('url', $url )->get();
 
         $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE);
 

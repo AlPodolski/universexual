@@ -3329,6 +3329,15 @@ footer {
 .wrap{
     flex-wrap: wrap;
 }
+.metro-map{
+    background: url("../images/onmap.jpg") no-repeat;
+    cursor: pointer;
+}
+.show-metro-map{
+    padding: 10px 0;
+    text-align: center;
+    color: #00e;
+}
 @media (max-width: 1050px) {
     .profile-main-info__characters-alert {
         max-width: 130px

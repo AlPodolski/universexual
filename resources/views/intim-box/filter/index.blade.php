@@ -26,6 +26,20 @@
             Найдено анкет: {{ $posts->total() }}
         </div>
 
+        @if(isset($data['current_metro']))
+
+            <div class="metro-map">
+
+                <div class="show-metro-map" onclick="show_metro_map()">
+                    Показать на карте
+                </div>
+
+            </div>
+
+            <div id="map" data-x="{{$data['current_metro']->x}}" data-y="{{$data['current_metro']->y}}"></div>
+
+        @endif
+
         <div class="catalog-items">
             @php
                 $i = 0;

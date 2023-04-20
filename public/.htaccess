@@ -10,6 +10,26 @@
     RewriteRule .* /$0 [R=301,L]
     # Исключаем все лишние слеши.
 
+    Redirect 301 /satenka /shatenka
+    Redirect 301 /ryzaya /ryzhaya
+    Redirect 301 /bodi-massaz /bodi-massazh
+    Redirect 301 /minet-v-masine /minet-v-mashine
+    Redirect 301 /minet-v-masine /minet-v-mashine
+    Redirect 301 /eroticeskii-massaz /eroticeskii-massazh
+    Redirect 301 /eroticeskii-massaz /eroticeskii-massazh
+    Redirect 301 /massaz-prostaty /massazh-prostaty
+    Redirect 301 /bandaz /bandazh
+    Redirect 301 /lesbi-sou /lesbi-shou
+    Redirect 301 /zolotoi-dozd /zolotoi-dozhd
+    Redirect 301 /rizskaya /rizhskaya
+    Redirect 301 /molodeznaya /molodezhnaya
+    Redirect 301 /kazaska /kazashka
+    Redirect 301 /okruznaya /okruzhnaya
+    Redirect 301 /yuznaya /yuzhnaya
+    Redirect 301 /tadzicka /tadzhicka
+    Redirect 301 /na-cas /na-chas
+    Redirect 301 /na-noc /na-noch
+
     RewriteCond %{THE_REQUEST} index.php
     # Проверяем, повторяется ли слеш (//) более двух раз.
     RewriteRule .* / [R=301,L]
