@@ -4332,6 +4332,29 @@ function show_metro_map(){
 
 }
 
+function close_city_check(){
+
+    $('.check_city_block ').addClass('d-none');
+
+    let date = new Date(Date.now() + (86400e3 * 31));
+    date = date.toUTCString();
+    document.cookie = "city=close; expires=" + date;
+
+}
+
+function close_city_list(){
+
+    $('.header__location-list__sub_city').toggleClass('open-location');
+
+}
+
+function open_city_select(){
+
+    $('.header__location-list__sub_city').addClass('open-location');
+    close_city_check()
+
+}
+
 function init_map_metro(map_name, x, y) {
 
     var myMap = new ymaps.Map(map_name, {

@@ -4,13 +4,17 @@
             <svg class="header__location-icon">
                 <use xlink:href='/svg/dest/stack/sprite.svg#map'></use>
             </svg>
-            <div class="header__location-text">
+            <div class="header__location-text" onclick="close_city_list()">
                 {{ $data['current_city']->city }}
             </div>
             <svg class="header__location-arrow">
                 <use xlink:href='/svg/dest/stack/sprite.svg#arrow-down'></use>
             </svg>
-            <ul class="header__location-list__sub">
+            <ul class="header__location-list__sub_city header__location-list__sub_city">
+
+                <li class="position-absolute close-city_list" onclick="close_city_list()">
+                    <img src="/img/close.svg" alt="">
+                </li>
 
                 @foreach($data['city_list'] as $item)
                     <li class="header__location-list__sub-item">
@@ -54,4 +58,13 @@
     </ul>
     <div class="header__location-city">
     </div>
+    @if (!isset($_COOKIE['city']))
+        <div class="check_city_block position-absolute">
+            <div class="you_city">Ваш город {{ $data['current_city']->city }}?</div>
+            <div class="city-btn-wrap">
+                <div class="verno-btn" onclick="close_city_check()">Все верно</div>
+                <div class="ne-verno-btn" onclick="open_city_select()">Сменить город</div>
+            </div>
+        </div>
+    @endif
 </div>

@@ -1251,7 +1251,39 @@ footer {
     flex: 0 1 30%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
+    position: relative;
     justify-content: center
+}
+
+.position-absolute{
+    position: absolute;
+}
+.you_city{
+    color: #4926e8;
+}
+.verno-btn{
+    background: #4926e8;
+    padding: 7px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.city-btn-wrap{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.ne-verno-btn{
+    color: #4926e8;
+}
+.check_city_block{
+    background: #fff;
+    padding: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #e4e4e4;
+    top: 80px;
+    z-index: 1;
+    font-size: 15px;
+    min-width: 300px;
 }
 
 .header__location-list {
@@ -1321,7 +1353,11 @@ footer {
     transition: .3s
 }
 
-.header__location-list__sub {
+.close-city_list{
+    right: 5px;
+}
+
+.header__location-list__sub , .header__location-list__sub_city {
     position: absolute;
     background-color: #fff;
     -webkit-box-align: center;
@@ -3333,6 +3369,15 @@ footer {
     background: url("../images/onmap.jpg") no-repeat;
     cursor: pointer;
 }
+
+.header__location-list__sub_city.open-location{
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
 .show-metro-map{
     padding: 10px 0;
     text-align: center;
