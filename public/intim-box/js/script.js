@@ -4355,6 +4355,35 @@ function open_city_select(){
 
 }
 
+$(document).ready(function() {
+
+    $('.city-search-input').bind("input", function() {
+
+        var city = this.value;
+
+        if (city.length > 1){
+
+            $.ajax({
+                type: 'POST',
+                url: "/city/search", //Путь к обработчику
+                data: 'city='+city,
+                response: 'text',
+                dataType: "html",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+                },
+                cache: false,
+                success: function(data){
+                    $(".city-list").html(data).fadeIn(); //Выводим полученые данные в списке
+                }
+            })
+
+        }
+
+    });
+
+});
+
 function init_map_metro(map_name, x, y) {
 
     var myMap = new ymaps.Map(map_name, {

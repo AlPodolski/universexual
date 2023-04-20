@@ -12,18 +12,30 @@
             </svg>
             <ul class="header__location-list__sub_city header__location-list__sub_city">
 
+                <li class="city-search">
+                    <input type="text" class="city-search-input" placeholder="Поиск города">
+                </li>
+
                 <li class="position-absolute close-city_list" onclick="close_city_list()">
                     <img src="/img/close.svg" alt="">
                 </li>
 
-                @foreach($data['city_list'] as $item)
-                    <li class="header__location-list__sub-item">
-                        <a href="https://{{ $item->url }}.{{ SITE }}"
-                           class="header__location-list__sub-link link-reset">
-                            {{ $item->city }}
-                        </a>
-                    </li>
-                @endforeach
+                <li class="city-list">
+
+                    <ul>
+                        @foreach($data['city_list'] as $item)
+                            <li class="header__location-list__sub-item">
+                                <a href="https://{{ $item->url }}.{{ SITE }}"
+                                   class="header__location-list__sub-link link-reset">
+                                    {{ $item->city }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+
+                </li>
+
+
             </ul>
         </li>
 

@@ -30,6 +30,8 @@ Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/poisk',  \App\Http\Controllers\SearchController::class);
     Route::get('/filter',  [\App\Http\Controllers\SearchController::class, 'filter']);
 
+    Route::post('/city/search',  [\App\Http\Controllers\SearchController::class, 'city']);
+
     Route::get('/sitemap.xml',  \App\Http\Controllers\SiteMapController::class);
     Route::get('/sitemap_post.xml',  [\App\Http\Controllers\SiteMapController::class, 'post']);
     Route::get('/sitemap_page.xml',  [\App\Http\Controllers\SiteMapController::class, 'page']);

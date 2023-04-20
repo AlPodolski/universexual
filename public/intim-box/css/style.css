@@ -1357,6 +1357,19 @@ footer {
     right: 5px;
 }
 
+.city-search-input{
+    border: 1px solid rgba(73, 38, 232, .17);
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    line-height: 22px;
+}
+
+.city-list ul{
+    list-style: none;
+    padding-left: 0;
+}
+
 .header__location-list__sub , .header__location-list__sub_city {
     position: absolute;
     background-color: #fff;

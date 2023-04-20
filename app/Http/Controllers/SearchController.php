@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -41,6 +42,16 @@ class SearchController extends Controller
         return view(PATH.'.index.index', compact(
             'posts', 'data', 'meta', 'path', 'sort', 'search'
         ));
+
+    }
+
+    public function city(Request $request)
+    {
+        $city = $request->post('city');
+
+        $cityList = City::where('city', 'like', '%'.$city.'%')->get();
+
+        return view('intim-box.search.city', compact('city', 'cityList'));
 
     }
 }
