@@ -1370,6 +1370,17 @@ footer {
     padding-left: 0;
 }
 
+.header__location-list__sub::-webkit-scrollbar{
+    width:10px;
+}
+.header__location-list__sub::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 10px rgb(190 190 190);
+}
+.header__location-list__sub::-webkit-scrollbar-thumb{
+    background-color:rgb(73 38 232);
+}
+
+
 .header__location-list__sub , .header__location-list__sub_city {
     position: absolute;
     background-color: #fff;
@@ -1390,7 +1401,7 @@ footer {
     -ms-transform: translateY(-5px);
     transform: translateY(-5px);
     max-height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
     top: 80px;
 }
 .catalog-item__ui-item{
