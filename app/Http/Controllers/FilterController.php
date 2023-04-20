@@ -41,7 +41,7 @@ class FilterController extends Controller
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
 
-        if ($filterParams[0]->short_name == 'metro')
+        if (isset($filterParams[0]->short_name) and $filterParams[0]->short_name == 'metro')
             $data['current_metro'] = Metro::where(['id' => $filterParams[0]->related_id ])->first();
 
         return view(PATH.'.filter.index',
