@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\City;
 use App\Models\Metro;
+use App\Models\MetroNear;
 use App\Models\Post;
 use App\Models\PostMetro;
 use Illuminate\Console\Command;
@@ -36,57 +37,44 @@ class CustCommand extends Command
 
         }
 
-        $posts = Post::where(['city_id' => 1, 'site_id' => 2])->with('metro')->get();
+        foreach ($data as $item) {
 
-        foreach ($posts as $post) {
+            $tmp = trim($item['osnova']);
 
-            if ($post->metro->count() == 1) {
+            $osnMetro = Metro::where('value', $tmp)->first();
 
-                foreach ($data as $item) {
+            if ($osnMetro) {
 
-                    $tmp = trim($item['osnova']);
+                $newMetroInfo = Metro::where(['value' => trim($item['sosed1']), 'city_id' => 1])->first();
 
-                    if ($post->metro[0]->metro_value == $tmp) {
+                if ($newMetroInfo) {
 
+                    $newMetro = new MetroNear();
 
-                        $newMetroInfo = Metro::where(['value' => trim($item['sosed1']), 'city_id' => 1])->first();
+                    $newMetro->metro_id = $osnMetro->id;
+                    $newMetro->near_metro_id = $newMetroInfo->id;
 
-                        if ($newMetroInfo) {
+                    $newMetro->save();
 
-                            $newMetro = new PostMetro();
-
-                            $newMetro->city_id = 1;
-                            $newMetro->posts_id = $post->id;
-                            $newMetro->metros_id = $newMetroInfo->id;
-
-                            $newMetro->save();
-
-                        }
+                }
 
 
-                        $newMetroInfo = Metro::where(['value' => trim($item['sosed2']), 'city_id' => 1])->first();
+                $newMetroInfo = Metro::where(['value' => trim($item['sosed2']), 'city_id' => 1])->first();
 
-                        if ($newMetroInfo) {
+                if ($newMetroInfo) {
 
-                            $newMetro = new PostMetro();
+                    $newMetro = new MetroNear();
 
-                            $newMetro->city_id = 1;
-                            $newMetro->posts_id = $post->id;
-                            $newMetro->metros_id = $newMetroInfo->id;
+                    $newMetro->metro_id = $osnMetro->id;
+                    $newMetro->near_metro_id = $newMetroInfo->id;
 
-                            $newMetro->save();
-
-                        }
-
-
-                    }
+                    $newMetro->save();
 
                 }
 
             }
 
         }
-
 
     }
 }

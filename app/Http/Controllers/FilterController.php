@@ -7,6 +7,7 @@ use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateMicroDataForCatalog;
 use App\Models\Filter;
 use App\Models\Metro;
+use App\Models\MetroNear;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
 
@@ -41,8 +42,15 @@ class FilterController extends Controller
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
 
-        if (isset($filterParams[0]->short_name) and $filterParams[0]->short_name == 'metro')
+        if (isset($filterParams[0]->short_name) and $filterParams[0]->short_name == 'metro'){
+
             $data['current_metro'] = Metro::where(['id' => $filterParams[0]->related_id ])->first();
+            $data['near_metro'] = MetroNear::where(['metro_id' => $filterParams[0]->related_id ])
+                ->with('metro')
+                ->get();
+
+        }
+
 
         return view(PATH.'.filter.index',
             compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro')

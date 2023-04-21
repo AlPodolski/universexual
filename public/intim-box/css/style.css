@@ -1380,6 +1380,9 @@ footer {
     background-color:rgb(73 38 232);
 }
 
+.near-metro{
+    margin-top: 10px;
+}
 
 .header__location-list__sub , .header__location-list__sub_city {
     position: absolute;

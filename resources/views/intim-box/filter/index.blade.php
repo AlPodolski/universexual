@@ -50,8 +50,19 @@
                     $i ++;
                 @endphp
             @endforeach
-
         </div>
+
+        @if(isset($data['near_metro']))
+
+            <div class="near-metro">
+                Посмотрите также анкеты на соседних метро:
+                @foreach($data['near_metro'] as $item)
+                    <a href="/{{ $item->metro->filter->url }}">{{  $item->metro->value }}</a>
+                @endforeach
+            </div>
+
+        @endif
+
         @if($posts->total() > $posts->count())
             {{ $posts->links('intim-box.vendor.pagination.bootstrap-4') }}
         @endif

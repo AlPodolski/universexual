@@ -28,4 +28,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Metro extends Model
 {
+    public function filter()
+    {
+        return $this->hasOne(Filter::class, 'related_id', 'id')
+            ->where('related_table', 'post_metros');
+    }
 }
