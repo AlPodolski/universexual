@@ -176,7 +176,7 @@ class PostRepository
         if (count($posts->getQuery()->wheres) <= 2 and !$posts->getQuery()->orders) abort(404);
 
         $posts = $posts
-            ->with('place', 'reviews', 'city')
+            ->with('place', 'reviews', 'city', 'metro')
             ->orderByRaw($this->sort)
             ->paginate(20);
 

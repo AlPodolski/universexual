@@ -45,15 +45,41 @@
                 Показать телефон
             </a>
         </div>
+
         @if($metro = $post->metro->first())
-            <div class="catalog-item__location">
-                <svg class="catalog-item__location-icon">
-                    <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
-                </svg>
-                <div class="catalog-item__location-text">
-                    <a href="/{{ $metro->metro_url }}">{{ $metro->metro_value }}</a>
+
+            @if(isset($data['current_metro']))
+
+                @foreach($post->metro as $metroItem)
+
+                    @if($metroItem->id == $data['current_metro']->id)
+
+                        <div class="catalog-item__location">
+                            <svg class="catalog-item__location-icon">
+                                <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
+                            </svg>
+                            <div class="catalog-item__location-text">
+                                <a href="/{{ $metroItem->metro_url }}">{{ $metroItem->metro_value }}</a>
+                            </div>
+                        </div>
+
+                    @endif
+
+                @endforeach
+
+            @else
+
+                <div class="catalog-item__location">
+                    <svg class="catalog-item__location-icon">
+                        <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
+                    </svg>
+                    <div class="catalog-item__location-text">
+                        <a href="/{{ $metro->metro_url }}">{{ $metro->metro_value }}</a>
+                    </div>
                 </div>
-            </div>
+
+            @endif
+
         @endif
 
         <ul class="catalog-item__list">

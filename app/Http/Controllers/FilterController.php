@@ -40,7 +40,7 @@ class FilterController extends Controller
 
         $productMicro = false;
 
-        if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
+        if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, $search, $cityInfo['id']);
 
         if (isset($filterParams[0]->short_name) and $filterParams[0]->short_name == 'metro'){
 
