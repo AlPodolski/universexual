@@ -34,7 +34,7 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=7">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=8">
 </head>
 
 <body>
@@ -241,7 +241,7 @@
 
     </div>
 </div>
-<script defer src="/intim-box/js/script.js?v=8"></script>
+<script defer src="/intim-box/js/script.js?v=9"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif

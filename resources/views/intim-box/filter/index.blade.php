@@ -38,7 +38,7 @@
 
             </div>
 
-            <div id="map" data-x="{{$data['current_metro']->x}}" data-y="{{$data['current_metro']->y}}"></div>
+            <div id="map" class="d-none" style="height: 300px" data-x="{{$data['current_metro']->x}}" data-y="{{$data['current_metro']->y}}"></div>
 
         @endif
 

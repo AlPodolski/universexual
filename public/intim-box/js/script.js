@@ -4359,6 +4359,7 @@ function show_metro_map(){
             init_metro('map', x, y)
 
             $('.metro-map').remove();
+            $('#map').removeClass('d-none');
 
         })
     });
