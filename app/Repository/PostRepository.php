@@ -92,6 +92,12 @@ class PostRepository
         if (strpos($search, 'nizkie') !== false)
             $posts = $posts->where('rost', '<', 170);
 
+        if (strpos($search, '18-let') !== false)
+            $posts = $posts->where('age', '=', 18);
+
+        if (strpos($search, 'do-20-let') !== false)
+            $posts = $posts->where('age', '<', 21);
+
         if (strpos($search, 'molodye-prostitutki') !== false)
             $posts = $posts->where('age', '<', 26);
 
@@ -100,14 +106,59 @@ class PostRepository
             $posts = $posts->where('age', '<', 46);
         }
 
+        if (strpos($search, 'prostitutki-21-25-let') !== false){
+            $posts = $posts->where('age', '>', 20);
+            $posts = $posts->where('age', '<', 26);
+        }
+
+        if (strpos($search, 'prostitutki-26-30-let') !== false){
+            $posts = $posts->where('age', '>', 25);
+            $posts = $posts->where('age', '<', 31);
+        }
+
+        if (strpos($search, 'prostitutki-31-40-let') !== false){
+            $posts = $posts->where('age', '>', 30);
+            $posts = $posts->where('age', '<', 41);
+        }
+
+        if (strpos($search, 'prostitutki-40-50-let') !== false){
+            $posts = $posts->where('age', '>', 39);
+            $posts = $posts->where('age', '<', 51);
+        }
+
         if (strpos($search, 'starye-prostitutki') !== false)
             $posts = $posts->where('age', '>', 45);
+
+        if (strpos($search, 'prostitutki-ot-50-let') !== false)
+            $posts = $posts->where('age', '>', 49);
 
         if (strpos($search, 'dorogie-prostitutki') !== false)
             $posts = $posts->where('price', '>', 4999);
 
         if (strpos($search, 'deshevye-prostitutki') !== false)
             $posts = $posts->where('price', '<', 3001);
+
+        if (strpos($search, 'do-1500-rub') !== false)
+            $posts = $posts->where('price', '<', 1501);
+
+        if (strpos($search, '2000-3000-rub') !== false){
+            $posts = $posts->where('price', '>', 1999);
+            $posts = $posts->where('price', '<', 3001);
+        }
+
+        if (strpos($search, '4000-5000-rub') !== false){
+            $posts = $posts->where('price', '>', 3999);
+            $posts = $posts->where('price', '<', 5001);
+        }
+
+        if (strpos($search, '5000-6000-rub') !== false){
+            $posts = $posts->where('price', '>', 4999);
+            $posts = $posts->where('price', '<', 6001);
+        }
+
+        if (strpos($search, 'ot-10000-rub') !== false){
+            $posts = $posts->where('price', '>', 9999);
+        }
 
         if (strpos($search, 'proverennye') !== false)
             $posts = $posts->where('check_photo_status', 1);
