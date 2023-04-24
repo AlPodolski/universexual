@@ -3433,6 +3433,11 @@ footer {
     color: #00e;
 }
 
+.links-wrap{
+    margin-bottom: 10px;
+    margin-right: 10x;
+}
+
 .catalog-item__ui-item:hover .catalog-item__ui-item-title {
     border-radius: 10px;
     position: absolute;

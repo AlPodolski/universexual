@@ -22,6 +22,8 @@
             </h1>
         </div>
 
+        @include('intim-box.include.link')
+
         <div class="count-post-find breadcrumbs__link">
             Найдено анкет: {{ $posts->total() }}
         </div>

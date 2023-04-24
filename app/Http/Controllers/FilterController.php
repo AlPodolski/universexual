@@ -6,8 +6,10 @@ use App\Actions\Canonical;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateMicroDataForCatalog;
 use App\Models\Filter;
+use App\Models\Link;
 use App\Models\Metro;
 use App\Models\MetroNear;
+use App\Repository\LinkRepository;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
 
@@ -16,11 +18,13 @@ class FilterController extends Controller
 
     private GenerateBreadcrumbMicro $breadMicro;
     private GenerateMicroDataForCatalog $microData;
+    private LinkRepository $linkRepository;
 
     public function __construct()
     {
         $this->breadMicro = new GenerateBreadcrumbMicro();
         $this->microData = new GenerateMicroDataForCatalog();
+        $this->linkRepository = new LinkRepository();
 
         parent::__construct();
     }
@@ -51,9 +55,10 @@ class FilterController extends Controller
 
         }
 
+        $links = $this->linkRepository->getLink($search);
 
         return view(PATH.'.filter.index',
-            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro')
+            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links')
         );
     }
 
