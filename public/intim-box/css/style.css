@@ -2435,10 +2435,6 @@ footer {
     color: #4926e8
 }
 
-.profile-main-info, .profile-main {
-    font-size: 18px;
-}
-
 @media (max-width: 1000px) {
     .catalog-item__phone {
         margin: 0 0 0 .8571428571rem
@@ -2490,7 +2486,7 @@ footer {
         content: none
     }
 
-    .single-phone .profile-main-info__characters-cur {
+    #mobilePhone .profile-main-info__characters-cur {
         position: fixed;
         bottom: 10px;
         width: 100%;
@@ -2823,7 +2819,6 @@ footer {
     align-items: center;
     list-style: none;
     padding: 0 0;
-    overflow: scroll;
     margin: 0
 }
 
@@ -3149,9 +3144,6 @@ footer {
 }
 
 .profile-main-info__characters-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -3477,6 +3469,9 @@ footer {
         -ms-flex: 0 1 100%;
         flex: 0 1 100%
     }
+    .profile-main-nav__list{
+        overflow: scroll;
+    }
 }
 
 @media (max-width: 680px) {
@@ -3776,18 +3771,6 @@ footer {
     display: none;
 }
 
-.catalog-item__ui-item:hover .catalog-item__ui-item-title {
-    position: absolute;
-    background: #fff;
-    font-size: 12px;
-    white-space: nowrap;
-    top: -20px;
-    display: block;
-    left: -40px;
-    width: 120px;
-    text-align: center;
-}
-
 .sidebar-tags-item__title-icon {
     display: none;
 }
@@ -3801,7 +3784,15 @@ footer {
     display: grid;
 }
 
+.profile-main-info, .profile-main {
+    font-size: 18px!important;
+}
+
 @media (max-width: 650px) {
+    #arrowTop {
+        right: 10px;
+        bottom: 60px;
+    }
     .sidebar-tags-item__title-icon {
         display: flex;
         margin-left: auto;

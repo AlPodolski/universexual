@@ -32,7 +32,7 @@
 
             <div class="metro-map">
 
-                <div class="show-metro-map" onclick="show_metro_map()">
+                <div class="show-metro-map" onclick="ym(92632574,'reachGoal','GET_METRO_MAP');show_metro_map()">
                     Показать на карте
                 </div>
 
