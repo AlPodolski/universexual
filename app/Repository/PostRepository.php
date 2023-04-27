@@ -146,6 +146,11 @@ class PostRepository
             $posts = $posts->where('price', '<', 3001);
         }
 
+        if (strpos($search, '3000-4000-rub') !== false){
+            $posts = $posts->where('price', '>', 2999);
+            $posts = $posts->where('price', '<', 4001);
+        }
+
         if (strpos($search, '4000-5000-rub') !== false){
             $posts = $posts->where('price', '>', 3999);
             $posts = $posts->where('price', '<', 5001);

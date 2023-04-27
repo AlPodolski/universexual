@@ -72,6 +72,7 @@
     </div>
     @if (!isset($_COOKIE['city']))
         <div class="check_city_block position-absolute">
+            <div class="rec"></div>
             <div class="you_city">Ваш город {{ $data['current_city']->city }}?</div>
             <div class="city-btn-wrap">
                 <div class="verno-btn" onclick="close_city_check()">Все верно</div>
