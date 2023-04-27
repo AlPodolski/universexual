@@ -148,7 +148,7 @@
                         </div>
                     </li>
 
-                    <li hidden id="mobilePhone" class="profile-main-info__characters-item single-phone">
+                    <li hidden id="mobilePhone" class="single-phone">
                         <div class="profile-main-info__characters-name">
                             Номер телефона
                         </div>

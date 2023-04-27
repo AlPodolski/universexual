@@ -34,7 +34,7 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=11">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=12">
 </head>
 
 <body>

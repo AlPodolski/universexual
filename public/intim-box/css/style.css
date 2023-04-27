@@ -1413,7 +1413,7 @@ footer {
     top: 80px;
 }
 
-.header__location-list__sub::-webkit-scrollbar-thumb , .header__location-list__sub_city::-webkit-scrollbar-thumb {
+.header__location-list__sub::-webkit-scrollbar-thumb, .header__location-list__sub_city::-webkit-scrollbar-thumb {
     background-color: rgb(73 38 232);
 }
 
@@ -1451,9 +1451,9 @@ footer {
     margin: 0 2.2857142857rem 0 0
 }
 
-.rec{
-    color: #fff!important;
-    font-size: 12px!important;
+.rec {
+    color: #fff !important;
+    font-size: 12px !important;
     width: 12px;
     height: 12px;
     position: absolute;
@@ -3166,7 +3166,13 @@ footer {
     width: 100%;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 95%;
+    display: flex;
     flex: 0 1 95%
+}
+
+
+.profile-main-info__characters-cur{
+    width: 100%;
 }
 
 .profile-main-info__characters-item:first-child {
@@ -3440,7 +3446,7 @@ footer {
     color: #00e;
 }
 
-.links-wrap{
+.links-wrap {
     margin-bottom: 10px;
     margin-right: 10px;
 }
@@ -3484,7 +3490,8 @@ footer {
         -ms-flex: 0 1 100%;
         flex: 0 1 100%
     }
-    .profile-main-nav__list{
+
+    .profile-main-nav__list {
         overflow: scroll;
     }
 }
@@ -3800,7 +3807,7 @@ footer {
 }
 
 .profile-main-info, .profile-main {
-    font-size: 18px!important;
+    font-size: 18px !important;
 }
 
 @media (max-width: 650px) {
@@ -3808,6 +3815,7 @@ footer {
         right: 10px;
         bottom: 60px;
     }
+
     .sidebar-tags-item__title-icon {
         display: flex;
         margin-left: auto;
