@@ -80,13 +80,21 @@
                         <button class="header__ui-add btn d-none">
                             Добавить анкету
                         </button>
-                        <div class="header__ui-cabinet d-none">
-                            <a href="#" class="header__ui-cabinet-link link-reset">
-                                Вход
-                            </a>
-                            <a href="#" class="header__ui-cabinet-link link-reset">
-                                Регистрация
-                            </a>
+                        <div class="header__ui-cabinet">
+                            @guest()
+                                <a href="/login" class="header__ui-cabinet-link link-reset">
+                                    Вход
+                                </a>
+                                <a href="/register" class="header__ui-cabinet-link link-reset">
+                                    Регистрация
+                                </a>
+                            @endguest
+                            @auth()
+                                <a href="/cabinet" class="header__ui-cabinet-link link-reset">
+                                    Кабинет
+                                </a>
+                            @endauth
+
                         </div>
                     </div>
                 </div>

@@ -1443,7 +1443,28 @@ footer {
     flex: 0 1 45.22%;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
+    margin-left: auto;
     justify-content: flex-end
+}
+
+.justify-content-center {
+    justify-content: center!important;
+}
+.form {
+    max-width: 320px;
+    margin: auto;
+}
+
+.form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.request-call-input {
+    border-radius: 8px;
+    max-width: 330px;
+    border: 1px solid #dadae8;
+    padding: 10px;
 }
 
 .header__ui-search {
@@ -2886,6 +2907,7 @@ footer {
     display: block;
     margin-top: 22px;
     margin-bottom: 25px;
+    border: none;
 }
 
 .profile-main-reviews__items {

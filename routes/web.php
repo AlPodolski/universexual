@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::post('/phone', \App\Http\Controllers\PhoneController::class);
 
 Route::post('/review/add', \App\Http\Controllers\ReviewController::class);
@@ -48,5 +54,3 @@ Route::domain('{city}.'.SITE)->group(function () {
     Route::post('/{search}',  [\App\Http\Controllers\FilterController::class, 'more'])
         ->where('search', '.*');
 });
-
-
