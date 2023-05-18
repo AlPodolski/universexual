@@ -22,5 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PostService extends Model
 {
+    protected $fillable = ['posts_id', 'service_id', 'city_id', 'sympathy', 'pay'];
+
     public $timestamps = false;
 }

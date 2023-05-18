@@ -22,5 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PostMetro extends Model
 {
+
+    protected $fillable = ['posts_id', 'metros_id', 'city_id'];
+
     public $timestamps = false;
 }

@@ -72,6 +72,15 @@ class Post extends Model
     const POST_REAL = 1;
     const POST_FAKE = 0;
 
+    const POST_ON_MODERATION = 3;
+
+    protected $fillable = ['name', 'user_id' , 'phone', 'about', 'price',
+        'rost', 'ves', 'breast', 'city_id', 'age', 'intim_hair_id', 'national_id', 'hair_color_id',
+        'fake', 'publication_status','check_photo_status', 'two_hour_price', 'apartament_2_hour_price',
+        'apartament_night_price', 'exit_1_hour_price', 'exit_2_hour_price', 'exit_night_price', 'whats_ap','tatu',
+        'rayon_id',
+        'telegram', 'pircing', 'express'];
+
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostService::class, 'posts_id', 'id')

@@ -8,7 +8,7 @@
             У вас нет добавленных </br>
             <img src="/intim-box/images/cabinet/notfound-ankets.png" alt="">анкет
         </h2>
-        <a href="#" class="none-ankets__btn btn-main">
+        <a href="/cabinet/post/create" class="none-ankets__btn btn-main">
             Добавить анкету
         </a>
     </div>

@@ -57,7 +57,13 @@ Route::domain('{city}.'.SITE)->group(function () {
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');
 
-        Route::get('cabinet', App\Http\Controllers\Cabinet\IndexController::class);
+        Route::prefix('cabinet')->group(function(){
+
+            Route::resource('post', \App\Http\Controllers\Cabinet\PostController::class);
+
+            Route::get('/', App\Http\Controllers\Cabinet\IndexController::class);
+
+        });
 
     });
 });

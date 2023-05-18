@@ -8,5 +8,7 @@ class Photo extends Model
 {
     public $timestamps = false;
 
+    protected $fillable = ['posts_id', 'file', 'type'];
+
     const GALLERY_TYPE = 1;
 }
