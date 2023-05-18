@@ -55,6 +55,26 @@ class PostController extends Controller
 
             }
 
+            if ($request->file('anketSelfie')) foreach ($request->file('anketSelfie') as $item) {
+
+                $photo[] = [
+                    'posts_id' => $post->id,
+                    'file' => '/' . $item->store('/uploads/'.$dir, 'public'),
+                    'type' => Photo::SELPHI_TYPE
+                ];
+
+            }
+
+            if ($request->file('anketCheckPhoto')) foreach ($request->file('anketCheckPhoto') as $item) {
+
+                $photo[] = [
+                    'posts_id' => $post->id,
+                    'file' => '/' . $item->store('/uploads/'.$dir, 'public'),
+                    'type' => Photo::CHECK_PHOTO_TYPE
+                ];
+
+            }
+
             if ($place = $request->post('place')){
 
                 foreach ($place as $placeItem){
@@ -112,6 +132,14 @@ class PostController extends Controller
             $avatar = $request->file('photo')->store('/uploads/'.$dir, 'public');
 
             $post->avatar = $avatar;
+
+            if ($video = $request->file('anketVideo')){
+
+                $video = $video->store('/uploads/'.$dir, 'public');
+
+                $post->video = $video;
+
+            }
 
             if ($photo) foreach ($photo as $item) {
                 Photo::create($item);;

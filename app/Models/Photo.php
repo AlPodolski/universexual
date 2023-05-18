@@ -11,4 +11,6 @@ class Photo extends Model
     protected $fillable = ['posts_id', 'file', 'type'];
 
     const GALLERY_TYPE = 1;
+    const SELPHI_TYPE = 2;
+    const CHECK_PHOTO_TYPE = 3;
 }
