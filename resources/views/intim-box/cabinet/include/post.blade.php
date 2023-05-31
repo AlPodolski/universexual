@@ -11,7 +11,7 @@
                             <label for="anketItem1"></label>
                             <input type="checkbox" id="anketItem1">
                         </span>
-        <img src="/{{ $post->avatar }}" alt="" class="ankets__item-img">
+        <img src="/storage/{{ $post->avatar }}" alt="" class="ankets__item-img">
     </div>
     <div class="ankets__item-body">
         <div class="ankets__item-field ankets__item-title">
@@ -59,7 +59,7 @@
             </a>
         </div>
         <div class="ankets__item-field ankets__item-ui">
-            <a class="ankets__item-ui-item ankets__item-ui-item--1" href="#">
+            <a class="ankets__item-ui-item ankets__item-ui-item--1" href="/cabinet/post/{{$post->id}}/edit">
                 <svg>
                     <use xlink:href='/intim-box/images/cabinet/sprite.svg#pencil'></use>
                 </svg>

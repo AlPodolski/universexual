@@ -69,7 +69,7 @@
                         <nav class="sidebar__menu-nav">
                             <ul class="sidebar__menu-list">
                                 <li class="sidebar__menu-item">
-                                    <a href="#" class="sidebar__menu-link">
+                                    <a href="/cabinet/post/create" class="sidebar__menu-link">
                                         <svg class="sidebar__menu-icon">
                                             <use xlink:href='/intim-box/images/cabinet/sprite.svg#user'></use>
                                         </svg>

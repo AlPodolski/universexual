@@ -794,7 +794,7 @@ footer {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
-    background-image: url(../images/icons/checkmark.svg);
+    background-image: url(../images/cabinet/icons/checkmark.svg);
     background-size: 10px 10px;
     background-repeat: no-repeat;
     background-position: center
@@ -973,7 +973,7 @@ footer {
     height: 44px;
     border-radius: 50%;
     background-color: #bab9b9;
-    background-image: url(../images/icons/checkmark.svg);
+    background-image: url(../images/cabinet/icons/checkmark.svg);
     background-size: 22px 22px;
     background-repeat: no-repeat;
     background-position: center;
@@ -1234,15 +1234,15 @@ footer {
 }
 
 .ankets__item-tarif-option--1::before {
-    background-image: url(../images/icons/diamond1.png)
+    background-image: url(../images/cabinet/icons/diamond1.png)
 }
 
 .ankets__item-tarif-option--2::before {
-    background-image: url(../images/icons/diamond2.png)
+    background-image: url(../images/cabinet/icons/diamond2.png)
 }
 
 .ankets__item-tarif-option--3::before {
-    background-image: url(../images/icons/diamond3.png)
+    background-image: url(../images/cabinet/icons/diamond3.png)
 }
 
 .ankets__item-tarif-option.current {
@@ -2097,7 +2097,7 @@ footer {
 
 .anket__info-params-input .nice-select::after {
     border: none;
-    background-image: url(../images/icons/arrow-custom.svg);
+    background-image: url(../images/cabinet/icons/arrow-custom.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

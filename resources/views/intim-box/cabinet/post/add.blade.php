@@ -180,7 +180,7 @@
                 <div class="anket__sidebar-adapt anket__sidebar-adapt--2"></div>
                 <h2 class="anket__subtitle subtitle">О себе:</h2>
                 <div class="anket__info-about">
-                    <textarea name="about" placeholder="Расскажите о себе..."></textarea>
+                    <textarea required name="about" placeholder="Расскажите о себе..."></textarea>
                 </div>
                 <h2 class="anket__subtitle subtitle">Местоположение:</h2>
                 <div class="anket__info-location">
