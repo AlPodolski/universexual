@@ -73,6 +73,8 @@ class Post extends Model
     const POST_FAKE = 0;
 
     const POST_ON_MODERATION = 3;
+    const POST_ON_PUBLICATION = 1;
+    const POST_DONT_PUBLICATION = 0;
 
     protected $fillable = ['name', 'user_id' , 'phone', 'about', 'price',
         'rost', 'ves', 'breast', 'city_id', 'age', 'intim_hair_id', 'national_id', 'hair_color_id',
@@ -143,6 +145,19 @@ class Post extends Model
         if ($this->city) $result .= ' в городе ' . $this->city->city;
 
         return $result;
+
+    }
+
+    public function getPublicationAttribute()
+    {
+        switch ($this->publication_status) {
+            case self::POST_ON_MODERATION:
+                return 'НА МОДЕРАЦИИ';
+            case self::POST_ON_PUBLICATION:
+                return 'НА ПУБЛИКАЦИИ';
+            case self::POST_DONT_PUBLICATION:
+                return 'НЕ ПУБЛИКУЕТСЯ';
+        }
 
     }
 }
