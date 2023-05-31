@@ -2710,6 +2710,48 @@ footer {
     object-fit: cover
 }
 
+.form {
+    max-width: 320px;
+    margin: auto;
+}
+
+.form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.request-call-input {
+    border-radius: 8px;
+    max-width: 330px;
+    border: 1px solid #dadae8;
+    padding: 10px;
+}
+
+.profile-main-reviews__btn {
+    background: -o-linear-gradient(358.8deg, #4926e8 .29%, #2dc8ff 112.3%);
+    background: linear-gradient(91.2deg, #4926e8 .29%, #2dc8ff 112.3%);
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 23px;
+    line-height: 27px;
+    max-width: 172px;
+    font-size: 1.2142857143rem;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 22px;
+    margin-bottom: 25px;
+    border: none;
+}
+
+.justify-content-center {
+    justify-content: center!important;
+}
+
+.w-100{
+    width: 100%;
+}
+
 .anket__photos-content-item-item:first-child {
     margin-right: 0
 }

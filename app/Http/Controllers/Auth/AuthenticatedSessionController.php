@@ -15,11 +15,10 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create($city)
+    public function create()
     {
-        $cityInfo = $this->cityRepository->getCity($city);
-        $data = $this->dataRepository->getData($cityInfo['id']);
-        return view(PATH.'.auth.login', compact('cityInfo', 'data'));
+
+        return view(PATH.'.auth.login');
     }
 
     /**

@@ -79,7 +79,7 @@
                                     </a>
                                 </li>
                                 <li class="sidebar__menu-item">
-                                    <a href="#" class="sidebar__menu-link">
+                                    <a href="/cabinet" class="sidebar__menu-link">
                                         <svg class="sidebar__menu-icon">
                                             <use xlink:href='/intim-box/images/cabinet/sprite.svg#user-card'></use>
                                         </svg>

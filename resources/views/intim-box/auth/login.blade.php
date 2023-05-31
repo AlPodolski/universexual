@@ -1,4 +1,7 @@
-@extends('intim-box.layouts.main')
+@extends('intim-box.layouts.login')
+
+@section('title', 'Войти')
+@section('des', 'Войти')
 
 @section('content')
     <div class="container">
@@ -69,12 +72,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('main-menu')
-    @include('intim-box.include.main-menu', compact('data'))
-@endsection
-
-@section('location')
-    @include('intim-box.include.location', compact('data'))
 @endsection

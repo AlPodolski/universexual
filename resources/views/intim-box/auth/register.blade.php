@@ -1,4 +1,4 @@
-@extends('intim-box.layouts.main')
+@extends('intim-box.layouts.login')
 
 @section('content')
     <div class="container">
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <button type="submit" class="get-more-post-btn">
+                                <button type="submit" class="profile-main-reviews__btn">
                                     Регистрация
                                 </button>
                             </div>
@@ -75,12 +75,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('main-menu')
-    @include('intim-box.include.main-menu', compact('data'))
-@endsection
-
-@section('location')
-    @include('intim-box.include.location', compact('data'))
 @endsection
