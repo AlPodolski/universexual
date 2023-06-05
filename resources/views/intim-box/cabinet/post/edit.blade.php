@@ -1,11 +1,15 @@
 @extends('intim-box.layouts.cabinet')
 
-@section('title', 'Создать анкету')
+@section('title', 'Редактировать анкету')
 
 @section('content')
-    <form class="anket" action="/cabinet/post" method="post" enctype="multipart/form-data">
+    @php
+        /* @var $post \App\Models\Post */
+    @endphp
+    <form class="anket" action="/cabinet/post/{{ $post->id }}" method="post" enctype="multipart/form-data">
         @csrf
-        <h1 class="anket__title title">Создать анкету</h1>
+        @method('PUT')
+        <h1 class="anket__title title">Редактировать анкету</h1>
         <h2 class="anket__subtitle subtitle">
             Главное фото
         </h2>
@@ -16,33 +20,38 @@
                         <use xlink:href='/intim-box/images/cabinet/sprite.svg#cross'></use>
                     </svg>
                 </button>
-                <img class="anket__main-photo-img" data-placeholder="/intim-box/images/cabinet/user-placeholder.png"
+                <img class="anket__main-photo-img" data-placeholder="/storage/{{$post->avatar}}"
                      alt="">
                 <div class="anket__main-photo-input">
                     <label for="anketPhoto" tabindex="0">+</label>
-                    <input type="file" name="photo" id="anketPhoto" required>
+                    <input type="file" name="photo" id="anketPhoto">
                 </div>
             </div>
             <div class="anket__main-info">
                 <div class="anket__main-info-item input-wrap">
                     <label for="anketName">Имя</label>
-                    <input type="text" name="name" class="anket__main-info-input input" id="name" required>
+                    <input value="{{ $post->name }}" type="text" name="name" class="anket__main-info-input input"
+                           id="name" required>
                 </div>
                 <div class="anket__main-info-item input-wrap">
                     <label for="anketAge">Возраст</label>
-                    <input type="text" name="age" class="anket__main-info-input input" id="age" required>
+                    <input value="{{ $post->age }}" type="text" name="age" class="anket__main-info-input input" id="age"
+                           required>
                 </div>
                 <div class="anket__main-info-item input-wrap">
                     <label for="anketPhone">Телефон</label>
-                    <input type="text" name="phone" class="anket__main-info-input input" id="phone" required>
+                    <input value="{{ $post->phone }}" type="text" name="phone" class="anket__main-info-input input"
+                           id="phone" required>
                 </div>
                 <div class="anket__main-info-item input-wrap">
                     <label for="anketTelegram">Telegram</label>
-                    <input type="text" name="telegram" class="anket__main-info-input input" id="anketTelegram">
+                    <input value="{{ $post->telegram }}" type="text" name="telegram"
+                           class="anket__main-info-input input" id="anketTelegram">
                 </div>
                 <div class="anket__main-info-item input-wrap">
                     <label for="anketWhats">WhatsApp</label>
-                    <input type="text" name="whats_ap" class="anket__main-info-input input" id="anketWhats">
+                    <input value="{{ $post->whats_ap }}" type="text" name="whats_ap"
+                           class="anket__main-info-input input" id="anketWhats">
                 </div>
             </div>
         </div>
@@ -59,7 +68,7 @@
                             </svg>
                             <div class="anket__info-params-input">
                                 <label for="anketWeight">Вес: </label>
-                                <input type="text" name="ves" id="anketWeight" required>
+                                <input value="{{ $post->ves }}" type="text" name="ves" id="anketWeight" required>
                             </div>
                         </div>
                         <div class="anket__info-params-item">
@@ -68,7 +77,7 @@
                             </svg>
                             <div class="anket__info-params-input">
                                 <label for="anketBust">Грудь: </label>
-                                <input type="text" name="breast" id="anketBust" required>
+                                <input value="{{ $post->breast }}" type="text" name="breast" id="anketBust" required>
                             </div>
                         </div>
                         <div class="anket__info-params-item">
@@ -77,7 +86,7 @@
                             </svg>
                             <div class="anket__info-params-input">
                                 <label for="anketHeight">Рост:</label>
-                                <input type="text" name="rost" id="anketHeight" required>
+                                <input value="{{ $post->rost }}" type="text" name="rost" id="anketHeight" required>
                             </div>
                         </div>
                     </div>
@@ -90,7 +99,12 @@
                                 <label for="anketHair">Волосы:</label>
                                 <select type="text" name="hair_color_id" id="anketHair">
                                     @foreach($data['hair'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->value }}</option>
+                                        <option
+                                            @if($item->id == $post->hair_color_id)
+                                                selected
+                                            @endif
+
+                                            value="{{ $item->id }}">{{ $item->value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -103,7 +117,13 @@
                                 <label for="anketNational">Национальсность:</label>
                                 <select type="text" name="national_id" id="anketNational">
                                     @foreach($data['national'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->value }}</option>
+                                        <option
+
+                                            @if($item->id == $post->national_id)
+                                                selected
+                                            @endif
+
+                                            value="{{ $item->id }}">{{ $item->value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -116,7 +136,13 @@
                                 <label for="anketPhair">Интим. стрижка:</label>
                                 <select type="text" name="intim_hair_id" id="anketPhair">
                                     @foreach($data['intimHair'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->value }}</option>
+                                        <option
+
+                                            @if($item->id == $post->intim_hair_id)
+                                                selected
+                                            @endif
+
+                                            value="{{ $item->id }}">{{ $item->value }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -139,15 +165,17 @@
                             <ul>
                                 <li>
                                     <label for="appsHour">Час:</label>
-                                    <input type="text" name="price" id="appsHour" required>
+                                    <input value="{{ $post->price }}" type="text" name="price" id="appsHour" required>
                                 </li>
                                 <li>
                                     <label for="apps2Hour">Два часа:</label>
-                                    <input type="text" name="apartament_2_hour_price" id="apps2Hour">
+                                    <input value="{{ $post->apartament_2_hour_price }}" type="text"
+                                           name="apartament_2_hour_price" id="apps2Hour">
                                 </li>
                                 <li>
                                     <label for="appsNight">Ночь:</label>
-                                    <input type="text" name="apartament_night_price" id="appsNight">
+                                    <input value="{{ $post->apartament_night_price }}" type="text"
+                                           name="apartament_night_price" id="appsNight">
                                 </li>
                             </ul>
                         </div>
@@ -163,15 +191,18 @@
                             <ul>
                                 <li>
                                     <label for="carHour">Час:</label>
-                                    <input type="text" name="exit_1_hour_price" id="carHour">
+                                    <input value="{{ $post->exit_1_hour_price }}" type="text" name="exit_1_hour_price"
+                                           id="carHour">
                                 </li>
                                 <li>
                                     <label for="car2Hour">Два часа:</label>
-                                    <input type="text" name="exit_2_hour_price" id="car2Hour">
+                                    <input value="{{ $post->exit_2_hour_price }}" type="text" name="exit_2_hour_price"
+                                           id="car2Hour">
                                 </li>
                                 <li>
                                     <label for="dayCarNight">Ночь:</label>
-                                    <input type="text" name="exit_night_price" id="carNight">
+                                    <input value="{{ $post->exit_night_price }}" type="text" name="exit_night_price"
+                                           id="carNight">
                                 </li>
                             </ul>
                         </div>
@@ -180,7 +211,7 @@
                 <div class="anket__sidebar-adapt anket__sidebar-adapt--2"></div>
                 <h2 class="anket__subtitle subtitle">О себе:</h2>
                 <div class="anket__info-about">
-                    <textarea required name="about" placeholder="Расскажите о себе..."></textarea>
+                    <textarea required name="about" placeholder="Расскажите о себе...">{{ $post->about }}</textarea>
                 </div>
                 <h2 class="anket__subtitle subtitle">Местоположение:</h2>
                 <div class="anket__info-location">
@@ -190,31 +221,55 @@
                             <div class="anket__info-location-select-input">
                                 <select name="city_id" id="anketCity">
                                     @foreach($data['city_list'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->city }}</option>
+                                        <option
+                                            @if($item->id == $post->city_id)
+                                                selected
+                                            @endif
+                                            value="{{ $item->id }}">{{ $item->city }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="anket__info-location-select" id="anketMetroWrap">
-                            <label for="anketMetro">Метро:</label>
-                            <div class="anket__info-location-select-input">
-                                <select name="metro" id="anketMetro">
-                                    @foreach($data['metro'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->value }}</option>
-                                    @endforeach
-                                </select>
+                        @if($data['metro']->first())
+                            <div class="anket__info-location-select" id="anketMetroWrap">
+                                <label for="anketMetro">Метро:</label>
+                                <div class="anket__info-location-select-input">
+                                    @php
+                                        $metro = $post->metro;
+                                    @endphp
+                                    <select name="metro" id="anketMetro">
+                                        @foreach($data['metro'] as $item)
+                                            <option
+
+                                                @foreach($metro as $postMetroItem)
+                                                    @if($item->id == $postMetroItem->id)
+                                                        selected
+                                                @endif
+                                                @endforeach
+
+                                                value="{{ $item->id }}">{{ $item->value }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="anket__info-location-select" id="anketRegionWrap">
-                            <label for="anketRegion">Район:</label>
-                            <div class="anket__info-location-select-input">
-                                <select name="rayon_id" id="anketRegion">
-                                    @foreach($data['rayon'] as $item)
-                                        <option value="{{ $item->id }}">{{ $item->value }}</option>
-                                    @endforeach
-                                </select>
+                        @endif
+
+                        @if($data['rayon']->first())
+                            <div class="anket__info-location-select" id="anketRegionWrap">
+                                <label for="anketRegion">Район:</label>
+                                <div class="anket__info-location-select-input">
+                                    <select name="rayon_id" id="anketRegion">
+                                        @foreach($data['rayon'] as $item)
+                                            <option
+                                                @if($post->rayon_id == $item->id)
+                                                    selected
+                                                @endif
+                                                value="{{ $item->id }}">{{ $item->value }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <div id="anketMap1" class="anket__info-location-map" style="height: 193px; width: 100%;">
 
@@ -233,12 +288,20 @@
                         <div class="anket__info-sidebar-radio-cur">
 
                             <div class="anket__info-sidebar-radio-item">
-                                <input type="radio" name="tatu" id="tatu2" value="0">
+                                <input type="radio" name="tatu"
+                                       @if(!$post->tatu)
+                                           checked
+                                       @endif
+                                       id="tatu2" value="0">
                                 <label for="tatu2">Нет</label>
                             </div>
 
                             <div class="anket__info-sidebar-radio-item">
-                                <input type="radio" name="tatu" id="tatu1" checked value="1">
+                                <input type="radio" name="tatu" id="tatu1"
+                                       @if($post->tatu)
+                                           checked
+                                       @endif
+                                       value="1">
                                 <label for="tatu1">Есть</label>
                             </div>
 
@@ -251,12 +314,20 @@
                         <div class="anket__info-sidebar-radio-cur">
 
                             <div class="anket__info-sidebar-radio-item">
-                                <input type="radio" name="pircing" id="pirs2" value="0">
+                                <input type="radio" name="pircing" id="pirs2"
+                                       @if(!$post->pircing)
+                                           checked
+                                       @endif
+                                       value="0">
                                 <label for="pirs2">Нет</label>
                             </div>
 
                             <div class="anket__info-sidebar-radio-item">
-                                <input type="radio" name="pircing" id="pirs1" checked value="1">
+                                <input type="radio" name="pircing" id="pirs1"
+                                       @if($post->pircing)
+                                           checked
+                                       @endif
+                                       value="1">
                                 <label for="pirs1">Есть</label>
                             </div>
 
@@ -292,7 +363,7 @@
                 </h2>
                 <ul class="anket__services-item-list">
 
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'sex')
 
@@ -302,23 +373,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -340,7 +424,7 @@
                 </h2>
 
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'minet')
 
@@ -350,23 +434,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -386,7 +483,7 @@
                     <span>Окончание</span>
                 </h2>
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'cum')
 
@@ -396,23 +493,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -432,7 +542,7 @@
                     <span>Массаж</span>
                 </h2>
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'mass')
 
@@ -442,23 +552,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -479,7 +602,7 @@
                     <span>Окончание</span>
                 </h2>
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'cum')
 
@@ -489,23 +612,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -526,7 +662,7 @@
                     <span>Садо-мазо</span>
                 </h2>
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'bdsm')
 
@@ -536,23 +672,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -573,7 +722,7 @@
                 </h2>
 
                 <ul class="anket__services-item-list">
-                    @foreach($data['service'] as $item)
+                    @foreach($post->service as $item)
 
                         @if($item->type == 'other')
 
@@ -583,23 +732,36 @@
                                         data-label="{{ $item->value }}"
                                         name="service-{{ $item->id }}" id="">
                                     <option data-display="{{ $item->value }}"
+                                            @if(!$item->sympathy and !$item->pay and !$item->not_available)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--1"
                                             value="1">
                                         включено в стоимость
                                     </option>
                                     <option data-display="{{ $item->value }}"
+                                            @if($item->sympathy)
+                                                selected
+                                            @endif
                                             class="anket__services-item-option anket__services-item-option--2"
                                             value="2">
                                         по симпатии
                                     </option>
                                     <option data-display="{{ $item->value }}"
                                             class="anket__services-item-option anket__services-item-option--3"
+                                            @if($item->pay)
+                                                selected
+                                            @endif
                                             value="3">
                                         за доп плату
                                     </option>
-                                    <option data-display="{{ $item->value }}"
-                                            class="anket__services-item-option anket__services-item-option--4"
-                                            value="4">
+                                    <option
+                                        @if($item->not_available)
+                                            selected
+                                        @endif
+                                        data-display="{{ $item->value }}"
+                                        class="anket__services-item-option anket__services-item-option--4"
+                                        value="4">
                                         выключено
                                     </option>
                                 </select>
@@ -636,6 +798,20 @@
                         </label>
                         <input type="file" multiple name="anketPhotos[]" id="anketPhotos" accept=".png, .jpg, .jpeg">
                     </div>
+
+                    @foreach($post->photo as $item)
+
+                        @if($item->type == \App\Models\Photo::GALLERY_TYPE)
+
+                            <div class="anket__photos-content-item-item">
+                                <div class="anket__photos-content-item-item-delete"></div>
+                                <img src="/storage/{{ $item->file }}" alt="">
+                            </div>
+
+                        @endif
+
+                    @endforeach
+
                 </div>
                 <div class="anket__photos-content-item">
                     <div class="anket__photos-content-input anket__photos-content-item-item">
@@ -643,8 +819,22 @@
                             <img src="images/cam.png" alt="">
                             Загрузить фото
                         </label>
-                        <input type="file" multiple name="anketSelfie[]" id="anketSelfie">
+                        <input type="file" multiple name="anketSelfie" id="anketSelfie">
                     </div>
+
+                    @foreach($post->photo as $item)
+
+                        @if($item->type == \App\Models\Photo::SELPHI_TYPE)
+
+                            <div class="anket__photos-content-item-item">
+                                <div class="anket__photos-content-item-item-delete"></div>
+                                <img src="/storage/{{ $item->file }}" alt="">
+                            </div>
+
+                        @endif
+
+                    @endforeach
+
                 </div>
                 <div class="anket__photos-content-item">
                     <div class="anket__photos-content-input anket__photos-content-item-item">
@@ -663,19 +853,21 @@
                         </label>
                         <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto">
                     </div>
+
+                    @foreach($post->photo as $item)
+
+                        @if($item->type == \App\Models\Photo::CHECK_PHOTO_TYPE)
+
+                            <div class="anket__photos-content-item-item">
+                                <div class="anket__photos-content-item-item-delete"></div>
+                                <img src="/storage/{{ $item->file }}" alt="">
+                            </div>
+
+                        @endif
+
+                    @endforeach
+
                 </div>
-            </div>
-        </div>
-
-        <div class="anket__info-sidebar-exit add-more-post">
-            <div class="anket__info-sidebar-title anket__info-sidebar-exit-title">Создать еще анкету</div>
-            <div class="anket__info-sidebar-exit-checkboxes anket__info-sidebar-checkboxes">
-
-                <div class="anket__info-sidebar-checkbox">
-                    <input type="checkbox" name="add_more" id="add_more">
-                    <label for="add_more">Создать еще анкету</label>
-                </div>
-
             </div>
         </div>
 
