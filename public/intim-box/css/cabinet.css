@@ -2676,6 +2676,10 @@ footer {
     display: flex
 }
 
+.anket__photos-content-input anket__photos-content-item-item .video{
+    max-width: 100%;
+}
+
 .anket__photos-content-item-item {
     background: #fff;
     border-radius: 14px;
@@ -2767,6 +2771,7 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     padding: 15px;
+    z-index: 10;
     border-radius: 5px
 }
 

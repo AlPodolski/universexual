@@ -340,11 +340,22 @@
 
                         @foreach($data['place'] as $item)
 
-                            <div class="anket__info-sidebar-checkbox">
-                                <input type="checkbox" name="place[]" id="anketAppart-{{ $item->id }}"
-                                       value="{{ $item->id }}">
-                                <label for="anketAppart-{{ $item->id }}">{{ $item->value }}</label>
-                            </div>
+                            @php
+                                $check = '';
+                            @endphp
+
+                            @foreach($post->place as $postPlace)
+                                @php
+                                    if ($postPlace->id == $item->id) $check = 'checked'
+                                @endphp
+                            @endforeach
+
+                                <div class="anket__info-sidebar-checkbox">
+                                    <input type="checkbox" name="place[]" id="anketAppart-{{ $item->id }}"
+                                           {{ $check }}
+                                           value="{{ $item->id }}">
+                                    <label for="anketAppart-{{ $item->id }}">{{ $item->value }}</label>
+                                </div>
 
                         @endforeach
 
@@ -829,7 +840,10 @@
                         @if($item->type == \App\Models\Photo::SELPHI_TYPE)
 
                             <div class="anket__photos-content-item-item">
-                                <div class="anket__photos-content-item-item-delete"></div>
+                                <div
+                                    onclick="deleteImg(this)"
+                                    data-id="{{ $item->id }}"
+                                    class="anket__photos-content-item-item-delete"></div>
                                 <img src="/storage/{{ $item->file }}" alt="">
                             </div>
 
@@ -842,16 +856,31 @@
                     <div class="anket__photos-content-input anket__photos-content-item-item">
                         <label for="anketVideo">
                             <img src="images/cam.png" alt="">
-                            Загрузить фото
+                            Загрузить видео
                         </label>
                         <input type="file" multiple name="anketVideo" id="anketVideo">
                     </div>
+
+                    @if($post->video)
+
+                        <div class="anket__photos-content-input anket__photos-content-item-item">
+                            <div
+                                onclick="deleteVideo(this)"
+                                data-id="{{ $post->id }}"
+                                class="anket__photos-content-item-item-delete"></div>
+                            <video controls="controls" class="video">
+                                <source src="/storage/{{ $post->video }}">
+                            </video>
+                        </div>
+
+                    @endif
+
                 </div>
                 <div class="anket__photos-content-item">
                     <div class="anket__photos-content-input anket__photos-content-item-item">
                         <label for="anketCheckPhoto">
                             <img src="images/cam.png" alt="">
-                            Загрузить видео
+                            Загрузить фото
                         </label>
                         <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto">
                     </div>
