@@ -165,7 +165,7 @@
 </div>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9c9066f4-2079-4b71-b871-46dbea21ece3"
         type="text/javascript"></script>
-<script defer src="/intim-box/js/cabinet.js?v=12"></script>
+<script defer src="/intim-box/js/cabinet.js?v=14"></script>
 </body>
 
 </html>

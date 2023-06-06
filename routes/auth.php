@@ -15,6 +15,10 @@ Route::get('login', [AuthenticatedSessionController::class, 'create'])
 
 Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
+Route::middleware('auth')->group(function () {
+    Route::post('/cabinet/image/delete', \App\Http\Controllers\Cabinet\ImageController::class);
+});
+
 Route::domain('{city}.'.SITE)->group(function () {
 
     Route::middleware('guest')->group(function () {

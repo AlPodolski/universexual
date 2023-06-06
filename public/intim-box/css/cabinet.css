@@ -2698,7 +2698,8 @@ footer {
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;
     order: 0;
-    margin-right: 40px;
+    margin-right: 28px;
+    margin-bottom: 28px;
     position: relative
 }
 

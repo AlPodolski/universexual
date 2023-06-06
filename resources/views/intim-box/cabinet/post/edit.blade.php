@@ -804,7 +804,9 @@
                         @if($item->type == \App\Models\Photo::GALLERY_TYPE)
 
                             <div class="anket__photos-content-item-item">
-                                <div class="anket__photos-content-item-item-delete"></div>
+                                <div onclick="deleteImg(this)"
+                                     data-id="{{ $item->id }}"
+                                     class="anket__photos-content-item-item-delete"></div>
                                 <img src="/storage/{{ $item->file }}" alt="">
                             </div>
 
@@ -849,7 +851,7 @@
                     <div class="anket__photos-content-input anket__photos-content-item-item">
                         <label for="anketCheckPhoto">
                             <img src="images/cam.png" alt="">
-                            Загрузить фото
+                            Загрузить видео
                         </label>
                         <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto">
                     </div>

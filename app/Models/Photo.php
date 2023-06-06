@@ -13,4 +13,10 @@ class Photo extends Model
     const GALLERY_TYPE = 1;
     const SELPHI_TYPE = 2;
     const CHECK_PHOTO_TYPE = 3;
+
+    public function post()
+    {
+        return $this->hasOne(Post::class, 'id', 'posts_id');
+    }
+
 }
