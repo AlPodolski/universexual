@@ -13,7 +13,7 @@ class SiteMapController extends Controller
 
         $posts = Post::where('city_id', $cityInfo['id'])->where('site_id', SITE_ID)->get();
 
-        return response()->view(PATH.'map.index', compact('data', 'posts'))
+        return response()->view(PATH.'.map.index', compact('data', 'posts'))
             ->header('content-type', 'text/xml;charset=UTF-8');
     }
 
