@@ -1384,7 +1384,9 @@ footer {
 }
 
 .ammount__info-balance-repl-input-wrap span {
-    position: relative
+    position: relative;
+    display: block;
+    top: -3px;
 }
 
 .ammount__info-balance-repl-input-wrap span::before {

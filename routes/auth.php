@@ -42,6 +42,11 @@ Route::domain('{city}.'.SITE)->group(function () {
     });
 
     Route::middleware('auth')->group(function () {
+
+        Route::post('/cabinet/pay', [\App\Http\Controllers\Cabinet\PayController::class, 'processing']);
+
+        Route::get('/cabinet/pay', [\App\Http\Controllers\Cabinet\PayController::class, 'index']);
+
         Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
             ->name('verification.notice');
 

@@ -43,9 +43,9 @@
                             </svg>
                             <div class="sidebar__stats-capt">Баланс:</div>
                             <div class="sidebar__stats-result">
-                                1 800р
+                                {{ auth()->user()->cash }}р
                             </div>
-                            <a class="sidebar__stats-walletadd" href="#">
+                            <a class="sidebar__stats-walletadd" href="/cabinet/pay">
                             </a>
                         </div>
                         <div class="sidebar__stats-item">
@@ -61,7 +61,7 @@
                             <div class="sidebar__stats-result">
                             </div>
                         </div>
-                        <a class="btn-main sidebar__stats-button" href="#">
+                        <a class="btn-main sidebar__stats-button" href="/cabinet/pay">
                             Пополнить баланс
                         </a>
                     </div>
@@ -165,7 +165,7 @@
 </div>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=9c9066f4-2079-4b71-b871-46dbea21ece3"
         type="text/javascript"></script>
-<script defer src="/intim-box/js/cabinet.js?v=15"></script>
+<script defer src="/intim-box/js/cabinet.js?v=17"></script>
 </body>
 
 </html>
