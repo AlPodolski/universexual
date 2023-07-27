@@ -4253,11 +4253,35 @@
 
 function show_phone(object) {
 
-    var phone = $(object).attr('data-tel');
+    var id = $(object).attr('data-id');
+    var city = $(object).attr('data-city');
+    var phone = $(object).attr('data-phone');
 
-    $(object).html( formatPhone(phone) );
+    if (phone){
 
-    window.location.href = 'tel:+' + phone;
+        window.location.href = 'tel:+' + phone;
+    }else{
+
+        $.ajax({
+            type: 'POST',
+            url: "/phone", //Путь к обработчику
+            data: 'id=' + id + '&city=' + city,
+            response: 'text',
+            dataType: "html",
+            cache: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+            },
+            success: function (data) {
+
+                $(object).html(formatPhone(data));
+                $(object).attr('data-phone', data);
+                window.location.href = 'tel:+' + data;
+
+            }
+        })
+
+    }
 
 }
 
@@ -4338,7 +4362,7 @@ function init_metro(map_name, x, y) {
 
 }
 
-function show_metro_map(){
+function show_metro_map() {
 
     $.getScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU", function (data, textStatus, jqxhr) {
         ymaps.ready(function () {
@@ -4356,7 +4380,7 @@ function show_metro_map(){
 
 }
 
-function close_city_check(){
+function close_city_check() {
 
     $('.check_city_block ').addClass('d-none');
 
@@ -4366,38 +4390,38 @@ function close_city_check(){
 
 }
 
-function close_city_list(){
+function close_city_list() {
 
     $('.header__location-list__sub_city').toggleClass('open-location');
 
 }
 
-function open_city_select(){
+function open_city_select() {
 
     $('.header__location-list__sub_city').addClass('open-location');
     close_city_check()
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('.city-search-input').bind("input", function() {
+    $('.city-search-input').bind("input", function () {
 
         var city = this.value;
 
-        if (city.length > 1){
+        if (city.length > 1) {
 
             $.ajax({
                 type: 'POST',
                 url: "/city/search", //Путь к обработчику
-                data: 'city='+city,
+                data: 'city=' + city,
                 response: 'text',
                 dataType: "html",
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
                 },
                 cache: false,
-                success: function(data){
+                success: function (data) {
                     $(".city-list").html(data).fadeIn(); //Выводим полученые данные в списке
                 }
             })
@@ -4451,5 +4475,5 @@ window.addEventListener('scroll', function () {
 });
 
 window.addEventListener('scroll', function () {
-    mobilePhone.hidden = ( (pageYOffset -300) < document.documentElement.clientHeight );
+    mobilePhone.hidden = ((pageYOffset - 300) < document.documentElement.clientHeight);
 });

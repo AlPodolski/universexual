@@ -36,7 +36,8 @@
             <a href="/post/{{ $post->url }}" class="catalog-item__title-text">
                 {{ $post->name }}
             </a>
-            <a data-tel="{{ $post->phone }}"
+            <a data-id="{{ $post->id }}"
+               data-city="{{ $post->city_id }}"
                onclick="show_phone(this)"
                class="catalog-item__phone">
                 <svg class="catalog-item__phone-icon">
