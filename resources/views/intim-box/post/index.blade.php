@@ -137,7 +137,8 @@
                         </div>
                         <div class="profile-main-info__characters-cur">
                             <a
-                               data-tel="{{ $post->phone }}"
+                               data-id="{{ $post->id }}"
+                               data-city="{{ $post->city_id }}"
                                onclick="show_phone(this)"
                                class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
@@ -154,7 +155,8 @@
                         </div>
                         <div class="profile-main-info__characters-cur">
                             <a
-                               data-tel="{{ $post->phone }}"
+                                data-id="{{ $post->id }}"
+                                data-city="{{ $post->city_id }}"
                                onclick="show_phone(this)"
                                class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
