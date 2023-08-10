@@ -1,0 +1,89 @@
+<sidebar class="sidebar col-lg-3">
+    <div class="sidebar__stats">
+        <div class="sidebar__stats-item">
+            <svg class="sidebar__stats-icon">
+                <use xlink:href='/intim-box/images/cabinet/sprite.svg#wallet'></use>
+            </svg>
+            <div class="sidebar__stats-capt">Баланс:</div>
+            <div class="sidebar__stats-result">
+                {{ auth()->user()->cash }}р
+            </div>
+            <a class="sidebar__stats-walletadd" href="/cabinet/pay">
+            </a>
+        </div>
+
+        @if(false)
+            <div class="sidebar__stats-item">
+                <svg class="sidebar__stats-icon">
+                    <use xlink:href='/intim-box/images/cabinet/sprite.svg#rate'></use>
+                </svg>
+                <div class="sidebar__stats-capt">Расход в час:</div>
+                <div class="sidebar__stats-result">
+                </div>
+            </div>
+            <div class="sidebar__stats-item">
+                <div class="sidebar__stats-capt">Хватит на N часов (дней)</div>
+                <div class="sidebar__stats-result">
+                </div>
+            </div>
+        @endif
+
+        <a class="btn-main sidebar__stats-button" href="/cabinet/pay">
+            Пополнить баланс
+        </a>
+    </div>
+    <div class="sidebar__menu">
+        <nav class="sidebar__menu-nav">
+            <ul class="sidebar__menu-list">
+                <li class="sidebar__menu-item">
+                    <a href="/cabinet/post/create" class="sidebar__menu-link">
+                        <svg class="sidebar__menu-icon">
+                            <use xlink:href='/intim-box/images/cabinet/sprite.svg#user'></use>
+                        </svg>
+                        <span class="sidebar__menu-text">
+                            Добавить анкету
+                        </span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="/cabinet" class="sidebar__menu-link">
+                        <svg class="sidebar__menu-icon">
+                            <use xlink:href='/intim-box/images/cabinet/sprite.svg#user-card'></use>
+                        </svg>
+                        <span class="sidebar__menu-text">
+                            Мои анкеты
+                        </span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="#" class="sidebar__menu-link">
+                        <svg class="sidebar__menu-icon">
+                            <use xlink:href='/intim-box/images/cabinet/sprite.svg#feedback'></use>
+                        </svg>
+                        <span class="sidebar__menu-text">
+                            Обратная связь
+                        </span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="#" class="sidebar__menu-link">
+                        <img src="/intim-box/images/cabinet/icons/invoice.svg" alt="" class="sidebar__menu-icon">
+                        <span class="sidebar__menu-text">
+                            История платежей
+                        </span>
+                    </a>
+                </li>
+                <li class="sidebar__menu-item">
+                    <a href="/logout" class="sidebar__menu-link">
+                        <svg class="sidebar__menu-icon">
+                            <use xlink:href='/intim-box/images/cabinet/sprite.svg#out'></use>
+                        </svg>
+                        <span class="sidebar__menu-text">
+                            Выйти
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</sidebar>

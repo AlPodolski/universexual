@@ -63,7 +63,7 @@ Route::domain('{city}.'.SITE)->group(function () {
 
         Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
 
-        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])
             ->name('logout');
 
         Route::prefix('cabinet')->group(function(){
