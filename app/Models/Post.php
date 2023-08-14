@@ -81,7 +81,7 @@ class Post extends Model
         'fake', 'publication_status','check_photo_status', 'two_hour_price', 'apartament_2_hour_price',
         'apartament_night_price', 'exit_1_hour_price', 'exit_2_hour_price', 'exit_night_price', 'whats_ap','tatu',
         'rayon_id',
-        'telegram', 'pircing', 'express'];
+        'telegram', 'pircing', 'express', 'tarif_id'];
 
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

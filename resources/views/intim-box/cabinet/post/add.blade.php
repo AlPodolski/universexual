@@ -53,6 +53,24 @@
             </div>
             <div class="anket__info">
                 <div class="anket__info-main">
+
+                    <h2 class="anket__subtitle subtitle">
+                        Тариф
+                    </h2>
+
+                    <div class="anket__info-location-select" id="anketRegionWrap">
+                        <label for="anketRegion">Тариф:</label>
+                        <div class="anket__info-location-select-input">
+                            <select name="tarif_id" id="anketRegion">
+                                @foreach($tarifList as $item)
+                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->sum }} р\час</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <br>
+
                     <h2 class="anket__subtitle subtitle">
                         Параметры
                     </h2>

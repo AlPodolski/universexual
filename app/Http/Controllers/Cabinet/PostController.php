@@ -8,6 +8,7 @@ use App\Models\Photo;
 use App\Models\PostMetro;
 use App\Models\PostPlace;
 use App\Models\PostService;
+use App\Models\Tarif;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -22,7 +23,9 @@ class PostController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        return view(PATH . '.cabinet.post.add', compact('data'));
+        $tarifList = Tarif::all();
+
+        return view(PATH . '.cabinet.post.add', compact('data', 'tarifList'));
     }
 
     public function store(Request $request)
@@ -178,7 +181,9 @@ class PostController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        return view(PATH . '.cabinet.post.edit', compact('data', 'post'));
+        $tarifList = Tarif::all();
+
+        return view(PATH . '.cabinet.post.edit', compact('data', 'post', 'tarifList'));
     }
 
     public function update(Request $request,$city, $id)
