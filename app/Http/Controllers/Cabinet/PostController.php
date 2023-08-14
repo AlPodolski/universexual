@@ -285,7 +285,6 @@ class PostController extends Controller
 
         }
 
-
         if ($request->file('anketCheckPhoto')) {
 
             $file = Photo::where(['posts_id' => $post->id, 'type' => Photo::CHECK_PHOTO_TYPE])->first();
@@ -360,8 +359,33 @@ class PostController extends Controller
 
     }
 
-    public
-    function destroy($id)
+    public function destroy($city, $id)
     {
+
+        $post = Post::where(['user_id' => auth()->id(), 'id' => $id])->with('photo')->first();
+
+        if (!$post) abort(403);
+
+        foreach ($post->photo as $item){
+
+            $path = (storage_path('app/public'.$item->file));
+
+            if (file_exists($path)) unlink($path);
+
+        }
+
+        if (file_exists('app/public/'.$post->avatar)) unlink(storage_path('app/public/'.$post->avatar));
+
+        if ($post->video) unlink(storage_path('app/public/'.$post->video));
+
+        \DB::table('post_metros')->where('posts_id', $post->id)->delete();
+
+        \DB::table('post_places')->where('posts_id', $post->id)->delete();
+
+        \DB::table('post_services')->where('posts_id', $post->id)->delete();
+
+        $post->delete();
+
+        return ($id);
     }
 }

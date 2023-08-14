@@ -2662,6 +2662,29 @@ function deleteImg(object){
 
     })
 
+}function delete_post(object){
+
+    var id = $(object).attr('data-id');
+
+    var url ='/cabinet/post/' + id;
+
+    $.ajax({
+        type: 'DELETE',
+        url: url,
+        async:false,
+        dataType: "html",
+        cache: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        success: function (data){
+
+            $(object).closest('.ankets__item').remove();
+
+        },
+
+    })
+
 }
 
 function deleteVideo(object){

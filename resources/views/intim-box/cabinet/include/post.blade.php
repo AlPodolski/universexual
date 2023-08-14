@@ -64,21 +64,12 @@
                     <use xlink:href='/intim-box/images/cabinet/sprite.svg#pencil'></use>
                 </svg>
             </a>
-            <a class="ankets__item-ui-item ankets__item-ui-item--2" href="#">
-                <svg>
-                    <use xlink:href='/intim-box/images/cabinet/sprite.svg#up'></use>
-                </svg>
-            </a>
-            <a class="ankets__item-ui-item ankets__item-ui-item--3" href="#">
+            <div onclick="delete_post(this)" data-id="{{ $post->id }}"
+                 class="ankets__item-ui-item ankets__item-ui-item--3" href="#">
                 <svg>
                     <use xlink:href='/intim-box/images/cabinet/sprite.svg#trash'></use>
                 </svg>
-            </a>
-            <a class="ankets__item-ui-item ankets__item-ui-item--4" href="#">
-                <svg>
-                    <use xlink:href='/intim-box/images/cabinet/sprite.svg#turn'></use>
-                </svg>
-            </a>
+            </div>
         </div>
     </div>
     <div class="ankets__item-footer">
