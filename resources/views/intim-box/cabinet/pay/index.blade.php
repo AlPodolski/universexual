@@ -52,6 +52,11 @@
                         </label>
                     </div>
                 </div>
+
+                <script defer src='https://www.google.com/recaptcha/api.js'></script>
+
+                <div id="register_recapcha" class="g-recaptcha" data-sitekey="6Lffq2EkAAAAAK4PuAXJjhnE1NOP1uUjANyEUxe_"></div>
+
                 <button
                     id="payBtn"
                     class="ammount__info-balance-repl-btn btn-main">Оплатить
