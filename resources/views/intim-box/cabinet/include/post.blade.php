@@ -7,10 +7,6 @@
                         <span class="ankets__item-moder">
                             {{ $post->publication }}
                         </span>
-        <span class="ankets__item-select">
-                            <label for="anketItem1"></label>
-                            <input type="checkbox" id="anketItem1">
-                        </span>
         <img src="/storage/{{ $post->avatar }}" alt="" class="ankets__item-img">
     </div>
     <div class="ankets__item-body">
@@ -71,20 +67,5 @@
                 </svg>
             </div>
         </div>
-    </div>
-    <div class="ankets__item-footer">
-        <select class="ankets__item-tarif" name="tarif" id="">
-            <option class="ankets__item-tarif-option ankets__item-tarif-option--1" value="1">
-                <img src="images/icons/diamond1.png" alt="">
-                тариф1
-            </option>
-            <option class="ankets__item-tarif-option ankets__item-tarif-option--2" value="2">
-                <span>dsds</span>
-                тариф2
-            </option>
-            <option class="ankets__item-tarif-option ankets__item-tarif-option--3" value="3">
-                тариф3
-            </option>
-        </select>
     </div>
 </div>

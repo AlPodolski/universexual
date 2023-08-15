@@ -900,6 +900,7 @@ footer {
 }
 
 .ankets__item {
+    padding-bottom: 15px;
     margin-top: 25px;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 32%;

@@ -66,14 +66,6 @@
                     </a>
                 </li>
                 <li class="sidebar__menu-item">
-                    <a href="#" class="sidebar__menu-link">
-                        <img src="/intim-box/images/cabinet/icons/invoice.svg" alt="" class="sidebar__menu-icon">
-                        <span class="sidebar__menu-text">
-                            История платежей
-                        </span>
-                    </a>
-                </li>
-                <li class="sidebar__menu-item">
                     <a href="/logout" class="sidebar__menu-link">
                         <svg class="sidebar__menu-icon">
                             <use xlink:href='/intim-box/images/cabinet/sprite.svg#out'></use>

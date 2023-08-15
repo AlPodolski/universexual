@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
     ->name('login');
 
-Route::post('login', [AuthenticatedSessionController::class, 'store']);
+Route::middleware('captcha')->group(function () {
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('register', [RegisteredUserController::class, 'store']);
+});
 
 Route::middleware('auth')->group(function () {
     Route::post('/cabinet/image/delete', \App\Http\Controllers\Cabinet\ImageController::class);
@@ -25,8 +28,6 @@ Route::domain('{city}.'.SITE)->group(function () {
 
         Route::get('register', [RegisteredUserController::class, 'create'])
             ->name('register');
-
-        Route::post('register', [RegisteredUserController::class, 'store']);
 
         Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
             ->name('password.request');
