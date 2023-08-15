@@ -21,7 +21,7 @@ class PostRepository
     public function getForMain($cityId)
     {
         $posts = Post::where('city_id', $cityId)
-            ->where('site_id', SITE_ID)
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro', 'reviews', 'city')
             ->orderByRaw($this->sort)
             ->paginate(20);
@@ -72,7 +72,7 @@ class PostRepository
         $indi = false;
 
         $posts = Post::where(['city_id' => $cityId])
-            ->where('site_id', SITE_ID);
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION]);
 
         if (strpos($search, 'intim-salony') !== false)
             $salon = true;
@@ -244,7 +244,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
-            ->where('site_id', SITE_ID)
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('reviews', 'city')
             ->orderByRaw($this->sort)
             ->paginate(20);
@@ -256,7 +256,7 @@ class PostRepository
     public function getForMap($cityId): string
     {
         $posts = Post::where('city_id', $cityId)
-            ->where('site_id', SITE_ID)
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro')
             ->limit(2000)
             ->get();
@@ -287,7 +287,7 @@ class PostRepository
     public function getForFilter($cityId, $data)
     {
         $posts = Post::where('age', '>=', $data['age-from'])
-            ->where('site_id', SITE_ID)
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
             ->where('rost', '>=', $data['rost-from'])
             ->where('rost', '<=', $data['rost-to'])
@@ -334,7 +334,7 @@ class PostRepository
     public function getMore($cityId, $limit)
     {
         $posts = Post::where(['city_id' => $cityId])
-            ->where('site_id', SITE_ID)
+            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro', 'city')
             ->orderByRaw('RAND()')
             ->limit($limit)->get();
