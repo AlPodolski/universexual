@@ -74,6 +74,7 @@ Route::domain('{city}.'.SITE)->group(function () {
             Route::resource('post', \App\Http\Controllers\Cabinet\PostController::class);
 
             Route::get('/', App\Http\Controllers\Cabinet\IndexController::class);
+            Route::get('/claim', [App\Http\Controllers\Cabinet\ClaimController::class, 'index']);
 
         });
 
