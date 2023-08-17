@@ -127,6 +127,16 @@ class Post extends Model
         return $this->hasMany(Photo::class, 'posts_id', 'id');
     }
 
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function tarif(): HasOne
+    {
+        return $this->hasOne(Tarif::class, 'id', 'tarif_id');
+    }
+
     public function getAltAttribute(): string
     {
         $result = $this->name .',';
