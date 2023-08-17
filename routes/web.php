@@ -28,6 +28,8 @@ Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 's
 Route::get('/{size}/thumbs/{path}', ImageController::class)
     ->where('size', '.*')->where('path', '.*');
 
+Route::get('/pay/{id}',  [\App\Http\Controllers\PayController::class, 'index']);
+
 Route::domain('{city}.'.SITE)->group(function () {
     Route::get('/politika-konfidencialnosti', [\App\Http\Controllers\CustomController::class, 'politic']);
     Route::get('/', \App\Http\Controllers\IndexController::class);
