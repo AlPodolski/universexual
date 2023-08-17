@@ -47,7 +47,7 @@ class PayForPuplication extends Command
 
         foreach ($posts as $post){
 
-            if ($post->user->cash >= $post->tarif->price){
+            if ($post->user->cash >= $post->tarif->sum){
 
                 $post->user->cash = $post->user->cash - $post->tarif->price;
 
