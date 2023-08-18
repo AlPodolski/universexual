@@ -158,15 +158,31 @@ class Post extends Model
 
     }
 
+    public function getPublication()
+    {
+        switch ($this->publication_status) {
+
+            case self::POST_ON_PUBLICATION:
+                return "Снать с публикации";
+
+            case self::POST_DONT_PUBLICATION:
+                return "Поставить на публикацию";
+
+            case self::POST_ON_MODERATION:
+                return "Анкета на модерации";
+
+        }
+    }
+
     public function getPublicationAttribute()
     {
         switch ($this->publication_status) {
             case self::POST_ON_MODERATION:
                 return 'НА МОДЕРАЦИИ';
             case self::POST_ON_PUBLICATION:
-                return 'НА ПУБЛИКАЦИИ';
+                return 'Снять с публикации';
             case self::POST_DONT_PUBLICATION:
-                return 'НЕ ПУБЛИКУЕТСЯ';
+                return 'Поставить на публикацию';
         }
 
     }

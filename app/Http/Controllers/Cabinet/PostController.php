@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Cabinet;
 
+use App\Actions\Publication;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Photo;
@@ -388,4 +389,20 @@ class PostController extends Controller
 
         return ($id);
     }
+
+    public function publication($city, Request $request)
+    {
+
+        $id = $request->post('id');
+
+        $post = Post::find($id);
+
+        if ($post->user_id != auth()->user()->id) abort(403);
+
+        $result = (new Publication())->publication($post);
+
+        return $result;
+
+    }
+
 }

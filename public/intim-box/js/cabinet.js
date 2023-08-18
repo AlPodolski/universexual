@@ -2687,6 +2687,30 @@ function deleteImg(object){
 
 }
 
+function publication(object){
+
+    var id = $(object).attr('data-id');
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/post/publication',
+        data: 'id=' +id,
+        async:false,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data){
+
+            $(object).html(data);
+
+        },
+
+    })
+
+}
+
 function deleteVideo(object){
 
     var id = $(object).attr('data-id');

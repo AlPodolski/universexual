@@ -4,9 +4,15 @@
 
 <div class="ankets__item">
     <div class="ankets__item-header">
-                        <span class="ankets__item-moder">
-                            {{ $post->publication }}
-                        </span>
+        <div class="ankets__item-moder"
+             @if($post->publication_status == \App\Models\Post::POST_ON_PUBLICATION
+ or $post->publication_status == \App\Models\Post::POST_DONT_PUBLICATION)
+                 onclick="publication(this)"
+             data-id="{{ $post->id }}"
+            @endif
+        >
+            {{ $post->publication }}
+        </div>
         <img src="/storage/{{ $post->avatar }}" alt="" class="ankets__item-img">
     </div>
     <div class="ankets__item-body">

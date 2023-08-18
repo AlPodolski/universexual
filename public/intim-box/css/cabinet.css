@@ -946,12 +946,13 @@ footer {
 }
 
 .ankets__item-moder {
-    position: absolute;
     font-size: 12px;
     color: #32acfb;
     text-transform: uppercase;
-    right: 14px;
-    top: 14px
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .ankets__item-select input {
@@ -985,7 +986,7 @@ footer {
 }
 
 .ankets__item-img {
-    margin-top: 31px;
+    margin-top: 10px;
     display: block;
     max-width: 132px;
     width: 100%;
