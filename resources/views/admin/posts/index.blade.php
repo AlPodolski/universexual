@@ -32,7 +32,7 @@
                     <td>
                         <a href="/admin/posts/{{ $post->id }}/edit">
                             @if(isset($post->avatar) and $post->avatar)
-                                <img loading="lazy" src="/139-185/thumbs{{$post->avatar}}" alt="">
+                                <img loading="lazy" src="/139-185/thumbs/{{$post->avatar}}" alt="">
                             @endif
                         </a>
                     </td>
