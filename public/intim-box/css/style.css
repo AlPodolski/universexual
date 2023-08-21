@@ -2171,7 +2171,8 @@ footer {
 }
 
 .catalog__body {
-    padding: 30px 26px 0
+    padding: 30px 26px 0;
+    padding-top: 0;
 }
 
 .catalog-descr__title {
@@ -3074,6 +3075,19 @@ footer {
     width: 19px;
     height: 18px;
     fill: #fff
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    margin-left: 25px;
+    margin-top: 15px;
 }
 
 .profile-main-info__slider-main-verif-text {

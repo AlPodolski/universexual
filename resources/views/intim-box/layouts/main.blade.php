@@ -34,7 +34,7 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=12">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=13">
 </head>
 
 <body>
@@ -160,6 +160,7 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="alert">Скажите что звоните с сайте intim-box.com и получите скидку</div>
                         @yield('content')
                     </div>
                 </div>
