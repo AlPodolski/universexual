@@ -175,6 +175,6 @@
 </noscript>
 <!-- /Yandex.Metrika counter -->
 <script src="/js/wNumb.min.js" defer></script>
-<script src="/js/script.js?v=14" defer></script>
+<script src="/js/admin.js?v=14" defer></script>
 
 </html>

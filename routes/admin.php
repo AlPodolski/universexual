@@ -12,6 +12,8 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 
+    Route::post('/posts/check', [\App\Http\Controllers\Admin\PostController::class, 'check']);
+
 /*
 
     Route::get('/claim', 'Admin\ClaimController@index');
@@ -25,7 +27,7 @@ Route::middleware('admin:admin')->group(function (){
 
 
     Route::post('/post/delete', 'Admin\PostController@delete');
-    Route::post('/posts/check', 'Admin\PostController@check');*/
+    */
 
 });
 
