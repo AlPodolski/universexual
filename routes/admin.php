@@ -14,6 +14,8 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::post('/posts/check', [\App\Http\Controllers\Admin\PostController::class, 'check']);
 
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+
 /*
 
     Route::get('/claim', 'Admin\ClaimController@index');
@@ -22,8 +24,6 @@ Route::middleware('admin:admin')->group(function (){
     Route::post('/comments/delete', 'Admin\CommentController@delete');
     Route::post('/comments/check', 'Admin\CommentController@check');
     Route::resource('comments', 'Admin\CommentController');
-
-    Route::resource('users', 'Admin\UserController');
 
 
     Route::post('/post/delete', 'Admin\PostController@delete');
