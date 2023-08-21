@@ -25,14 +25,14 @@
                     <th scope="row">{{ $post->id }}</th>
                     <td>
                         <a target="_blank"
-                           href="https://{{ $post->city->url }}.{{ env('DOMAIN') }}/post/{{ $post->url }}">
+                           href="https://{{ $post->city->url }}.'intim-box.com/post/{{ $post->url }}">
                             {{ $post->name }}
                         </a>
                     </td>
                     <td>
                         <a href="/admin/posts/{{ $post->id }}/edit">
-                            @if(isset($post->avatar->file) and $post->avatar->file)
-                                <img loading="lazy" src="/139-185/thumbs{{$post->avatar->file}}" alt="">
+                            @if(isset($post->avatar) and $post->avatar)
+                                <img loading="lazy" src="/139-185/thumbs{{$post->avatar}}" alt="">
                             @endif
                         </a>
                     </td>
