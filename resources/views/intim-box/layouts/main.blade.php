@@ -83,10 +83,7 @@
                         <div class="header__ui-cabinet">
                             @guest()
                                 <a href="/login" class="header__ui-cabinet-link link-reset">
-                                    Вход
-                                </a>
-                                <a href="/register" class="header__ui-cabinet-link link-reset">
-                                    Регистрация
+                                    Кабинет
                                 </a>
                             @endguest
                             @auth()

@@ -1,5 +1,8 @@
 @extends('intim-box.layouts.login')
 
+@section('title', 'Регистрация')
+@section('des', 'Регистрация')
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
