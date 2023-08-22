@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Жалобы')
 
@@ -12,6 +12,7 @@
             <th scope="col">#</th>
             <th scope="col">Текст</th>
             <th scope="col">Почта</th>
+            <th scope="col">Сайт</th>
             <th scope="col">Дата</th>
             <th scope="col">Удалить</th>
         </tr>
@@ -30,6 +31,9 @@
                     </td>
                     <td>
                         {{ $post->email }}
+                    </td>
+                    <td>
+                        {{ $post->site_id }}
                     </td>
                     <td>
                         {{ $post->created_at }}

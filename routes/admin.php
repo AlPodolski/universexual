@@ -16,9 +16,11 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 
+    Route::get('/claim', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
+
 /*
 
-    Route::get('/claim', 'Admin\ClaimController@index');
+
     Route::get('/claim/delete', 'Admin\ClaimController@delete');
 
     Route::post('/comments/delete', 'Admin\CommentController@delete');
