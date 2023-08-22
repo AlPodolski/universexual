@@ -22,7 +22,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'reviews', 'city')
+            ->with('metro', 'reviews', 'city', 'place')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
