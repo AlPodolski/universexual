@@ -119,7 +119,8 @@ class Post extends Model
 
     public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Review::class, 'posts_id', 'id');
+        return $this->hasMany(Review::class, 'posts_id', 'id')
+            ->where('status', Review::PUBLICATION_STATUS);
     }
 
     public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany

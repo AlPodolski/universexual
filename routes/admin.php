@@ -18,15 +18,14 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::get('/claim', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
 
+    Route::post('/claim/delete', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
+
+    Route::resource('comments',\App\Http\Controllers\Admin\CommentController::class);
+
+    Route::post('/comments/delete', [\App\Http\Controllers\Admin\CommentController::class, 'delete']);
+    Route::post('/comments/check', [\App\Http\Controllers\Admin\CommentController::class, 'check']);
+
 /*
-
-
-    Route::get('/claim/delete', 'Admin\ClaimController@delete');
-
-    Route::post('/comments/delete', 'Admin\CommentController@delete');
-    Route::post('/comments/check', 'Admin\CommentController@check');
-    Route::resource('comments', 'Admin\CommentController');
-
 
     Route::post('/post/delete', 'Admin\PostController@delete');
     */

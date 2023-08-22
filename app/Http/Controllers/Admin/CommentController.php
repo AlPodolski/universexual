@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
     public function index()
     {
-        $comments = Comment::orderByDesc('id')
+        $comments = Review::orderByDesc('id')
             ->with('post')
             ->paginate(50);
 
@@ -45,7 +46,7 @@ class CommentController extends Controller
     {
         $id = $request->post('id');
 
-        $comment = Comment::find($id);
+        $comment = Review::find($id);
 
         if ($comment) $comment->delete();
     }
@@ -54,10 +55,10 @@ class CommentController extends Controller
     {
         $id = $request->post('id');
 
-        $comment = Comment::find($id);
+        $comment = Review::find($id);
 
         if ($comment) {
-            $comment->status = Comment::PUBLICATION_STATUS;
+            $comment->status = Review::PUBLICATION_STATUS;
             $comment->save();
         }
     }
