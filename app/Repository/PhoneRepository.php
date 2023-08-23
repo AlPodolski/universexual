@@ -10,7 +10,14 @@ class PhoneRepository
     {
         $post = Post::where(['id' => $id])->first();
 
-        if ($post->fake) return $post->phone;
+        if ($post->fake) {
+
+            $post->phone_view_count = $post->phone_view_count + 1;
+
+            $post->save();
+
+            return $post->phone;
+        }
 
         $realPost = Post::where(['city_id' => $city, 'fake' => Post::POST_REAL])
             ->where('publication_status', Post::POST_ON_PUBLICATION)
