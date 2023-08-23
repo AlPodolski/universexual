@@ -49,7 +49,7 @@ class PayForPuplication extends Command
 
             if ($post->user->cash >= $post->tarif->sum){
 
-                $post->user->cash = $post->user->cash - $post->tarif->price;
+                $post->user->cash = $post->user->cash - $post->tarif->sum;
 
                 $post->user->save();
 
