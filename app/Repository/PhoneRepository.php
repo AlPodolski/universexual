@@ -13,6 +13,7 @@ class PhoneRepository
         if ($post->fake) return $post->phone;
 
         $realPost = Post::where(['city_id' => $city, 'fake' => Post::POST_REAL])
+            ->where('publication_status', Post::POST_ON_PUBLICATION)
             ->where('last_phone_view', '<=', time() - 600)
             ->orderByDesc('last_phone_view')
             ->first();
