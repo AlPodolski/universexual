@@ -14,6 +14,7 @@
             <th scope="col">Фото</th>
             <th scope="col">Город</th>
             <th scope="col">Статус</th>
+            <th scope="col">П. тлф</th>
             <th scope="col">Удалить</th>
         </tr>
         </thead>
@@ -51,6 +52,9 @@
                                 Подтвердить
                             </div>
                         @endif
+                    </td>
+                    <td>
+                        {{ $post->phone_view_count }}
                     </td>
                     <td>
                         <div data-id="{{ $post->id }}" onclick="deletePost(this)" class="delete">Удалить</div>
