@@ -10,7 +10,7 @@ use App\Services\Obmenka;
 
 class PayController extends Controller
 {
-    public function index($city, $id, Obmenka $obmenka)
+    public function index( $id, Obmenka $obmenka)
     {
         $order = Order::findOrFail($id);
 
