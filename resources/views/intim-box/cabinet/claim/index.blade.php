@@ -8,6 +8,8 @@
 
     <main class="main col-lg-9">
 
+        @include('intim-box.cabinet.include.message')
+
         <h1>Обратная связь</h1>
 
         <form class="ammount__form ammount__block" method="post" action="/claim/add">

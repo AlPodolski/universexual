@@ -9,8 +9,8 @@ class ClaimController extends Controller
 {
     public function index(Request $request)
     {
-        if (Claim::create($request->post())) return back()->with('message', 'Запрос отправлен');
+        if (Claim::create($request->post())) return back()->with('success', 'Запрос отправлен');
 
-        return back()->with('message', 'Ошибка');
+        return back()->with('error', 'Ошибка');
     }
 }
