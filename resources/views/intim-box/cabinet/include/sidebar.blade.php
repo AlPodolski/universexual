@@ -55,7 +55,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="sidebar__menu-item" style="display: none">
+                <li class="sidebar__menu-item">
                     <a href="/cabinet/claim" class="sidebar__menu-link">
                         <svg class="sidebar__menu-icon">
                             <use xlink:href='/intim-box/images/cabinet/sprite.svg#feedback'></use>

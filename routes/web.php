@@ -23,6 +23,8 @@ require __DIR__.'/auth.php';
 Route::post('/phone', \App\Http\Controllers\PhoneController::class);
 
 Route::post('/review/add', \App\Http\Controllers\ReviewController::class);
+Route::post('/claim/add', [\App\Http\Controllers\ClaimController::class, 'index']);
+
 Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 'store']);
 
 Route::get('/{size}/thumbs/{path}', ImageController::class)
