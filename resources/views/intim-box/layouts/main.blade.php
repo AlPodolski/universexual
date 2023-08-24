@@ -80,7 +80,11 @@
                         <button class="header__ui-add btn d-none">
                             Добавить анкету
                         </button>
+                        <div class="header__ui-cabinet-link link-reset" data-target="claim_modal" onclick="modal(this)">
+                            Обратная связь
+                        </div>
                         <div class="header__ui-cabinet">
+
                             @guest()
                                 <a href="/login" class="header__ui-cabinet-link link-reset">
                                     Кабинет
@@ -247,7 +251,37 @@
 
     </div>
 </div>
-<script defer src="/intim-box/js/script.js?v=1"></script>
+
+<div class="profile__modal-bg">
+    <div class="modal claim_modal" id="review">
+        <div class="profile__modal-header">
+            <div class="profile__modal-title">
+                Обратная связь
+            </div>
+            <div class="profile__modal-close" onclick="modal(this)" data-target="claim_modal">
+                <svg>
+                    <use xlink:href='/svg/dest/stack/sprite.svg#close'></use>
+                </svg>
+            </div>
+        </div>
+        <form action="/claim/add" method="post" class="profile__modal-form">
+            @csrf
+            <input type="hidden" value="{{ SITE_ID }}" name="site_id">
+
+            <input type="text" placeholder="Имя" required name="name" class="form-input">
+
+            <input type="text" placeholder="Email" required name="name" class="form-input">
+
+            <textarea class="profile__modal-form-textarea" name="text" placeholder="Комментарий"></textarea>
+            <div class="profile__modal-form-captcha"></div>
+            <button type="submit" class="profile__modal-form-btn btn">
+                Опубликовать
+            </button>
+        </form>
+    </div>
+</div>
+
+<script defer src="/intim-box/js/script.js?v=5"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif

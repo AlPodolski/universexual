@@ -4477,3 +4477,13 @@ window.addEventListener('scroll', function () {
 window.addEventListener('scroll', function () {
     mobilePhone.hidden = ((pageYOffset - 300) < document.documentElement.clientHeight);
 });
+
+function modal(object){
+
+    var target = $(object).attr('data-target');
+
+    document.querySelector("html").classList.toggle("lock");
+    document.querySelector(".wrapper").classList.toggle("lock");
+    $('.'+target).closest('.profile__modal-bg').toggleClass("active");
+
+}

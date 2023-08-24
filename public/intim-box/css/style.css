@@ -2672,7 +2672,7 @@ footer {
     visibility: visible
 }
 
-.profile__modal {
+.profile__modal, .modal {
     background-color: #fff;
     position: relative;
     max-width: 602px;
@@ -3777,6 +3777,7 @@ footer {
     border-radius: 7px;
     color: #b8b8b8;
     max-width: 486px;
+    margin-bottom: 15px;
     width: 100%;
 }
 
