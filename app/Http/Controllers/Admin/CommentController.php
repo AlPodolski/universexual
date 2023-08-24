@@ -55,9 +55,12 @@ class CommentController extends Controller
     {
         $id = $request->post('id');
 
-        $comment = Review::find($id);
+        $comment = Review::where('id', $id)->with('post')->first();
 
         if ($comment) {
+
+            \Cache::delete('post_' . $comment->post->url . '_site_id_' . SITE);
+
             $comment->status = Review::PUBLICATION_STATUS;
             $comment->save();
         }
