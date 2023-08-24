@@ -10,4 +10,9 @@ class Review extends Model
     const PUBLICATION_STATUS = 1;
 
     public $fillable = ['posts_id', 'name', 'text', 'rating', 'site_id'];
+
+    public function post(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Post::class, 'id', 'posts_id');
+    }
 }
