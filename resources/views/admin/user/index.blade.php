@@ -54,7 +54,7 @@
 
     @if($users->total() > $users->count())
 
-        {{ $users->links() }}
+        {{ $users->links('vendor.pagination.bootstrap-4') }}
 
     @endif
 

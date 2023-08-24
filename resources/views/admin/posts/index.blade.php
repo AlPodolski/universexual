@@ -69,7 +69,7 @@
 
     @if($posts->total() > $posts->count())
 
-        {{ $posts->links() }}
+        {{ $posts->links('vendor.pagination.bootstrap-4') }}
 
     @endif
 

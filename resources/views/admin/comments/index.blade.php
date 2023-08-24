@@ -56,7 +56,7 @@
 
     @if($comments->total() > $comments->count())
 
-        {{ $comments->links() }}
+        {{ $comments->links('vendor.pagination.bootstrap-4') }}
 
     @endif
 

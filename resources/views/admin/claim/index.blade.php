@@ -53,7 +53,7 @@
 
     @if($claim->total() > $claim->count())
 
-        {{ $claim->links() }}
+        {{ $claim->links('vendor.pagination.bootstrap-4') }}
 
     @endif
 
