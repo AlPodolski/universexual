@@ -26,7 +26,7 @@
                     <th scope="row">{{ $post->id }}</th>
                     <td>
                         <a target="_blank"
-                           href="https://{{ $post->city->url }}'.intim-box.com/post/{{ $post->url }}">
+                           href="https://{{ $post->city->url }}.intim-box.com/post/{{ $post->url }}">
                             {{ $post->name }}
                         </a>
                     </td>
