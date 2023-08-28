@@ -13,6 +13,7 @@
             <th scope="col">Сумма</th>
             <th scope="col">ID Пользователя</th>
             <th scope="col">Статус</th>
+            <th scope="col">Дата</th>
         </tr>
         </thead>
         <tbody>
@@ -38,8 +39,15 @@
                         @endif
 
                     </td>
+
+                    <td>
+                        {{ $post->created_at }}
+                    </td>
+
                 </tr>
             @endforeach
+
+
 
         @endif
 
