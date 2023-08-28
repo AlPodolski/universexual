@@ -12,6 +12,8 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 
+    Route::resource('obmenka', \App\Http\Controllers\Admin\ObmenkaController::class);
+
     Route::post('/posts/check', [\App\Http\Controllers\Admin\PostController::class, 'check']);
 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);

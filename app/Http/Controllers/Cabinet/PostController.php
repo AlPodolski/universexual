@@ -399,6 +399,8 @@ class PostController extends Controller
 
         if ($post->user_id != auth()->user()->id) abort(403);
 
+        if ($post->tarif->sum > auth()->user()->cash) return 'Недостаточно средств';
+
         $result = (new Publication())->publication($post);
 
         return $result;
