@@ -60,6 +60,12 @@
                                 </span>
             </a>
         </div>
+        <div href="#" class="ankets__item-phone ankets__item-phone-view">
+            <svg>
+                <use xlink:href='/intim-box/images/cabinet/sprite.svg#phone'></use>
+            </svg>
+            Просмотров телефона {{ $post->phone_view_count }}
+        </div>
         <div class="ankets__item-field ankets__item-ui">
             <a class="ankets__item-ui-item ankets__item-ui-item--1" href="/cabinet/post/{{$post->id}}/edit">
                 <svg>
