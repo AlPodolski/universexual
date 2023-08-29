@@ -953,6 +953,7 @@ footer {
     text-align: center;
     margin-top: 10px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .ankets__item-select input {
@@ -3055,6 +3056,10 @@ footer {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
+}
+
+.start-all{
+    text-align: left;
 }
 
 @media (max-width: 1200px) {

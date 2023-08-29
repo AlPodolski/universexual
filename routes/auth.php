@@ -73,6 +73,8 @@ Route::domain('{city}.'.SITE)->group(function () {
 
             Route::post('post/publication', [\App\Http\Controllers\Cabinet\PostController::class, 'publication']);
 
+            Route::post('post/publication/all', [\App\Http\Controllers\Cabinet\PostController::class, 'all']);
+
             Route::resource('post', \App\Http\Controllers\Cabinet\PostController::class);
 
             Route::get('/', App\Http\Controllers\Cabinet\IndexController::class);

@@ -407,4 +407,39 @@ class PostController extends Controller
 
     }
 
+    public function all()
+    {
+        $posts = Post::where('user_id', auth()->user()->id )
+            ->where('publication_status', Post::POST_DONT_PUBLICATION)
+            ->with('tarif', 'user')->get();
+
+        if (!$posts->count()) abort(403);
+
+        foreach ($posts as $post){
+
+            if ($post->user->cash >= $post->tarif->sum){
+
+                if ($post->pay_time <= time()) {
+
+                    $post->pay_time = time() + 3600;
+
+                    $post->user->cash = $post->user->cash - $post->tarif->sum;
+
+                    $post->user->save();
+
+                }
+
+                $post->publication_status = Post::POST_ON_PUBLICATION;
+
+                $post->save();
+
+                //$payType = History::PAY_FOR_POST_PUBLICATION_TYPE;
+
+                //event(new PayEvent($post->tarif->price, $post->user->id,$payType,$post->user->cash));
+
+            }
+
+        }
+    }
+
 }
