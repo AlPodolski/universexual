@@ -9,7 +9,6 @@ class CaptchaMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-
         $url = 'https://www.google.com/recaptcha/api/siteverify';
         $key = env('RECAPTCHA');
         $query = $url.'?secret='.$key.'&response='.$_POST['g-recaptcha-response'].'&remoteip='.$_SERVER['REMOTE_ADDR'];
