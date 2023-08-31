@@ -14,11 +14,14 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('obmenka', \App\Http\Controllers\Admin\ObmenkaController::class);
 
+    Route::resource('redirect', \App\Http\Controllers\Admin\RedirectController::class);
+
     Route::post('/posts/check', [\App\Http\Controllers\Admin\PostController::class, 'check']);
 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 
     Route::get('/claim', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
+
     Route::get('/cache', [\App\Http\Controllers\Admin\CacheController::class, 'index']);
 
     Route::post('/claim/delete', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
