@@ -19,6 +19,7 @@ Route::middleware('admin:admin')->group(function (){
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 
     Route::get('/claim', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
+    Route::get('/cache', [\App\Http\Controllers\Admin\CacheController::class, 'index']);
 
     Route::post('/claim/delete', [\App\Http\Controllers\Admin\ClaimController::class, 'index']);
 

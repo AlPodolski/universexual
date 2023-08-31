@@ -3,3 +3,4 @@
 <a href="/admin/claim">Жалобы</a>
 <a href="/admin/users">Пользователи</a>
 <a href="/admin/obmenka">Оплаты</a>
+<a href="/admin/cache">Сбросить кеш</a>
