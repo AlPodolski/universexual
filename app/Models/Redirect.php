@@ -9,4 +9,6 @@ class Redirect extends Model
 
     public $timestamps = false;
 
+    public $fillable = ['from', 'to', 'site'];
+
 }

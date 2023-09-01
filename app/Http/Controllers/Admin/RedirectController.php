@@ -10,17 +10,31 @@ class RedirectController extends Controller
 {
     public function index()
     {
-        $redirects = Redirect::paginate(40);
+        $redirects = Redirect::orderByDesc('id')->paginate(40);
 
         return view('admin.redirect.index', compact('redirects'));
     }
 
     public function create()
     {
+        return view('admin.redirect.create');
     }
 
     public function store(Request $request)
     {
+        if ($redirect = Redirect::create($request->post())) {
+
+            $msg = 'Готово';
+
+        }else{
+
+            $msg = 'Ошибка';
+
+        }
+
+        return back()
+            ->with(['msg' => $msg]);
+
     }
 
     public function show($id)

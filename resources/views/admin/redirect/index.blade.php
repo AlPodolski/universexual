@@ -6,6 +6,10 @@
 
     @include('admin.include.nav')
 
+    <br>
+
+    <a class="btn btn-success" href="/admin/redirect/create">Добавить</a>
+
     <table class="table table-striped">
         <thead>
         <tr>
