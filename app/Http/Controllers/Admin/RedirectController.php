@@ -34,6 +34,8 @@ class RedirectController extends Controller
 
                 (new AddToCloud)->add(env('IP'), $zone, $redirect->to, env('CLOUD_API'), env('CLOUD_EMAIL'));
 
+                \Cache::delete('redirect_' . $redirect->from.'_'.SITE);
+
             }
 
             $msg = 'Готово';
