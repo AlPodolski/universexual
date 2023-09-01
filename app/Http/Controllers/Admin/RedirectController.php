@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\AddToCloud;
 use App\Http\Controllers\Controller;
+use App\Models\CloudZone;
 use App\Models\Redirect;
 use Illuminate\Http\Request;
 
@@ -23,6 +25,16 @@ class RedirectController extends Controller
     public function store(Request $request)
     {
         if ($redirect = Redirect::create($request->post())) {
+
+            $cloudZone = CloudZone::where('site_id', SITE_ID)->first();
+
+            if ($cloudZone){
+
+                $zone = $cloudZone->zone;
+
+                (new AddToCloud)->add(env('IP'), $zone, $redirect->to, env('CLOUD_API'), env('CLOUD_EMAIL'));
+
+            }
 
             $msg = 'Готово';
 
