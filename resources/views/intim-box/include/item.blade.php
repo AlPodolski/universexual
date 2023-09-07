@@ -170,12 +170,12 @@
                     <div class="catalog-item__ui-item-title">
                         Проверенное фото
                     </div>
-                    <a href="#"
+                    <div href="#"
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
                         </svg>
-                    </a>
+                    </div>
                 </div>
             @endif
 
@@ -184,12 +184,12 @@
                     <div class="catalog-item__ui-item-title">
                         Есть видео
                     </div>
-                    <a data-fancybox="video"
+                    <div
                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
                         </svg>
-                    </a>
+                    </div>
                 </div>
             @endif
 
@@ -198,11 +198,11 @@
                     <div class="catalog-item__ui-item-title">
                         Есть отзывы
                     </div>
-                    <a class="catalog-item__ui-link link-reset btn">
+                    <div class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#comment'></use>
                         </svg>
-                    </a>
+                    </div>
                 </div>
             @endif
 
