@@ -58,7 +58,7 @@
             <!-- tabindex нужны для навигации клавиатурой, также отвечают за табы на мобильной версии -->
             <li class="sidebar-filters__item" tabindex="0">
                 <div class="sidebar-filters__item-title">
-                    <div class="sidebar-filters__item-text">
+                    <div class="sidebar-filters__item-text" onclick="openMenu(this)">
                         Цена
                     </div>
                     <svg class="sidebar-filters__item-icon">
@@ -84,7 +84,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-filters__item" tabindex="0">
+            <li class="sidebar-filters__item" tabindex="1">
                 <div class="sidebar-filters__item-title">
                     <div class="sidebar-filters__item-text">
                         Национальность
@@ -110,7 +110,7 @@
                     @endforeach
                 </ul>
             </li>
-            <li class="sidebar-filters__item" tabindex="0">
+            <li class="sidebar-filters__item" tabindex="2">
                 <div class="sidebar-filters__item-title">
                     <div class="sidebar-filters__item-text">
                         Возраст
@@ -145,7 +145,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-filters__item" tabindex="0">
+            <li class="sidebar-filters__item" tabindex="3">
                 <div class="sidebar-filters__item-title">
                     <div class="sidebar-filters__item-text">
                         Рост
@@ -172,7 +172,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-filters__item" tabindex="0">
+            <li class="sidebar-filters__item" tabindex="4">
                 <div class="sidebar-filters__item-title">
                     <div class="sidebar-filters__item-text">
                         Вес
@@ -199,7 +199,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="sidebar-filters__item" tabindex="0">
+            <li class="sidebar-filters__item" tabindex="5">
                 <div class="sidebar-filters__item-title">
                     <div class="sidebar-filters__item-text">
                         Цвет волос

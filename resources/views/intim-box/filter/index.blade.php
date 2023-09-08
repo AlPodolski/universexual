@@ -66,6 +66,11 @@
         @endif
 
         @if($posts->total() > $posts->count())
+
+            <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+                 class="get-more get-more-post-btn">Показать еще
+            </div>
+
             {{ $posts->links('intim-box.vendor.pagination.bootstrap-4') }}
         @endif
     </div>

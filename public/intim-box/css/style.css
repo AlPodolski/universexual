@@ -2029,6 +2029,17 @@ footer {
     fill: #4926e8
 }
 
+.get-more-post-btn{
+    background: linear-gradient(91.2deg, #4926e8 .29%, #2dc8ff 112.3%);
+    color: #fff;
+    padding: 9px 15px;
+    border-radius: 5px;
+    max-width: 160px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 @media (max-width: 922px) {
     .sidebar-filters-sub__list {
         right: -183px

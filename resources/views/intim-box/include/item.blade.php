@@ -11,7 +11,7 @@
 
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
                      alt="{{ $post->alt }}"
-                     @if($i > 2)
+                     @if(!isset($i) or $i > 2)
                          loading="lazy"
                      @endif
                      title="{{ $post->title }}">

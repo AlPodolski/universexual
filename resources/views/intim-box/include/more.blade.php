@@ -1,3 +1,3 @@
 @foreach($posts as $post)
-    @include('include.item', compact('post'))
+    @include('intim-box.include.item', compact('post'))
 @endforeach
