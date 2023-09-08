@@ -2110,7 +2110,16 @@ footer {
         transform: rotateZ(90deg)
     }
 
-    .sidebar-filters__item:hover .sidebar-filters-sub__list {
+    .sidebar-filters__item .sidebar-filters-sub__list {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        width: 100%;
+        transform: translateX(0)
+    }
+
+    .sidebar-filters__item .sidebar-filters-sub__list {
         -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
         transform: translateY(0);
