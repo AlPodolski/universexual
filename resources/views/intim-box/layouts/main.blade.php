@@ -281,7 +281,7 @@
     </div>
 </div>
 
-<script defer src="/intim-box/js/script.js?v=5"></script>
+<script defer src="/intim-box/js/script.js?v=6"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif
