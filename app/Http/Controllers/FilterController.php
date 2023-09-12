@@ -55,7 +55,7 @@ class FilterController extends Controller
 
         }
 
-        $links = $this->linkRepository->getLink($search);
+        $links = $this->linkRepository->getLink($search, $filterParams);
 
         return view(PATH.'.filter.index',
             compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links')
