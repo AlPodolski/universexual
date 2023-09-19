@@ -1,34 +1,16 @@
+<div onclick="showFilter()" class="toggle-filter">Показать фильтр</div>
+
 <form action="/filter" class="filter-wrap d-flex" id="filter">
+    <div class="close-panel" onclick="showFilter(this)">
+        <img src="/img/close.svg" alt="">
+    </div>
     @csrf
-    @if($data['metro'] and $data['metro']->first())
-        <div class="filter-item">
-            <div class="bold-text">Метро</div>
-            <select class="metro-select" name="metro" id="">
-                <option value="">Выбрать метро</option>
-                @foreach($data['metro'] as $item)
-                    @php
-                        /* @var $item \App\Models\Metro */
-                    @endphp
-                    <option value='{{ $item->id }}'>{{ $item->value }}</option>
-                @endforeach
-            </select>
-        </div>
-    @endif
     <div class="filter-item">
         <div class="bold-text">Возраст</div>
         <div class="filter-item-slide" id="age"></div>
         <div class="inputs">
             <input type="text" readonly id="age-from" name="age-from">
             <input type="text" readonly class="right-input" id="age-to" name="age-to">
-        </div>
-    </div>
-
-    <div class="filter-item">
-        <div class="bold-text">Рост</div>
-        <div class="filter-item-slide" id="rost"></div>
-        <div class="inputs">
-            <input type="text" readonly id="rost-from" name="rost-from">
-            <input type="text" readonly class="right-input" id="rost-to" name="rost-to">
         </div>
     </div>
 

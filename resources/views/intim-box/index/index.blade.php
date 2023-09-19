@@ -17,12 +17,14 @@
 
     <div class="catalog__body">
 
+        @include('prostitutki_nl.include.filter' , compact('data'))
+
         <div class="catalog-descr">
             <h1 class="catalog-descr__title">
                 {{ $meta['h1'] }}
             </h1>
 
-            @if($data['current_city']->id == 1 and request()->path() == '/')
+            @if($data['current_city']->id == 1 and request()->path() == '/' and $posts->currentPage() == 1)
                 <p class="catalog-descr__text">
                     Незаменимые и лучшие проститутки Москвы — это мечта каждого мужчины, как местного,
                     так и гостя столицы. Наш сервис призван решить проблему быстрого и удобного поиска

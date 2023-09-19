@@ -295,8 +295,6 @@ class PostRepository
         $posts = Post::where('age', '>=', $data['age-from'])
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
-            ->where('rost', '>=', $data['rost-from'])
-            ->where('rost', '<=', $data['rost-to'])
             ->where('ves', '>=', $data['ves-from'])
             ->where('ves', '<=', $data['ves-to'])
             ->where('breast', '>=', $data['grud-from'])
@@ -304,6 +302,11 @@ class PostRepository
             ->where('price', '>=', $data['price-from'])
             ->where('price', '<=', $data['price-to'])
             ->where(['city_id' => $cityId]);
+
+        if (isset($data['rost-from'])){
+            $posts = $posts->where('rost', '>=', $data['rost-from'])
+                ->where('rost', '<=', $data['rost-to']);
+        }
 
         if (isset($data['metro']) and $data['metro']) {
 

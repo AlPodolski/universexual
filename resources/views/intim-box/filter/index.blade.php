@@ -16,6 +16,8 @@
 
         @include('intim-box.include.breadcrumb' , ['title' => $meta['h1']])
 
+        @include('prostitutki_nl.include.filter' , compact('data'))
+
         <div class="catalog-descr">
             <h1 class="catalog-descr__title">
                 {{ $meta['h1'] }}
@@ -28,7 +30,7 @@
             Найдено анкет: {{ $posts->total() }}
         </div>
 
-        @if(isset($data['current_metro']))
+        @if(isset($data['current_metro']) and $data['current_metro']->x)
 
             <div class="metro-map">
 

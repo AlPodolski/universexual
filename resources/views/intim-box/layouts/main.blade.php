@@ -34,7 +34,8 @@
         @yield('open-graph')
     @endif
 
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=15ё">
+    <link rel="stylesheet" href="/css/nouislider.min.css">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=15">
 </head>
 
 <body>
@@ -281,7 +282,9 @@
     </div>
 </div>
 
-<script defer src="/intim-box/js/script.js?v=6"></script>
+<script defer src="/js/nouislider.min.js"></script>
+<script defer src="/js/wNumb.min.js"></script>
+<script defer src="/intim-box/js/script.js?v=7"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif

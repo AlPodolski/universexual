@@ -57,8 +57,8 @@
         <ul class="sidebar-filters__list">
             <!-- tabindex нужны для навигации клавиатурой, также отвечают за табы на мобильной версии -->
             <li class="sidebar-filters__item" tabindex="0">
-                <div class="sidebar-filters__item-title">
-                    <div class="sidebar-filters__item-text" onclick="openMenu(this)">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
+                    <div class="sidebar-filters__item-text" >
                         Цена
                     </div>
                     <svg class="sidebar-filters__item-icon">
@@ -85,7 +85,7 @@
                 </ul>
             </li>
             <li class="sidebar-filters__item" tabindex="1">
-                <div class="sidebar-filters__item-title">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
                     <div class="sidebar-filters__item-text">
                         Национальность
                     </div>
@@ -111,7 +111,7 @@
                 </ul>
             </li>
             <li class="sidebar-filters__item" tabindex="2">
-                <div class="sidebar-filters__item-title">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
                     <div class="sidebar-filters__item-text">
                         Возраст
                     </div>
@@ -146,7 +146,7 @@
                 </ul>
             </li>
             <li class="sidebar-filters__item" tabindex="3">
-                <div class="sidebar-filters__item-title">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
                     <div class="sidebar-filters__item-text">
                         Рост
                     </div>
@@ -173,7 +173,7 @@
                 </ul>
             </li>
             <li class="sidebar-filters__item" tabindex="4">
-                <div class="sidebar-filters__item-title">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
                     <div class="sidebar-filters__item-text">
                         Вес
                     </div>
@@ -200,7 +200,7 @@
                 </ul>
             </li>
             <li class="sidebar-filters__item" tabindex="5">
-                <div class="sidebar-filters__item-title">
+                <div class="sidebar-filters__item-title" onclick="openMenu(this)">
                     <div class="sidebar-filters__item-text">
                         Цвет волос
                     </div>
