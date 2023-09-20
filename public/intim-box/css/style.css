@@ -2089,6 +2089,12 @@ footer {
     margin-top: 20px;
 }
 
+.sidebar-filters-sub__list-mobile{
+    list-style: none;
+    margin-top: 10px;
+    display: none;
+}
+
 @media (min-width: 861px) {
     .sidebar-filters__item:hover .sidebar-filters__item-icon {
         -webkit-transform: rotateZ(90deg);
@@ -2111,6 +2117,9 @@ footer {
 }
 
 @media (max-width: 860px) {
+    .sidebar-filters-sub__list-mobile{
+        display: block;
+    }
     .sidebar-filters__item.show-item {
         position: relative;
         z-index: 20;

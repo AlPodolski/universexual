@@ -73,6 +73,17 @@
                            href="/dorogie-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Дорогие проститутки</span>
                         </a>
+                        <ul class="sidebar-filters-sub__list-mobile">
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/4000-5000-rub">4000-5000 руб </a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/5000-6000-rub">5000-6000 руб </a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/ot-10000-rub">от 10000 руб</a>
+                            </li>
+                        </ul>
                     </div>
 
                     <li class="sidebar-filters-sub__item">
@@ -81,6 +92,17 @@
                            href="/deshevye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Дешевые проститутки</span>
                         </a>
+                        <ul class="sidebar-filters-sub__list-mobile">
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/do-1500-rub">До 1500</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/2000-3000-rub">2000-3000 руб  </a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/3000-4000-rub">3000-4000 руб</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
@@ -126,6 +148,17 @@
                            href="/molodye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Молодые проститутки</span>
                         </a>
+                        <ul class="sidebar-filters-sub__list-mobile">
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/18-let">18 лет</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/do-20-let">до 20 лет</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/prostitutki-21-25-let">21-25 лет</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="sidebar-filters-sub__item">
@@ -134,6 +167,14 @@
                            href="/vzroslye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Взрослые проститутки</span>
                         </a>
+                        <ul class="sidebar-filters-sub__list-mobile">
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/prostitutki-26-30-let">26-30 лет</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/prostitutki-31-40-let">31-40 лет</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="sidebar-filters-sub__item">
@@ -142,6 +183,14 @@
                            href="/starye-prostitutki" class="sidebar-filters-sub__link link-reset">
                             <span itemprop="name">Старые проститутки</span>
                         </a>
+                        <ul class="sidebar-filters-sub__list-mobile">
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/prostitutki-40-50-let">40-45 лет </a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-filters-sub__link link-reset" href="/prostitutki-ot-50-let">от 50 лет </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
