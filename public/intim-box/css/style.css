@@ -2090,6 +2090,11 @@ footer {
 }
 
 @media (min-width: 861px) {
+    .sidebar-filters__item:hover .sidebar-filters__item-icon {
+        -webkit-transform: rotateZ(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotateZ(90deg)
+    }
     .sidebar-filters__item:hover .sidebar-filters-sub__list {
         opacity: 1;
         visibility: visible;
@@ -2168,12 +2173,6 @@ footer {
 
     .sidebar-filters__item:hover {
         position: relative
-    }
-
-    .sidebar-filters__item:hover .sidebar-filters__item-icon {
-        -webkit-transform: rotateZ(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotateZ(90deg)
     }
 
     .show-item .sidebar-filters-sub__list {

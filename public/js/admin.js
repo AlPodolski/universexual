@@ -1,66 +1,67 @@
-function deletePost (object){
+function deletePost(object) {
 
     var id = $(object).attr('data-id');
 
     $.ajax({
         type: 'POST',
         url: '/admin/post/delete',
-        data: 'id=' +id,
-        async:false,
+        data: 'id=' + id,
+        async: false,
         dataType: "html",
         cache: false,
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
         },
-        success: function (data){
+        success: function (data) {
             $(object).closest('tr').remove();
         },
 
     })
 }
-function deleteComment (object){
+
+function deleteComment(object) {
 
     var id = $(object).attr('data-id');
 
     $.ajax({
         type: 'POST',
         url: '/admin/comments/delete',
-        data: 'id=' +id,
-        async:false,
+        data: 'id=' + id,
+        async: false,
         dataType: "html",
         cache: false,
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
         },
-        success: function (data){
+        success: function (data) {
             $(object).closest('tr').remove();
         },
 
     })
 }
 
-function deleteClaim (object){
+function deleteClaim(object) {
 
     var id = $(object).attr('data-id');
 
     $.ajax({
         type: 'POST',
         url: '/admin/claim/delete',
-        data: 'id=' +id,
-        async:false,
+        data: 'id=' + id,
+        async: false,
         dataType: "html",
         cache: false,
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
         },
-        success: function (data){
+        success: function (data) {
             $(object).closest('tr').remove();
         },
 
     })
 }
 
-function checkComment(object){
+function checkComment(object) {
 
     var id = $(object).attr('data-id');
     var url = $(object).attr('data-url');
@@ -69,7 +70,7 @@ function checkComment(object){
         type: 'POST',
         url: url, //Путь к обработчику
         response: 'text',
-        data: 'id=' +id ,
+        data: 'id=' + id,
         dataType: "html",
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
@@ -82,7 +83,7 @@ function checkComment(object){
 
 }
 
-function check(object){
+function check(object) {
 
     var id = $(object).attr('data-id');
     var url = $(object).attr('data-url');
@@ -91,7 +92,7 @@ function check(object){
         type: 'POST',
         url: url, //Путь к обработчику
         response: 'text',
-        data: 'id=' +id ,
+        data: 'id=' + id,
         dataType: "html",
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
@@ -101,5 +102,13 @@ function check(object){
             $(object).html('Подтверждено')
         }
     })
+
+}
+
+function check_all() {
+
+    $(".check").each(function (index) {
+        $(this).trigger('click')
+    });
 
 }
