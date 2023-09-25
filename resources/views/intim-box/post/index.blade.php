@@ -17,16 +17,23 @@
 
     <div class="profile-main">
         @include('intim-box.include.breadcrumb' , ['title' => $post->name])
-        <h1 class="profile__title">
-            <div class="profile__title-text">
-                Индивидуалка {{ $post->name }} {{ $post->id }}
-            </div>
-            <div class="profile__title-verif">
-                <svg class="profile__title-icon">
-                    <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
-                </svg>
-            </div>
-        </h1>
+        @include('prostitutki_nl.include.filter' , compact('data'))
+        <div class="profile__title-wrap">
+            <h1 class="profile__title">
+                <div class="profile__title-text">
+                    Индивидуалка {{ $post->name }} {{ $post->id }}
+                </div>
+                <div class="profile__title-verif">
+                    <svg class="profile__title-icon">
+                        <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
+                    </svg>
+                </div>
+                <div class="view-count">
+                    <img src="/intim-box/images/eye.svg" alt="eye" loading="lazy">
+                    {{ $viewCount }}</div>
+            </h1>
+        </div>
+
         <nav class="profile-main__nav profile-main-nav">
             <ul class="profile-main-nav__list">
                 <li class="profile-main-nav__item active" data-tab-title="photo">
@@ -52,7 +59,9 @@
                     <div class="profile-main-info__slider">
                         <div class="profile-main-info__slider-main">
 
-                            <div class="profile-main-info__slider-main-slide">
+                            <a data-lightbox="roadtrip" class="profile-main-info__slider-main-slide"
+                               href="/700-700/thumbs/{{$post->avatar}}"
+                            >
                                 <img class="profile-main-info__slider-main-img"
                                      loading="lazy"
                                      src="/252-309/thumbs/{{$post->avatar}}"
@@ -72,7 +81,7 @@
                                         </div>
                                     </div>
                                 @endif
-                            </div>
+                            </a>
 
                             @if($post->photo)
 
@@ -82,7 +91,10 @@
 
                                 @foreach($post->photo as $item)
 
-                                    <div class="profile-main-info__slider-main-slide">
+                                    <a class="profile-main-info__slider-main-slide"
+                                       data-lightbox="roadtrip"
+                                       href="/700-700/thumbs/{{$item->file}}"
+                                    >
                                         <img class="profile-main-info__slider-main-img"
                                              loading="lazy"
                                              alt="Фото проститутки {{ $post->name }} №{{$i}} в городе {{ $data['current_city']->city }}"
@@ -107,7 +119,7 @@
                                             </div>
                                         @endif
 
-                                    </div>
+                                    </a>
 
                                 @endforeach
 
@@ -1109,3 +1121,5 @@
 @endsection
 
 @section('yandex_script', '/intim-box/js/map.js')
+@section('lightbox_js', '/intim-box/js/lightbox.js')
+@section('lightbox_css', '/intim-box/css/lightbox.css')

@@ -3390,6 +3390,7 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     flex-wrap: wrap;
+    flex-direction: column;
     display: flex
 }
 
@@ -3402,7 +3403,6 @@ footer {
 }
 
 .profile-main-info__characters-price {
-    max-width: 360px;
     width: 100%;
     margin: auto;
     list-style: none
@@ -3430,8 +3430,9 @@ footer {
     color: #4926e8;
     font-weight: 700;
     -webkit-box-flex: 0;
-    -ms-flex: 0 1 50%;
-    flex: 0 1 50%;
+    -ms-flex: 0 1 40%;
+    flex: 0 1 40%;
+    margin-right: auto;
     text-align: center
 }
 
@@ -3444,8 +3445,8 @@ footer {
 
 .profile-main-info__characters-price-sub-list {
     -webkit-box-flex: 0;
-    -ms-flex: 0 1 50%;
-    flex: 0 1 50%;
+    -ms-flex: 0 1 40%;
+    flex: 0 1 40%;
     margin: 0;
     padding: 0
 }
@@ -3996,6 +3997,19 @@ footer {
     font-size: 18px !important;
 }
 
+.noUi-connect {
+    background: #4926e8;
+}
+
+.view-count{
+    display: flex;
+    margin-left: auto;
+}
+
+.view-count img{
+    width: 20px;
+}
+
 @media (max-width: 650px) {
     #arrowTop {
         right: 10px;
@@ -4047,6 +4061,8 @@ footer {
 
     .profile-main__services-guide {
         padding: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
 
     .profile-main__title {
@@ -4085,6 +4101,7 @@ footer {
     }
 
     .profile-main-info__characters-list-sec-item {
+        font-size: 14px;
         flex-direction: row-reverse;
     }
 

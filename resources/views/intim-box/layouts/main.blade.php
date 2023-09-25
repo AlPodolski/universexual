@@ -13,9 +13,9 @@
     <link rel="icon" href="/intim-box/icons/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="/intim-box/icons/site.webmanifest">
     <link rel="mask-icon" href="/intim-box/icons/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#4926e8">
 
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#4926e8">
     <meta name="googlebot" content="max-snippet:-1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -35,6 +35,9 @@
     @endif
 
     <link rel="stylesheet" href="/css/nouislider.min.css">
+    @if(View::hasSection('lightbox_css'))
+        <link rel="stylesheet" href="@yield('lightbox_css')">
+    @endif
     <link rel="stylesheet" href="/intim-box/css/style.css?v=15">
 </head>
 
@@ -284,7 +287,10 @@
 
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/js/wNumb.min.js"></script>
-<script defer src="/intim-box/js/script.js?v=7"></script>
+<script defer src="/intim-box/js/script.js?v=8"></script>
+@if(View::hasSection('lightbox_js'))
+    <script defer src="@yield('lightbox_js')"></script>
+@endif
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif

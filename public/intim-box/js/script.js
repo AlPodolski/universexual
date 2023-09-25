@@ -4257,10 +4257,10 @@ function show_phone(object) {
     var city = $(object).attr('data-city');
     var phone = $(object).attr('data-phone');
 
-    if (phone){
+    if (phone) {
 
         window.location.href = 'tel:+' + phone;
-    }else{
+    } else {
 
         $.ajax({
             type: 'POST',
@@ -4474,7 +4474,7 @@ window.addEventListener('scroll', function () {
     arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
 });
 
-function openMenu(object){
+function openMenu(object) {
     console.log(object);
     $(object).closest('.sidebar-filters__item').toggleClass('show-item');
 }
@@ -4484,19 +4484,17 @@ window.addEventListener('scroll', function () {
 });
 
 
-
-
-function modal(object){
+function modal(object) {
 
     var target = $(object).attr('data-target');
 
     document.querySelector("html").classList.toggle("lock");
     document.querySelector(".wrapper").classList.toggle("lock");
-    $('.'+target).closest('.profile__modal-bg').toggleClass("active");
+    $('.' + target).closest('.profile__modal-bg').toggleClass("active");
 
 }
 
-function getMorePosts(object){
+function getMorePosts(object) {
 
     var url = $(object).attr('data-url');
 
@@ -4513,13 +4511,13 @@ function getMorePosts(object){
 
             data = JSON.parse(data)
 
-            if (data){
+            if (data) {
 
                 window.history.pushState('', document.title, url);
 
                 if (data.posts) $('.catalog-items').append(data.posts);
 
-                if (data.next_page) $(object).attr('data-url',data.next_page);
+                if (data.next_page) $(object).attr('data-url', data.next_page);
                 else $(object).remove();
 
             }
@@ -4626,4 +4624,3 @@ sliderPrice.noUiSlider.on('update', function (values, handle) {
 function showFilter() {
     document.getElementById('filter').classList.toggle('show-filter')
 }
-

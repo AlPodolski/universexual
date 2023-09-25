@@ -8,6 +8,7 @@ use App\Actions\GenerateImageMicro;
 use App\Actions\GenerateProductMicroForSingle;
 use App\Services\SingleMetaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class PostController extends Controller
 {
@@ -35,6 +36,8 @@ class PostController extends Controller
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
         $productMicro = (new GenerateProductMicroForSingle($post))->generate();
 
+        $viewCount = Redis::INCR('post:view:'.$post->id);
+
         $morePosts = $this->postRepository->getMore($cityInfo['id'], 3);
 
         $addViewToCookie->add($post->id);
@@ -42,7 +45,7 @@ class PostController extends Controller
         $viewPosts = $this->postRepository->getView();
 
         return view(PATH.'.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts', 'productMicro'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts', 'productMicro', 'viewCount'
         ));
     }
 }
