@@ -12,6 +12,8 @@ class LinkRepository
     public function getLink($url, $filterParams)
     {
 
+        cache()->flush();
+
         $expire = Carbon::now()->addHours(1200);
 
         $link = Cache::remember('link_' . $url, $expire, function () use ($url) {
@@ -22,7 +24,7 @@ class LinkRepository
 
         });
 
-        if ($filterParams->count()){
+        if ($filterParams->count() == 1){
 
             $data = $filterParams->first();
 
@@ -34,6 +36,24 @@ class LinkRepository
                     'from' => $url,
                     'to' => $url.'/deshevye-prostitutki',
                     'text' => 'Дешевые',
+                );
+
+                $link[] = array(
+                    'from' => $url,
+                    'to' => $url.'/dorogie-prostitutki',
+                    'text' => 'Элитные',
+                );
+
+                $link[] = array(
+                    'from' => $url,
+                    'to' => $url.'/proverennye',
+                    'text' => 'Проверенные',
+                );
+
+                $link[] = array(
+                    'from' => $url,
+                    'to' => $url.'/video',
+                    'text' => 'С видео',
                 );
 
                 $link[] = array(

@@ -9,6 +9,7 @@ use App\Models\Filter;
 use App\Models\Link;
 use App\Models\Metro;
 use App\Models\MetroNear;
+use App\Repository\FilterRepository;
 use App\Repository\LinkRepository;
 use App\Repository\MetaRepository;
 use Illuminate\Http\Request;
@@ -19,27 +20,31 @@ class FilterController extends Controller
     private GenerateBreadcrumbMicro $breadMicro;
     private GenerateMicroDataForCatalog $microData;
     private LinkRepository $linkRepository;
+    private FilterRepository $filterRepository;
 
     public function __construct()
     {
         $this->breadMicro = new GenerateBreadcrumbMicro();
         $this->microData = new GenerateMicroDataForCatalog();
         $this->linkRepository = new LinkRepository();
+        $this->filterRepository = new FilterRepository();
 
         parent::__construct();
     }
 
     public function __invoke($city, $search, MetaRepository $metaRepository, Request $request)
     {
+
         $cityInfo = $this->cityRepository->getCity($city);
         $posts = $this->postRepository->getForFilterCatalog($cityInfo['id'], $search);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
         $path = (new Canonical())->get($request->getRequestUri());
 
-        $filterParams = Filter::where('url', $search )->get();
+        $filterParams = $this->filterRepository->getData($search);
 
         $meta = $metaRepository->getForFilter($search, $cityInfo, $filterParams);
+
         $breadMicro = $this->breadMicro->generate($request, $meta['h1']);
 
         $productMicro = false;
