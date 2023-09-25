@@ -11,9 +11,6 @@ class LinkRepository
 {
     public function getLink($url, $filterParams)
     {
-
-        cache()->flush();
-
         $expire = Carbon::now()->addHours(1200);
 
         $link = Cache::remember('link_' . $url, $expire, function () use ($url) {
