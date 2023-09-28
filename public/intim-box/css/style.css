@@ -1188,6 +1188,7 @@ main {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    padding-top: 100px;
     height: 100%
 }
 
@@ -1459,7 +1460,7 @@ footer {
     -webkit-transition: .2s;
     -o-transition: .2s;
     transition: .2s;
-    z-index: 1;
+    z-index: 5;
     padding: 5px 12px;
     border-radius: 2px;
     -webkit-transform: translateY(-5px);
@@ -1728,9 +1729,12 @@ footer {
         transform: rotate(45deg);
         bottom: 14px
     }
+    .cabinet-btn-text, .claim-modal-btn{
+        display: none;
+    }
 
-    .header__ui {
-        display: none
+    .header__ui-cabinet .header__ui-cabinet-link{
+        display: flex;
     }
 
     .header__logo {
@@ -1789,7 +1793,6 @@ footer {
     }
 
     .header__location-icon {
-        fill: #4926e8;
         width: 32px;
         height: 28px
     }
@@ -2096,6 +2099,9 @@ footer {
 }
 
 @media (min-width: 861px) {
+    .header__ui-cabinet-link svg{
+        display: none;
+    }
     .sidebar-filters__item:hover .sidebar-filters__item-icon {
         -webkit-transform: rotateZ(90deg);
         -ms-transform: rotate(90deg);
@@ -2577,6 +2583,10 @@ footer {
     box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 
+.footer__mail .header__ui-cabinet-link{
+    display: none;
+}
+
 @media (max-width: 1199px) {
     .toggle-filter{
         display: block;
@@ -2638,6 +2648,9 @@ footer {
 }
 
 @media (max-width: 860px) {
+    .main-top-menu::after, .main-top-menu::before{
+        width: 100%;
+    }
     .catalog {
         -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
@@ -3133,7 +3146,6 @@ footer {
 }
 
 .page-item.active .page-link {
-    z-index: 3;
     color: #4926E8;
 }
 
@@ -3652,6 +3664,18 @@ footer {
     padding: 0px 10px;
 }
 
+.header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    transition: all .3s ease;
+    z-index: 10;
+}
+.header.out {
+    transform: translateY(-100%);
+}
+
+
 @media (max-width: 1050px) {
     .profile-main-info__characters-alert {
         max-width: 130px
@@ -3671,6 +3695,39 @@ footer {
 }
 
 @media (max-width: 860px) {
+    .footer__mail .claim-modal-btn{
+        display: block;
+        color: #4926e8;
+    }
+    .header__location-icon{
+        fill: #fff;
+        position: relative;
+        bottom: -2.5px;
+    }
+    .header__location-list__item{
+        margin: 0;
+    }
+    .header__location-list__item .header__location-text, .header__location-list__item .header__location-arrow{
+        display: none;
+    }
+    .header__ui-cabinet-link{
+        margin: 0;
+    }
+    .header__ui{
+        flex: none;
+        width: 35px;
+    }
+    .header__location-list__sub_city{
+        left: 80px;
+        top: 100px
+    }
+    .header__location{
+        position: inherit;
+        flex: none;
+    }
+    .metro-list{
+        display: none;
+    }
     .profile {
         -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
@@ -4011,6 +4068,9 @@ footer {
 }
 
 @media (max-width: 650px) {
+    .wrapper{
+        padding-top: 50px
+    }
     #arrowTop {
         right: 10px;
         bottom: 60px;
@@ -4149,9 +4209,5 @@ footer {
         text-align: center;
         max-width: 260px;
         width: 100%
-    }
-
-    .city-location {
-        display: none;
     }
 }

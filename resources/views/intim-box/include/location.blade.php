@@ -1,7 +1,7 @@
 <div class="header__location header__col">
     <ul class="header__location-list">
         <li class="header__location-list__item city-location">
-            <svg class="header__location-icon">
+            <svg class="header__location-icon" onclick="close_city_list()">
                 <use xlink:href='/svg/dest/stack/sprite.svg#map'></use>
             </svg>
             <div class="header__location-text" onclick="close_city_list()">
@@ -41,7 +41,7 @@
 
         @if($data['metro']->first())
 
-            <li class="header__location-list__item">
+            <li class="header__location-list__item metro-list">
                 <svg class="header__location-icon">
                     <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
                 </svg>
