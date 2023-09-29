@@ -3695,6 +3695,15 @@ footer {
 }
 
 @media (max-width: 860px) {
+    .main-top-menu__list , .sidebar{
+        display: none;
+    }
+    .active .main-top-menu__list{
+        display: flex;
+    }
+    .active .sidebar{
+        display: block;
+    }
     .footer__mail .claim-modal-btn{
         display: block;
         color: #4926e8;

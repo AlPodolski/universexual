@@ -48,7 +48,7 @@
             @endif
         </div>
 
-        @if($posts->total() > $posts->count())
+        @if($posts and $posts->total() > $posts->count())
 
             <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
                  class="get-more get-more-post-btn">Показать еще
