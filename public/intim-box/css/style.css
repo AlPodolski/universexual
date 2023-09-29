@@ -1153,6 +1153,7 @@ main {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
     padding: 0;
 }
 
@@ -4077,6 +4078,13 @@ footer {
 }
 
 @media (max-width: 650px) {
+    .check_city_block{
+        left: 20px;
+        top: 95px;
+    }
+    .rec{
+        right: 10px;
+    }
     .wrapper{
         padding-top: 50px
     }
