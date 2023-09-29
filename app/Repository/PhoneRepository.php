@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Models\Post;
+use Cookie;
 
 class PhoneRepository
 {
@@ -35,30 +36,65 @@ class PhoneRepository
 
             return $realPost->phone;
 
-        }else{
+        } else {
 
-            // URL, куда будет отправлен запрос
-            $url = 'https://admin.sex-team.com/phones/get';
+            $data = array();
 
-            $data = array(
-                'city_id' => $city,
-            );
+            if ($ids = Cookie::get('user_phone_view')) {
 
-            $ch = curl_init($url);
+                $data = unserialize($ids);
 
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                foreach ($data as $item) {
 
-            $result = curl_exec($ch);
+                    if (key($item) == $id) return $item[$id];
 
-            if ($result) return $result;
+                }
 
-            curl_close($ch);
+            }
+
+            $phone = $this->getPhoneFromApi($city);
+
+            $data[] = array($id => $phone);
+
+            $data = serialize($data);
+
+            Cookie::queue('user_phone_view', $data, 3600 * 24);
+
+            return $phone;
 
         }
 
         return $post->phone;
 
     }
+
+    private function getPhoneFromApi($city)
+    {
+
+        // URL, куда будет отправлен запрос
+        $url = 'https://admin.sex-team.com/phones/get';
+
+        $data = array(
+            'city_id' => $city,
+        );
+
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $result = curl_exec($ch);
+
+        if ($result) {
+
+            curl_close($ch);
+
+            return $result;
+
+        }
+
+
+    }
+
 }
