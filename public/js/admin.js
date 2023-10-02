@@ -4,7 +4,7 @@ function deletePost(object) {
 
     $.ajax({
         type: 'POST',
-        url: '/admin/post/delete',
+        url: '/admin/posts/delete',
         data: 'id=' + id,
         async: false,
         dataType: "html",

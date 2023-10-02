@@ -101,13 +101,25 @@ class PostController extends Controller
     {
         $id = $request->post('id');
 
-        $post = Post::where(['id' => $id])->with('files')->first();
+        $post = Post::where(['id' => $id])->with('photo')->first();
 
         if ($post){
 
-            foreach ($post->files as $item){
+            $avatarPath = storage_path('app/public/' . $post->avatar);
 
-                $path = (storage_path('app/public'.$item->file));
+            unlink($avatarPath);
+
+            if ($post->video) {
+
+                $videoPath = storage_path('app/public/' . $post->video);
+
+                unlink($videoPath);
+
+            }
+
+            foreach ($post->photo as $item){
+
+                $path = (storage_path('app/public' . $item->file));
 
                 if (is_file($path)){
 
@@ -120,12 +132,10 @@ class PostController extends Controller
             }
 
             \DB::table('post_times')->where('posts_id', $post->id)->delete();
-            \DB::table('post_rayons')->where('posts_id', $post->id)->delete();
             \DB::table('post_metros')->where('posts_id', $post->id)->delete();
+            \DB::table('post_places')->where('posts_id', $post->id)->delete();
             \DB::table('post_services')->where('posts_id', $post->id)->delete();
-            \DB::table('post_intim_hairs')->where('posts_id', $post->id)->delete();
-            \DB::table('post_hair_colors')->where('posts_id', $post->id)->delete();
-            \DB::table('post_nationals')->where('post_nationals_id', $post->id)->delete();
+            \DB::table('reviews')->where('posts_id', $post->id)->delete();
 
             $post->delete();
 
