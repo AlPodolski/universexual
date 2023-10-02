@@ -107,13 +107,13 @@ class PostController extends Controller
 
             $avatarPath = storage_path('app/public/' . $post->avatar);
 
-            unlink($avatarPath);
+            if (is_file($avatarPath)) unlink($avatarPath);
 
             if ($post->video) {
 
                 $videoPath = storage_path('app/public/' . $post->video);
 
-                unlink($videoPath);
+                if (is_file($videoPath)) unlink($videoPath);
 
             }
 
