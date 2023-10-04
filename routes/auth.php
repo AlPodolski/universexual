@@ -77,6 +77,8 @@ Route::middleware('redirect')->group(function () {
 
                 Route::post('post/publication/all', [\App\Http\Controllers\Cabinet\PostController::class, 'all']);
 
+                Route::post('/message', \App\Http\Controllers\Cabinet\MessageController::class);
+
                 Route::resource('post', \App\Http\Controllers\Cabinet\PostController::class);
 
                 Route::get('/', App\Http\Controllers\Cabinet\IndexController::class);

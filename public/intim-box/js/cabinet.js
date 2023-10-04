@@ -2763,3 +2763,40 @@ function start_all(object){
 
     })
 }
+
+function sendMessage(object){
+
+    var message = $('.chatMessage').val()
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/message',
+        async:false,
+        data: 'message=' + message,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data){
+
+            $('.chatMessage').val('')
+
+            addMessage(data);
+
+        },
+
+    })
+}
+
+function addMessage(text){
+
+    var message = '<div class="chat__dialog-list-item chat__dialog-list-item--qst">\n' +
+        '                    <div class="chat__dialog-list-item-text">\n' +
+        text +
+        '                    </div>\n' +
+        '                </div>';
+
+    $('.chat__dialog-list').append(message);
+
+}

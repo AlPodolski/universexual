@@ -2902,7 +2902,7 @@ footer {
 }
 
 .chat__dialog {
-    width: 70%;
+    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2921,6 +2921,7 @@ footer {
 
 .chat__dialog-list {
     margin: 41px 0 0 0;
+    min-height: 50vh;
     height: 100%
 }
 

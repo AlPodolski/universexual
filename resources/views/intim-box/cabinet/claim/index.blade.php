@@ -6,29 +6,42 @@
 
     @include('intim-box.cabinet.include.sidebar')
 
-    <main class="main col-lg-9">
-
+    <main class="main chat col-lg-9">
         @include('intim-box.cabinet.include.message')
-
-        <h1>Обратная связь</h1>
-
-        <form class="ammount__form ammount__block" method="post" action="/claim/add">
-            @csrf
-            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-            <input name="site_id" value="{{ SITE_ID }}" type="hidden">
-            <div class="ammount__form-item input-wrap">
-                <label for="ammountName">Имя</label>
-                <input id="ammountName" name="name" type="text" id=""
-                       required class="ammount__form-input input" value="{{ auth()->user()->name }}">
+        <div class="chat__dialog">
+            <div class="chat__dialog-name">
+                Служба поддержки
             </div>
-            <div class="ammount__form-item ammount__form-item--textarea input-wrap">
-                <textarea required placeholder="Опишите проблему..." type="text" name="text"
-                          class="ammount__form-input ammount__form-textarea input textarea"></textarea>
+            <div class="chat__dialog-list">
+                <div class="chat__dialog-list-item chat__dialog-list-item--ans">
+                    <div class="chat__dialog-list-item-text">
+                        Опишите проблему и мы ответим
+                    </div>
+                    <div class="chat__dialog-list-item-date">
+                        15:45
+                    </div>
+                </div>
+                <div class="chat__dialog-list-item chat__dialog-list-item--qst">
+                    <div class="chat__dialog-list-item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    </div>
+                    <div class="chat__dialog-list-item-date">
+                        15:45
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="ammount__form-btn btn-main">
-                Отправить
-            </button>
-        </form>
+            <form action="#" class="chat__dialog-panel">
+                <textarea name="chatMessage" class="chatMessage" placeholder="Напишите сообщение..."></textarea>
+                <label for="chatFile">
+                    <svg>
+                        <use xlink:href='svg/dest/stack/sprite.svg#addFile'></use>
+                    </svg>
+                </label>
+                <input type="file" name="chatFile" id="chatFile">
+                <div onclick="sendMessage(this)"
+                        class="btn-main">Отрправить</div>
+            </form>
+        </div>
     </main>
 
 @endsection
