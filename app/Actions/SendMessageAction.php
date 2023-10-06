@@ -12,13 +12,14 @@ class SendMessageAction
     {
         $dialog = $this->getOrCreateDialog($from);
 
-        if ($this->createMessage($message, $dialog->id, $from)) return $message;
+        if ($this->createMessage($message, $dialog->chat_id, $from)) return $message;
 
         return 'Ошибка';
 
     }
 
-    private function createMessage($text, $chatId, $from){
+    public function createMessage($text, $chatId, $from): bool
+    {
 
         $message = new ChatMessage();
 

@@ -112,3 +112,61 @@ function check_all() {
     });
 
 }
+function getChat(object){
+
+    var id = $(object).attr('data-id');
+    var url = '/admin/chat/get';
+
+    $.ajax({
+        type: 'POST',
+        url: url, //Путь к обработчику
+        response: 'text',
+        data: 'id=' + id,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data) {
+            $('.chat__dialog').html(data)
+        }
+    })
+
+}
+function sendMessage(object){
+
+    var message = $('.chatMessage').val()
+    var id = $(object).attr('data-id')
+
+    $.ajax({
+        type: 'POST',
+        url: '/admin/chat/send',
+        async:false,
+        data: 'message=' + message + '&id=' + id,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data){
+
+            $('.chatMessage').val('')
+
+            addMessage(data);
+
+        },
+
+    })
+}
+
+function addMessage(text){
+
+    var message = '<div class="chat__dialog-list-item chat__dialog-list-item--qst">\n' +
+        '                    <div class="chat__dialog-list-item-text">\n' +
+        text +
+        '                    </div>\n' +
+        '                </div>';
+
+    $('.chat__dialog-list').append(message);
+
+}
