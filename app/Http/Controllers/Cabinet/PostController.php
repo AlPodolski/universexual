@@ -10,6 +10,7 @@ use App\Models\PostMetro;
 use App\Models\PostPlace;
 use App\Models\PostService;
 use App\Models\Tarif;
+use App\Models\UserChat;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -24,9 +25,11 @@ class PostController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
+        $notReadMessage = UserChat::where('user_id', auth()->user()->id)->with('notRead')->first();
+
         $tarifList = Tarif::all();
 
-        return view(PATH . '.cabinet.post.add', compact('data', 'tarifList'));
+        return view(PATH . '.cabinet.post.add', compact('data', 'tarifList', 'notReadMessage'));
     }
 
     public function store(Request $request)
@@ -174,6 +177,8 @@ class PostController extends Controller
     public function edit($city, $id)
     {
 
+        $notReadMessage = UserChat::where('user_id', auth()->user()->id)->with('notRead')->first();
+
         $post = Post::where('id', $id)
             ->with('metro', 'service', 'place', 'photo')->first();
 
@@ -184,7 +189,7 @@ class PostController extends Controller
 
         $tarifList = Tarif::all();
 
-        return view(PATH . '.cabinet.post.edit', compact('data', 'post', 'tarifList'));
+        return view(PATH . '.cabinet.post.edit', compact('data', 'post', 'tarifList', 'notReadMessage'));
     }
 
     public function update(Request $request,$city, $id)
