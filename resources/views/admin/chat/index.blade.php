@@ -8,6 +8,8 @@
 
     <main class=" chat admin-chat">
         @include('intim-box.cabinet.include.message')
+
+
         <div class="chat__list">
 
             @foreach($chatList as $chatItem)
@@ -22,6 +24,7 @@
             @endforeach
 
         </div>
+
         <div class="chat__dialog">
 
         </div>

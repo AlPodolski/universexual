@@ -129,6 +129,7 @@ function getChat(object){
         cache: false,
         success: function (data) {
             $('.chat__dialog').html(data)
+            $('.chat__dialog-list-wrap').scrollTop($('.chat__dialog-list-wrap').height() + 99999999);
         }
     })
 
@@ -168,5 +169,7 @@ function addMessage(text){
         '                </div>';
 
     $('.chat__dialog-list').append(message);
+
+    $('.chat__dialog-list-wrap').scrollTop($('.chat__dialog-list-wrap').height() + 99999999);
 
 }

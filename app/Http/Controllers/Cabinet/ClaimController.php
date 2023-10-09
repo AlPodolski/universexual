@@ -12,6 +12,8 @@ class ClaimController extends Controller
 
         $chat = UserChat::where('user_id', auth()->user()->id)->with('message')->first();
 
-        return view(PATH.'.cabinet.claim.index', compact('chat'));
+        $notReadMessage = UserChat::where('user_id', auth()->user()->id)->with('notRead')->first();
+
+        return view(PATH.'.cabinet.claim.index', compact('chat', 'notReadMessage'));
     }
 }

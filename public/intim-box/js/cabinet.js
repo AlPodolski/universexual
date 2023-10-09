@@ -2799,4 +2799,12 @@ function addMessage(text){
 
     $('.chat__dialog-list').append(message);
 
+    $('.chat__dialog-list-wrap').scrollTop($('.chat__dialog-list-wrap').height() + 99999999);
+
 }
+
+
+
+$(document).ready(function(){
+    $('.chat__dialog-list-wrap').scrollTop($('.chat__dialog-list-wrap').height() + 99999999);
+})
