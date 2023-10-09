@@ -8,6 +8,7 @@ class ChatMessage extends Model
 {
 
     const NOT_READ_STATUS = 0;
+    const READ_STATUS = 1;
     const ADMIN_ID = 0;
 
     protected $fillable = [

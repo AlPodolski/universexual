@@ -54,8 +54,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="/css/admin.css?v=2" rel="stylesheet">
-    <link href="/intim-box/css/cabinet.css?v=2" rel="stylesheet">
+    <link href="/css/admin.css?v=3" rel="stylesheet">
+    <link href="/intim-box/css/cabinet.css?v=3" rel="stylesheet">
 
 </head>
 <body>
@@ -176,6 +176,6 @@
 </noscript>
 <!-- /Yandex.Metrika counter -->
 <script src="/js/wNumb.min.js" defer></script>
-<script src="/js/admin.js?v=15" defer></script>
+<script src="/js/admin.js?v=16" defer></script>
 
 </html>
