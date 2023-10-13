@@ -23,11 +23,11 @@
             </div>
             <form class="ammount__info-balance-repl" method="post" action="/cabinet/pay">
                 @csrf
-                <label for="balanceReplCur">Введите сумму пополнения:</label>
+                <label for="balanceReplCur">Введите сумму пополнения(минимум 500р)</label>
                 <div class="ammount__info-balance-repl-input-wrap">
-                        <span data-val="300">
+                        <span data-val="500">
                             <input class="ammount__info-balance-repl-input" type="text" id="balanceReplCur"
-                                   name="sum" value="300"
+                                   name="sum" value="500"
                                    oninput="this.parentElement.setAttribute('data-val',  this.value)"
                             >
                         </span>
