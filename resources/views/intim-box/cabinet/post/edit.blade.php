@@ -74,7 +74,7 @@
                         <div class="anket__info-location-select-input">
                             <select name="tarif_id" id="anketRegion">
                                 @foreach($tarifList as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} {{ $item->sum }} р\час</option>
+                                    <option @if($post->tarif_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }} {{ $item->sum }} р\час</option>
                                 @endforeach
                             </select>
                         </div>
