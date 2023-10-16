@@ -14,7 +14,7 @@
 
             @foreach($chatList as $chatItem)
 
-                @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS)
+                @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS)
 
                     <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
                         <div class="chat__list-item-name">
