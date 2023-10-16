@@ -14,11 +14,32 @@
 
             @foreach($chatList as $chatItem)
 
+                @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS)
+
+                    <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
+                        <div class="chat__list-item-name">
+                            {{ $chatItem->user->name }}
+                        </div>
+
+                        <div
+                            class="message-text @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
+
+                    </div>
+
+                @endif
+
+            @endforeach
+
+            @foreach($chatList as $chatItem)
+
                 <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
-                    <img src="images/chat.png" class="chat__list-item-img" alt="">
-                    <span class="chat__list-item-name">
+                    <div class="chat__list-item-name">
                         {{ $chatItem->user->name }}
-                    </span>
+                    </div>
+
+                    <div
+                        class="message-text @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
+
                 </div>
 
             @endforeach

@@ -17,6 +17,21 @@
     font-style: normal;
     font-display:swap
 }
+.chat__list-item{
+    align-items: baseline!important;
+    cursor: pointer!important;
+    flex-direction: column;
+}
+.message-text{
+    color: #6f6f6f;
+}
+.not-read{
+    color: #000;
+    font-weight: bold;
+}
+.selected-chat{
+    background: #f2f2f2;
+}
 .pagination{
     justify-content: center;
     margin-top: 15px;

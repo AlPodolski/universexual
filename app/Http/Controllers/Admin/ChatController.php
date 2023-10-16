@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Actions\SendMessageAction;
 use App\Http\Controllers\Controller;
+use App\Models\ChatMessage;
 use App\Models\UserChat;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,10 @@ class ChatController extends Controller
         $chatId = $request->post('id');
 
         $chat = UserChat::where('chat_id', $chatId)->with('message')->first();
+
+        ChatMessage::where(['chat_id' => $chat->chat_id])
+            ->where('from','<>',  ChatMessage::ADMIN_ID)
+            ->update(['status' => ChatMessage::READ_STATUS]);
 
         return view('admin.chat.item', compact('chat'));
 

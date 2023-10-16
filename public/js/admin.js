@@ -117,6 +117,8 @@ function getChat(object){
     var id = $(object).attr('data-id');
     var url = '/admin/chat/get';
 
+    $('.chat__list-item').removeClass('selected-chat')
+
     $.ajax({
         type: 'POST',
         url: url, //Путь к обработчику
@@ -129,6 +131,7 @@ function getChat(object){
         cache: false,
         success: function (data) {
             $('.chat__dialog').html(data)
+            $(object).addClass('selected-chat');
             $('.chat__dialog-list-wrap').scrollTop($('.chat__dialog-list-wrap').height() + 99999999);
         }
     })
