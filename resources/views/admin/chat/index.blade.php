@@ -13,7 +13,7 @@
 
             @foreach($chatList as $chatItem)
 
-                @if($chatItem->last and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS)
+                @if($chatItem->last and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0)
 
                     <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
                         <div class="chat__list-item-name">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div
-                            class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
+                            class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0) not-read @endif ">{{ $chatItem->last->message }}</div>
 
                     </div>
                 @endif
