@@ -38,7 +38,7 @@
                     </div>
 
                     <div
-                        class="message-text @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
+                        class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
 
                 </div>
 
