@@ -1,3 +1,10 @@
+<div class="info">
+    <div class="info-item">id - {{ $chat->user_id }}</div>
+    <div class="info-item phone-edit">
+        <input type="text" name="phone" class="phone-change" placeholder="Телефон">
+        <div onclick="updatePhone(this)" data-id="{{ $chat->user_id }}" class="btn btn-success">Сохранить</div>
+    </div>
+</div>
 <div class="chat__dialog-list-wrap">
     <div class="chat__dialog-list">
         @foreach($chat->message as $item)
@@ -17,7 +24,7 @@
 
 
 <form action="#" class="chat__dialog-panel">
-    <textarea name="chatMessage" class="chatMessage" placeholder="Напишите сообщение..."></textarea>
+    <textarea id="chatMessage" name="chatMessage" class="chatMessage" placeholder="Напишите сообщение..."></textarea>
     <label for="chatFile">
         <svg>
             <use xlink:href='svg/dest/stack/sprite.svg#addFile'></use>

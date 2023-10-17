@@ -12,6 +12,8 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('posts', \App\Http\Controllers\Admin\PostController::class);
 
+    Route::post('phone/update', \App\Http\Controllers\Admin\PhoneController::class);
+
     Route::resource('obmenka', \App\Http\Controllers\Admin\ObmenkaController::class);
 
     Route::resource('redirect', \App\Http\Controllers\Admin\RedirectController::class);
