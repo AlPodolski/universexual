@@ -32,6 +32,10 @@
 .admin-chat .chat__dialog{
     padding: 0;
 }
+.chat__list {
+    overflow: scroll;
+    max-height: 800px;
+}
 .admin-chat .info{
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;
