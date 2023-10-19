@@ -21,7 +21,16 @@
                         </div>
 
                         <div
-                            class="message-text @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">{{ $chatItem->last->message }}</div>
+                            class="message-text @if($chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS) not-read @endif ">
+
+                            @if($chatItem->last->related_class == \App\Models\File::class)
+                                <svg>
+                                    <use xlink:href='/intim-box/svg/dest/stack/cabinet.svg#addFile'></use>
+                                </svg>
+                            @else
+                                {{ $chatItem->last->message }}
+                            @endif
+                        </div>
 
                     </div>
 
@@ -38,7 +47,15 @@
                         </div>
 
                         <div
-                            class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0) not-read @endif ">{{ $chatItem->last->message }}</div>
+                            class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0) not-read @endif ">
+                            @if($chatItem->last->related_class == \App\Models\File::class)
+                                <svg>
+                                    <use xlink:href='/intim-box/svg/dest/stack/cabinet.svg#addFile'></use>
+                                </svg>
+                            @else
+                                {{ $chatItem->last->message }}
+                            @endif
+                        </div>
 
                     </div>
                 @endif
