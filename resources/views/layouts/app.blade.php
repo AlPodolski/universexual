@@ -55,7 +55,7 @@
 
     <!-- Styles -->
     <link href="/css/admin.css?v=6" rel="stylesheet">
-    <link href="/intim-box/css/cabinet.css?v=3" rel="stylesheet">
+    <link href="/intim-box/css/cabinet.css?v=4" rel="stylesheet">
 
 </head>
 <body>
