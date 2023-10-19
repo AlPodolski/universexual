@@ -8,17 +8,17 @@ use App\Models\UserChat;
 
 class SendMessageAction
 {
-    public function send($message, $from, $to = 'admin')
+    public function send($message, $from, $relatedClass = null, $relatedId = null)
     {
         $dialog = $this->getOrCreateDialog($from);
 
-        if ($this->createMessage($message, $dialog->chat_id, $from)) return $message;
+        if ($this->createMessage($message, $dialog->chat_id, $from, $relatedClass, $relatedId)) return $message;
 
-        return 'Ошибка';
+        return false;
 
     }
 
-    public function createMessage($text, $chatId, $from): bool
+    public function createMessage($text, $chatId, $from, $relatedClass, $relatedId): bool
     {
 
         $message = new ChatMessage();
@@ -26,6 +26,8 @@ class SendMessageAction
         $message->message = $text;
         $message->from = $from;
         $message->chat_id = $chatId;
+        $message->related_class = $relatedClass;
+        $message->related_id = $relatedId;
 
         return $message->save();
 

@@ -23,4 +23,9 @@ class ChatMessage extends Model
         return $this->hasOne(User::class, 'id', 'from');
     }
 
+    public function file()
+    {
+        return $this->hasOne(File::class, 'id', 'related_id');
+    }
+
 }

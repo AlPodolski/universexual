@@ -2957,6 +2957,7 @@ footer {
 
 .chat__dialog-panel .btn-main{
     max-width: 140px;
+    margin-left: 15px;
 }
 
 .chat__dialog-list-item {
@@ -3011,13 +3012,11 @@ footer {
     padding-top: 25px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
-    justify-content: space-between;
     padding-bottom: 25px
 }
 
 .chat__dialog-panel textarea {
     margin-bottom: -19px;
-    max-width: 320px;
     width: 100%;
     resize: none;
     border: none;
@@ -3053,7 +3052,7 @@ footer {
 }
 
 .chat__dialog-panel label {
-    width: 20%
+    margin-left: auto;
 }
 
 .chat__dialog-panel label svg {

@@ -79,6 +79,8 @@ Route::middleware('redirect')->group(function () {
 
                 Route::post('/message', \App\Http\Controllers\Cabinet\MessageController::class);
 
+                Route::post('message/file', [\App\Http\Controllers\Cabinet\MessageController::class, 'file']);
+
                 Route::resource('post', \App\Http\Controllers\Cabinet\PostController::class);
 
                 Route::get('/', App\Http\Controllers\Cabinet\IndexController::class);

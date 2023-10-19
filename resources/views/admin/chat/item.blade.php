@@ -12,7 +12,11 @@
                 class="chat__dialog-list-item @if($item->from == 0) chat__dialog-list-item--qst @else chat__dialog-list-item--ans @endif
             ">
                 <div class="chat__dialog-list-item-text">
-                    {{ $item->message }}
+                    @if($item->related_class == \App\Models\File::class)
+                        <img src="/400-500/thumbs/{{ $item->file->path }}" alt="">
+                    @else
+                        {{ $item->message }}
+                    @endif
                 </div>
                 <div class="chat__dialog-list-item-date">
                     {{ \Carbon\Carbon::parse($item->created_at)->format('H:i:s') }}
