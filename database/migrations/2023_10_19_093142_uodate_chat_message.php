@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::table('chat_messages', function (Blueprint $table) {
 
-            $table->string('message')->nullable()->change();
+            $table->string('message', 100)->nullable()->change();
             $table->integer('related_id')->nullable();
             $table->string('related_class')->nullable();
 
