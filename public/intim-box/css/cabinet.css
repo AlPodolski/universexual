@@ -1452,10 +1452,15 @@ footer {
     -ms-flex-align: center;
     align-items: center;
     padding: 4px 0;
-    width: 55px;
+    width: 72px;
     -webkit-transition: .3s;
     -o-transition: .3s;
+    font-size: 15px;
     transition: .3s
+}
+
+.ammount__info-balance-repl #register_recapcha{
+    margin-bottom: 15px;
 }
 
 .ammount__info-balance-repl-radio-item:last-child {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cabinet;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PayRequest;
+use App\Models\Currency;
 use App\Models\Order;
 use App\Models\UserChat;
 use App\Services\Obmenka;
@@ -23,7 +24,10 @@ class PayController extends Controller
 
         $bonusSum = 1000;
 
-        return view(PATH . '.cabinet.pay.index', compact('data', 'fastSum', 'bonusSum', 'notReadMessage'));
+        $currencies = Currency::get();
+
+        return view(PATH . '.cabinet.pay.index',
+            compact('data', 'fastSum', 'bonusSum', 'notReadMessage', 'currencies'));
 
     }
 
@@ -40,18 +44,7 @@ class PayController extends Controller
 
         if ($order->save()){
 
-            switch ($data['currency']){
-
-                case 1 : $currency = 'qiwi';
-                    break;
-
-                case 2 : $currency = 'visamaster.rur';
-                    break;
-
-            }
-
-
-            if ($result = $obmenka->getPayUrl($order->id, $data['sum'], $city, $currency)){
+            if ($result = $obmenka->getPayUrl($order->id, $data['sum'], $city, $data['currency'])){
 
                 return redirect($result->pay_link);
 

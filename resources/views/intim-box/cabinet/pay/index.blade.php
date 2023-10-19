@@ -37,20 +37,23 @@
                     Выберите способ оплаты:
                 </div>
                 <div class="ammount__info-balance-repl-radio-items">
-                    <div class="ammount__info-balance-repl-radio-item">
-                        <input type="radio" name="currency" checked value="1" id="balanceReplQiwi"
-                               class="ammount__info-balance-repl-radio-input">
-                        <label for="balanceReplQiwi">
-                            Киви
-                        </label>
-                    </div>
-                    <div class="ammount__info-balance-repl-radio-item">
-                        <input type="radio" name="currency" value="2" id="balanceReplVisaMastercard"
-                               class="ammount__info-balance-repl-radio-input">
-                        <label for="balanceReplVisaMastercard">
-                            Карта
-                        </label>
-                    </div>
+
+                    @foreach($currencies as $item)
+
+                        <div class="ammount__info-balance-repl-radio-item">
+                            <input type="radio" name="currency"
+                                   @if($currencies->first() == $item) checked @endif
+                                    value="{{ $item->value }}" id="balanceRepl{{ $item->value }}"
+                                   class="ammount__info-balance-repl-radio-input">
+                            <label for="balanceRepl{{ $item->value }}">
+                                {{ $item->name }}
+                            </label>
+                        </div>
+
+                    @endforeach
+
+
+
                 </div>
 
                 <script defer src='https://www.google.com/recaptcha/api.js'></script>
@@ -103,7 +106,7 @@
                 </div>
             @endforeach
 
-        </div>ё
+        </div>
 
     </main>
 
