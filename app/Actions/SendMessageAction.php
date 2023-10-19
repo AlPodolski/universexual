@@ -18,7 +18,7 @@ class SendMessageAction
 
     }
 
-    public function createMessage($text, $chatId, $from, $relatedClass, $relatedId): bool
+    public function createMessage($text, $chatId, $from, $relatedClass = null, $relatedId = null): bool
     {
 
         $message = new ChatMessage();
