@@ -1,5 +1,6 @@
 <div class="info">
     <div class="info-item">id - {{ $chat->user_id }}</div>
+    <a class="info-item" target="_blank" href="/admin/obmenka/user/{{ $chat->user_id }}">Оплаты</a>
     <div class="info-item phone-edit">
         <input type="text" name="phone" class="phone-change" placeholder="Телефон">
         <div onclick="updatePhone(this)" data-id="{{ $chat->user_id }}" class="btn btn-success">Сохранить</div>

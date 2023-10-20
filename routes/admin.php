@@ -16,6 +16,8 @@ Route::middleware('admin:admin')->group(function (){
 
     Route::resource('obmenka', \App\Http\Controllers\Admin\ObmenkaController::class);
 
+    Route::get('/obmenka/user/{id}', [\App\Http\Controllers\Admin\ObmenkaController::class, 'user']);
+
     Route::resource('redirect', \App\Http\Controllers\Admin\RedirectController::class);
 
     Route::post('/posts/check', [\App\Http\Controllers\Admin\PostController::class, 'check']);

@@ -36,6 +36,9 @@
     overflow: scroll;
     max-height: 800px;
 }
+.info-item{
+    margin-right: 15px;
+}
 .admin-chat .info{
     border-bottom: 1px solid #ccc;
     margin-bottom: 5px;

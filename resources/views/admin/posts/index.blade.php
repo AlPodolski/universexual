@@ -6,6 +6,12 @@
 
     @include('admin.include.nav')
 
+    @if($posts->total() > $posts->count())
+
+        {{ $posts->links('vendor.pagination.bootstrap-4') }}
+
+    @endif
+
     <div class="control-panel">
         <div class="control-panel-item btn btn-success" onclick="check_all()">
             Одобрить все
@@ -72,6 +78,12 @@
 
         </tbody>
     </table>
+
+    <div class="control-panel">
+        <div class="control-panel-item btn btn-success" onclick="check_all()">
+            Одобрить все
+        </div>
+    </div>
 
     @if($posts->total() > $posts->count())
 
