@@ -4,7 +4,7 @@ namespace App\Actions;
 
 class GetSort
 {
-    private string $default = 'id DESC';
+    private string $default = 'tarif_id DESC, sorting DESC';
 
     private string $priceDesc = 'price DESC';
     private string $priceAsc = 'price ASC';

@@ -40,6 +40,7 @@ class PostController extends Controller
         $post->site_id = SITE_ID;
         $post->user_id = auth()->id();
         $post->fake = Post::POST_REAL;
+        $post->sorting = time();
         $post->publication_status = Post::POST_ON_MODERATION;
 
         $post->fill($request->post());
