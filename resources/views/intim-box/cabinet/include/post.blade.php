@@ -66,6 +66,11 @@
             </svg>
             Просмотров телефона {{ $post->phone_view_count }}
         </div>
+
+        @if($post->publication_status != \App\Models\Post::POST_ON_MODERATION)
+            <div onclick="upPost(this)" data-id="{{ $post->id }}" class="ankets__item-moder">Поднять анкету(70р)</div>
+        @endif
+
         <div class="ankets__item-field ankets__item-ui">
             <a class="ankets__item-ui-item ankets__item-ui-item--1" href="/cabinet/post/{{$post->id}}/edit">
                 <svg>

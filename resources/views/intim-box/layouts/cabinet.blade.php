@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="/intim-box/css/cabinet.css?v=25">
+    <link rel="stylesheet" href="/intim-box/css/cabinet.css?v=26">
 </head>
 
 <body>
@@ -64,7 +64,7 @@
     </div>
 
 </div>
-<script defer src="/intim-box/js/cabinet.js?v=23"></script>
+<script defer src="/intim-box/js/cabinet.js?v=24"></script>
 </body>
 
 </html>

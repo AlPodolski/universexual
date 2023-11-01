@@ -1463,6 +1463,14 @@ footer {
     margin-bottom: 15px;
 }
 
+.ankets__items .ankets__item-phone{
+    margin-bottom: 5px;
+}
+
+.ankets__items .ankets__item-metrolist{
+    margin-bottom: 8px;
+}
+
 .ammount__info-balance-repl-radio-item:last-child {
     margin-right: 0
 }
