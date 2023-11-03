@@ -30,6 +30,12 @@
                 height="23px"
                 src="/intim-box/images/graphics/catalog-page/favorite.png" alt="">
         </div>
+
+        @if($post->tarif_id)
+            <div class="tarif tarif_{{ $post->tarif_id }}">
+            </div>
+        @endif
+
     </div>
     <div class="catalog-item__body">
         <div class="catalog-item__title">
