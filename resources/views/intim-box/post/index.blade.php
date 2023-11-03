@@ -215,7 +215,7 @@
                                                                      alt="">
                     </div>
 
-                    @if($post->metro->first())
+                    @if($post->city_id == 1 and $post->metro->first())
 
                         <li class="profile-main-info__characters-item">
                             <div class="profile-main-info__characters-name">
@@ -246,7 +246,7 @@
 
                     @endif
 
-                    @if(isset($post->rayon->filter->url))
+                    @if($post->city_id == 1 and isset($post->rayon->filter->url))
                         <li class="profile-main-info__characters-item">
                             <div class="profile-main-info__characters-name">
                                 Район:
