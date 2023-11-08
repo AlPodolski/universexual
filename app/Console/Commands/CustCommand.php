@@ -7,6 +7,7 @@ use App\Models\Metro;
 use App\Models\MetroNear;
 use App\Models\Post;
 use App\Models\PostMetro;
+use App\Repository\DataRepository;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use League\Csv\Statement;
@@ -19,62 +20,138 @@ class CustCommand extends Command
 
     public function handle()
     {
-        $stream = \fopen(storage_path('soot_metro.csv'), 'r');
+        $city = City::where('id', '>', 1)->get();
 
-        $csv = Reader::createFromStream($stream);
-        $csv->setDelimiter(';');
-        $csv->setHeaderOffset(0);
-        //build a statement
-        $stmt = (new Statement());
+        $host = 'intim-boxx.com';
 
-        $records = $stmt->process($csv);
+        $dataRepository = new DataRepository();
 
-        $data = array();
+        foreach ($city as $item){
 
-        foreach ($records as $value) {
+            $domain = 'https://'.$item->url.'.'.$host;
 
-            $data[] = $value;
+            $data = $this->prepareData($dataRepository->getData($item->id), $domain.'/');
+
+            $requestData = array(
+                'host' => $item->url.'.'.$host,
+                'key' => 'UhfuXuDnsB8FlpOT9Fds5iaZLzYqQh86MfgsSlIQIFVZO3HN',
+                'keyLocation' => $domain.'/UhfuXuDnsB8FlpOT9Fds5iaZLzYqQh86MfgsSlIQIFVZO3HN.txt',
+                'urlList' => $data,
+            );
+
+            $content = json_encode($requestData);
+
+            $length = strlen($content);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, 'https://yandex.com/indexnow');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,  $content);
+
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $headers = [
+                'Content-Type: application/json',
+                'Content-Length: '.$length
+            ];
+
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $server_output = curl_exec($ch);
+
+            var_dump($server_output);
 
         }
 
-        foreach ($data as $item) {
+    }
 
-            $tmp = trim($item['osnova']);
+    private function prepareData($data, $host){
 
-            $osnMetro = Metro::where('value', $tmp)->first();
+        $result = array();
 
-            if ($osnMetro) {
+        if ($data['metro']){
 
-                $newMetroInfo = Metro::where(['value' => trim($item['sosed1']), 'city_id' => 1])->first();
+            foreach ($data['metro'] as $item){
 
-                if ($newMetroInfo) {
-
-                    $newMetro = new MetroNear();
-
-                    $newMetro->metro_id = $osnMetro->id;
-                    $newMetro->near_metro_id = $newMetroInfo->id;
-
-                    $newMetro->save();
-
-                }
-
-
-                $newMetroInfo = Metro::where(['value' => trim($item['sosed2']), 'city_id' => 1])->first();
-
-                if ($newMetroInfo) {
-
-                    $newMetro = new MetroNear();
-
-                    $newMetro->metro_id = $osnMetro->id;
-                    $newMetro->near_metro_id = $newMetroInfo->id;
-
-                    $newMetro->save();
-
-                }
+                $result[] = $host.$item->filter_url;
 
             }
 
         }
+
+        if ($data['rayon']){
+
+            foreach ($data['rayon'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['national']){
+
+            foreach ($data['national'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['place']){
+
+            foreach ($data['place'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['time']){
+
+            foreach ($data['time'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['hair']){
+
+            foreach ($data['hair'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['intimHair']){
+
+            foreach ($data['intimHair'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        if ($data['service']){
+
+            foreach ($data['service'] as $item){
+
+                $result[] = $host.$item->filter_url;
+
+            }
+
+        }
+
+        return $result;
 
     }
 }
