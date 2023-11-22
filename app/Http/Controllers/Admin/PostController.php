@@ -20,12 +20,15 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
 
         $posts = Post::orderBy('id', 'desc')
-            ->with( 'city')
-            ->paginate(100);
+            ->with( 'city');
+
+        if (!$request->get('all')) $posts->where('publication_status', Post::POST_ON_MODERATION);
+
+        $posts = $posts->paginate(100);
 
         return view('admin.posts.index', compact('posts'));
     }

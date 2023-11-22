@@ -16,6 +16,9 @@
         <div class="control-panel-item btn btn-success" onclick="check_all()">
             Одобрить все
         </div>
+        <a href="/admin/posts?all=true" class="control-panel-item btn btn-success">
+            Показать все
+        </a>
     </div>
 
     <table class="table table-striped">
