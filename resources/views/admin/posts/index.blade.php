@@ -16,15 +16,23 @@
         <div class="control-panel-item btn btn-success" onclick="check_all()">
             Одобрить все
         </div>
-        <a href="/admin/posts?all=true" class="control-panel-item btn btn-success">
-            Показать все
-        </a>
+
+        @if($request->get('all'))
+            <a href="/admin/posts" class="control-panel-item btn btn-success">
+                На модерации
+            </a>
+        @else
+            <a href="/admin/posts?all=true" class="control-panel-item btn btn-success">
+                Показать все
+            </a>
+        @endif
+
     </div>
 
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">id</th>
             <th scope="col">Имя</th>
             <th scope="col">Фото</th>
             <th scope="col">Город</th>

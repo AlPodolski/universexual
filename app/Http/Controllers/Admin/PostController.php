@@ -30,7 +30,7 @@ class PostController extends Controller
 
         $posts = $posts->paginate(100);
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'request'));
     }
 
     public function check(Request $request)
