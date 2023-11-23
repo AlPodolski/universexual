@@ -77,6 +77,16 @@ class PostController extends Controller
                     'attribute' => 'phone_view_count',
                     'label' => 'Прсм. телефона',
                 ],
+
+                [
+                    'label' => 'Удалить',
+                    'format' => 'html',
+                    'value' => function ($row) {
+                        /* @var $row Post */
+                        return '<div data-id="'.$row->id.'" onclick="deletePost(this)" class="delete">Удалить</div>';
+
+                    },
+                ],
             ]
         ];
 
