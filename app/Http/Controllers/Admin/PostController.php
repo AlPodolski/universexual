@@ -46,7 +46,7 @@ class PostController extends Controller
                 'url',
                 [
                     'attribute' => 'publication_status',
-                    'label' => 'Статус',
+                    'label' => 'Статус(0,1,3)',
                     'format' => 'html',
                     'value' => function ($row) {
                         /* @var $row Post */
@@ -76,6 +76,10 @@ class PostController extends Controller
                 [
                     'attribute' => 'phone_view_count',
                     'label' => 'Прсм. телефона',
+                ],
+                [
+                    'attribute' => 'user_id',
+                    'label' => 'id юзера',
                 ],
 
                 [
