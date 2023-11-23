@@ -71,4 +71,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function countPost(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+    public function countPostPublication(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id')
+            ->where('publication_status', Post::POST_ON_PUBLICATION);
+    }
 }
