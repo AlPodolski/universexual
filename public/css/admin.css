@@ -25,6 +25,9 @@
 .message-text{
     color: #6f6f6f;
 }
+.container {
+    max-width: 1500px!important;
+}
 .not-read{
     color: #000;
     font-weight: bold;

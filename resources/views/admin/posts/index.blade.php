@@ -6,100 +6,18 @@
 
     @include('admin.include.nav')
 
-    @if($posts->total() > $posts->count())
-
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
-
-    @endif
-
-    <div class="control-panel">
-        <div class="control-panel-item btn btn-success" onclick="check_all()">
-            Одобрить все
-        </div>
-
-        @if($request->get('all'))
-            <a href="/admin/posts" class="control-panel-item btn btn-success">
-                На модерации
-            </a>
-        @else
-            <a href="/admin/posts?all=true" class="control-panel-item btn btn-success">
-                Показать все
-            </a>
-        @endif
-
-    </div>
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Фото</th>
-            <th scope="col">Город</th>
-            <th scope="col">Статус</th>
-            <th scope="col">П. тлф</th>
-            <th scope="col">Удалить</th>
-        </tr>
-        </thead>
-        <tbody>
-        @if($posts)
-
-            @foreach($posts as $post)
-                <tr>
-                    <th scope="row">{{ $post->id }}</th>
-                    <td>
-                        <a target="_blank"
-                           href="https://{{ $post->city->url }}.intim-box.com/post/{{ $post->url }}">
-                            {{ $post->name }}
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/admin/posts/{{ $post->id }}/edit">
-                            @if(isset($post->avatar) and $post->avatar)
-                                <img loading="lazy" src="/139-185/thumbs/{{$post->avatar}}" alt="">
-                            @endif
-                        </a>
-                    </td>
-                    <td>{{ $post->city->city }}</td>
-                    <td>
-                        @if($post->publication_status == \App\Models\Post::POST_DONT_PUBLICATION)
-                            Не публикуется
-                        @endif
-                        @if($post->publication_status == \App\Models\Post::POST_ON_PUBLICATION)
-                            Публикуется
-                        @endif
-                        @if($post->publication_status == \App\Models\Post::POST_ON_MODERATION)
-                            <div class="check"
-                                 data-url="/admin/posts/check"
-                                 onclick="check(this)" data-id="{{ $post->id }}">
-                                Подтвердить
-                            </div>
-                        @endif
-                    </td>
-                    <td>
-                        {{ $post->phone_view_count }}
-                    </td>
-                    <td>
-                        <div data-id="{{ $post->id }}" onclick="deletePost(this)" class="delete">Удалить</div>
-                    </td>
-                </tr>
-            @endforeach
-
-        @endif
-
-        </tbody>
-    </table>
-
     <div class="control-panel">
         <div class="control-panel-item btn btn-success" onclick="check_all()">
             Одобрить все
         </div>
     </div>
 
-    @if($posts->total() > $posts->count())
+    @gridView($gridData)
 
-        {{ $posts->links('vendor.pagination.bootstrap-4') }}
-
-    @endif
+    <div class="control-panel">
+        <div class="control-panel-item btn btn-success" onclick="check_all()">
+            Одобрить все
+        </div>
+    </div>
 
 @endsection

@@ -13,9 +13,8 @@ use App\Models\Rayon;
 use App\Models\Service;
 use App\Models\Tarif;
 use App\Models\Time;
-use App\Repositories\DataRepository;
-use App\Repositories\PostsRepository;
 use Illuminate\Http\Request;
+use Itstructure\GridView\DataProviders\EloquentDataProvider;
 
 class PostController extends Controller
 {
@@ -23,14 +22,65 @@ class PostController extends Controller
     public function index(Request $request)
     {
 
-        $posts = Post::orderBy('id', 'desc')
-            ->with( 'city');
+        $posts = Post::query()->with('city');
 
-        if (!$request->get('all')) $posts->where('publication_status', Post::POST_ON_MODERATION);
+        $dataProvider = new EloquentDataProvider($posts);
 
-        $posts = $posts->paginate(100);
+        $gridData = [
+            'dataProvider' => $dataProvider,
+            'rowsPerPage' => 100,
+            'columnFields' => [
+                'id',
+                [
+                    'attribute' => 'name',
+                    'label' => 'Имя',
+                ],
+                [
+                    'attribute' => 'city_id',
+                    'label' => 'Город',
+                    'value' => function ($post) {
+                        /* @var $post Post */
+                        return $post->city->city . ' ' . $post->city->id;
+                    }
+                ],
+                'url',
+                [
+                    'attribute' => 'publication_status',
+                    'label' => 'Статус',
+                    'format' => 'html',
+                    'value' => function ($row) {
+                        /* @var $row Post */
 
-        return view('admin.posts.index', compact('posts', 'request'));
+                        if ($row->publication_status == \App\Models\Post::POST_DONT_PUBLICATION) return 'Не публикуется';
+
+                        if ($row->publication_status == \App\Models\Post::POST_ON_PUBLICATION) return 'Публикуется';
+
+                        if ($row->publication_status == \App\Models\Post::POST_ON_MODERATION)
+                            return '<div class="check"
+                                 data-url="/admin/posts/check"
+                                 onclick="check(this)" data-id="' . $row->id . '">
+                            Подтвердить
+                            </div>';
+
+                    }
+                ],
+                [
+                    'label' => 'avatar',
+                    'format' => 'html',
+                    'value' => function ($row) {
+                        /* @var $row Post */
+                        return '<img loading="lazy" src="/139-185/thumbs/' . $row->avatar . '" alt="">';
+
+                    },
+                ],
+                [
+                    'attribute' => 'phone_view_count',
+                    'label' => 'Прсм. телефона',
+                ],
+            ]
+        ];
+
+        return view('admin.posts.index', compact('posts', 'request', 'dataProvider', 'gridData'));
     }
 
     public function check(Request $request)
@@ -106,7 +156,7 @@ class PostController extends Controller
 
         $post = Post::where(['id' => $id])->with('photo')->first();
 
-        if ($post){
+        if ($post) {
 
             $avatarPath = storage_path('app/public/' . $post->avatar);
 
@@ -120,11 +170,11 @@ class PostController extends Controller
 
             }
 
-            foreach ($post->photo as $item){
+            foreach ($post->photo as $item) {
 
                 $path = (storage_path('app/public' . $item->file));
 
-                if (is_file($path)){
+                if (is_file($path)) {
 
                     unlink($path);
 
