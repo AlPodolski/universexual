@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::query()->with('countPost');
+        $users = User::query()->with('countPost', 'countPostPublication');
 
         $dataProvider = new EloquentDataProvider($users);
 
