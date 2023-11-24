@@ -279,7 +279,7 @@
 
             <input type="text" placeholder="Имя" required name="name" class="form-input">
 
-            <input type="text" placeholder="Email" required name="name" class="form-input">
+            <input type="text" placeholder="Email" required name="email" class="form-input">
 
             <textarea class="profile__modal-form-textarea" name="text" placeholder="Комментарий"></textarea>
             <div class="profile__modal-form-captcha"></div>

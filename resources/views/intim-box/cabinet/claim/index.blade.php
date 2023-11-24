@@ -66,7 +66,7 @@
                 </form>
 
                 <div onclick="sendMessage(this)"
-                     class="btn-main">Отрправить
+                     class="btn-main">Отправить
                 </div>
             </div>
         </div>

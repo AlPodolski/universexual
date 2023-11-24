@@ -19,7 +19,17 @@ class UserController extends Controller
             'dataProvider' => $dataProvider,
             'rowsPerPage' => 100,
             'columnFields' => [
-                'id',
+                [
+                    'attribute' => 'id',
+                    'label' => 'id(Анкеты)',
+                    'format' => 'html',
+                    'value' => function ($user) {
+
+                        /* @var $user User */
+
+                        return '<a target="_blank" href="/admin/posts?filters%5Buser_id%5D='.$user->id.'">' . $user->id . '<a>';
+                    }
+                ],
                 'email',
                 [
                     'attribute' => 'name',
