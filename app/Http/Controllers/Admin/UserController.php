@@ -53,7 +53,7 @@ class UserController extends Controller
                     'label' => 'Анкет на публикации',
                     'value' => function ($post) {
                         /* @var $post User */
-                        return $post->countPost->count();
+                        return $post->countPostPublication->count();
                     }
                 ],
             ]
