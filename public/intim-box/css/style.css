@@ -2857,6 +2857,7 @@ footer {
 
 .profile__modal-bg.active {
     opacity: 1;
+    z-index: 2;
     visibility: visible
 }
 

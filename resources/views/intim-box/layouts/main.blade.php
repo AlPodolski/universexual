@@ -38,7 +38,7 @@
     @if(View::hasSection('lightbox_css'))
         <link rel="stylesheet" href="@yield('lightbox_css')">
     @endif
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=18">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=19">
 </head>
 
 <body>

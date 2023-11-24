@@ -13,7 +13,8 @@
 
             @foreach($chatList as $chatItem)
 
-                @if($chatItem->last and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0)
+                @if($chatItem->last and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS
+                    and $chatItem->last->from <> 0 and $chatItem->last->created_at > \Carbon\Carbon::now()->subDays(14))
 
                     <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
                         <div class="chat__list-item-name">
@@ -40,7 +41,8 @@
 
             @foreach($chatList as $chatItem)
 
-                @if($chatItem->last )
+                @if($chatItem->last and $chatItem->last->created_at > \Carbon\Carbon::now()->subDays(14))
+
                     <div class="chat__list-item" data-id="{{ $chatItem->chat_id }}" onclick="getChat(this)">
                         <div class="chat__list-item-name">
                             {{ $chatItem->user->name }}
