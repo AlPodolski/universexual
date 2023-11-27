@@ -1,5 +1,6 @@
 @php
     /* @var $post \App\Models\Post */
+    /* @var $tarifList \App\Models\Tarif[] */
 @endphp
 
 <div class="ankets__item">
@@ -65,6 +66,16 @@
                 <use xlink:href='/intim-box/images/cabinet/sprite.svg#phone'></use>
             </svg>
             Просмотров телефона {{ $post->phone_view_count }}
+        </div>
+
+        <div class="ankets__item-tarif-select">
+
+            <select name="tarif" id="" class="nice-select" data-id="{{ $post->id }}" onchange="updateTarif(this)">
+                @foreach($tarifList as $tarifItem)
+                    <option @if($tarifItem->id == $post->tarif_id) selected @endif value="{{ $tarifItem->id }}">{{ $tarifItem->name }} - {{ $tarifItem->sum }} р/час</option>
+                @endforeach
+            </select>
+
         </div>
 
         @if($post->publication_status != \App\Models\Post::POST_ON_MODERATION)

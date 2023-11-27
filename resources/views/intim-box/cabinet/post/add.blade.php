@@ -61,7 +61,7 @@
                     <div class="anket__info-location-select" id="anketRegionWrap">
                         <label for="anketRegion">Тариф:</label>
                         <div class="anket__info-location-select-input">
-                            <select name="tarif_id" id="anketRegion">
+                            <select name="tarif_id" class="n-select" id="anketRegion">
                                 @foreach($tarifList as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }} {{ $item->sum }} р\час</option>
                                 @endforeach
@@ -111,7 +111,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketHair">Волосы:</label>
-                                    <select type="text" name="hair_color_id" id="anketHair">
+                                    <select type="text" class="n-select" name="hair_color_id" id="anketHair">
                                         @foreach($data['hair'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>
                                         @endforeach
@@ -124,7 +124,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketNational">Национальсность:</label>
-                                    <select type="text" name="national_id" id="anketNational">
+                                    <select type="text" class="n-select" name="national_id" id="anketNational">
                                         @foreach($data['national'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>
                                         @endforeach
@@ -137,7 +137,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketPhair">Интим. стрижка:</label>
-                                    <select type="text" name="intim_hair_id" id="anketPhair">
+                                    <select type="text" class="n-select" name="intim_hair_id" id="anketPhair">
                                         @foreach($data['intimHair'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>
                                         @endforeach
@@ -211,7 +211,7 @@
                             <div class="anket__info-location-select" id="anketCityWrap">
                                 <label for="anketCity">Город:</label>
                                 <div class="anket__info-location-select-input">
-                                    <select name="city_id" id="anketCity">
+                                    <select name="city_id" class="n-select" id="anketCity">
                                         @foreach($data['city_list'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->city }}</option>
                                         @endforeach
@@ -221,7 +221,7 @@
                             <div class="anket__info-location-select" id="anketMetroWrap">
                                 <label for="anketMetro">Метро:</label>
                                 <div class="anket__info-location-select-input">
-                                    <select name="metro" id="anketMetro">
+                                    <select name="metro" class="n-select" id="anketMetro">
                                         @foreach($data['metro'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>
                                         @endforeach
@@ -231,7 +231,7 @@
                             <div class="anket__info-location-select" id="anketRegionWrap">
                                 <label for="anketRegion">Район:</label>
                                 <div class="anket__info-location-select-input">
-                                    <select name="rayon_id" id="anketRegion">
+                                    <select name="rayon_id" class="n-select" id="anketRegion">
                                         @foreach($data['rayon'] as $item)
                                             <option value="{{ $item->id }}">{{ $item->value }}</option>
                                         @endforeach
@@ -318,7 +318,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -366,7 +366,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -412,7 +412,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -458,7 +458,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -505,7 +505,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -552,7 +552,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -599,7 +599,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"

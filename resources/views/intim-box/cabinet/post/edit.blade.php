@@ -72,7 +72,7 @@
                     <div class="anket__info-location-select" id="anketRegionWrap">
                         <label for="anketRegion">Тариф:</label>
                         <div class="anket__info-location-select-input">
-                            <select name="tarif_id" id="anketRegion">
+                            <select class="n-select" name="tarif_id" id="anketRegion">
                                 @foreach($tarifList as $item)
                                     <option @if($post->tarif_id == $item->id) selected @endif value="{{ $item->id }}">{{ $item->name }} {{ $item->sum }} р\час</option>
                                 @endforeach
@@ -123,7 +123,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketHair">Волосы:</label>
-                                    <select type="text" name="hair_color_id" id="anketHair">
+                                    <select class="n-select" type="text" name="hair_color_id" id="anketHair">
                                         @foreach($data['hair'] as $item)
                                             <option
                                                 @if($item->id == $post->hair_color_id)
@@ -141,7 +141,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketNational">Национальсность:</label>
-                                    <select type="text" name="national_id" id="anketNational">
+                                    <select class="n-select" type="text" name="national_id" id="anketNational">
                                         @foreach($data['national'] as $item)
                                             <option
 
@@ -160,7 +160,7 @@
                                 </svg>
                                 <div class="anket__info-params-input">
                                     <label for="anketPhair">Интим. стрижка:</label>
-                                    <select type="text" name="intim_hair_id" id="anketPhair">
+                                    <select class="n-select" type="text" name="intim_hair_id" id="anketPhair">
                                         @foreach($data['intimHair'] as $item)
                                             <option
 
@@ -248,7 +248,7 @@
                             <div class="anket__info-location-select" id="anketCityWrap">
                                 <label for="anketCity">Город:</label>
                                 <div class="anket__info-location-select-input">
-                                    <select name="city_id" id="anketCity">
+                                    <select class="n-select" name="city_id" id="anketCity">
                                         @foreach($data['city_list'] as $item)
                                             <option
                                                 @if($item->id == $post->city_id)
@@ -266,7 +266,7 @@
                                         @php
                                             $metro = $post->metro;
                                         @endphp
-                                        <select name="metro" id="anketMetro">
+                                        <select class="n-select" name="metro" id="anketMetro">
                                             @foreach($data['metro'] as $item)
                                                 <option
 
@@ -287,7 +287,7 @@
                                 <div class="anket__info-location-select" id="anketRegionWrap">
                                     <label for="anketRegion">Район:</label>
                                     <div class="anket__info-location-select-input">
-                                        <select name="rayon_id" id="anketRegion">
+                                        <select class="n-select" name="rayon_id" id="anketRegion">
                                             @foreach($data['rayon'] as $item)
                                                 <option
                                                     @if($post->rayon_id == $item->id)
@@ -409,7 +409,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -470,7 +470,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -529,7 +529,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -588,7 +588,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -648,7 +648,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -708,7 +708,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"
@@ -768,7 +768,7 @@
 
                                 <li class="anket__services-item-item">
 
-                                    <select class="anket__services-item-select custom-select"
+                                    <select class="n-select anket__services-item-select custom-select"
                                             data-label="{{ $item->value }}"
                                             name="service-{{ $item->id }}" id="">
                                         <option data-display="{{ $item->value }}"

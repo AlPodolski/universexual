@@ -2543,7 +2543,7 @@
         }
     }
 }(jQuery), document.addEventListener("DOMContentLoaded", function () {
-    if ($("select").niceSelect(), window.innerWidth < 1e3) {
+    if ($(".n-select").niceSelect(), window.innerWidth < 1e3) {
         console.log("ok");
         const r = document.querySelector(".header__burger"), o = document.querySelector(".mobile-menu");
         var e = document.querySelector(".sidebar");
@@ -2876,3 +2876,28 @@ function upPost(object) {
     })
 
 }
+
+function updateTarif(object) {
+
+    console.log(object);
+    var id = $(object).attr('data-id');
+    var tarif_id = $(object).val();
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/post/update-tarif',
+        async:false,
+        data: 'id=' + id + '&tarif_id=' + tarif_id,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data){
+
+        },
+
+    })
+
+}
+

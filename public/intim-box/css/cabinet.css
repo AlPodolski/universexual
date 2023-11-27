@@ -953,6 +953,7 @@ footer {
     margin-top: 10px;
     font-weight: bold;
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .ankets__item-select input {
@@ -994,7 +995,14 @@ footer {
     margin-right: auto;
     border-radius: 50%;
     -o-object-fit: cover;
+    width: 132px;
+    height: 132px;
     object-fit: cover
+}
+
+.ankets__item-tarif-select .nice-select{
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .ankets__item-title {

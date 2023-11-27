@@ -77,6 +77,8 @@ Route::middleware('redirect')->group(function () {
 
                 Route::post('post/up', [\App\Http\Controllers\Cabinet\PostController::class, 'up']);
 
+                Route::post('post/update-tarif', [\App\Http\Controllers\Cabinet\PostController::class, 'updateTarif']);
+
                 Route::post('post/publication/all', [\App\Http\Controllers\Cabinet\PostController::class, 'all']);
 
                 Route::post('/message', \App\Http\Controllers\Cabinet\MessageController::class);

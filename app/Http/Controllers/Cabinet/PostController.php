@@ -20,6 +20,26 @@ class PostController extends Controller
 
     }
 
+    public function updateTarif(Request $request)
+    {
+
+        $postId = $request->post('id');
+        $tarifId = $request->post('tarif_id');
+
+        $post = Post::where('id', $postId)->where('user_id', auth()->user()->id)->first();
+
+        $tarif = Tarif::where('id', $tarifId)->first();
+
+        if ($post and $tarif){
+
+            $post->tarif_id = $tarif->id;
+
+            $post->save();
+
+        }
+
+    }
+
     public function create($city)
     {
         $cityInfo = $this->cityRepository->getCity($city);
