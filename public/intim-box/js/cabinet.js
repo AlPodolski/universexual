@@ -2740,8 +2740,6 @@ function setSum(object){
 
     $('#balanceReplCur').val(sum);
 
-    $('#payBtn').trigger('click');
-
 }
 
 function start_all(object){

@@ -88,11 +88,19 @@ function check(object) {
     var id = $(object).attr('data-id');
     var url = $(object).attr('data-url');
 
+    var check_photo = $(object).closest('tr').find('.check-photo');
+
+    var check = '';
+
+    if ($(check_photo).prop('checked')){
+        check = '&check=true'
+    }
+
     $.ajax({
         type: 'POST',
         url: url, //Путь к обработчику
         response: 'text',
-        data: 'id=' + id,
+        data: 'id=' + id + check,
         dataType: "html",
         headers: {
             'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')

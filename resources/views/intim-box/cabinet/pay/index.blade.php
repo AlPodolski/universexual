@@ -74,12 +74,6 @@
             @foreach($fastSum as $item)
                 <div class="ammount__fast-item">
 
-                    @if($item >= $bonusSum)
-                        <span class="ammount__fast-item-discount">
-                        -10%
-                    </span>
-                    @endif
-
                     <div class="ammount__fast-item-header">
                         <div class="ammount__fast-item-balance">
                             {{ $item }} руб.
@@ -92,16 +86,11 @@
                                 $sum = $item;
                             }
                         @endphp
-                        <a href="#" data-sum="{{ $sum }}" onclick="setSum(this)"
+                        <div data-sum="{{ $sum }}" onclick="setSum(this)"
                            class="ammount__fast-item-btn btn-main">
                             Оплатить
-                        </a>
+                        </div>
                     </div>
-                    @if($item >= $bonusSum)
-                        <span class="ammount__fast-item-sumbalance">
-                        Будет начислено: {{ $item + ($item / 100 * 10) }}р
-                    </span>
-                    @endif
 
                 </div>
             @endforeach

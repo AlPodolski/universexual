@@ -21,9 +21,11 @@
             <h3 class="ankets__item-title-text">
                 {{ $post->name }}
             </h3>
-            <svg>
-                <use xlink:href='/intim-box/images/cabinet/sprite.svg#verif'></use>
-            </svg>
+            @if($post->check_photo_status)
+                <svg>
+                    <use xlink:href='/intim-box/images/cabinet/sprite.svg#verif'></use>
+                </svg>
+            @endif
         </div>
         <a href="#" class="ankets__item-phone">
                             <span>

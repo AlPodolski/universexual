@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
 
-        $posts = Post::query()->with('city');
+        $posts = Post::query()->with('city', 'checkPhoto');
 
         $dataProvider = new EloquentDataProvider($posts);
 
@@ -65,11 +65,30 @@ class PostController extends Controller
                     }
                 ],
                 [
+                    'attribute' => 'checkPhoto',
+                    'label' => 'П. фото',
+                    'format' => 'html',
+                    'value' => function ($row) {
+                        /* @var $row Post */
+
+                       if ($row->checkPhoto){
+
+                           $photo = '<img loading="lazy" src="/211-300/thumbs/' . $row->checkPhoto->file . '" alt="">';
+
+                           $checkBox = '<input type="checkbox" class="check-photo" name="check" data-id="'.$row->id.'">';
+
+                           return $photo.$checkBox;
+
+                       }
+
+                    }
+                ],
+                [
                     'label' => 'avatar',
                     'format' => 'html',
                     'value' => function ($row) {
                         /* @var $row Post */
-                        return '<img loading="lazy" src="/139-185/thumbs/' . $row->avatar . '" alt="">';
+                        return '<img loading="lazy" src="/300-300/thumbs/' . $row->avatar . '" alt="">';
 
                     },
                 ],
@@ -103,6 +122,9 @@ class PostController extends Controller
         $post = Post::findOrFail($request->post('id'));
 
         $post->publication_status = Post::POST_ON_PUBLICATION;
+
+        if ($request->post('check')) $post->check_photo_status = Post::PHOTO_CHECK;
+
         $post->save();
 
     }

@@ -76,6 +76,8 @@ class Post extends Model
     const POST_ON_PUBLICATION = 1;
     const POST_DONT_PUBLICATION = 0;
 
+    const PHOTO_CHECK = 1;
+
     protected $fillable = ['name', 'user_id' , 'phone', 'about', 'price',
         'rost', 'ves', 'breast', 'city_id', 'age', 'intim_hair_id', 'national_id', 'hair_color_id',
         'fake', 'publication_status','check_photo_status', 'two_hour_price', 'apartament_2_hour_price',
@@ -126,6 +128,11 @@ class Post extends Model
     public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Photo::class, 'posts_id', 'id');
+    }
+    public function checkPhoto(): HasOne
+    {
+        return $this->hasOne(Photo::class, 'posts_id', 'id')
+            ->where('type', Photo::CHECK_PHOTO_TYPE);
     }
 
     public function user(): HasOne
