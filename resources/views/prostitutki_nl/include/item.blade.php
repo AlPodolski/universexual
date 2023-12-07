@@ -7,11 +7,11 @@
             <img
                 loading="lazy"
                 title="Проститутка {{ $post->name }}"
-                srcset="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
+                src="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
         </a>
         <div class="name-wrap">
             <div class="name bold-text">
-                <a href="/post/{{ $post->id }}" class="bold-text">
+                <a href="/post/{{ $post->url }}" class="bold-text">
                     {{ $post->name }}
                     @if($post->check_photo_status)
 

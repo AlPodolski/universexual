@@ -25,7 +25,7 @@ function phone(object) {
                 headers: {'X-CSRF-TOKEN': token},
             })
             .then(function (response) {
-                object.innerHTML = response.data;
+                object.innerHTML = formatPhone(response.data);
                 object.setAttribute('data-phone', response.data);
                 window.location.href = 'tel:+' + response.data;
             })
@@ -192,6 +192,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function formatPhone(phone) {
+
+    phone = phone.toString();
 
     var lenPhone = phone.length;
     var tt = phone.split('');

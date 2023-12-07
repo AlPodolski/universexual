@@ -5394,6 +5394,9 @@ a {
 .open-menu .sub-menu {
     display: flex;
 }
+.all-menu:hover .sub-menu {
+    display: flex;
+}
 
 .open-menu-btn {
     display: flex;
