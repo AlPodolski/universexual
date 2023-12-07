@@ -5900,7 +5900,23 @@ footer {
     margin-bottom: 10px;
 }
 
+.toggle-filter, .filter-wrap .close-panel{
+    display: none;
+    margin-bottom: 10px;
+}
+
+.show-filter .close-panel{
+    display: block;
+    margin-bottom: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 @media (max-width: 1199px) {
+    .toggle-filter{
+        display: block;
+    }
     .filter-wrap {
         display: none !important;
     }

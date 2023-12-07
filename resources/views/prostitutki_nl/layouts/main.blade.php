@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/app.css?v=2">
+    <link rel="stylesheet" href="/css/app.css?v=3">
 </head>
 <body>
 <header>
@@ -84,7 +84,7 @@
     </div>
 </main>
 <footer>
-    <a href="/politika-konfidencialnosti">Политика конфиденциальности</a>
+
 </footer>
 
 @if(View::hasSection('jquery'))
@@ -99,7 +99,7 @@
 <script defer src="/js/axios.js"></script>
 <script defer src="/js/app.js"></script>
 
-<script defer src="/js/script.js?v=8"></script>
+<script defer src="/js/script.js?v=9"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript"> (function (m, e, t, r, i, k, a) {
         m[i] = m[i] || function () {

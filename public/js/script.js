@@ -64,29 +64,6 @@ slider.noUiSlider.on('update', function (values, handle) {
     age_to.value = values[1];
 });
 
-var sliderRost = document.getElementById('rost');
-
-noUiSlider.create(sliderRost, {
-    start: [150, 200],
-    connect: true,
-    step: 1,
-    format: wNumb({
-        decimals: 0
-    }),
-    range: {
-        'min': 150,
-        'max': 200
-    }
-});
-
-sliderRost.noUiSlider.on('update', function (values, handle) {
-    console.log(values);
-    var age_from = document.getElementById('rost-from')
-    var age_to = document.getElementById('rost-to')
-    age_from.value = values[0];
-    age_to.value = values[1];
-});
-
 var sliderVes = document.getElementById('ves');
 
 noUiSlider.create(sliderVes, {
