@@ -20,8 +20,8 @@
 
                 <picture>
 
-                    <source srcset="/600-700/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
-                    <source srcset="/600-700/thumbs/{{$post->avatar}}" type="image/jpeg">
+                    <source srcset="/700-1000/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
+                    <source srcset="/700-1000/thumbs/{{$post->avatar}}" type="image/jpeg">
 
                     <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
                          alt="{{ $post->name }}"
