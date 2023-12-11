@@ -1,7 +1,6 @@
 @php
     /* @var $post \App\Models\Post */
 @endphp
-{{ $i }}
 <div class="post">
     <div class="post-content">
         <a class="img-wrap" href="/post/{{ $post->url }}">
