@@ -11,8 +11,14 @@
     @include('prostitutki_nl.include.breadcrumb' , ['title' => $meta['h1']])
     <h1>{{ $meta['h1'] }}</h1>
     <div class="content d-flex" id="content">
+        @php
+            $i = 0;
+        @endphp
         @foreach($posts as $post)
             @include('prostitutki_nl.include.item', compact('post'))
+            @php
+                $i ++;
+            @endphp
         @endforeach
 
     </div>

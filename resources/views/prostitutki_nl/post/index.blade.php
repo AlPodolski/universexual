@@ -17,10 +17,18 @@
     <div class="content ">
         <div class="post-single d-flex">
             <div class="left">
-                <img loading="lazy"
-                     title="Проститутка {{ $post->name }}"
-                     src="/600-700/thumbs/{{$post->avatar}}"
-                     alt="{{ $post->name }}">
+
+                <picture>
+
+                    <source srcset="/600-700/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
+                    <source srcset="/600-700/thumbs/{{$post->avatar}}" type="image/jpeg">
+
+                    <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
+                         alt="{{ $post->name }}"
+                         loading="lazy"
+                         title="Проститутка {{ $post->title }}">
+                </picture>
+
             </div>
             <div class="right">
                 <h1>Проститутка {{ $post->name }} ID {{ $post->id }}</h1>
@@ -181,6 +189,21 @@
         </div>
 
         <div class="more-post-info m-top-20">
+            @if($post->photo->first())
+                <div class="photo-wrap">
+                    <div class="bold-text m-bottom-20">
+                        Фото
+                    </div>
+                    <div class="popular-list post-photo" id="gallery">
+                        @foreach($post->photo as $item)
+                            <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}"
+                               data-lightbox="image-{{ $post->id }}">
+                                <img data-lightbox="roadtrip" src="/600-700/thumbs{{$item->file}}" alt="">
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             <div class="bold-text m-bottom-20">Услуги</div>
             <div class="service-list d-flex m-bottom-20">
                 @foreach($data['service'] as $item)
@@ -272,22 +295,6 @@
                         </div>
                     @endforeach
 
-                </div>
-            @endif
-
-            @if($post->photo->first())
-                <div class="photo-wrap">
-                    <div class="bold-text m-bottom-20">
-                        Фото
-                    </div>
-                    <div class="popular-list post-photo" id="gallery">
-                        @foreach($post->photo as $item)
-                            <a class="post-photo-item" href="/600-700/thumbs{{$item->file}}"
-                               data-lightbox="image-{{ $post->id }}">
-                                <img data-lightbox="roadtrip" src="/600-700/thumbs{{$item->file}}" alt="">
-                            </a>
-                        @endforeach
-                    </div>
                 </div>
             @endif
 

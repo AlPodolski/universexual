@@ -4,10 +4,20 @@
 <div class="post">
     <div class="post-content">
         <a class="img-wrap" href="/post/{{ $post->url }}">
-            <img
-                loading="lazy"
-                title="Проститутка {{ $post->name }}"
-                src="/211-300/thumbs/{{$post->avatar}}" alt="{{ $post->name }}">
+
+            <picture>
+
+                <source srcset="/211-300/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
+                <source srcset="/211-300/thumbs/{{$post->avatar}}" type="image/jpeg">
+
+                <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
+                     alt="{{ $post->name }}"
+                     @if(!isset($i) or $i > 2)
+                         loading="lazy"
+                     @endif
+                     title="Проститутка {{ $post->title }}">
+            </picture>
+
         </a>
         <div class="name-wrap">
             <div class="name bold-text">
