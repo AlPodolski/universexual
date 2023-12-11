@@ -221,3 +221,7 @@ function formatPhone(phone) {
     return phone;
 
 }
+
+function showSearchForm(){
+    document.getElementById('search').classList.toggle('open-search')
+}

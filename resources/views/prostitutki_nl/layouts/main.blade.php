@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/app.css?v=3">
+    <link rel="stylesheet" href="/css/app.css?v=4">
 </head>
 <body>
 <header>
@@ -51,7 +51,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="search">
+                <div class="search" id="search">
                     <form action="/poisk" class="search-form position-relative">
                         @csrf
                         <input type="text" class="text-input" name="name" placeholder="Поиск по имени">
