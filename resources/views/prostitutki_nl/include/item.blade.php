@@ -1,6 +1,7 @@
 @php
     /* @var $post \App\Models\Post */
 @endphp
+{{ $i }}
 <div class="post">
     <div class="post-content">
         <a class="img-wrap" href="/post/{{ $post->url }}">
@@ -12,6 +13,7 @@
 
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
                      alt="{{ $post->name }}"
+
                      @if(!isset($i) or $i > 2)
                          loading="lazy"
                      @endif

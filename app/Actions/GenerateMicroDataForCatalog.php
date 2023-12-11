@@ -53,7 +53,7 @@ class GenerateMicroDataForCatalog
 
         $firstData = rand(4,5);
 
-        if ($firstData != 5) return $firstData. rand(0, 9);
+        if ($firstData != 5) return $firstData .'.'. rand(0, 9);
 
         return $firstData;
 
