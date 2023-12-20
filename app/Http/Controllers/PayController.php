@@ -18,13 +18,15 @@ class PayController extends Controller
 
             $orderInfo = $obmenka->getOrderInfo($order->id.'-agr');
 
-            if (isset($orderInfo->amount) and $orderInfo->status == 'FINISHED') {
+            if (isset($orderInfo->amount) and $orderInfo->status == 'FINISHED' or $orderInfo->status == 'PAYED_RECALC') {
+
+                $sum = $orderInfo->accrual_amount;
 
                 $order->status = Order::FINISH;
 
                 $order->save();
 
-                $user->cash = $user->cash + $order->sum;
+                $user->cash = $user->cash + $sum;
 
                 $user->save();
 
