@@ -30,14 +30,6 @@ class ImageController extends Controller
                 $constraint->aspectRatio();
             });
 
-            $image->text(SITE, 40, 40, function($font) {
-                $font->file(5);
-                $font->size(48);
-                $font->color([255, 255, 255, 0.5]);
-                $font->angle(45);
-
-            });
-
             return $image;
 
         }, 3600 * 365, true);
