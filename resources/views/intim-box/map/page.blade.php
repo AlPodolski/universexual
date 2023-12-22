@@ -12,7 +12,7 @@
             @if(isset($item->filter_url))
                 <url>
                     <loc>https://{{ $_SERVER['HTTP_HOST'] }}/{{ $item->filter_url }}</loc>
-                    <lastmod>2023-02-20</lastmod>
+                    <lastmod>2023-12-22</lastmod>
                     <priority>0.9</priority>
                 </url>
             @endif

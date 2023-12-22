@@ -20,5 +20,7 @@ Disallow: */amp/*
 
 Clean-param: p
 
-Sitemap: https://{{$host}}/sitemap.xml
+Sitemap: https://{{$host}}/sitemap_post.xml
+Sitemap: https://{{$host}}/sitemap_page.xml
+
 Host: https://{{$host}}
