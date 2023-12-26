@@ -37,3 +37,7 @@
 @section('open-graph')
     @include('prostitutki_nl.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/img/logo.svg'])
 @endsection
+
+@section('metro-list')
+    @include('prostitutki_nl.include.metro-list', compact('data'))
+@endsection

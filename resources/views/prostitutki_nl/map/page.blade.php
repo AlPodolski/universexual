@@ -19,4 +19,20 @@
         @endforeach
     @endforeach
 
+    <url>
+        <loc>https://{{ $_SERVER['HTTP_HOST'] }}/dorogie-prostitutki</loc>
+        <lastmod>2023-12-22</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://{{ $_SERVER['HTTP_HOST'] }}/deshevye-prostitutki</loc>
+        <lastmod>2023-12-22</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://{{ $_SERVER['HTTP_HOST'] }}/proverennye</loc>
+        <lastmod>2023-12-22</lastmod>
+        <priority>0.9</priority>
+    </url>
+
 </urlset>

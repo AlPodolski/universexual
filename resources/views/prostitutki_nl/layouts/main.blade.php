@@ -31,7 +31,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/lightgallery.min.css">
-    <link rel="stylesheet" href="/css/app.css?v=4">
+    <link rel="stylesheet" href="/css/app.css?v=5">
 </head>
 <body>
 <header>
@@ -51,6 +51,9 @@
                         </svg>
                     </a>
                 </div>
+
+                @yield('metro-list')
+
                 <div class="search" id="search">
                     <form action="/poisk" class="search-form position-relative">
                         @csrf
