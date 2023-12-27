@@ -5259,12 +5259,12 @@ select {
     -webkit-box-shadow: inset 0 0 10px rgb(190 190 190);
 }
 
-.metro-list li{
-    margin-bottom: 15px;
-}
-
 .metro-list::-webkit-scrollbar-thumb {
     background-color: #f2cd85;
+}
+
+.metro-list li{
+    margin-bottom: 15px;
 }
 
 .text-input {
@@ -5460,6 +5460,7 @@ h1 {
 
 .post {
     flex: 0 0 20%;
+    max-width: 20%;
     padding: 0 10px;
     margin-bottom: 20px;
 }
@@ -5963,6 +5964,39 @@ footer {
     position: absolute;
     right: 10px;
     top: 10px;
+}
+
+.links{
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+}
+
+.links-item a{
+    color: #50b768;
+    text-decoration: underline;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.links-item
+{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+
+.links::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
+
+.links::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 10px rgb(190 190 190);
+}
+
+.links::-webkit-scrollbar-thumb {
+    background-color: #f2cd85;
 }
 
 @media (max-width: 1199px) {

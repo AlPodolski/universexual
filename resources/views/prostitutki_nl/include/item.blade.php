@@ -82,6 +82,15 @@
                 <span class="bold-text">Возраст:</span> {{ $post->age }}
             </div>
         </div>
+
+        <div class="links">
+            @foreach($post->place as $item)
+                <div class="links-item">
+                    <a href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
+                </div>
+            @endforeach
+        </div>
+
         <div data-id="{{ $post->id }}" data-city="{{ $post->city_id }}" onclick="phone(this)"
              class="yellow-btn phone ">Показать телефон
         </div>
