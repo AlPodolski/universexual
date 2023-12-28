@@ -117,6 +117,22 @@
                     #инди
                 </a>
             @endif
+            @if($post->service)
+                @foreach($post->service as $item)
+                    @if($item->id == 20)
+                        <a class="tag" href="/{{ $item->filter_url  }}">#Анал</a>
+                    @endif
+                    @if($item->id == 12)
+                        <a class="tag" href="/{{ $item->filter_url  }}">#Куни</a>
+                    @endif
+                    @if($item->id == 22)
+                        <a class="tag" href="/{{ $item->filter_url  }}">#МБР</a>
+                    @endif
+                    @if($item->id == 7)
+                        <a class="tag" href="/{{ $item->filter_url  }}">#МинетВМашине</a>
+                    @endif
+                @endforeach
+            @endif
             @foreach($post->place as $item)
                 <a class="tag" href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
             @endforeach

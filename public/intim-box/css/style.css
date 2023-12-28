@@ -1220,6 +1220,7 @@ main {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
+    margin-bottom: 5px;
     background-color: #e0dafb
 }
 
@@ -1474,6 +1475,10 @@ footer {
 
 .header__location-list__sub::-webkit-scrollbar-thumb, .header__location-list__sub_city::-webkit-scrollbar-thumb {
     background-color: rgb(73 38 232);
+}
+
+.catalog-item__tags{
+    margin-bottom: -5px;
 }
 
 .catalog-item__ui-item {

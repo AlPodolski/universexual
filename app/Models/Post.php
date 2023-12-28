@@ -88,8 +88,10 @@ class Post extends Model
     public function service(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostService::class, 'posts_id', 'id')
-            ->join('services', 'service_id', '=', 'services.id');
-
+            ->join('services', 'service_id', '=', 'services.id')
+            ->join('filters', 'related_id' , '=', 'services.id')
+            ->where('filters.parent_class' , Service::class)
+            ->select('post_services.*', 'services.*', 'filters.url as filter_url');
     }
 
     public function metro(): \Illuminate\Database\Eloquent\Relations\HasMany

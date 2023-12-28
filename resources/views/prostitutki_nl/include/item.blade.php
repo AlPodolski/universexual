@@ -84,17 +84,43 @@
         </div>
 
         <div class="links">
-            @foreach($post->place as $item)
-                <div class="links-item">
-                    <a href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
-                </div>
-            @endforeach
 
             @if($post->national)
                 <div class="links-item">
                     <a href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>
                 </div>
             @endif
+
+            @if($post->service)
+                @foreach($post->service as $item)
+                    @if($item->id == 20)
+                        <div class="links-item">
+                            <a href="/{{ $item->filter_url  }}">#Анал</a>
+                        </div>
+                    @endif
+                    @if($item->id == 12)
+                        <div class="links-item">
+                            <a href="/{{ $item->filter_url  }}">#Куни</a>
+                        </div>
+                    @endif
+                    @if($item->id == 22)
+                        <div class="links-item">
+                            <a href="/{{ $item->filter_url  }}">#МБР</a>
+                        </div>
+                    @endif
+                    @if($item->id == 7)
+                        <div class="links-item">
+                            <a href="/{{ $item->filter_url  }}">#МинетВМашине</a>
+                        </div>
+                    @endif
+                @endforeach
+            @endif
+
+            @foreach($post->place as $item)
+                <div class="links-item">
+                    <a href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
+                </div>
+            @endforeach
 
         </div>
 
