@@ -89,6 +89,13 @@
                     <a href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
                 </div>
             @endforeach
+
+            @if($post->national)
+                <div class="links-item">
+                    <a href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>
+                </div>
+            @endif
+
         </div>
 
         <div data-id="{{ $post->id }}" data-city="{{ $post->city_id }}" onclick="phone(this)"

@@ -101,12 +101,21 @@ class Post extends Model
             ->select('metros.id','metros.x','metros.y', 'filters.url as metro_url', 'metros.value as metro_value', 'posts_id');
     }
 
+    public function national(): HasOne
+    {
+        return $this->hasOne(National::class, 'id', 'national_id')
+            ->join('filters', 'related_id' , '=', 'nationals.id')
+            ->where('filters.parent_class', National::class)
+            ->select('nationals.*', 'filters.url as filter_url');
+    }
+
     public function place(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostPlace::class, 'posts_id', 'id')
             ->join('places', 'place_id', '=','places.id')
             ->select('places.url as places_url','places.id', 'places.value as places_value', 'posts_id');
     }
+
 
     public function city(): HasOne
     {
