@@ -238,7 +238,7 @@ class PostRepository
         if (count($posts->getQuery()->wheres) <= 2 and !$posts->getQuery()->orders) abort(404);
 
         $posts = $posts
-            ->with('place', 'reviews', 'city', 'metro')
+            ->with('place', 'reviews', 'city', 'metro', 'national')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -251,7 +251,7 @@ class PostRepository
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('reviews', 'city')
+            ->with('reviews', 'city', 'national')
             ->orderByRaw($this->sort)
             ->paginate(20);
 
@@ -344,7 +344,7 @@ class PostRepository
     {
         $posts = Post::where(['city_id' => $cityId])
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'city')
+            ->with('metro', 'city', 'national')
             ->orderByRaw('RAND()')
             ->limit($limit)->get();
 
@@ -357,7 +357,7 @@ class PostRepository
 
             $data = unserialize($ids);
 
-            $posts = Post::with('metro')
+            $posts = Post::with('metro', 'national')
                 ->whereIn('id', $data)
                 ->paginate(20);
 

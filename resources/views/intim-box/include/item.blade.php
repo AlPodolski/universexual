@@ -117,14 +117,11 @@
                     #инди
                 </a>
             @endif
-            @if($post->place->first())
-                @foreach($post->place as $item)
-                    @if($item->id == 1)
-                        <a class="tag">
-                            #выезд
-                        </a>
-                    @endif
-                @endforeach
+            @foreach($post->place as $item)
+                <a class="tag" href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
+            @endforeach
+            @if($post->national)
+                <a class="tag" href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>
             @endif
         </div>
         <ul class="catalog-item__list">
@@ -177,7 +174,7 @@
                         Проверенное фото
                     </div>
                     <div href="#"
-                       class="catalog-item__ui-link link-reset btn">
+                         class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
                         </svg>
@@ -191,7 +188,7 @@
                         Есть видео
                     </div>
                     <div
-                       class="catalog-item__ui-link link-reset btn">
+                        class="catalog-item__ui-link link-reset btn">
                         <svg>
                             <use xlink:href='/svg/dest/stack/sprite.svg#video'></use>
                         </svg>
