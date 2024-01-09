@@ -46,7 +46,7 @@
                     <a href="#service" class="profile-main-nav__link link-reset">Услуги</a>
                 </li>
                 <li class="profile-main-nav__item" data-tab-title="reviews">
-                    <a href="#reviews" class="profile-main-nav__link link-reset" >Отзывы</a>
+                    <a href="#reviews" class="profile-main-nav__link link-reset">Отзывы</a>
                 </li>
                 <li class="profile-main-nav__item" data-tab-title="sim">
                     <a href="#sim" class="profile-main-nav__link link-reset">Похожие анкеты</a>
@@ -98,7 +98,7 @@
                                         <img class="profile-main-info__slider-main-img"
                                              loading="lazy"
                                              alt="Фото проститутки {{ $post->name }} №{{$i}} в городе {{ $data['current_city']->city }}"
-                                             src="/211-300/thumbs/{{$item->file}}" >
+                                             src="/211-300/thumbs/{{$item->file}}">
 
                                         @php
                                             $i++;
@@ -149,10 +149,10 @@
                         </div>
                         <div class="profile-main-info__characters-cur">
                             <a
-                               data-id="{{ $post->id }}"
-                               data-city="{{ $post->city_id }}"
-                               onclick="show_phone(this)"
-                               class="catalog-item__phone">
+                                data-id="{{ $post->id }}"
+                                data-city="{{ $post->city_id }}"
+                                onclick="show_phone(this)"
+                                class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
                                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
                                 </svg>
@@ -169,8 +169,8 @@
                             <a
                                 data-id="{{ $post->id }}"
                                 data-city="{{ $post->city_id }}"
-                               onclick="show_phone(this)"
-                               class="catalog-item__phone">
+                                onclick="show_phone(this)"
+                                class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
                                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
                                 </svg>
@@ -502,18 +502,14 @@
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -527,30 +523,36 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
                             @endif
@@ -568,21 +570,18 @@
                         @foreach($data['service'] as $item)
 
                             @if($item->type == 'minet')
+
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -596,32 +595,39 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
+
                             @endif
 
                         @endforeach
@@ -640,18 +646,14 @@
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -665,30 +667,36 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
                             @endif
@@ -707,18 +715,14 @@
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -732,30 +736,36 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
                             @endif
@@ -774,18 +784,14 @@
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -799,30 +805,36 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
                             @endif
@@ -841,18 +853,14 @@
                                 <li class="profile-main__services-list-item">
 
                                     @php
-                                        $exist = false;
                                         $pay = false;
                                         $sympathy = false;
+                                        $stop = false;
                                     @endphp
 
                                     @foreach($post->service as $serviceItem)
 
                                         @if($serviceItem->service_id == $item->id)
-
-                                            @php
-                                                $exist = true;
-                                            @endphp
 
                                             @if($serviceItem->sympathy)
                                                 @php
@@ -866,30 +874,36 @@
                                                 @endphp
                                             @endif
 
+                                            @if($serviceItem->not_available)
+                                                @php
+                                                    $stop = true;
+                                                @endphp
+                                            @endif
+
                                         @endif
 
                                     @endforeach
-                                    @if($exist)
 
-                                        @if($pay or $sympathy)
+                                    @if($pay or $sympathy or $stop)
 
-                                            @if($pay)
-                                                <img src="/intim-box/images/graphics/icons/money.svg" alt="">
-                                            @endif
+                                        @if($pay)
+                                            <img src="/intim-box/images/graphics/icons/money.svg" alt="">
+                                        @endif
 
-                                            @if($sympathy)
-                                                <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
-                                            @endif
+                                        @if($sympathy)
+                                            <img src="/intim-box/images/graphics/icons/hearth.svg" alt="">
+                                        @endif
 
-                                        @else
-
-                                            <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
-
+                                        @if($stop)
+                                            <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
                                         @endif
 
                                     @else
-                                        <img src="/intim-box/images/graphics/icons/stop.svg" alt="">
+
+                                        <img src="/intim-box/images/graphics/icons/onprice.svg" alt="">
+
                                     @endif
+
                                     {{ $item->value }}
                                 </li>
                             @endif
@@ -911,13 +925,13 @@
                          class="yandex-map map-not-exist"
 
                          @php
-                         if ($metro){
-                             $x = $metro->x;
-                             $y = $metro->y;
-                         }else{
-                             $x = $data['current_city']->x;
-                             $y = $data['current_city']->y;
-                         }
+                             if ($metro){
+                                 $x = $metro->x;
+                                 $y = $metro->y;
+                             }else{
+                                 $x = $data['current_city']->x;
+                                 $y = $data['current_city']->y;
+                             }
                          @endphp
 
                          data-x="{{ $x}}"
@@ -929,7 +943,8 @@
             </div>
         @endif
 
-        <div data-tab="reviews" id="reviews" class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab">
+        <div data-tab="reviews" id="reviews"
+             class="profile-main__reviews profile-main-reviews profile-main__block profile-main__tab">
             <div class="profile-main__title profile-main-reviews__title">Отзывы</div>
 
             @if($post->reviews->first())

@@ -228,6 +228,8 @@ class PostController extends Controller
 
         \DB::table('post_services')->where('posts_id', $post->id)->delete();
 
+        \Cache::delete('post_' . $post->url . '_site_id_' . SITE);
+
         foreach ($request->post() as $postServiceId => $postServiceValue) {
 
             if (strpos($postServiceId, 'service-') !== false) {
