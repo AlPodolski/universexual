@@ -25,7 +25,7 @@
                          alt="">
                     <div class="anket__main-photo-input">
                         <label for="anketPhoto" tabindex="0">+</label>
-                        <input type="file" name="photo" id="anketPhoto" required>
+                        <input type="file" name="photo" id="anketPhoto" required accept=".jpg, .jpeg">
                     </div>
                 </div>
                 <div class="anket__main-info">
@@ -664,7 +664,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить фото
                             </label>
-                            <input type="file" multiple name="anketSelfie[]" id="anketSelfie">
+                            <input type="file" multiple name="anketSelfie[]" id="anketSelfie" accept=".jpg, .jpeg">
                         </div>
                     </div>
                     <div class="anket__photos-content-item">
@@ -673,7 +673,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить фото
                             </label>
-                            <input type="file" multiple name="anketVideo" id="anketVideo">
+                            <input type="file" multiple name="anketVideo" id="anketVideo" accept=".mp4">
                         </div>
                     </div>
                     <div class="anket__photos-content-item">
@@ -682,7 +682,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить фото
                             </label>
-                            <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto">
+                            <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto" accept=".jpg, .jpeg">
                         </div>
                     </div>
                 </div>

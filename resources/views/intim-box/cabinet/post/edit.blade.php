@@ -30,7 +30,7 @@
                          alt="">
                     <div class="anket__main-photo-input">
                         <label for="anketPhoto" tabindex="0">+</label>
-                        <input type="file" name="photo" id="anketPhoto">
+                        <input type="file" name="photo" id="anketPhoto" accept=".jpg, .jpeg">
                     </div>
                 </div>
                 <div class="anket__main-info">
@@ -862,7 +862,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить фото
                             </label>
-                            <input type="file" multiple name="anketSelfie" id="anketSelfie">
+                            <input type="file" multiple name="anketSelfie" id="anketSelfie" accept=".jpg, .jpeg">
                         </div>
 
                         @foreach($post->photo as $item)
@@ -888,7 +888,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить видео
                             </label>
-                            <input type="file" multiple name="anketVideo" id="anketVideo">
+                            <input type="file" multiple name="anketVideo" id="anketVideo" accept=".mp4">
                         </div>
 
                         @if($post->video)
@@ -912,7 +912,7 @@
                                 <img src="images/cam.png" alt="">
                                 Загрузить фото
                             </label>
-                            <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto">
+                            <input type="file" multiple name="anketCheckPhoto" id="anketCheckPhoto" accept=".jpg, .jpeg">
                         </div>
 
                         @foreach($post->photo as $item)
