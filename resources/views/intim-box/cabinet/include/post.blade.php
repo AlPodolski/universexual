@@ -14,7 +14,22 @@
         >
             {{ $post->publication }}
         </div>
-        <img src="/storage/{{ $post->avatar }}" alt="" class="ankets__item-img">
+        <label for="avatar-{{ $post->id }}">
+        <img src="/storage/{{ $post->avatar }}" alt="" id="photo-{{ $post->id }}" class="ankets__item-img">
+
+        <div class="update-photo">
+            Сменить фото
+        </div>
+        </label>
+
+        <input class="cabinet-listing-file"
+               type="file"
+               data-id="{{ $post->id }}"
+               id="avatar-{{ $post->id }}"
+               name="avatar"
+               onchange="updateAvatar(this)"
+               accept="image/png, image/jpeg" />
+
     </div>
     <div class="ankets__item-body">
         <div class="ankets__item-field ankets__item-title">

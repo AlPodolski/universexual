@@ -2711,6 +2711,31 @@ function publication(object){
 
 }
 
+function updateAvatar(object){
+    var file_data = $(object).prop('files')[0];
+    var form_data = new FormData();
+    form_data.append('file', file_data);
+    form_data.append('id', $(object).attr('data-id'));
+    $.ajax({
+        url: '/cabinet/image/add', // ваш URL для обработки
+        dataType: 'text',
+        cache: false,
+        contentType: false,
+        processData: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        data: form_data,
+        type: 'post',
+        success: function(response){
+            $('#photo-'+$(object).attr('data-id')).attr('src', response)
+        },
+        error: function(response){
+            alert('Error:');
+        }
+    });
+}
+
 function deleteVideo(object){
 
     var id = $(object).attr('data-id');

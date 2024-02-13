@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::post('/cabinet/image/delete', \App\Http\Controllers\Cabinet\ImageController::class);
+    Route::post('/cabinet/image/add', [\App\Http\Controllers\Cabinet\ImageController::class, 'add']);
 });
 
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
