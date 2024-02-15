@@ -4642,4 +4642,7 @@ $(document).ready(function () {
     });
 });
 
-
+function openPost (object){
+    var href = $(object).attr('data-url');
+    window.location.href = href;
+}

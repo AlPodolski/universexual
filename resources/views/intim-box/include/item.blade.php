@@ -4,7 +4,7 @@
 <div class="catalog-item">
     <div class="catalog-item__header">
         <div class="catalog-item-gallery">
-            <picture class="listing-slick">
+            <picture class="listing-slick"  onclick="openPost(this)" data-url="/post/{{ $post->url }}">
                 <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
                 <source srcset="/400-500/thumbs/{{$post->avatar}}" type="image/jpeg">
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
@@ -17,7 +17,7 @@
 
             @if($post->photo)
                 @foreach($post->photo as $item)
-                    <picture class="listing-slick">
+                    <picture class="listing-slick" onclick="openPost(this)" data-url="/post/{{ $post->url }}">
                         <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $item->file)}}"
                                 type="image/webp">
                         <source srcset="/400-500/thumbs/{{$item->file}}" type="image/jpeg">
