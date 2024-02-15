@@ -18,10 +18,10 @@
             @if($post->photo)
                 @foreach($post->photo as $item)
                     <picture class="listing-slick">
-                        <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $item->file)}}"
+                        <source srcset="/400-500/thumbs{{str_replace('.jpg', '.webp', $item->file)}}"
                                 type="image/webp">
-                        <source srcset="/400-500/thumbs/{{$item->file}}" type="image/jpeg">
-                        <img class="catalog-item__img" src="/400-500/thumbs/{{$item->file}}"
+                        <source srcset="/400-500/thumbs{{$item->file}}" type="image/jpeg">
+                        <img class="catalog-item__img" src="/400-500/thumbs{{$item->file}}"
                              alt="{{ $post->alt }}"
                              loading="lazy"
                              title="{{ $post->title }}">
