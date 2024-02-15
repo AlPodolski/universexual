@@ -38,7 +38,7 @@
     @if(View::hasSection('lightbox_css'))
         <link rel="stylesheet" href="@yield('lightbox_css')">
     @endif
-    <link rel="stylesheet" href="/intim-box/css/style.css?v=20">
+    <link rel="stylesheet" href="/intim-box/css/style.css?v=21">
 </head>
 
 <body>
@@ -292,7 +292,7 @@
 
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/js/wNumb.min.js"></script>
-<script defer src="/intim-box/js/script.js?v=9"></script>
+<script defer src="/intim-box/js/script.js?v=10"></script>
 @if(View::hasSection('lightbox_js'))
     <script defer src="@yield('lightbox_js')"></script>
 @endif

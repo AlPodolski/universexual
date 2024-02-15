@@ -4509,6 +4509,13 @@ function getMorePosts(object) {
                 if (data.next_page) $(object).attr('data-url', data.next_page);
                 else $(object).remove();
 
+                $('.catalog-item-gallery').each(function () {
+                    if (!$(this).hasClass('slick-active')) {
+                        $(this).slick();
+                        $(this).addClass('slick-active');
+                    }
+                });
+
             }
 
         }
@@ -4617,14 +4624,22 @@ function showFilter() {
 var header = $('.header'),
     scrollPrev = 0;
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     var scrolled = $(window).scrollTop();
 
-    if ( scrolled > 100 && scrolled > scrollPrev ) {
+    if (scrolled > 100 && scrolled > scrollPrev) {
         header.addClass('out');
     } else {
         header.removeClass('out');
     }
     scrollPrev = scrolled;
 });
+
+$(document).ready(function () {
+    $('.catalog-item-gallery').each(function () {
+        $(this).slick();
+        $(this).addClass('slick-active');
+    });
+});
+
 

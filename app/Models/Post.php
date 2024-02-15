@@ -138,7 +138,8 @@ class Post extends Model
 
     public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Photo::class, 'posts_id', 'id');
+        return $this->hasMany(Photo::class, 'posts_id', 'id')
+            ->where('type', '<>', Photo::CHECK_PHOTO_TYPE);
     }
     public function checkPhoto(): HasOne
     {

@@ -3,12 +3,10 @@
 @endphp
 <div class="catalog-item">
     <div class="catalog-item__header">
-        <a href="/post/{{ $post->url }}">
-            <picture>
-
+        <div class="catalog-item-gallery">
+            <picture class="listing-slick">
                 <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $post->avatar)}}" type="image/webp">
                 <source srcset="/400-500/thumbs/{{$post->avatar}}" type="image/jpeg">
-
                 <img class="catalog-item__img" src="/400-500/thumbs/{{$post->avatar}}"
                      alt="{{ $post->alt }}"
                      @if(!isset($i) or $i > 2)
@@ -17,7 +15,21 @@
                      title="{{ $post->title }}">
             </picture>
 
-        </a>
+            @if($post->photo)
+                @foreach($post->photo as $item)
+                    <picture class="listing-slick">
+                        <source srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $item->file)}}"
+                                type="image/webp">
+                        <source srcset="/400-500/thumbs/{{$item->file}}" type="image/jpeg">
+                        <img class="catalog-item__img" src="/400-500/thumbs/{{$item->file}}"
+                             alt="{{ $post->alt }}"
+                             loading="lazy"
+                             title="{{ $post->title }}">
+                    </picture>
+                @endforeach
+            @endif
+
+        </div>
         <div data-id="{{ $post->id }}" onclick="add_to_favorite(this)"
              class="
              @if(\App\Actions\AddFavoriteToCookie::check($post->id))
