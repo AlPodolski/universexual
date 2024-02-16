@@ -4509,13 +4509,6 @@ function getMorePosts(object) {
                 if (data.next_page) $(object).attr('data-url', data.next_page);
                 else $(object).remove();
 
-                $('.catalog-item-gallery').each(function () {
-                    if (!$(this).hasClass('slick-active')) {
-                        $(this).slick();
-                        $(this).addClass('slick-active');
-                    }
-                });
-
             }
 
         }
@@ -4633,13 +4626,6 @@ $(window).scroll(function () {
         header.removeClass('out');
     }
     scrollPrev = scrolled;
-});
-
-$(document).ready(function () {
-    $('.catalog-item-gallery').each(function () {
-        $(this).slick();
-        $(this).addClass('slick-active');
-    });
 });
 
 function openPost (object){

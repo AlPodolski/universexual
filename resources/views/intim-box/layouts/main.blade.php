@@ -292,7 +292,7 @@
 
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/js/wNumb.min.js"></script>
-<script defer src="/intim-box/js/script.js?v=11"></script>
+<script defer src="/intim-box/js/script.js?v=12"></script>
 @if(View::hasSection('lightbox_js'))
     <script defer src="@yield('lightbox_js')"></script>
 @endif
