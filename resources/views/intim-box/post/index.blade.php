@@ -151,7 +151,7 @@
                             <a
                                 data-id="{{ $post->id }}"
                                 data-city="{{ $post->city_id }}"
-                                onclick="show_phone(this)"
+                                onclick="show_phone(this);ym(92632574,'reachGoal','Call')"
                                 class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
                                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
@@ -169,7 +169,7 @@
                             <a
                                 data-id="{{ $post->id }}"
                                 data-city="{{ $post->city_id }}"
-                                onclick="show_phone(this)"
+                                onclick="show_phone(this);ym(92632574,'reachGoal','Call')"
                                 class="catalog-item__phone">
                                 <svg class="catalog-item__phone-icon">
                                     <use xlink:href='/svg/dest/stack/sprite.svg#phone'></use>
