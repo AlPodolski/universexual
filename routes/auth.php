@@ -80,6 +80,7 @@ Route::middleware('redirect')->group(function () {
 
                 Route::post('post/update-tarif', [\App\Http\Controllers\Cabinet\PostController::class, 'updateTarif']);
 
+                Route::post('post/publication/all/stop', [\App\Http\Controllers\Cabinet\PostController::class, 'stop']);
                 Route::post('post/publication/all', [\App\Http\Controllers\Cabinet\PostController::class, 'all']);
 
                 Route::post('/message', \App\Http\Controllers\Cabinet\MessageController::class);

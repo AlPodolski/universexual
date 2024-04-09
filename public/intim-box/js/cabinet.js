@@ -2786,6 +2786,25 @@ function start_all(object){
 
     })
 }
+function stop_all(object){
+
+    $.ajax({
+        type: 'POST',
+        url: '/cabinet/post/publication/all/stop',
+        async:false,
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data){
+
+            $(object).html('Готово');
+
+        },
+
+    })
+}
 
 function sendMessage(object){
 

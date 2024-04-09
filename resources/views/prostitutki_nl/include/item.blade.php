@@ -3,6 +3,18 @@
 @endphp
 <div class="post">
     <div class="post-content">
+        <div data-id="{{ $post->id }}" onclick="add_to_favorite(this)"
+             class="
+             @if(\App\Actions\AddFavoriteToCookie::check($post->id))
+                 catalog-item__favorite_add
+             @endif
+             catalog-item__favorite
+             ">
+            <img
+                width="27px"
+                height="23px"
+                src="/img/favorite.png" alt="Добавить в избранное">
+        </div>
         <a class="img-wrap" href="/post/{{ $post->url }}">
 
             <picture>

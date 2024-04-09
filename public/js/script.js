@@ -225,3 +225,25 @@ function formatPhone(phone) {
 function showSearchForm(){
     document.getElementById('search').classList.toggle('open-search')
 }
+function add_to_favorite(object) {
+
+    var id = $(object).attr('data-id');
+
+    $.ajax({
+        type: 'POST',
+        url: "/favorite/add", //Путь к обработчику
+        data: 'id=' + id,
+        response: 'text',
+        dataType: "html",
+        cache: false,
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        success: function (data) {
+
+            $(object).toggleClass('catalog-item__favorite_add');
+
+        }
+    })
+
+}

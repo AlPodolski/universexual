@@ -5186,7 +5186,6 @@ a:not([class]) {
 img {
     max-width: 100%;
     display: block;
-    width: 100%;
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
@@ -5472,6 +5471,7 @@ h1 {
 .post-content {
     border: 1px solid #e2e2e2;
     margin-top: 0;
+    position: relative;
 }
 .name-wrap{
     padding-left: 10px;
@@ -5997,6 +5997,35 @@ footer {
 
 .links::-webkit-scrollbar-thumb {
     background-color: #f2cd85;
+}
+
+.catalog-item__favorite {
+    filter: grayscale(100%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #FFFFFF;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0px 0px 7px rgba(31, 31, 31, 0.21);
+}
+
+.catalog-item__favorite_add {
+    filter: grayscale(0%);
 }
 
 @media (max-width: 1199px) {

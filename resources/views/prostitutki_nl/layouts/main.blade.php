@@ -97,12 +97,13 @@
     <script src="@yield('lightbox')"></script>
 @endif
 
+<script defer src="/js/jquery-3.5.1.min.js"></script>
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/js/wNumb.min.js"></script>
 <script defer src="/js/axios.js"></script>
 <script defer src="/js/app.js"></script>
 
-<script defer src="/js/script.js?v=9"></script>
+<script defer src="/js/script.js?v=10"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript"> (function (m, e, t, r, i, k, a) {
         m[i] = m[i] || function () {

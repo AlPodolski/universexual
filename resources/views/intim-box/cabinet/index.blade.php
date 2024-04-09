@@ -9,6 +9,7 @@
     <main class="main col-lg-9">
         @if($posts->first())
             <span onclick="start_all(this)" class="start-all ankets__item-moder">Включить все анкеты</span>
+            <span onclick="stop_all(this)" class="start-all ankets__item-moder">Отключить все анкеты</span>
             <div class="ankets__items">
 
 

@@ -469,6 +469,21 @@ class PostController extends Controller
 
         }
     }
+    public function stop()
+    {
+        $posts = Post::where('user_id', auth()->user()->id )
+            ->where('publication_status', Post::POST_ON_PUBLICATION)->get();
+
+        if (!$posts->count()) abort(403);
+
+        foreach ($posts as $post){
+
+            $post->publication_status = Post::POST_DONT_PUBLICATION;
+
+            $post->save();
+
+        }
+    }
 
     public function up(Request $request)
     {
