@@ -25,4 +25,9 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     public $timestamps = false;
+
+    public function info(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ActualCityInfo::class, 'city_id', 'id');
+    }
 }

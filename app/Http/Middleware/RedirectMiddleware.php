@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\City;
 use Cache;
 use Carbon\Carbon;
 use Closure;
@@ -43,6 +44,37 @@ class RedirectMiddleware
 
             $request->route()->setParameter('city', $city);
 
+        }
+
+        $actualCity = preg_replace("/[0-9]/", '', $actualCity);
+
+        $cityInfo = \Cache::get('city_info-'.$actualCity.'-'.'-site_id-'.SITE);
+
+        if (!$cityInfo){
+
+            $cityInfo = City::where('url', $actualCity)
+                ->with(['info' => function ($query) {
+                    $query->where('site_id', SITE_ID);
+                }])
+                ->first();
+
+            \Cache::set('city_info-'.$actualCity.'-'.'-site_id-'.SITE, $cityInfo);
+
+        }
+
+        if ($cityInfo and isset($cityInfo->info)){
+
+            $actualHost = $cityInfo->info->actual_city.'.'.$cityInfo->info->domain;
+
+            if ($actualHost != $_SERVER['HTTP_HOST']) {
+
+                $url = 'https://'.$actualHost.$_SERVER['REQUEST_URI'];
+
+                //header('Location: '.$url, true, 301);
+
+                //exit();
+
+            }
         }
 
         return $next($request);
