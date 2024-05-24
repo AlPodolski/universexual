@@ -4454,15 +4454,6 @@ function init_map_metro(map_name, x, y) {
 
 }
 
-arrowTop.onclick = function () {
-    window.scrollTo(pageXOffset, 0);
-    // после scrollTo возникнет событие "scroll", так что стрелка автоматически скроется
-};
-
-window.addEventListener('scroll', function () {
-    arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
-});
-
 function openMenu(object) {
     console.log(object);
     $(object).closest('.sidebar-filters__item').toggleClass('show-item');

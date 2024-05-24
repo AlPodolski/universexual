@@ -7,7 +7,7 @@
     @include('admin.include.nav')
 
     <main class=" chat admin-chat">
-        @include('intim-box.cabinet.include.message')
+        @include('new.cabinet.include.message')
 
         <div class="chat__list">
 

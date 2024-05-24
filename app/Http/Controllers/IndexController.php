@@ -37,7 +37,7 @@ class IndexController extends Controller
 
         $webmaster = $webmasterRepository->get($city);
 
-        return view(PATH.'.index.index', compact(
+        return view('new.index.index', compact(
             'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
         ));
     }
@@ -49,7 +49,7 @@ class IndexController extends Controller
 
         $posts = $this->postRepository->getForMain($cityInfo['id']);
 
-        $data['posts'] = view(PATH.'.include.more', compact('posts', 'cityInfo'))->render();
+        $data['posts'] = view('new.include.more', compact('posts', 'cityInfo'))->render();
         $data['next_page'] = str_replace('http', 'https', $posts->nextPageUrl());
 
         return json_encode($data);

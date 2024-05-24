@@ -44,7 +44,7 @@ class PostController extends Controller
 
         $viewPosts = $this->postRepository->getView();
 
-        return view(PATH.'.post.index', compact(
+        return view('new.post.index', compact(
             'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts', 'productMicro', 'viewCount'
         ));
     }
