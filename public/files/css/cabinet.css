@@ -2760,8 +2760,7 @@ footer {
 }
 
 .profile-main-reviews__btn {
-    background: -o-linear-gradient(358.8deg, #4926e8 .29%, #2dc8ff 112.3%);
-    background: linear-gradient(91.2deg, #4926e8 .29%, #2dc8ff 112.3%);
+    background: #ff005c;
     border-radius: 10px;
     color: #fff;
     padding: 5px 23px;

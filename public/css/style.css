@@ -568,7 +568,9 @@ footer {
     -ms-transform: translateY(-5px);
     transform: translateY(-5px)
 }
-
+.noUi-connect {
+    background: #ff005c;
+}
 .header__location-list__sub-link {
     color: #000;
     font-size: 1.1428571429rem;
