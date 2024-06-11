@@ -12,70 +12,77 @@
         {!! $productMicro !!}
     @endif
 
-    <div class="catalog__body">
+    @include('new.include.main-menu', compact('data'))
 
-        @include('new.include.breadcrumb' , ['title' => $meta['h1']])
+    <div class="catalog">
 
-        @include('prostitutki_nl.include.filter' , compact('data'))
+        @include('new.include.top-menu')
 
-        <div class="catalog-descr">
-            <h1 class="catalog-descr__title">
-                {{ $meta['h1'] }}
-            </h1>
-        </div>
+        <div class="catalog__body">
 
-        @include('new.include.link')
+            @include('new.include.filter' , compact('data'))
 
-        <div class="count-post-find breadcrumbs__link">
-            Найдено анкет: {{ $posts->total() }}
-        </div>
+            @include('new.include.breadcrumb' , ['title' => $meta['h1']])
 
-        @if(isset($data['current_metro']) and $data['current_metro']->x)
-
-            <div class="metro-map">
-
-                <div class="show-metro-map" onclick="ym(92632574,'reachGoal','GET_METRO_MAP');show_metro_map()">
-                    Показать на карте
-                </div>
-
+            <div class="catalog-descr">
+                <h1 class="catalog-descr__title">
+                    {{ $meta['h1'] }}
+                </h1>
             </div>
 
-            <div id="map" class="d-none" style="height: 300px" data-x="{{$data['current_metro']->x}}"
-                 data-y="{{$data['current_metro']->y}}"></div>
+            @include('new.include.link')
 
-        @endif
+            <div class="count-post-find breadcrumbs__link">
+                Найдено анкет: {{ $posts->total() }}
+            </div>
 
-        <div class="catalog-items">
-            @php
-                $i = 0;
-            @endphp
-            @foreach($posts as $post)
-                @include('new.include.item')
+            @if(isset($data['current_metro']) and $data['current_metro']->x)
+
+                <div class="metro-map">
+
+                    <div class="show-metro-map" onclick="ym(92632574,'reachGoal','GET_METRO_MAP');show_metro_map()">
+                        Показать на карте
+                    </div>
+
+                </div>
+
+                <div id="map" class="d-none" style="height: 300px" data-x="{{$data['current_metro']->x}}"
+                     data-y="{{$data['current_metro']->y}}"></div>
+
+            @endif
+
+            <div class="catalog-items">
                 @php
-                    $i ++;
+                    $i = 0;
                 @endphp
-            @endforeach
-        </div>
-
-        @if(isset($data['near_metro']))
-
-            <div class="near-metro">
-                Посмотрите также анкеты на соседних метро:
-                @foreach($data['near_metro'] as $item)
-                    <a href="/{{ $item->metro->filter->url }}">{{  $item->metro->value }}</a>
+                @foreach($posts as $post)
+                    @include('new.include.item')
+                    @php
+                        $i ++;
+                    @endphp
                 @endforeach
             </div>
 
-        @endif
+            @if(isset($data['near_metro']))
 
-        @if($posts->total() > $posts->count())
+                <div class="near-metro">
+                    Посмотрите также анкеты на соседних метро:
+                    @foreach($data['near_metro'] as $item)
+                        <a href="/{{ $item->metro->filter->url }}">{{  $item->metro->value }}</a>
+                    @endforeach
+                </div>
 
-            <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
-                 class="get-more get-more-post-btn">Показать еще
-            </div>
+            @endif
 
-            {{ $posts->links('new.vendor.pagination.bootstrap-4') }}
-        @endif
+            @if($posts->total() > $posts->count())
+
+                <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+                     class="get-more get-more-post-btn">Показать еще
+                </div>
+
+                {{ $posts->links('new.vendor.pagination.bootstrap-4') }}
+            @endif
+        </div>
     </div>
 @endsection
 

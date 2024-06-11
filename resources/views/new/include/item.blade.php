@@ -165,7 +165,7 @@
             @if($post->video)
                 <li class="catalog-item__ui-item">
                 <span class="catalog-item__ui-link link-reset btn">
-                    <img src="/images/graphics/icons/video.svg" alt="">
+                    <img src="/files/images/video.svg" alt="">
                 </span>
                 </li>
             @endif
@@ -173,7 +173,7 @@
             @if($post->reviews->first())
                 <li class="catalog-item__ui-item">
                     <a href="#" class="catalog-item__ui-link link-reset btn">
-                        <img src="/images/graphics/icons/comment.svg" alt="">
+                        <img src="/files/images/comment.svg" alt="">
                     </a>
                 </li>
             @endif

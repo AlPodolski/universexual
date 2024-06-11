@@ -51,7 +51,7 @@ class SearchController extends Controller
 
         $cityList = City::where('city', 'like', '%'.$city.'%')->get();
 
-        return view('intim-box.search.city', compact('city', 'cityList'));
+        return view('files.search.city', compact('city', 'cityList'));
 
     }
 }

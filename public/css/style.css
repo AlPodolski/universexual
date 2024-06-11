@@ -559,7 +559,7 @@ footer {
     -webkit-transition: .2s;
     -o-transition: .2s;
     transition: .2s;
-    z-index: 1;
+    z-index: 10;
     padding: 5px 12px;
     border-radius: 2px;
     max-height: 400px;
@@ -1493,7 +1493,7 @@ footer {
 
 .profile__modal-form-textarea {
     max-width: 486px;
-    margin: 38px 0 0 0;
+    margin: 5px 0 0 0;
     width: 100%;
     resize: none;
     height: 65px;
@@ -1505,7 +1505,9 @@ footer {
     padding: 13px 23px;
     color: #b8b8b8
 }
-
+.links-wrap{
+    margin-bottom: 15px;
+}
 .profile__modal-form-btn {
     background: #ff005c;
     border-radius: 10px;
@@ -1713,11 +1715,22 @@ footer {
     line-height: 27px;
     max-width: 172px;
     font-size: 1.2142857143rem;
-    margin-top: 22px;
+    margin: auto;
+    display: block;
     width: 100%;
     -webkit-box-shadow: 0 4px 7px rgba(255, 0, 92, .25);
     box-shadow: 0 4px 7px rgba(255, 0, 92, .25);
     border-radius: 7px
+}
+
+.form-input {
+    border: 1px solid #eee;
+    padding: 8px 23px;
+    border-radius: 7px;
+    color: #b8b8b8;
+    max-width: 486px;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 .profile-main-reviews__items {

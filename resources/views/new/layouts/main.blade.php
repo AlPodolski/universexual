@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="header__logo header__col">
-                        <a href="#">
+                        <a href="/">
                             <img class="header__logo-img" src="/images/logo.webp" alt="">
                         </a>
                     </div>
@@ -93,98 +93,7 @@
         </main>
     </div>
     <footer class="footer">
-        <div class="container">
-            <div class="row footer__row">
-                <div class="footer__about footer__col">
-                    <a href="#">
-                        <img src="images/logo.webp" alt="">
-                    </a>
-                    <p class="footer__about-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua.
-                    </p>
-                </div>
-                <div class="footer__menu footer__col">
-                    <ul class="footer__menu-list">
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Индивидуалки
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Проверенные
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Новые
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Дешевые
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Элитные
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="footer__menu-list">
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                С видео
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Интим-салоны
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Массажистки
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                            <a class="footer__menu-link link-reset" href="#">
-                                Интим-карта
-                            </a>
-                        </li>
-                        <li class="footer__menu-item">
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__mail footer__col">
-                    <p class="footer__mail-descr">
-                        Обращайтесь на почту по всем интересующим вопрсам
-                    </p>
-                    <a href="mailto:#" class="footer__mail-link link-reset">
-                        <svg class="footer__mail-icon">
-                            <use xlink:href='svg/dest/stack/sprite.svg#mail'></use>
-                        </svg>
-                        <span>mail.@mail.ru</span>
-                    </a>
-                </div>
-            </div>
-        </div>
     </footer>
-
-    <div class="modal-video">
-        <div class="modal-video__header">
-            <div class="modal-video__close">
-                <svg>
-                    <use xlink:href='svg/dest/stack/sprite.svg#close'></use>
-                </svg>
-            </div>
-        </div>
-        <div class="modal-video__body">
-            <video src="" controls></video>
-        </div>
-    </div>
 </div>
 
 <div class="mobile-menu mobile-menu_main" data-menu>
@@ -194,7 +103,7 @@
 </div>
 <script defer src="/js/wNumb.min.js"></script>
 <script defer src="/js/nouislider.min.js"></script>
-<script defer src="/intim-box/js/script.js?v=12"></script>
+<script defer src="/files/js/script.js?v=12"></script>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
 <div class="profile-main__sim-item">
-    <a href="/post/{{ $item->url }}" class="profile-main__sim-item-photo">
+    <a href="/user/{{ $item->url }}" class="profile-main__sim-item-photo">
         <img src="/252-309/thumbs/{{$item->avatar}}" alt="">
     </a>
     <div class="profile-main__sim-item-name item-name">
-        <a href="/post/{{ $item->url }}" class="item-name__text profile-main__sim-title-item-name-text">
+        <a href="/user/{{ $item->url }}" class="item-name__text profile-main__sim-title-item-name-text">
             {{ $item->name }}
         </a>
     </div>
