@@ -26,7 +26,7 @@
 
                             @if($chatItem->last->related_class == \App\Models\File::class)
                                 <svg>
-                                    <use xlink:href='/intim-box/svg/dest/stack/cabinet.svg#addFile'></use>
+                                    <use xlink:href='/svg/dest/stack/cabinet.svg#addFile'></use>
                                 </svg>
                             @else
                                 {{ $chatItem->last->message }}
@@ -52,7 +52,7 @@
                             class="message-text @if(isset($chatItem->last->status ) and $chatItem->last->status == \App\Models\ChatMessage::NOT_READ_STATUS and $chatItem->last->from <> 0) not-read @endif ">
                             @if($chatItem->last->related_class == \App\Models\File::class)
                                 <svg>
-                                    <use xlink:href='/intim-box/svg/dest/stack/cabinet.svg#addFile'></use>
+                                    <use xlink:href='/svg/dest/stack/cabinet.svg#addFile'></use>
                                 </svg>
                             @else
                                 {{ $chatItem->last->message }}

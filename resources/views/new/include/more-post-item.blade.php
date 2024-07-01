@@ -10,7 +10,7 @@
     @if($metro = $item->metro->first())
         <div class="profile-main__sim-item-location metro">
             <svg class="metro__icon">
-                <use xlink:href='/intim-box/svg/dest/stack/sprite.svg#metro'></use>
+                <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
             </svg>
             <a href="/{{ $metro->metro_url }}" class="metro__text">
                 {{ $metro->metro_value }}
