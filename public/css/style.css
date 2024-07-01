@@ -265,6 +265,7 @@ main {
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
+    margin-bottom: 10px;
     background-color: #ffedf4
 }
 
@@ -1262,6 +1263,7 @@ footer {
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
+    flex-wrap: wrap;
     justify-content: space-between
 }
 
