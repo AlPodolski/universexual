@@ -21,7 +21,7 @@
                 <a href="/user/{{ $post->url }}" class="catalog-item__title-text">
                     {{ $post->name }}, {{ $post->age }}
                 </a>
-                <img class="catalog-item__title-icon" src="/images/graphics/icons/fire-strong.svg" alt="">
+                <img class="catalog-item__title-icon" src="/files/images/graphics/icons/fire-strong.svg" alt="">
             </div>
             <button class="catalog-item__favorite">
                 <img src="/images/graphics/catalog-page/favorite.webp" alt="">
