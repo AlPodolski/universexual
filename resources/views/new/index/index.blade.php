@@ -49,9 +49,6 @@
                  class="get-more get-more-post-btn">Показать еще
             </div>
             @if($posts and $posts->total() > $posts->count())
-
-
-
                 {!! str_replace('http', 'https', $posts->links('new.vendor.pagination.bootstrap-4')) !!}
             @endif
 

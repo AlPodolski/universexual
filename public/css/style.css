@@ -2570,6 +2570,47 @@ footer {
     display: none;
 }
 
+.pagination {
+    display: flex;
+    padding-left: 0px;
+    list-style: none;
+    border-radius: 0.25rem;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.page-item {
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #ff005c;
+}
+.page-link {
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: #000;
+}
+.page-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #E0DAFB;
+}
+
+.page-item.active .page-link {
+    color: #ff005c;
+}
+
 @media (max-width: 1199px) {
     .filter-wrap {
         position: fixed;
