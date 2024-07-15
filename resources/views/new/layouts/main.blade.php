@@ -36,7 +36,7 @@
     @if(View::hasSection('lightbox_css'))
         <link rel="stylesheet" href="@yield('lightbox_css')">
     @endif
-    <link rel="stylesheet" href="/css/style.css?v=23">
+    <link rel="stylesheet" href="/css/style.css?v=24">
 </head>
 
 <body>
