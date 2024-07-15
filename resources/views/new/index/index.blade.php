@@ -45,12 +45,12 @@
                 @endif
 
             </div>
-
+            <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+                 class="get-more get-more-post-btn">Показать еще
+            </div>
             @if($posts and $posts->total() > $posts->count())
 
-                <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
-                     class="get-more get-more-post-btn">Показать еще
-                </div>
+
 
                 {!! str_replace('http', 'https', $posts->links('new.vendor.pagination.bootstrap-4')) !!}
             @endif

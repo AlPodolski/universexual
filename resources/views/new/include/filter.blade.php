@@ -1,12 +1,12 @@
 <div onclick="showFilter()" class="toggle-filter">Показать фильтр</div>
 
-<form action="/filter" class="filter-wrap d-flex" id="filter">
+<form action="/filter" class="filter-wrap filter-form d-flex" id="filter">
     <div class="close-panel" onclick="showFilter(this)">
         <img src="/img/close.svg" alt="">
     </div>
     @csrf
     <div class="filter-item">
-        <div class="bold-text">Возраст</div>
+        <div class="bold-text slider-item-text">Возраст</div>
         <div class="filter-item-slide" id="age"></div>
         <div class="inputs">
             <input type="text" readonly id="age-from" name="age-from">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="filter-item">
-        <div class="bold-text">Вес</div>
+        <div class="bold-text slider-item-text">Вес</div>
         <div class="filter-item-slide" id="ves"></div>
         <div class="inputs">
             <input type="text" readonly id="ves-from" name="ves-from">
@@ -24,7 +24,7 @@
     </div>
 
     <div class="filter-item">
-        <div class="bold-text">Грудь</div>
+        <div class="bold-text slider-item-text">Грудь</div>
         <div class="filter-item-slide" id="grud"></div>
         <div class="inputs">
             <input type="text" readonly id="grud-from" name="grud-from">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="filter-item">
-        <div class="bold-text">Цена</div>
+        <div class="bold-text slider-item-text">Цена</div>
         <div class="filter-item-slide" id="price"></div>
         <div class="inputs">
             <input type="text" readonly id="price-from" name="price-from">

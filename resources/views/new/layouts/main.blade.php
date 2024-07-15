@@ -71,6 +71,9 @@
                             Кабинет
                         </a>
                     </div>
+                    <div class="filter-btn" onclick="showFilter()">
+                        <img src="/img/filter.svg" alt="">
+                    </div>
                     <div class="header__col header__user">
                         <button class="header__user-btn btn">
                             <svg class="header__user-icon">

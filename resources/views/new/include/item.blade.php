@@ -155,13 +155,15 @@
             </li>
         </ul>
         <ul class="catalog-item__ui">
-            <li class="catalog-item__ui-item">
-                <a href="#" class="catalog-item__ui-link link-reset btn">
-                    <svg>
-                        <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
-                    </svg>
-                </a>
-            </li>
+            @if($post->check_photo_status)
+                <li class="catalog-item__ui-item">
+                    <a class="catalog-item__ui-link link-reset btn">
+                        <svg>
+                            <use xlink:href='/svg/dest/stack/sprite.svg#sec'></use>
+                        </svg>
+                    </a>
+                </li>
+            @endif
             @if($post->video)
                 <li class="catalog-item__ui-item">
                 <span class="catalog-item__ui-link link-reset btn">
