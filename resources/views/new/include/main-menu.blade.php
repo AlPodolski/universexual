@@ -23,15 +23,6 @@
                 </a>
             </li>
             <li class="sidebar__types-item">
-                <a itemprop="url" title="Интим-салоны {{ $data['current_city']->city }}" href="/intim-salony"
-                   class="sidebar__types-link link-reset">
-                    <svg class="sidebar__types-icon">
-                        <use xlink:href="/svg/dest/stack/sprite.svg#home-location"></use>
-                    </svg>
-                    <span itemprop="name">Интим-салоны</span>
-                </a>
-            </li>
-            <li class="sidebar__types-item">
                 <a itemprop="url"
                    title="Проститутки массажистки"
                    href="/eroticeskii-massaz"

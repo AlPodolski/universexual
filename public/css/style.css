@@ -1070,6 +1070,14 @@ footer {
     padding: 13px 17px 0
 }
 
+.near-metro{
+    margin-top: 15px;
+}
+
+h1.catalog-descr__title::first-letter {
+    text-transform: uppercase;
+}
+
 .catalog-item__title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1113,7 +1121,7 @@ footer {
 
 .catalog-item__phone {
     margin: 0 0 0 4.0714285714rem;
-    max-width: 172px;
+    max-width: 215px;
     width: 100%;
     padding: 7px 17px;
     background: #ff005c;
@@ -1165,7 +1173,15 @@ footer {
 .catalog-item__location-text {
     color: #ff005c
 }
-
+.show-metro-map {
+    padding: 10px 0;
+    text-align: center;
+    color: #ff0080;
+}
+.metro-map {
+    background: url("../images/onmap.jpg") no-repeat;
+    cursor: pointer;
+}
 .catalog-item__list {
     list-style: none;
     margin: 16px 0 13px 0;

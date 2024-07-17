@@ -212,12 +212,6 @@
                             </li>
                         @endif
 
-                        <div class="profile-main-info__characters-alert">
-                            Сообщите, что звоните с сайта {{ SITE }} <img class="emoji"
-                                                                         src="/files/images/graphics/icons/emoji.png"
-                                                                         alt="">
-                        </div>
-
                         @if($post->city_id == 1 and $post->metro->first())
 
                             <li class="profile-main-info__characters-item">

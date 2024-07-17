@@ -26,9 +26,9 @@
             @include('new.include.filter' , compact('data'))
 
             <div class="catalog-descr">
-                <h2 class="catalog-descr__title">
+                <h1 class="catalog-descr__title">
                     {{ $meta['h1'] }}
-                </h2>
+                </h1>
             </div>
             <div class="catalog-items">
                 @php

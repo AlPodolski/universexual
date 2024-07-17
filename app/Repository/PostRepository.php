@@ -13,6 +13,8 @@ class PostRepository
 
     protected string $sort;
 
+    private $postLimit = 21;
+
     public function __construct()
     {
         $this->sort = (new GetSort())->get(\Cookie::get('sort') ?? 'default');
@@ -24,7 +26,7 @@ class PostRepository
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro', 'reviews', 'city', 'place', 'national', 'service')
             ->orderByRaw($this->sort)
-            ->paginate(20);
+            ->paginate($this->postLimit);
 
         return $posts;
     }
@@ -240,7 +242,7 @@ class PostRepository
         $posts = $posts
             ->with('place', 'reviews', 'city', 'metro', 'national', 'service')
             ->orderByRaw($this->sort)
-            ->paginate(20);
+            ->paginate($this->postLimit);
 
         return $posts;
 
@@ -253,7 +255,7 @@ class PostRepository
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('reviews', 'city', 'national', 'service')
             ->orderByRaw($this->sort)
-            ->paginate(20);
+            ->paginate($this->postLimit);
 
         return $posts;
 
@@ -317,7 +319,7 @@ class PostRepository
 
         $posts = $posts
             ->orderByRaw($this->sort)
-            ->paginate(20);
+            ->paginate($this->postLimit);
 
         return $posts;
     }
@@ -359,7 +361,7 @@ class PostRepository
 
             $posts = Post::with('metro', 'national')
                 ->whereIn('id', $data)
-                ->paginate(20);
+                ->paginate($this->postLimit);
 
             return $posts;
 
