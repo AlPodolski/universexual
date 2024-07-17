@@ -1,9 +1,11 @@
 @if($links)
     <div class="links-wrap">
         @foreach($links as $item)
-            <a class="tag" href="/{{ $item['to'] }}">
-                #{{ $item['text'] }}
-            </a>
+            @if($item['text'])
+                <a class="tag" href="/{{ $item['to'] }}">
+                    #{{ $item['text'] }}
+                </a>
+            @endif
         @endforeach
     </div>
 @endif
