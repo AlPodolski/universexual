@@ -1066,6 +1066,10 @@ footer {
     transform: scale(.8)
 }
 
+.d-none{
+    display: none;
+}
+
 .catalog-item__body {
     padding: 13px 17px 0
 }
