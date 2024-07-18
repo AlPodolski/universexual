@@ -112,7 +112,8 @@
                                                     <div class="profile-main-info__slider-main-verif">
                                                         <div class="profile-main-info__slider-main-verif-icon">
                                                             <svg>
-                                                                <use xlink:href='/svg/dest/stack/sprite.svg#camera'></use>
+                                                                <use
+                                                                    xlink:href='/svg/dest/stack/sprite.svg#camera'></use>
                                                             </svg>
                                                         </div>
                                                         <div class="profile-main-info__slider-main-verif-text">
@@ -911,33 +912,36 @@
                 </div>
             </div>
 
-            @if($metro = $post->metro->first() or $data['current_city']->id == 1)
+            @if($metro = $post->metro->first() or $data['current_city']->id != 1)
 
-                <div class="profile-main__location profile-main__block">
-                    <div class="profile-main__location-title profile-main__title">
-                        Расположение
-                    </div>
-                    <div class="profile-main__location-map">
-                        <div id="map"
-                             class="yandex-map map-not-exist"
+                @php
+                    if ($metro->x){
+                        $x = $metro->x;
+                        $y = $metro->y;
+                    }else{
+                        $x = $data['current_city']->x;
+                        $y = $data['current_city']->y;
+                    }
+                @endphp
 
-                             @php
-                                 if ($metro){
-                                     $x = $metro->x;
-                                     $y = $metro->y;
-                                 }else{
-                                     $x = $data['current_city']->x;
-                                     $y = $data['current_city']->y;
-                                 }
-                             @endphp
+                @if($x)
+                    <div class="profile-main__location profile-main__block">
+                        <div class="profile-main__location-title profile-main__title">
+                            Расположение
+                        </div>
+                        <div class="profile-main__location-map">
+                            <div id="map"
+                                 class="yandex-map map-not-exist"
 
-                             data-x="{{ $x}}"
-                             data-y="{{ $y }}"
+                                 data-x="{{ $x}}"
+                                 data-y="{{ $y }}"
 
-                             style="height: 200px">
+                                 style="height: 200px">
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
             @endif
 
             <div data-tab="reviews" id="reviews"
@@ -1085,7 +1089,7 @@
 
                             <symbol viewBox="0 0 29 29" id="star2">
                                 <path
-                                        d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z"/>
+                                    d="M15.7371 1.57498L18.8996 8.44998C19.0371 8.86248 19.4496 9.13748 19.8621 9.27498L27.0121 10.375C28.2496 10.375 28.6621 11.75 27.8371 12.575L22.6121 17.9375C22.3371 18.2125 22.1996 18.7625 22.1996 19.175L23.4371 26.6C23.5746 27.7 22.4746 28.6625 21.5121 28.1125L15.0496 24.5375C14.6371 24.2625 14.2246 24.2625 13.8121 24.5375L7.34959 28.1125C6.38709 28.6625 5.14959 27.8375 5.42459 26.6L6.66209 19.175C6.79959 18.7625 6.52459 18.2125 6.24959 17.9375L1.02459 12.575C0.337088 11.75 0.749588 10.375 1.84959 10.2375L8.99959 9.13748C9.41209 9.13748 9.82459 8.72498 9.96209 8.31248L13.1246 1.43748C13.8121 0.474981 15.1871 0.474981 15.7371 1.57498Z"/>
                             </symbol>
                             <symbol viewBox="0 0 190 32" id="stars2">
                                 <use xlink:href="#star2" x="-64" y="0"></use>
