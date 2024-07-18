@@ -189,7 +189,7 @@ class PostRepository
 
                 if ($filter->related_table == 'post_services') {
 
-                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where ' . $filter->related_column . ' =  ? and `city_id` = ?) ',
+                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where ' . $filter->related_column . ' =  ? and `city_id` = ? AND `not_available` = 0) ',
                         [$filter->related_id, $cityId]);
 
                 }
