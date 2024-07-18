@@ -1125,6 +1125,6 @@
     @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/252-309/thumbs/'.$post->avatar])
 @endsection
 
-@section('yandex_script', '/js/map.js')
+@section('yandex_script', '/files/js/map.js')
 @section('lightbox_js', '/js/lightbox.min.js')
 @section('lightbox_css', '/css/lightbox.css')
