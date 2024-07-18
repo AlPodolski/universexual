@@ -31,7 +31,7 @@ class MapController extends Controller
 
         $breadMicro = $this->breadMicro->generate($request, $meta['h1']);
 
-        return view(PATH . '.map.map', compact(
+        return view(  'new.map.map', compact(
             'posts', 'data', 'meta', 'breadMicro'
         ));
     }

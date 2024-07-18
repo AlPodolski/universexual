@@ -1918,6 +1918,8 @@ h1.catalog-descr__title::first-letter {
     display: flex;
     list-style: none;
     margin: 21px 0 0 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 0
 }
 

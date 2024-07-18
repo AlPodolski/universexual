@@ -36,7 +36,7 @@
     @if(View::hasSection('lightbox_css'))
         <link rel="stylesheet" href="@yield('lightbox_css')">
     @endif
-    <link rel="stylesheet" href="/css/style.css?v=27">
+    <link rel="stylesheet" href="/css/style.css?v=28">
 </head>
 
 <body>
@@ -102,9 +102,13 @@
 
     </div>
 </div>
+@if(View::hasSection('yandex_script'))
+    <script defer src="@yield('yandex_script')"></script>
+@endif
 <script defer src="/js/wNumb.min.js"></script>
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/files/js/script.js?v=12"></script>
+
 </body>
 
 </html>
