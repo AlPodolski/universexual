@@ -57,11 +57,10 @@ class PostRepository
 
         });
 
-        if (isset($post->single_view)){
+        if (isset($post->single_view)) {
             $post->single_view = $post->single_view + 1;
             $post->save();
         }
-
 
 
         return $post;
@@ -78,7 +77,7 @@ class PostRepository
         $posts = Post::where(['city_id' => $cityId])
             ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION]);
 
-        foreach ($searchData as $search){
+        foreach ($searchData as $search) {
 
             if (strpos($search, 'intim-salony') !== false)
                 $salon = true;
@@ -107,27 +106,27 @@ class PostRepository
             if (strpos($search, 'molodye-prostitutki') !== false)
                 $posts = $posts->where('age', '<', 26);
 
-            if (strpos($search, 'vzroslye-prostitutki') !== false){
+            if (strpos($search, 'vzroslye-prostitutki') !== false) {
                 $posts = $posts->where('age', '>', 34);
                 $posts = $posts->where('age', '<', 46);
             }
 
-            if (strpos($search, 'prostitutki-21-25-let') !== false){
+            if (strpos($search, 'prostitutki-21-25-let') !== false) {
                 $posts = $posts->where('age', '>', 20);
                 $posts = $posts->where('age', '<', 26);
             }
 
-            if (strpos($search, 'prostitutki-26-30-let') !== false){
+            if (strpos($search, 'prostitutki-26-30-let') !== false) {
                 $posts = $posts->where('age', '>', 25);
                 $posts = $posts->where('age', '<', 31);
             }
 
-            if (strpos($search, 'prostitutki-31-40-let') !== false){
+            if (strpos($search, 'prostitutki-31-40-let') !== false) {
                 $posts = $posts->where('age', '>', 30);
                 $posts = $posts->where('age', '<', 41);
             }
 
-            if (strpos($search, 'prostitutki-40-50-let') !== false){
+            if (strpos($search, 'prostitutki-40-50-let') !== false) {
                 $posts = $posts->where('age', '>', 39);
                 $posts = $posts->where('age', '<', 51);
             }
@@ -147,27 +146,27 @@ class PostRepository
             if (strpos($search, 'do-1500-rub') !== false)
                 $posts = $posts->where('price', '<', 1501);
 
-            if (strpos($search, '2000-3000-rub') !== false){
+            if (strpos($search, '2000-3000-rub') !== false) {
                 $posts = $posts->where('price', '>', 1999);
                 $posts = $posts->where('price', '<', 3001);
             }
 
-            if (strpos($search, '3000-4000-rub') !== false){
+            if (strpos($search, '3000-4000-rub') !== false) {
                 $posts = $posts->where('price', '>', 2999);
                 $posts = $posts->where('price', '<', 4001);
             }
 
-            if (strpos($search, '4000-5000-rub') !== false){
+            if (strpos($search, '4000-5000-rub') !== false) {
                 $posts = $posts->where('price', '>', 3999);
                 $posts = $posts->where('price', '<', 5001);
             }
 
-            if (strpos($search, '5000-6000-rub') !== false){
+            if (strpos($search, '5000-6000-rub') !== false) {
                 $posts = $posts->where('price', '>', 4999);
                 $posts = $posts->where('price', '<', 6001);
             }
 
-            if (strpos($search, 'ot-10000-rub') !== false){
+            if (strpos($search, 'ot-10000-rub') !== false) {
                 $posts = $posts->where('price', '>', 9999);
             }
 
@@ -305,7 +304,7 @@ class PostRepository
             ->where('price', '<=', $data['price-to'])
             ->where(['city_id' => $cityId]);
 
-        if (isset($data['rost-from'])){
+        if (isset($data['rost-from'])) {
             $posts = $posts->where('rost', '>=', $data['rost-from'])
                 ->where('rost', '<=', $data['rost-to']);
         }
@@ -344,11 +343,20 @@ class PostRepository
 
     public function getMore($cityId, $limit)
     {
-        $posts = Post::where(['city_id' => $cityId])
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'city', 'national', 'service')
-            ->orderByRaw('RAND()')
-            ->limit($limit)->get();
+
+        $expire = Carbon::now()->addMinutes(1);
+
+        $posts = Cache::remember('more_post_' . $cityId, $expire, function () use ($cityId, $limit) {
+
+            $posts = Post::where(['city_id' => $cityId])
+                ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
+                ->with('metro', 'city', 'national', 'service')
+                ->orderByRaw('RAND()')
+                ->limit($limit)->get();
+
+            return $posts;
+
+        });
 
         return $posts;
     }

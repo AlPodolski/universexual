@@ -24,7 +24,7 @@ class PostController extends Controller
         parent::__construct();
     }
 
-    public function __invoke($city,$url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
+    public function __invoke($city, $url, SingleMetaService $metaService, Request $request, AddViewToCookie $addViewToCookie)
     {
         $cityInfo = $this->cityRepository->getCity($city);
         $post = $this->postRepository->getSingle($url);
@@ -36,16 +36,14 @@ class PostController extends Controller
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
         $productMicro = (new GenerateProductMicroForSingle($post))->generate();
 
-        $viewCount = Redis::INCR('post:view:'.$post->id);
+        $viewCount = Redis::INCR('post:view:' . $post->id);
 
         $morePosts = $this->postRepository->getMore($cityInfo['id'], 3);
 
         $addViewToCookie->add($post->id);
 
-        $viewPosts = $this->postRepository->getView();
-
         return view('new.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'viewPosts', 'productMicro', 'viewCount'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'productMicro', 'viewCount'
         ));
     }
 }
