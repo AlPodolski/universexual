@@ -33,23 +33,26 @@
                     <span itemprop="name">Массажистки</span>
                 </a>
             </li>
-            <li class="sidebar__types-item">
-                <a itemprop="url"
-                   title="Проститутки с расположением на карте"
-                   href="/intim-karta"
-                   class="sidebar__types-link link-reset">
-                    <svg class="sidebar__types-icon">
-                        <use xlink:href="/svg/dest/stack/sprite.svg#location"></use>
-                    </svg>
-                    <span itemprop="name">Интим-карта</span>
-                </a>
-            </li>
+            @if($data['current_city']->id == 1)
+                <li class="sidebar__types-item">
+                    <a itemprop="url"
+                       title="Проститутки с расположением на карте"
+                       href="/intim-karta"
+                       class="sidebar__types-link link-reset">
+                        <svg class="sidebar__types-icon">
+                            <use xlink:href="/svg/dest/stack/sprite.svg#location"></use>
+                        </svg>
+                        <span itemprop="name">Интим-карта</span>
+                    </a>
+                </li>
+            @endif
             <li class="sidebar__types-item">
                 <a itemprop="url"
                    title="Избранное"
                    href="/favorite"
                    class="sidebar__types-link link-reset">
-                    <svg class="sidebar__types-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    <svg class="sidebar__types-icon" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                         xmlns:xlink="http://www.w3.org/1999/xlink"
                          width="20" height="22" x="0" y="0" viewBox="0 0 471.701 471.701"
                          style="enable-background:new 0 0 512 512" xml:space="preserve"><g>
                             <path
