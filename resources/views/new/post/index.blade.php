@@ -915,7 +915,7 @@
             @if($metro = $post->metro->first() or $data['current_city']->id != 1)
 
                 @php
-                    if ($metro->x){
+                    if (isset($metro->x) and $metro->x){
                         $x = $metro->x;
                         $y = $metro->y;
                     }else{
