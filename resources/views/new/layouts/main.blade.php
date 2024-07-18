@@ -102,12 +102,13 @@
 
     </div>
 </div>
-@if(View::hasSection('yandex_script'))
-    <script defer src="@yield('yandex_script')"></script>
-@endif
+
 <script defer src="/js/wNumb.min.js"></script>
 <script defer src="/js/nouislider.min.js"></script>
 <script defer src="/files/js/script.js?v=12"></script>
+@if(View::hasSection('yandex_script'))
+    <script defer src="@yield('yandex_script')"></script>
+@endif
 
 </body>
 
