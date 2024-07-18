@@ -911,7 +911,7 @@
                 </div>
             </div>
 
-            @if($metro = $post->metro->first() or $data['current_city']->id != 1)
+            @if($metro = $post->metro->first() or $data['current_city']->id == 1)
 
                 <div class="profile-main__location profile-main__block">
                     <div class="profile-main__location-title profile-main__title">
