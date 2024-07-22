@@ -73,7 +73,7 @@ class PhoneRepository
     {
 
         // URL, куда будет отправлен запрос
-        $url = 'https://admin.sex-team.com/phones/get';
+        $url = 'https://admin.sex-price.com/phones/get';
 
         $data = array(
             'city_id' => $city,
