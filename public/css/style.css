@@ -2489,7 +2489,7 @@ h1.catalog-descr__title::first-letter {
     font-weight: 700;
     font-style: normal;
     font-display: swap;
-    src: url("../fonts/Iowan/iowanoldstyle_bold.otf") format("opentype")
+    src: url("../fonts/Iowan/Ubuntu-Medium.woff2") format("opentype")
 }
 
 @font-face {
@@ -2497,7 +2497,7 @@ h1.catalog-descr__title::first-letter {
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-    src: url("../fonts/Iowan/IowanOldStyleBT-Roman.otf") format("opentype")
+    src: url("../fonts/Iowan/Italiana-Regular.woff2") format("opentype")
 }
 
 .filter-wrap {
