@@ -38,12 +38,14 @@ class PostController extends Controller
 
         $viewCount = Redis::INCR('post:view:' . $post->id);
 
-        $morePosts = $this->postRepository->getMore($cityInfo['id'], 3);
+        $morePosts = $this->postRepository->getMore($cityInfo['id'], 4);
 
         $addViewToCookie->add($post->id);
 
+        $serviceTypeInfo = array('sex' => 'Секс',  'mass' => 'Массаж', 'minet' => 'Минет', 'cum' => 'Окончание', 'bdsm' => 'БДСМ', 'other' => 'Разное');
+
         return view('new.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'productMicro', 'viewCount'
+            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'productMicro', 'viewCount', 'serviceTypeInfo'
         ));
     }
 }

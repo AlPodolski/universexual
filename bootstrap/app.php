@@ -11,8 +11,8 @@
 |
 */
 
-if (strpos($_SERVER['HTTP_HOST'], '3.loc')){
-    define("SITE", '3.loc');
+if (strpos($_SERVER['HTTP_HOST'], '5.loc')){
+    define("SITE", '5.loc');
     define("PATH", 'new');
     define("SITE_ID", 1);
 }

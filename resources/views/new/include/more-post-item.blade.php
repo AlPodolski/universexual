@@ -1,20 +1,23 @@
-<div class="profile-main__sim-item">
-    <a href="/user/{{ $item->url }}" class="profile-main__sim-item-photo">
-        <img src="/252-309/thumbs/{{$item->avatar}}" alt="">
-    </a>
-    <div class="profile-main__sim-item-name item-name">
-        <a href="/user/{{ $item->url }}" class="item-name__text profile-main__sim-title-item-name-text">
-            {{ $item->name }}
-        </a>
-    </div>
+@php
+    /* @var $item \App\Models\Post */
+@endphp
+<div class="col-3">
+<div class="more-post-item">
+    <img src="/400-500/thumbs/{{$item->avatar}}" alt="">
+    <a href="/individualka/{{ $item->url }}"><p class="more-post-name">{{ $item->name }}</p></a>
     @if($metro = $item->metro->first())
-        <div class="profile-main__sim-item-location metro">
-            <svg class="metro__icon">
-                <use xlink:href='/svg/dest/stack/sprite.svg#metro'></use>
+        <a href="/{{ $metro->metro_url }}" class="more-post-metro">
+            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                 viewBox="0 0 27 27" fill="none">
+                <path
+                    d="M16.9128 6.2207L13.5647 13.1327L10.2599 6.2207L7.5167 14.5583H7.0415V15.487H9.82798V14.6014H9.39602L10.7567 10.8646L13.2191 15.487H13.8887L16.3512 10.8214L17.7336 14.5583H17.2367V15.4871H20.088V14.5583H19.5912L16.9128 6.2207Z"
+                    fill="#FF005C"/>
+                <path
+                    d="M13.5001 2.59192C10.8864 2.59192 8.42409 3.62868 6.58809 5.48628C4.77373 7.34388 3.78005 9.78468 3.80161 12.3551C3.80161 14.6014 4.60077 16.8047 6.04794 18.5543C6.13427 18.6623 6.2423 18.7056 6.37187 18.7056H9.22315C11.4047 18.7056 14.2128 18.7271 16.5456 18.7271C18.4464 18.7271 20.0447 18.7271 20.7575 18.7056C20.8871 18.7056 20.9952 18.6408 21.0815 18.5327C22.5071 16.7615 23.2631 14.6015 23.2631 12.3335C23.2634 6.97673 18.8786 2.59193 13.5002 2.59193L13.5001 2.59192ZM20.5201 17.8415C18.6625 17.8848 12.7657 17.8631 9.20169 17.8415H6.56649C5.33521 16.2863 4.64409 14.3424 4.64409 12.3551C4.64409 10.0008 5.55141 7.77592 7.21453 6.09112C8.89933 4.40617 11.1241 3.45592 13.5001 3.45592C18.4033 3.45592 22.3993 7.45192 22.3993 12.3551C22.3993 14.3638 21.7514 16.2647 20.5202 17.8415H20.5201Z"
+                    fill="#FF005C"/>
             </svg>
-            <a href="/{{ $metro->metro_url }}" class="metro__text">
-                {{ $metro->metro_value }}
-            </a>
-        </div>
+            {{ $metro->metro_value }}
+        </a>
     @endif
+</div>
 </div>

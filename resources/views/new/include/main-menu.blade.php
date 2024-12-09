@@ -1,4 +1,4 @@
-<div class="sidebar" itemscope itemtype="http://schema.org/SiteNavigationElement">
+<div class="sidebar d-none" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <meta itemprop="name" content="Каталог">
     <div class="sidebar__header">
         <svg class="sidebar__header-burger">

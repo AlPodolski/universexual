@@ -4240,7 +4240,7 @@
     e(860) && (n.menu.append(i), t(".sidebar-tags__item", ".sidebar-tags__item-list", ".sidebar-tags-item__title", ".sidebar-tags-item__title")), e(440) && n.menu.prepend(s)
 });
 
-function show_phone(object) {
+function call(object) {
 
     var id = $(object).attr('data-id');
     var city = $(object).attr('data-city');

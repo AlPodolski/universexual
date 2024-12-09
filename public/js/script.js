@@ -3,35 +3,35 @@ function toggle_class_to_block(target, className) {
     targetElement.classList.toggle(className);
 }
 
-function phone(object) {
+function call(object) {
 
-    var id = object.getAttribute('data-id');
-    var city = object.getAttribute('data-city');
-    var phone = object.getAttribute('data-phone');
-    var token = document.querySelector('meta[name="csrf-token"]').content;
+    var id = $(object).attr('data-id');
+    var city = $(object).attr('data-city');
+    var phone = $(object).attr('data-phone');
 
     if (phone) {
 
         window.location.href = 'tel:+' + phone;
-
     } else {
 
-        axios.post('/phone',
-            {
-                id: id,
-                city: city
+        $.ajax({
+            type: 'POST',
+            url: "/phone", //Путь к обработчику
+            data: 'id=' + id + '&city=' + city,
+            response: 'text',
+            dataType: "html",
+            cache: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
             },
-            {
-                headers: {'X-CSRF-TOKEN': token},
-            })
-            .then(function (response) {
-                object.innerHTML = formatPhone(response.data);
-                object.setAttribute('data-phone', response.data);
-                window.location.href = 'tel:+' + response.data;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            success: function (data) {
+
+                $(object).html(formatPhone(data));
+                $(object).attr('data-phone', data);
+                window.location.href = 'tel:+' + data;
+
+            }
+        })
 
     }
 
