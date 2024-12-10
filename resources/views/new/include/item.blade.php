@@ -2,7 +2,7 @@
     /* @var $post \App\Models\Post */
 @endphp
 
-<article class="col-3">
+<article class="col-12 col-md-6 col-lg-4 col-xl-3 listing-post">
     <div class="article-top position-relative">
         <a href="/individualka/{{ $post->url }}" class="">
             <picture>

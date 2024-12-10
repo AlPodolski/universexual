@@ -1,7 +1,7 @@
 @php
     /* @var $item \App\Models\Post */
 @endphp
-<div class="col-3">
+<div class="col-12 col-md-6 col-lg-3">
 <div class="more-post-item">
     <img src="/400-500/thumbs/{{$item->avatar}}" alt="">
     <a href="/individualka/{{ $item->url }}"><p class="more-post-name">{{ $item->name }}</p></a>

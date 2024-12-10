@@ -23,7 +23,7 @@
 
             <div class="post-single">
                 <div class="row">
-                    <div class="col-5 carousel-wrap">
+                    <div class="col-12 col-xl-5 carousel-wrap">
                         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
 
@@ -63,7 +63,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-7 single-post-info">
+                    <div class="col-12 col-xl-7 single-post-info">
                         <h1 class="big-red-text">{{ $post->name }}</h1>
 
                         @if($post->check_photo_status)
@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="single-price-item justify-content-between d-flex">
                                         <div class="price-name">Два часа:</div>
-                                        <div class="price-value">{{ $post->two_hour_price ?? '-' }}
+                                        <div class="price-value">{{ $post->apartament_2_hour_price ?? '-' }}
                                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17"
                                                  viewBox="0 0 17 17" fill="none">
                                                 <path
@@ -233,10 +233,10 @@
                             <p class="big-red-text">Услуги</p>
                             <div class="service-map">
                                 <div class="row">
-                                    <div class="col-3">
+                                    <div class="col-12 col-lg-3">
                                         <p class="small-grey-text">Обозначения:</p>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12 col-lg-3">
                                         <div class="service-map-item">
                                             <p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -258,7 +258,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12 col-lg-3">
                                         <div class="service-map-item">
                                             <p>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
@@ -295,9 +295,9 @@
                         <div class="other-params">
                             <p class="big-red-text">Дополнительные параметры </p>
                             <div class="row">
-                                <div class="col-3"><img class="other-params-img"
-                                                        src="/400-500/thumbs/files/shelli_13376.jpg" alt=""></div>
-                                <div class="col-9 other-params-col">
+                                <div class="col-12 col-lg-3"><img class="other-params-img"
+                                                        src="/400-500/thumbs/{{ $post->avatar }}" alt=""></div>
+                                <div class="col-12 col-lg-9 other-params-col">
                                     <p>Параметры:</p>
                                     <div class="other-params-wrap d-flex">
                                         <div class="other-param-item">

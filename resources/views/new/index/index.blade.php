@@ -44,47 +44,6 @@
 
     @include('new.include.main-menu', compact('data'))
 
-    <div class="catalog">
-
-        @include('new.include.top-menu')
-
-        <div class="catalog__body">
-
-            @include('new.include.filter' , compact('data'))
-
-            <div class="catalog-items">
-
-
-            </div>
-            <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
-                 class="get-more get-more-post-btn">Показать еще
-            </div>
-            @if($posts and $posts->total() > $posts->count())
-                {!! str_replace('http', 'https', $posts->links('new.vendor.pagination.bootstrap-4')) !!}
-            @endif
-
-        </div>
-
-    </div>
-
-    <form action="/submit" method="post">
-        <!-- Поле для ввода имени -->
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
-
-        <!-- Поле для ввода текста -->
-        <label for="text">Текст:</label>
-        <textarea id="text" name="text" rows="4" cols="50" required></textarea>
-        <br><br>
-
-        <!-- Скрытое поле для передачи user_id -->
-        <input type="hidden" name="user_id" value="12345">
-
-        <!-- Кнопка отправки -->
-        <button type="submit">Отправить</button>
-    </form>
-
 @endsection
 
 @section('location')

@@ -556,6 +556,7 @@ li.service-list-item {
 }
 .map-wrap{
     margin-bottom: 15px;
+    padding-right: 30px;
 }
 img{
     max-width: 100%;
@@ -664,4 +665,68 @@ img{
 #reviewModal .close-btn{
     top: 15px;
     right: 15px;
+}
+
+.listing-post{
+    margin-bottom: 25px;
+}
+
+@media (max-width: 1200px) {
+    .catalog-text{
+        display: none;
+    }
+    .logo{
+        margin: auto;
+    }
+    .single-post-info{
+        padding-left: 40px;
+    }
+}
+@media (max-width: 992px) {
+    #search-name{
+        display: none;
+    }
+    .cabinet-link{
+        margin-left: auto;
+    }
+    .service-list-block-item{
+        width: 33%;
+    }
+}
+@media (max-width: 768px) {
+    .service-list-block-item, .other-block{
+        width: 100%;
+    }
+    .other-block ul{
+        column-count: 1;
+    }
+    .other-params-img{
+        margin: auto;
+        display: block;
+    }
+    .other-params-col {
+        padding-left: 15px;
+        padding-top: 20px;
+        padding-right: 40px;
+    }
+    .other-params-wrap{
+        flex-direction: column;
+    }
+    .other-param-item{
+        display: flex;
+        margin-right: 0px;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+    .single-price{
+        flex-direction: column;
+        padding-right: 30px;
+    }
+    .left-price{
+        margin-bottom: 30px;
+    }
+    .left-price , .right-price{
+        width: 100%;
+        justify-content: space-around;
+    }
 }
