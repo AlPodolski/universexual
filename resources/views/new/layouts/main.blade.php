@@ -47,8 +47,9 @@
                 </div>
             </div>
             <div class="col-2 col-lg-5 d-flex align-items-center">
-                <form id="search-name" action="/action_page.php" method="get" class="position-relative">
-                    <input type="text" placeholder="Поиск" name="search">
+                <form id="search-name" action="/search" method="get" class="position-relative">
+                    @csrf
+                    <input type="text" placeholder="Поиск" name="name">
                     <button type="submit" class="position-absolute">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path

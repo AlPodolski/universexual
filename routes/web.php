@@ -39,7 +39,7 @@ Route::middleware('redirect')->group(function () {
         Route::get('/', \App\Http\Controllers\IndexController::class);
         Route::post('/', [\App\Http\Controllers\IndexController::class, 'more']);
         Route::get('/individualka/{url}', \App\Http\Controllers\PostController::class);
-        Route::get('/poisk', \App\Http\Controllers\SearchController::class);
+        Route::get('/search', \App\Http\Controllers\SearchController::class);
         Route::get('/filter', [\App\Http\Controllers\SearchController::class, 'filter']);
 
         Route::post('/city/search', [\App\Http\Controllers\SearchController::class, 'city']);

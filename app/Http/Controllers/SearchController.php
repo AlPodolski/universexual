@@ -12,7 +12,7 @@ class SearchController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
         $posts = $this->postRepository->getForSearch($cityInfo['id'], $request->get('name'));
-        $meta = $this->metaRepository->getForSearch();
+        $meta = $this->metaRepository->getForSearch($request->get('name'));
 
         $path = '/';
 
@@ -20,7 +20,7 @@ class SearchController extends Controller
 
         $search = true;
 
-        return view(PATH.'.index.index', compact(
+        return view('new.index.index', compact(
             'posts', 'data', 'meta', 'path', 'sort', 'search'
         ));
     }

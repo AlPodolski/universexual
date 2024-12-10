@@ -75,7 +75,7 @@
             </div>
             <div class="price-item price-item-item position-relative d-flex">
                 <div class="price-item-name">два</div>
-                <div class="price-item-cost">{{ $post->two_hour_price }}
+                <div class="price-item-cost">{{ $post->apartament_2_hour_price }}
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12"
                          fill="none">
                         <path
