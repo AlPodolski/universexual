@@ -1,15 +1,26 @@
-<div onclick="showFilter()" class="toggle-filter d-none">Показать фильтр</div>
 
-<form action="/poisk-po-parametram" class="filter-wrap d-flex position-relative">
-    <div class="close-panel d-none" onclick="showFilter(this)">
-        <img src="/img/close.svg" alt="">
+<div id="open-btn" class="open-filter-btn" onclick="openPanel()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 4h18"></path>
+        <path d="M6 10h12"></path>
+        <path d="M10 16h4"></path>
+    </svg>
+    Показать фильтр</div>
+
+<form id="slide-panel" action="/poisk-po-parametram" class="filter-wrap d-flex">
+
+    <div id="close-btn" class="close-filter-btn" onclick="closePanel()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
     </div>
     @csrf
 
     @if($data['metro']->first())
         <div class="filter-item custom-select position-relative">
             <select name="metro" id="">
-                <option>Метро</option>
+                <option value="">Метро</option>
                 @foreach($data['metro'] as $metroItem)
                     <option value="{{ $metroItem->id }}">{{ $metroItem->value }}</option>
                 @endforeach
@@ -22,7 +33,7 @@
 
     <div class="filter-item custom-select position-relative">
         <select name="national_id" id="">
-            <option>Национальность</option>
+            <option value="">Национальность</option>
             @foreach($data['national'] as $nationalItem)
                 <option value="{{ $nationalItem->id }}">{{ $nationalItem->value }}</option>
             @endforeach

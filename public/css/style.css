@@ -744,8 +744,72 @@ img{
 .filter-wrap{
     align-items: center;
     margin-bottom: 15px;
+    position: relative;
+}
+#toggle-btn{
+    display: none;
+}
+.right-input{
+    text-align: right;
+}
+.open-filter-btn, .close-filter-btn{
+    display: none;
+}
+.noUi-connect {
+    background: #e10755;
 }
 @media (max-width: 1200px) {
+    .open-filter-btn{
+        width: 175px;
+        height: 36px;
+        background: #FF005C;
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 17px;
+    }
+    .open-filter-btn svg{
+        margin-right: 5px;
+    }
+    .close-filter-btn{
+        display: flex;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    #slide-panel.open {
+        left: 0;
+    }
+    #slide-panel {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Скрыт за пределами экрана */
+        width: 300px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        transition: left 0.3s ease;
+    }
+    #toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: block;
+    }
     .catalog-text{
         display: none;
     }
@@ -755,6 +819,23 @@ img{
     .single-post-info{
         padding-left: 40px;
     }
+    .filter-wrap{
+        flex-direction: column;
+        z-index: 10;
+        overflow-x: auto;
+    }
+    .filter-item{
+        margin-bottom: 15px;
+        width: auto;
+        margin-right: 0;
+    }
+    .red-btn{
+        padding: 5px
+    }
+    .custom-select{
+        width: 170px;
+    }
+
 }
 @media (max-width: 992px) {
     #search-name{
