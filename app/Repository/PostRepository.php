@@ -308,6 +308,9 @@ class PostRepository
             $posts = $posts->where('rost', '>=', $data['rost-from'])
                 ->where('rost', '<=', $data['rost-to']);
         }
+        if (isset($data['national_id']) and $data['national_id']) {
+            $posts = $posts->where('national_id', $data['national_id']);
+        }
 
         if (isset($data['metro']) and $data['metro']) {
 

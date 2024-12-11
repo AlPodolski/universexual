@@ -16,6 +16,8 @@
         {!! $productMicro !!}
     @endif
 
+    @include('new.include.filter')
+
     <div class="row">
         <div class="col-12">
             <h1 class="big-red-text">{{ $meta['h1'] }}</h1>

@@ -1,10 +1,34 @@
-<div onclick="showFilter()" class="toggle-filter">Показать фильтр</div>
+<div onclick="showFilter()" class="toggle-filter d-none">Показать фильтр</div>
 
-<form action="/filter" class="filter-wrap filter-form d-flex" id="filter">
-    <div class="close-panel" onclick="showFilter(this)">
+<form action="/poisk-po-parametram" class="filter-wrap d-flex position-relative">
+    <div class="close-panel d-none" onclick="showFilter(this)">
         <img src="/img/close.svg" alt="">
     </div>
     @csrf
+
+    @if($data['metro']->first())
+        <div class="filter-item custom-select position-relative">
+            <select name="metro" id="">
+                <option>Метро</option>
+                @foreach($data['metro'] as $metroItem)
+                    <option value="{{ $metroItem->id }}">{{ $metroItem->value }}</option>
+                @endforeach
+            </select>
+        </div>
+    @endif
+
+
+
+
+    <div class="filter-item custom-select position-relative">
+        <select name="national_id" id="">
+            <option>Национальность</option>
+            @foreach($data['national'] as $nationalItem)
+                <option value="{{ $nationalItem->id }}">{{ $nationalItem->value }}</option>
+            @endforeach
+        </select>
+    </div>
+
     <div class="filter-item">
         <div class="bold-text slider-item-text">Возраст</div>
         <div class="filter-item-slide" id="age"></div>
@@ -41,6 +65,6 @@
         </div>
     </div>
 
-    <button type="submit" class="yellow-btn">Поиск</button>
+    <button type="submit" class="red-btn">Поиск</button>
 
 </form>

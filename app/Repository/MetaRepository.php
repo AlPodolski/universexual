@@ -89,7 +89,7 @@ class MetaRepository
         ];
     }
 
-    public function getForSearch($name): array
+    public function getForSearch($name = ''): array
     {
         $data = [
             'title' => 'Поиск: '.$name,

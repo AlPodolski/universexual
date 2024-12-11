@@ -24,6 +24,7 @@
     @endif
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/style.css?v=1">
 
 </head>
@@ -82,6 +83,8 @@
 
 <script defer src="/js/jquery-3.5.1.min.js"></script>
 <script defer src="/js/bootstrap.bundle.min.js"></script>
+<script defer src="/js/nouislider.min.js"></script>
+<script src="/js/wNumb.min.js" defer></script>
 <script defer src="/js/script.js?v=1"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
