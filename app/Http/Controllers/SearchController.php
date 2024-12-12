@@ -39,7 +39,7 @@ class SearchController extends Controller
 
         $search = true;
 
-        return view(PATH.'.index.index', compact(
+        return view('new.index.index', compact(
             'posts', 'data', 'meta', 'path', 'sort', 'search'
         ));
 

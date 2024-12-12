@@ -947,6 +947,9 @@ img {
     background: #e10755;
     border: none;
 }
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
 @media (max-width: 1200px) {
     .open-filter-btn {
         width: 175px;
