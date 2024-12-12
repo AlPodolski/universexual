@@ -42,10 +42,14 @@ class PostController extends Controller
 
         $addViewToCookie->add($post->id);
 
-        $serviceTypeInfo = array('sex' => 'Секс',  'mass' => 'Массаж', 'minet' => 'Минет', 'cum' => 'Окончание', 'bdsm' => 'БДСМ', 'other' => 'Разное');
+        $viewPosts = $this->postRepository->getView($post->id, 4);
+
+        $serviceTypeInfo = array('sex' => 'Секс',  'mass' => 'Массаж', 'minet' => 'Минет', 'cum' => 'Окончание',
+            'bdsm' => 'БДСМ', 'other' => 'Разное');
 
         return view('new.post.index', compact(
-            'post', 'data', 'meta', 'breadMicro', 'imageMicro', 'morePosts', 'productMicro', 'viewCount', 'serviceTypeInfo'
+            'post', 'viewPosts', 'data', 'meta', 'breadMicro', 'imageMicro',
+            'morePosts', 'productMicro', 'viewCount', 'serviceTypeInfo'
         ));
     }
 }

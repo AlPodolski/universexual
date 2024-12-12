@@ -326,14 +326,16 @@ class PostRepository
         return $posts;
     }
 
-    public function getView()
+    public function getView($notPostId, $limit = 20)
     {
         if ($ids = \Cookie::get('post_view')) {
 
-            $data = unserialize($ids);
+            $data = array_reverse(unserialize($ids));
 
             $posts = Post::with('metro')
                 ->whereIn('id', $data)
+                ->where('id', '<>', $notPostId)
+                ->limit($limit)
                 ->get();
 
             return $posts;
@@ -352,8 +354,8 @@ class PostRepository
         $posts = Cache::remember('more_post_' . $cityId, $expire, function () use ($cityId, $limit) {
 
             $posts = Post::where(['city_id' => $cityId])
-                ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
-                ->with('metro', 'city', 'national', 'service')
+                ->where(['publication_status' => Post::POST_ON_PUBLICATION])
+                ->with('metro')
                 ->orderByRaw('RAND()')
                 ->limit($limit)->get();
 

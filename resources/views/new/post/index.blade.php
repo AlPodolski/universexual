@@ -112,7 +112,8 @@
                         @if($post->city_id == 1 and isset($post->rayon->filter->url))
                             <div class="single-metro-wrap single-rayon-wrap d-flex">
                                 <div class="metro-text">Район:</div>
-                                <a href="/{{ $post->rayon->filter->url }}" class="rayon-value">{{ $post->rayon->value }}</a>
+                                <a href="/{{ $post->rayon->filter->url }}"
+                                   class="rayon-value">{{ $post->rayon->value }}</a>
                             </div>
                         @endif
 
@@ -296,7 +297,8 @@
                             <p class="big-red-text">Дополнительные параметры </p>
                             <div class="row">
                                 <div class="col-12 col-lg-3"><img class="other-params-img"
-                                                        src="/400-500/thumbs/{{ $post->avatar }}" alt=""></div>
+                                                                  src="/400-500/thumbs/{{ $post->avatar }}" alt="">
+                                </div>
                                 <div class="col-12 col-lg-9 other-params-col">
                                     <p>Параметры:</p>
                                     <div class="other-params-wrap d-flex">
@@ -323,7 +325,7 @@
                                                 @else
                                                     нет
                                                 @endif
-                                                </div>
+                                            </div>
                                             <div class="other-param-item-name">Тату</div>
                                         </div>
                                         <div class="other-param-item">
@@ -433,12 +435,16 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="recomend-posts-wrap ">
-                            <p class="big-red-text">Просмотренные анкеты</p>
-                            <div class="more-posts-wrap row">
-
+                        @if($viewPosts)
+                            <div class="recomend-posts-wrap ">
+                                <p class="big-red-text">Просмотренные анкеты</p>
+                                <div class="more-posts-wrap row">
+                                    @foreach($viewPosts as $item)
+                                        @include('new.include.more-post-item')
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
