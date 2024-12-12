@@ -11,6 +11,14 @@ function openPanel() {
 function closePanel() {
     $('#slide-panel').removeClass('open');
 }
+function openPanelMenu() {
+    $('#side-menu').addClass('open');
+}
+
+// Функция для закрытия панели
+function closePaneMenu() {
+    $('#side-menu').removeClass('open');
+}
 
 function call(object) {
 
