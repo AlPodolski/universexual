@@ -29,6 +29,7 @@
         </div>
     </div>
     <div class="row posts">
+
         @php
             $i = 0;
         @endphp
@@ -43,6 +44,15 @@
         @endif
 
     </div>
+
+    @if($posts and $posts->total() > $posts->count())
+
+        <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+             class="more-posts-btn">Показать еще
+        </div>
+
+        {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
+    @endif
 
     @include('new.include.main-menu', compact('data'))
 

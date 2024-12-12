@@ -153,25 +153,34 @@ function showFilter() {
 
 function getMorePosts(object) {
 
-    var url = object.getAttribute('data-url');
-    var token = document.querySelector('meta[name="csrf-token"]').content;
+    var url = $(object).attr('data-url');
 
-    axios.post(url, {
-        headers: {'X-CSRF-TOKEN': token},
+    $.ajax({
+        type: 'POST',
+        url: url, //Путь к обработчику
+        response: 'text',
+        dataType: "html",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name = "csrf-token"]').attr('content')
+        },
+        cache: false,
+        success: function (data) {
+
+            data = JSON.parse(data)
+
+            if (data) {
+
+                window.history.pushState('', document.title, url);
+
+                if (data.posts) $('.catalog-items').append(data.posts);
+
+                if (data.next_page) $(object).attr('data-url', data.next_page);
+                else $(object).remove();
+
+            }
+
+        }
     })
-        .then(function (response) {
-
-            var posts = document.getElementById('content');
-
-            if (response.data.posts) posts.innerHTML += response.data.posts
-
-            if (response.data.next_page) object.setAttribute('data-url', response.data.next_page)
-            else object.remove()
-
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
 
 }
 

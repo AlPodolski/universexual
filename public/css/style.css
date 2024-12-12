@@ -916,6 +916,37 @@ img {
     padding-right: 15px;
 }
 
+.more-posts-btn{
+    display: block;
+    width: 170px;
+    background: #e10755;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.page-link{
+    color: #e10755;
+    font-weight: bold;
+}
+.page-link:hover{
+    color: #e10755;
+    font-weight: bold;
+    border: none;
+    font-size: 18px;
+}
+.active>.page-link, .page-link.active{
+    background: #e10755;
+    border: none;
+}
 @media (max-width: 1200px) {
     .open-filter-btn {
         width: 175px;
