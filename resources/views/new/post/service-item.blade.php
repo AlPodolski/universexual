@@ -82,7 +82,7 @@
 
                     @endif
 
-                    {{ $item->value }}
+                    <a href="/{{ $item->filter_url }}">{{ $item->value }}</a>
 
                 </li>
 
