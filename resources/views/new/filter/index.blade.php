@@ -23,6 +23,7 @@
 
         @php
             $i = 0;
+            $review = false;
         @endphp
 
         @if($posts)
@@ -30,11 +31,38 @@
                 @include('new.include.item')
                 @php
                     $i ++;
+                    if ($post->reviews->first()){
+                        $review = true;
+                    }
                 @endphp
             @endforeach
         @endif
 
     </div>
+
+    @if($review)
+
+        <div class="page-review row">
+
+            <p class="col-12 big-red-text">Отзывы о {{ $meta['h1'] }}</p>
+
+            @foreach($posts as $post)
+
+                @if($post->reviews->first())
+
+                    @foreach($post->reviews as $item)
+
+                        @include('new.include.page-review')
+
+                    @endforeach
+
+                @endif
+
+            @endforeach
+
+        </div>
+
+    @endif
 
     @if($posts and $posts->total() > $posts->count())
 

@@ -954,6 +954,38 @@ img {
     text-decoration: none;
     color: #212529;
 }
+.page-review-name{
+    margin-left: 15px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+.img-name-wrap{
+    margin-bottom: 20px;
+}
+.page-review .big-red-text{
+    margin-bottom: 25px;
+}
+.page-review-text{
+    margin-bottom: 10px;
+}
+.review-author-wrap{
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 5px;
+}
+.page-review-date{
+    font-size: 12px;
+    margin-left: auto;
+}
+.img-name-wrap img{
+    border-radius: 5px;
+}
+
+.page-review{
+    margin-bottom: 20px;
+}
+
 @media (max-width: 1200px) {
     .open-filter-btn {
         width: 175px;
