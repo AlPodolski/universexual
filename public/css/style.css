@@ -804,6 +804,13 @@ img {
     cursor: pointer;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     border-radius: 10px;
+    appearance: none; /* Убирает стандартный стиль селекта */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg width='20' height='11' xmlns='http://www.w3.org/2000/svg'><path d='M0 0 L10 10 L20 0' fill='none' stroke='black' stroke-width='2'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Позиция шеврона */
+    background-size: 12px 6px; /* Размер шеврона */
 }
 
 .custom-select select:focus {
