@@ -28,7 +28,7 @@
                             <div class="carousel-inner">
 
                                 <div class="carousel-item active">
-                                    <img src="/400-500/thumbs/{{ $post->avatar }}" class="d-block w-100"
+                                    <img src="/700-700/thumbs/{{ $post->avatar }}" class="d-block w-100"
                                          alt="Индивидуалка {{ $post->name }} главное фото в городе {{ $data['current_city']->city }} ">
                                 </div>
 
@@ -41,7 +41,7 @@
                                     @foreach($post->photo as $photoItem)
 
                                         <div class="carousel-item">
-                                            <img src="/400-500/thumbs/{{ $photoItem->file }}" class="d-block w-100"
+                                            <img src="/700-700/thumbs/{{ $photoItem->file }}" class="d-block w-100"
                                                  alt="Индивидуалка {{ $post->name }} фото № {{$i}} в городе {{ $data['current_city']->city }}">
                                         </div>
 
