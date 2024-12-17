@@ -137,46 +137,19 @@ class PostRepository
             if (strpos($search, 'prostitutki-ot-50-let') !== false)
                 $posts = $posts->where('age', '>', 49);
 
-            if (strpos($search, 'dorogie-prostitutki') !== false)
+            if (strpos($search, 'vip-individualki') !== false)
                 $posts = $posts->where('price', '>', 4999);
 
-            if (strpos($search, 'deshevye-prostitutki') !== false)
+            if (strpos($search, 'deshevye-individualki') !== false)
                 $posts = $posts->where('price', '<', 3001);
 
-            if (strpos($search, 'do-1500-rub') !== false)
-                $posts = $posts->where('price', '<', 1501);
-
-            if (strpos($search, '2000-3000-rub') !== false) {
-                $posts = $posts->where('price', '>', 1999);
-                $posts = $posts->where('price', '<', 3001);
-            }
-
-            if (strpos($search, '3000-4000-rub') !== false) {
-                $posts = $posts->where('price', '>', 2999);
-                $posts = $posts->where('price', '<', 4001);
-            }
-
-            if (strpos($search, '4000-5000-rub') !== false) {
-                $posts = $posts->where('price', '>', 3999);
-                $posts = $posts->where('price', '<', 5001);
-            }
-
-            if (strpos($search, '5000-6000-rub') !== false) {
-                $posts = $posts->where('price', '>', 4999);
-                $posts = $posts->where('price', '<', 6001);
-            }
-
-            if (strpos($search, 'ot-10000-rub') !== false) {
-                $posts = $posts->where('price', '>', 9999);
-            }
-
-            if (strpos($search, 'proverennye') !== false)
+            if (strpos($search, 'proverennye-individualki') !== false)
                 $posts = $posts->where('check_photo_status', 1);
 
-            if (strpos($search, 'video') !== false)
+            if (strpos($search, 'individualki-s-video') !== false)
                 $posts = $posts->where('video', '<>', null);
 
-            if (strpos($search, 'novye') !== false)
+            if (strpos($search, 'novye-individualki') !== false)
                 $posts = $posts->orderByDesc('id');
 
             $expire = Carbon::now()->addHours(1200);

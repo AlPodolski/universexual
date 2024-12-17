@@ -89,10 +89,6 @@
 
 @endsection
 
-@section('location')
-    @include('new.include.location', compact('data'))
-@endsection
-
 @section('open-graph')
     @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/new/images/logo.png'])
 @endsection
