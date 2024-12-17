@@ -9,14 +9,9 @@ class SingleMetaService
     public function makeMetaTags(Post $post, $cityInfo): array
     {
 
-        if (SITE_ID == 1){
-            $data['title'] = $this->makeTitle($post, $cityInfo);
-            $data['des'] = $this->makeDes($post, $cityInfo);
-        }
-        elseif (SITE_ID == 2){
-            $data['title'] = $this->makeTitleForIntimBox($post, $cityInfo);
-            $data['des'] = $this->makeDesForIntimBox($post, $cityInfo);
-        }
+        $data['title'] = $this->makeTitleForIntimBox($post, $cityInfo);
+        $data['des'] = $this->makeDesForIntimBox($post, $cityInfo);
+        $data['h1'] = $post->name;
 
         return $data;
     }

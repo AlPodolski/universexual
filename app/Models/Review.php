@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Actions\GenerateReviewMicro;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
@@ -15,4 +16,10 @@ class Review extends Model
     {
         return $this->hasOne(Post::class, 'id', 'posts_id');
     }
+
+    public function micro($name)
+    {
+        return (new GenerateReviewMicro())->generate($this, $name);
+    }
+
 }

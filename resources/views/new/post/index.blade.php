@@ -11,12 +11,12 @@
 
     <div class="row">
 
-        @include('new.include.breadcrumb' , ['title' => $post->name])
+        @include('new.include.breadcrumb')
 
         {!! $imageMicro !!}
 
         @if($productMicro)
-            {!! json_encode( $productMicro) !!}
+            {!! $productMicro !!}
         @endif
 
         <div class="col-12">
@@ -370,6 +370,7 @@
                                     @php
                                         /* @var $review \App\Models\Review */
                                     @endphp
+
                                     <div class="review">
                                         <div class="name-and-date-wrap d-flex justify-content-between">
                                             <div class="review-name">{{ $review->name }}</div>
@@ -378,6 +379,9 @@
 
                                         <div class="review-text">{{ $review->text }}
                                         </div>
+
+                                        {!! $review->micro($post->name) !!}
+
                                     </div>
                                 @endforeach
 
