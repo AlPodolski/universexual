@@ -16,84 +16,46 @@ class GenerateProductMicroForSingle
         return $this;
     }
 
-    public function generate(): array
+    public function generate($cityInfo)
     {
 
-        $data = [
-            '@context' => 'https://schema.org',
-            '@type' => 'Product',
-            'name' => $this->post->name,
-            'description' => $this->post->about,
-            'image' => '/252-309/thumbs/'.$this->post->avatar,
-            'offers' => [
-                '@type' => 'Offer',
-                'availability' => 'https://schema.org/InStock',
-                'price' => $this->post->price,
-                'priceCurrency' => 'RUR',
-            ],
-
+        $person = [
+            "@context" => "https://schema.org",
+            "@type" => "Person",
+            "name" => $this->post->name,
+            "description" => $this->getDes($cityInfo),
+            "gender" => "Female",
+            "image" => $_SERVER['HTTP_HOST'] . '/700-700/thumbs/' . $this->post->avatar,
+            "url" => $_SERVER['HTTP_HOST'] . '/individualka/' . $this->post->url,
+            "address" => [
+                "@type" => "PostalAddress",
+                "addressLocality" => $cityInfo['city'],
+                "addressCountry" => "Россия"
+            ]
         ];
 
-        if ($this->post->reviews->count()){
-            $data[] = ['review' => $this->makeReview()];
-            $data[] = [
-                'aggregateRating' => [
-                    '@type' => 'AggregateRating',
-                    'ratingValue' => $this->countRating(),
-                    'worstRating' => 1,
-                    'bestRating' => 5,
-                    'reviewCount' => $this->post->reviews->count()
-                ],
-            ];
-        }
+        $data = json_encode($person);
 
-        return $data;
+        return '<script type="application/ld+json">' . $data . '</script>';
 
     }
 
-    private function makeReview(): array
+    private function getDes($cityInfo)
     {
 
-        $result = array();
-
-        foreach ($this->post->reviews as $item){
-
-            $result[] = [
-                '@type' => 'Review',
-                'author' => $item->name,
-                'datePublished' => \Carbon\Carbon::parse($item->updated_at )->toDateString(),
-                'reviewBody' => $item->text,
-                'name' => $item->name,
-                'reviewRating' => [
-                    '@type' => 'Rating',
-                    'bestRating' => 5,
-                    'ratingValue' => $item->rating,
-                    'worstRating' => 1,
-                ]
-            ];
-
+        if ($this->post->price >= 7000) {
+            $result = 'Элитный эскорт, ';
+        } else {
+            $result = 'Эскорт, ';
         }
+
+        if ($this->post->age) $result .= 'возраст ' . $this->post->age . ', ';
+        if ($this->post->ves) $result .= 'вес ' . $this->post->ves . ', ';
+
+        $result .= 'Предоставляет услуги ' . $cityInfo['city3'];
 
         return $result;
 
     }
 
-    private function countRating(): int
-    {
-
-        $sum = 0;
-
-        foreach ($this->post->reviews as $item){
-
-            $sum = $sum + $item->rating;
-
-        }
-
-        return $sum / $this->post->reviews->count();
-
-    }
-
 }
-/*
- *
- */

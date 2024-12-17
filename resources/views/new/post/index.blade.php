@@ -16,7 +16,7 @@
         {!! $imageMicro !!}
 
         @if($productMicro)
-            <script type="application/ld+json">{!! json_encode( $productMicro) !!}</script>
+            {!! json_encode( $productMicro) !!}
         @endif
 
         <div class="col-12">

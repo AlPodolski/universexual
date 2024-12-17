@@ -34,7 +34,7 @@ class PostController extends Controller
         $meta = $metaService->makeMetaTags($post, $cityInfo);
         $breadMicro = $this->breadMicro->generate($request, $post->name);
         $imageMicro = $this->imageMicro->generate($post, $cityInfo['city']);
-        $productMicro = (new GenerateProductMicroForSingle($post))->generate();
+        $productMicro = (new GenerateProductMicroForSingle($post))->generate($cityInfo);
 
         $viewCount = Redis::INCR('post:view:' . $post->id);
 

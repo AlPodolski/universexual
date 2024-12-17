@@ -15,7 +15,7 @@ class GenerateImageMicro
             'contentUrl' => 'https://'.$_SERVER['HTTP_HOST'].'/600-700/thumbs/'.$post->avatar,
             'contentLocation' => $city.' Россия',
             'datePublished' => $post->created_at,
-            'name' => 'Проститутки '. $post->name,
+            'name' => 'Проститутка '. $post->name,
         ];
 
         $data = '<script type="application/ld+json">'.json_encode($data).'</script>';
