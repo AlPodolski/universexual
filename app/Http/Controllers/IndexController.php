@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Canonical;
 use App\Actions\GenerateMicroDataForCatalog;
+use App\Actions\GenerateServiceMicro;
 use App\Repository\MetaRepository;
 use App\Repository\WebmasterRepository;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ class IndexController extends Controller
 
         $path = (new Canonical())->get($request->getRequestUri());
 
+        $serviceMicro = (new GenerateServiceMicro())->generate($_SERVER['HTTP_HOST'], $meta, $cityInfo);
+
         $productMicro = false;
 
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, '/', $cityInfo['id']);
@@ -38,7 +41,7 @@ class IndexController extends Controller
         $webmaster = $webmasterRepository->get($city);
 
         return view('new.index.index', compact(
-            'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster'
+            'posts', 'data', 'meta', 'path', 'productMicro', 'sort', 'webmaster', 'serviceMicro'
         ));
     }
 

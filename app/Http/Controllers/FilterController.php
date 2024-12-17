@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\Canonical;
 use App\Actions\GenerateBreadcrumbMicro;
 use App\Actions\GenerateMicroDataForCatalog;
+use App\Actions\GenerateServiceMicro;
 use App\Models\Filter;
 use App\Models\Link;
 use App\Models\Metro;
@@ -49,6 +50,8 @@ class FilterController extends Controller
 
         $productMicro = false;
 
+        $serviceMicro = (new GenerateServiceMicro())->generate($_SERVER['HTTP_HOST'], $meta, $cityInfo);
+
         if ($posts) $productMicro = $this->microData->generate($meta['title'], $posts, $search, $cityInfo['id']);
 
         if (isset($filterParams[0]->short_name) and $filterParams[0]->short_name == 'metro'){
@@ -63,7 +66,7 @@ class FilterController extends Controller
         $links = $this->linkRepository->getLink($search, $filterParams);
 
         return view('new.filter.index',
-            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links')
+            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links', 'serviceMicro')
         );
     }
 

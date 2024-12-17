@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="breadcrumb-item">
-                {{ $title }}
+                {{ $meta['h1'] }}
             </li>
         </ul>
     </nav>

@@ -16,6 +16,10 @@
         {!! $productMicro !!}
     @endif
 
+    @if(isset($serviceMicro))
+        {!! $serviceMicro !!}
+    @endif
+
     @include('new.include.filter')
 
     <div class="row">
