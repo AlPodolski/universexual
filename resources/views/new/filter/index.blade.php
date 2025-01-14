@@ -79,6 +79,10 @@
         {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
     @endif
 
+    @if(isset($text->text) and $text->text)
+        {!! $text->text !!}
+    @endif
+
     @include('new.include.main-menu', compact('data'))
 
 @endsection

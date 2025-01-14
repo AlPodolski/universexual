@@ -21,6 +21,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
     <meta name="HandheldFriendly" content="True">
     <link rel="preload" href="/fonts/root.woff2" as="font" crossorigin="anonymous">
     <!-- CSRF Token -->

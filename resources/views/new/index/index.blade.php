@@ -26,9 +26,9 @@
         <div class="col-12">
             <h1 class="big-red-text">{{ $meta['h1'] }}</h1>
             <p class="small-black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
+                @if(isset($text->small_text) and $text->small_text)
+                    {{ $text->small_text }}
+                @endif
             </p>
         </div>
     </div>
@@ -53,8 +53,16 @@
 
     </div>
 
-    @if($review)
+    @if($posts and $posts->total() > $posts->count())
 
+        <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+             class="more-posts-btn">Показать еще
+        </div>
+
+        {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
+    @endif
+
+    @if($review)
         <div class="page-review row">
 
             <p class="col-12 big-red-text">Отзывы о {{ $meta['h1'] }}</p>
@@ -76,13 +84,10 @@
         </div>
     @endif
 
-    @if($posts and $posts->total() > $posts->count())
+    {!! $text->text !!}
 
-        <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
-             class="more-posts-btn">Показать еще
-        </div>
-
-        {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
+    @if(isset($text->text) and $text->text)
+        {!! $text->text !!}
     @endif
 
     @include('new.include.main-menu', compact('data'))

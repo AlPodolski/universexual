@@ -15,6 +15,9 @@
             <li><a href="/individualki-vip" class="side-menu-link">VIP</a></li>
             <li><a href="/individualki-s-video" class="side-menu-link">С видео</a></li>
             <li><a href="/individualki-novye" class="side-menu-link">Новые</a></li>
+            <li><a href="/zrelye-individualki" class="side-menu-link">Зрелые</a></li>
+            <li><a href="/molodye-individualki" class="side-menu-link">Молодые</a></li>
+            <li><a href="/tolstye-individualki" class="side-menu-link">Толстые</a></li>
 
             @if($data['metro']->first())
                 <li>

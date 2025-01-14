@@ -85,7 +85,7 @@ class PostRepository
             if (strpos($search, 'individualki') !== false)
                 $indi = true;
 
-            if (strpos($search, 'tolstye') !== false)
+            if (strpos($search, 'tolstye-individualki') !== false)
                 $posts = $posts->where('ves', '>=', 80);
 
             if (strpos($search, 'hudye') !== false)
@@ -103,10 +103,10 @@ class PostRepository
             if (strpos($search, 'do-20-let') !== false)
                 $posts = $posts->where('age', '<', 21);
 
-            if (strpos($search, 'molodye-prostitutki') !== false)
+            if (strpos($search, 'molodye-individualki') !== false)
                 $posts = $posts->where('age', '<', 26);
 
-            if (strpos($search, 'vzroslye-prostitutki') !== false) {
+            if (strpos($search, 'zrelye-individualki') !== false) {
                 $posts = $posts->where('age', '>', 34);
                 $posts = $posts->where('age', '<', 46);
             }

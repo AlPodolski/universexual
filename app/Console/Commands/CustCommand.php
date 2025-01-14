@@ -7,10 +7,12 @@ use App\Models\Metro;
 use App\Models\MetroNear;
 use App\Models\Post;
 use App\Models\PostMetro;
+use App\Models\Text;
 use App\Repository\DataRepository;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use League\Csv\Statement;
+use GuzzleHttp\Client;
 
 class CustCommand extends Command
 {
@@ -18,50 +20,66 @@ class CustCommand extends Command
 
     protected $description = 'Command descripti on';
 
+    protected $client;
+    protected $apiKey;
+
     public function handle()
     {
-        $city = City::where('id', '>', 1)->get();
 
-        $host = 'intim-boxx.com';
+        $this->apiKey = env('OPENAI_API_KEY');
+        $this->client = new Client([
+            'base_uri' => 'https://api.openai.com/v1/',
+            'verify' => false,
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->apiKey,
+                'Content-Type' => 'application/json',
+            ],
+        ]);
 
-        $dataRepository = new DataRepository();
+        $url = '/';
 
-        foreach ($city as $item){
+        $cityList = City::where('id', '>', 1)->get();
 
-            $domain = 'https://'.$item->url.'.'.$host;
+        $model = 'gpt-3.5-turbo';
 
-            $data = $this->prepareData($dataRepository->getData($item->id), $domain.'/');
+        $maxTokens = 3000;
 
-            $requestData = array(
-                'host' => $item->url.'.'.$host,
-                'key' => 'UhfuXuDnsB8FlpOT9Fds5iaZLzYqQh86MfgsSlIQIFVZO3HN',
-                'keyLocation' => $domain.'/UhfuXuDnsB8FlpOT9Fds5iaZLzYqQh86MfgsSlIQIFVZO3HN.txt',
-                'urlList' => $data,
-            );
+        foreach ($cityList as $item){
 
-            $content = json_encode($requestData);
+            $prompt = 'Написать уникальный текст, использовать ключи:
+        проститутки '.$item->city2.' , снять индивидуалку '.$item->city3.', заказать проститутку '.$item->city.'.
+        каждый Ключ в тексте должен быть только один раз. используй хтмл для разметки текста без тега боди. объемом минимум 3000
+        символов';
 
-            $length = strlen($content);
+            $response = $this->client->post('chat/completions', [
+                'json' => [
+                    'model' => $model,
+                    'messages' => [
+                        ['role' => 'user', 'content' => $prompt],
+                    ],
+                    'max_tokens' => $maxTokens,
+                ],
+            ]);
 
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://yandex.com/indexnow');
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,  $content);
+            $body = json_decode($response->getBody()->getContents(), true);
 
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $result = ($body['choices'][0]['message']['content'] ?? false);
 
-            $headers = [
-                'Content-Type: application/json',
-                'Content-Length: '.$length
-            ];
+            if ($result){
 
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                $result = preg_replace('/[\x00-\x1F\x7F]/u', '', $result);
 
-            $server_output = curl_exec($ch);
+                $text = new Text();
 
-            var_dump($server_output);
+                $text->city_id = $item->id;
+                $text->page_url = $url;
+                $text->text = $result;
+
+                $text->save();
+
+            }
+
+            echo  $item->url . ' - ' . $item->id . ' - ' . $url .PHP_EOL;
 
         }
 

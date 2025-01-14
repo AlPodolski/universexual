@@ -13,6 +13,7 @@ use App\Models\MetroNear;
 use App\Repository\FilterRepository;
 use App\Repository\LinkRepository;
 use App\Repository\MetaRepository;
+use App\Repository\TextRepository;
 use Illuminate\Http\Request;
 
 class FilterController extends Controller
@@ -40,6 +41,8 @@ class FilterController extends Controller
         $posts = $this->postRepository->getForFilterCatalog($cityInfo['id'], $search);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
+        $text = (new TextRepository())->getText($cityInfo['id'], $request->getRequestUri());
+
         $path = (new Canonical())->get($request->getRequestUri());
 
         $filterParams = $this->filterRepository->getData($search);
@@ -66,7 +69,7 @@ class FilterController extends Controller
         $links = $this->linkRepository->getLink($search, $filterParams);
 
         return view('new.filter.index',
-            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links', 'serviceMicro')
+            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links', 'serviceMicro', 'text')
         );
     }
 
