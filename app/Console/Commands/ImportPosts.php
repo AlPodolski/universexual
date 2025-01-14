@@ -55,7 +55,7 @@ class ImportPosts extends Command
     public function handle()
     {
 
-        $stream = \fopen(storage_path('import_27_06_2024_p1.csv'), 'r');
+        $stream = \fopen(storage_path('import_14_01_2025.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
@@ -99,7 +99,6 @@ class ImportPosts extends Command
 
             $post->name = $record['name'];
             $post->age = $record['age'];
-            $post->site_id = 1;
             $post->phone = $record['phone'];
             $post->rost = $record['rost'];
             $post->ves = $record['weght'];
@@ -113,10 +112,15 @@ class ImportPosts extends Command
             $post->publication_status = 1;
             $post->user_id = 0;
             $post->url = '';
-            $post->shoe_size = rand(36, 40);
+
+            if ($record['obuv']) $post->shoe_size = $record['obuv'];
+            else $post->shoe_size = rand(36, 41);
+
             $post->clothing_size = 0;
 
             $post->contacts_per_hour = rand(1, 3);
+
+            if ($record['cheked']) $post->check_photo_status = Post::PHOTO_CHECK;
 
             $post->avatar = $path . $record['mini'];
             if ($record['video']) $post->video = $path . $record['video'];

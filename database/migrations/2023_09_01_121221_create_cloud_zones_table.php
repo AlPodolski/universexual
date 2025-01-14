@@ -9,7 +9,6 @@ return new class extends Migration {
     {
         Schema::create('cloud_zones', function (Blueprint $table) {
             $table->id();
-            $table->integer('site_id');
             $table->string('zone');
         });
     }

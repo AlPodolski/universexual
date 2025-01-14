@@ -75,7 +75,7 @@ class ImageController extends Controller
         // Удалить старый аватар, если он есть
         if ($avatar) {
 
-            \Cache::delete('post_' . $post->url . '_site_id_' . SITE);
+            \Cache::delete('post_' . $post->url);
 
             $avatar = $avatar->store('/uploads/' . $dir, 'public');
 

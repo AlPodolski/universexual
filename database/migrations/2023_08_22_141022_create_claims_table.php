@@ -10,7 +10,6 @@ return new class extends Migration {
         Schema::create('claims', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->smallInteger('city_id')->unsigned();
-            $table->tinyInteger('site_id')->unsigned();
             $table->string('email');
             $table->string('name');
             $table->string('text');

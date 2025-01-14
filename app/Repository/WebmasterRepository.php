@@ -13,10 +13,9 @@ class WebmasterRepository
 
         $expire = Carbon::now()->addHours(1200);
 
-        $webmaster = Cache::remember('webmaster_'.$city.'_site_id_'.SITE_ID, $expire, function () use ($city) {
+        $webmaster = Cache::remember('webmaster_'.$city, $expire, function () use ($city) {
 
             $webmaster = Webmaster::where(['url' => $city])
-                ->where(['site_id' => SITE_ID])
                 ->first();
 
             if ($webmaster) return $webmaster;

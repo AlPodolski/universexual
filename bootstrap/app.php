@@ -14,12 +14,10 @@
 if (strpos($_SERVER['HTTP_HOST'], '5.loc')){
     define("SITE", '5.loc');
     define("PATH", 'new');
-    define("SITE_ID", 1);
 }
 else{
     define("SITE", '');
     define("PATH", '');
-    define("SITE_ID", 0);
 }
 
 

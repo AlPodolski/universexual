@@ -28,5 +28,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Claim extends Model
 {
-    protected $fillable = ['email', 'name', 'text', 'city_id', 'user_id', 'site_id'];
+    protected $fillable = ['email', 'name', 'text', 'city_id', 'user_id'];
 }

@@ -33,9 +33,6 @@
                         {{ $post->email }}
                     </td>
                     <td>
-                        {{ $post->site_id }}
-                    </td>
-                    <td>
                         {{ $post->created_at }}
                     </td>
                     <td>

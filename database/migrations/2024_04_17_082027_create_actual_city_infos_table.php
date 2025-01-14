@@ -10,7 +10,6 @@ return new class extends Migration {
         Schema::create('actual_city_infos', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('city_id');
-            $table->tinyInteger('site_id');
             $table->string('actual_city');
             $table->string('domain');
             $table->timestamps();

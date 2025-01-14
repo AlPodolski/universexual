@@ -35,7 +35,6 @@ class PostSeeder extends Seeder
 
             $postsData[] = [
                 'user_id' => rand(1,3),
-                'site_id' => rand(1,2),
                 'name' => $name = $faker->name,
                 'whats_ap' => 'https://'.\Str::slug( $faker->name),
                 'telegram' => 'https://'.\Str::slug( $faker->name),

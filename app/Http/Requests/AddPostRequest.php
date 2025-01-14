@@ -19,7 +19,6 @@ class AddPostRequest extends FormRequest
         $this->merge([
             'user_id' => auth()->id(),
             'fake' => Post::POST_REAL,
-            'site_id' => SITE_ID,
         ]);
     }
 

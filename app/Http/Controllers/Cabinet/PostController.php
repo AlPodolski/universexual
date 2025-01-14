@@ -57,7 +57,6 @@ class PostController extends Controller
 
         $post = new Post();
 
-        $post->site_id = SITE_ID;
         $post->user_id = auth()->id();
         $post->fake = Post::POST_REAL;
         $post->sorting = time();
@@ -228,7 +227,7 @@ class PostController extends Controller
 
         \DB::table('post_services')->where('posts_id', $post->id)->delete();
 
-        \Cache::delete('post_' . $post->url . '_site_id_' . SITE);
+        \Cache::delete('post_' . $post->url );
 
         foreach ($request->post() as $postServiceId => $postServiceValue) {
 

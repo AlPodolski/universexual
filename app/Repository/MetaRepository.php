@@ -13,18 +13,17 @@ class MetaRepository
     public function getForMain($url, $cityInfo, $request)
     {
 
-        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE);
+        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id']);
 
         if (!$value){
 
             $meta = Meta::where(['url' => $url])
-                ->where('site_id', SITE_ID)
                 ->select('title', 'des', 'h1')
                 ->get()->first();
 
             if ($meta) $value = $this->replaceCity($meta->toArray(), $cityInfo);
 
-            \Cache::set('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE, $value);
+            \Cache::set('meta_'.$url.'_'.$cityInfo['id'], $value);
 
         }
 
@@ -35,12 +34,11 @@ class MetaRepository
     public function getForFilter($url, $cityInfo, $filterParams)
     {
 
-        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE);
+        $value = \Cache::get('meta_'.$url.'_'.$cityInfo['id']);
 
         if (!$value){
 
             if ($meta = Meta::where(['url' => $url])
-                ->where('site_id', SITE_ID)
                 ->select('title', 'des', 'h1')
                 ->get()->first()) {
 
@@ -49,7 +47,6 @@ class MetaRepository
                 $value = $this->replaceCity($meta, $cityInfo);
 
             } elseif (count($filterParams) == 1 and $meta = Meta::where(['url' => $filterParams[0]->short_name])
-                    ->where('site_id', SITE_ID)
                     ->select('title', 'des', 'h1')->get()->first()) {
 
                 $meta = $meta->toArray();
@@ -61,7 +58,6 @@ class MetaRepository
             } else {
 
                 $meta = Meta::where(['url' => 'default'])
-                    ->where('site_id', SITE_ID)
                     ->select('title', 'des', 'h1')->get()->first();
 
                 $meta = $meta->toArray();
@@ -72,7 +68,7 @@ class MetaRepository
 
             }
 
-            \Cache::set('meta_'.$url.'_'.$cityInfo['id'].'_site_id_'.SITE, $value);
+            \Cache::set('meta_'.$url.'_'.$cityInfo['id'], $value);
 
         }
 

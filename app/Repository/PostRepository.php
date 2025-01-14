@@ -23,7 +23,7 @@ class PostRepository
     public function getForMain($cityId)
     {
         $posts = Post::where('city_id', $cityId)
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro', 'reviews', 'city', 'place', 'national', 'service')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
@@ -40,14 +40,13 @@ class PostRepository
 
         $expire = Carbon::now()->addHours(1200);
 
-        $post = Cache::remember('post_' . $url . '_site_id_' . SITE, $expire, function () use ($url) {
+        $post = Cache::remember('post_' . $url, $expire, function () use ($url) {
 
             $post = Post::select('posts.*', 'nationals.value as national_value',
                 'hair_colors.value as hair_color', 'intim_hairs.value as intim_hair'
             )
                 ->with('service', 'metro', 'place', 'reviews', 'photo', 'rayon')
                 ->where('posts.url', $url)
-                ->where('site_id', SITE_ID)
                 ->join('nationals', 'national_id', '=', 'nationals.id')
                 ->join('hair_colors', 'hair_color_id', '=', 'hair_colors.id')
                 ->join('intim_hairs', 'intim_hair_id', '=', 'intim_hairs.id')
@@ -75,7 +74,7 @@ class PostRepository
         $searchData = explode('/', $searchData);
 
         $posts = Post::where(['city_id' => $cityId])
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION]);
+            ->where(['publication_status' => Post::POST_ON_PUBLICATION]);
 
         foreach ($searchData as $search) {
 
@@ -224,7 +223,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->with('reviews', 'city', 'national', 'service')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
@@ -236,7 +235,7 @@ class PostRepository
     public function getForMap($cityId): string
     {
         $posts = Post::where('city_id', $cityId)
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where([ 'publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro')
             ->limit(2000)
             ->get();
@@ -267,7 +266,7 @@ class PostRepository
     public function getForFilter($cityId, $data)
     {
         $posts = Post::where('age', '>=', $data['age-from'])
-            ->where(['site_id' => SITE_ID, 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where([ 'publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
             ->where('ves', '>=', $data['ves-from'])
             ->where('ves', '<=', $data['ves-to'])

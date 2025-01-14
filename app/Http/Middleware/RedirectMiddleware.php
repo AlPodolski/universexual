@@ -22,7 +22,7 @@ class RedirectMiddleware
 
             $redirect = Cache::remember('redirect_' . $actualCity.'_'.SITE, $expire, function () use ($actualCity) {
 
-                $redirect = Redirect::where('from', $actualCity)->where('site', SITE_ID)->first();
+                $redirect = Redirect::where('from', $actualCity)->first();
 
                 if ($redirect) return $redirect;
 
@@ -48,17 +48,15 @@ class RedirectMiddleware
 
         $actualCity = preg_replace("/[0-9]/", '', $actualCity);
 
-        $cityInfo = \Cache::get('city_info-'.$actualCity.'-'.'-site_id-'.SITE);
+        $cityInfo = \Cache::get('city_info-'.$actualCity);
 
         if (!$cityInfo){
 
             $cityInfo = City::where('url', $actualCity)
-                ->with(['info' => function ($query) {
-                    $query->where('site_id', SITE_ID);
-                }])
+                ->with('info')
                 ->first();
 
-            \Cache::set('city_info-'.$actualCity.'-'.'-site_id-'.SITE, $cityInfo);
+            \Cache::set('city_info-'.$actualCity, $cityInfo);
 
         }
 

@@ -59,7 +59,7 @@ class CommentController extends Controller
 
         if ($comment) {
 
-            \Cache::delete('post_' . $comment->post->url . '_site_id_' . SITE);
+            \Cache::delete('post_' . $comment->post->url);
 
             $comment->status = Review::PUBLICATION_STATUS;
             $comment->save();
