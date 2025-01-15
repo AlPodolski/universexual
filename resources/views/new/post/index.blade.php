@@ -298,7 +298,7 @@
                             <div class="about">
                                 <p class="big-red-text">Видео </p>
                                 <video controls="controls" class="video">
-                                    <source src="{{ $post->video }}">
+                                    <source src="/storage/{{ $post->video }}">
                                 </video>
                             </div>
                         @endif
