@@ -205,9 +205,6 @@ class PostRepository
 
         //dd($posts->getQuery()->wheres);
 
-        if ($salon) $posts = $posts->where('type', Post::SALON_TYPE);
-        if ($indi) $posts = $posts->where('type', Post::INDI_TYPE);
-
         if (count($posts->getQuery()->wheres) <= 2 and !$posts->getQuery()->orders) abort(404);
 
         $posts = $posts
