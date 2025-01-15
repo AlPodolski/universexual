@@ -293,6 +293,16 @@
 
                             </div>
                         </div>
+
+                        @if($post->video)
+                            <div class="about">
+                                <p class="big-red-text">Видео </p>
+                                <video controls="controls" class="video">
+                                    <source src="{{ $post->video }}">
+                                </video>
+                            </div>
+                        @endif
+
                         <div class="other-params">
                             <p class="big-red-text">Дополнительные параметры </p>
                             <div class="row">
