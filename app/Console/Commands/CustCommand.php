@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Jobs\CreatePostTextAbout;
 use App\Models\City;
 use App\Models\Metro;
 use App\Models\MetroNear;
@@ -25,145 +26,96 @@ class CustCommand extends Command
 
     public function handle()
     {
+        $posts = Post::all();
 
-        $this->apiKey = env('OPENAI_API_KEY');
-        $this->client = new Client([
-            'base_uri' => 'https://api.openai.com/v1/',
-            'verify' => false,
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->apiKey,
-                'Content-Type' => 'application/json',
-            ],
-        ]);
+        foreach ($posts as $post){
 
-        $url = '/';
-
-        $cityList = City::where('id', '>', 1)->get();
-
-        $model = 'gpt-3.5-turbo';
-
-        $maxTokens = 3000;
-
-        foreach ($cityList as $item){
-
-            $prompt = 'Написать уникальный текст, использовать ключи:
-        проститутки '.$item->city2.' , снять индивидуалку '.$item->city3.', заказать проститутку '.$item->city.'.
-        каждый Ключ в тексте должен быть только один раз. используй хтмл для разметки текста без тега боди. объемом минимум 3000
-        символов';
-
-            $response = $this->client->post('chat/completions', [
-                'json' => [
-                    'model' => $model,
-                    'messages' => [
-                        ['role' => 'user', 'content' => $prompt],
-                    ],
-                    'max_tokens' => $maxTokens,
-                ],
-            ]);
-
-            $body = json_decode($response->getBody()->getContents(), true);
-
-            $result = ($body['choices'][0]['message']['content'] ?? false);
-
-            if ($result){
-
-                $result = preg_replace('/[\x00-\x1F\x7F]/u', '', $result);
-
-                $text = new Text();
-
-                $text->city_id = $item->id;
-                $text->page_url = $url;
-                $text->text = $result;
-
-                $text->save();
-
-            }
-
-            echo  $item->url . ' - ' . $item->id . ' - ' . $url .PHP_EOL;
+            CreatePostTextAbout::dispatch($post);
 
         }
 
     }
 
-    private function prepareData($data, $host){
+    private function prepareData($data, $host)
+    {
 
         $result = array();
 
-        if ($data['metro']){
+        if ($data['metro']) {
 
-            foreach ($data['metro'] as $item){
+            foreach ($data['metro'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['rayon']){
-
-            foreach ($data['rayon'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['national']){
+        if ($data['rayon']) {
 
-            foreach ($data['national'] as $item){
+            foreach ($data['rayon'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['place']){
-
-            foreach ($data['place'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['time']){
+        if ($data['national']) {
 
-            foreach ($data['time'] as $item){
+            foreach ($data['national'] as $item) {
 
-                $result[] = $host.$item->filter_url;
-
-            }
-
-        }
-
-        if ($data['hair']){
-
-            foreach ($data['hair'] as $item){
-
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['intimHair']){
+        if ($data['place']) {
 
-            foreach ($data['intimHair'] as $item){
+            foreach ($data['place'] as $item) {
 
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
 
             }
 
         }
 
-        if ($data['service']){
+        if ($data['time']) {
 
-            foreach ($data['service'] as $item){
+            foreach ($data['time'] as $item) {
 
-                $result[] = $host.$item->filter_url;
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['hair']) {
+
+            foreach ($data['hair'] as $item) {
+
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['intimHair']) {
+
+            foreach ($data['intimHair'] as $item) {
+
+                $result[] = $host . $item->filter_url;
+
+            }
+
+        }
+
+        if ($data['service']) {
+
+            foreach ($data['service'] as $item) {
+
+                $result[] = $host . $item->filter_url;
 
             }
 

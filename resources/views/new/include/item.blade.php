@@ -19,7 +19,7 @@
             </picture>
         </a>
         <div class="article-top-info position-absolute">
-            <div class="name-age">{{ $post->name }}, {{ $post->age }}</div>
+            <div class="name-age"><a href="/individualka/{{ $post->url }}">{{ $post->name }}</a>, {{ $post->age }}</div>
 
             @if($metro = $post->metro->first())
 
