@@ -179,7 +179,7 @@
                 </div>
                 <div class="label-text">видео</div>
             </div>
-            <div class="more-info-label @if($post->reviews->first()) label-check @endif d-flex label-check">
+            <div class="more-info-label @if($post->reviews->first()) label-check @endif d-flex">
                 <div class="check">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
                         <g clip-path="url(#clip0_384_25)">
