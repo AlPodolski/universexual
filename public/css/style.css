@@ -221,12 +221,13 @@ header {
     padding-bottom: 10px;
 }
 
-.name-age {
+.name-age , .name-age a{
     color: #FFF;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: 141.4%; /* 33.936px */
+    text-decoration: none;
 }
 
 .price-item-name {
