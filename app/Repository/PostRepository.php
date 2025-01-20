@@ -136,19 +136,19 @@ class PostRepository
             if (strpos($search, 'prostitutki-ot-50-let') !== false)
                 $posts = $posts->where('age', '>', 49);
 
-            if (strpos($search, 'vip-individualki') !== false)
+            if (strpos($search, 'individualki-vip') !== false)
                 $posts = $posts->where('price', '>', 4999);
 
-            if (strpos($search, 'deshevye-individualki') !== false)
+            if (strpos($search, 'individualki-deshevye') !== false)
                 $posts = $posts->where('price', '<', 3001);
 
-            if (strpos($search, 'proverennye-individualki') !== false)
+            if (strpos($search, 'individualki-proverennye') !== false)
                 $posts = $posts->where('check_photo_status', 1);
 
             if (strpos($search, 'individualki-s-video') !== false)
                 $posts = $posts->where('video', '<>', null);
 
-            if (strpos($search, 'novye-individualki') !== false)
+            if (strpos($search, 'individualki-novye') !== false)
                 $posts = $posts->orderByDesc('id');
 
             $expire = Carbon::now()->addHours(1200);
