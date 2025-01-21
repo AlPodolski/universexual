@@ -110,11 +110,24 @@
                         @endif
 
                         @if($post->city_id == 1 and isset($post->rayon->filter->url))
-                            <div class="single-metro-wrap single-rayon-wrap d-flex">
+                            <div class="single-metro-wrap d-flex">
                                 <div class="metro-text">Район:</div>
                                 <a href="/{{ $post->rayon->filter->url }}"
                                    class="rayon-value">{{ $post->rayon->value }}</a>
                             </div>
+                        @endif
+
+                        @if($post->place)
+
+                            <div class="single-metro-wrap single-rayon-wrap d-flex">
+                                <div class="metro-text">Место встречи:</div>
+
+                                @foreach($post->place as $item)
+                                    <a class="rayon-value" href="/{{ $item->places_url }}">{{ $item->value }}</a>
+                                @endforeach
+
+                            </div>
+
                         @endif
 
                         <div class="single-price d-flex justify-content-around">

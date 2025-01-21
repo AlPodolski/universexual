@@ -109,7 +109,7 @@
                 @endforeach
             @endif
             @foreach($post->place as $item)
-                <a class="info-label" href="/{{ $item->places_url }}">#{{ $item->places_value }}</a>
+                <a class="info-label" href="/{{ $item->places_url }}">#{{ $item->value }}</a>
             @endforeach
             @if($post->national)
                 <a class="info-label" href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>

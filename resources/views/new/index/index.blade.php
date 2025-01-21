@@ -84,8 +84,6 @@
         </div>
     @endif
 
-    {!! $text->text !!}
-
     @if(isset($text->text) and $text->text)
         {!! $text->text !!}
     @endif

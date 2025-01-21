@@ -115,7 +115,9 @@ class Post extends Model
     {
         return $this->hasMany(PostPlace::class, 'posts_id', 'id')
             ->join('places', 'place_id', '=','places.id')
-            ->select('places.url as places_url','places.id', 'places.value as places_value', 'posts_id');
+            ->join('filters', 'related_id' , '=', 'places.id')
+            ->where('filters.parent_class', Place::class)
+            ->select('filters.url as places_url','places.*', 'post_places.*');
     }
 
 
