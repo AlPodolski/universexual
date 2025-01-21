@@ -524,7 +524,7 @@
 @endsection
 
 @section('open-graph')
-    @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/252-309/thumbs/'.$post->avatar])
+    @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/600-600/thumbs/'.$post->avatar])
 @endsection
 
 @section('yandex_script', '/files/js/map.js?V=1')
