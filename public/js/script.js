@@ -172,7 +172,7 @@ function getMorePosts(object) {
 
                 window.history.pushState('', document.title, url);
 
-                if (data.posts) $('.catalog-items').append(data.posts);
+                if (data.posts) $('.posts').append(data.posts);
 
                 if (data.next_page) $(object).attr('data-url', data.next_page);
                 else $(object).remove();

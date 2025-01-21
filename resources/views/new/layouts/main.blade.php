@@ -105,7 +105,7 @@
 <script defer src="/js/bootstrap.bundle.min.js"></script>
 <script defer src="/js/nouislider.min.js"></script>
 <script src="/js/wNumb.min.js" defer></script>
-<script defer src="/js/script.js?v=2"></script>
+<script defer src="/js/script.js?v=3"></script>
 @if(View::hasSection('yandex_script'))
     <script defer src="@yield('yandex_script')"></script>
 @endif
