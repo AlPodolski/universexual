@@ -38,5 +38,5 @@
 @endsection
 
 @section('open-graph')
-    @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], '/new/images/logo.png'])
+    @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], '/images/logo.svg'])
 @endsection
