@@ -89,9 +89,25 @@
         {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
     @endif
 
+    @if(isset($data['near_metro']) and $data['near_metro']->first())
+
+        <div class="near-metro">
+            Посмотрите также анкеты на соседних метро:
+            @foreach($data['near_metro'] as $item)
+                <a href="/{{ $item->metro->filter->url }}">
+                    {{  $item->metro->value }}
+                </a>
+                @if($data['near_metro']->last() != $item), @endif
+            @endforeach
+        </div>
+
+    @endif
+
     @if(isset($text->text) and $text->text)
         {!! $text->text !!}
     @endif
+
+
 
     @include('new.include.main-menu', compact('data'))
 

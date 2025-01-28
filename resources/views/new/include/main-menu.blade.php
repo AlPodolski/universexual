@@ -6,20 +6,59 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
     </div>
-    <nav itemscope  itemtype="https://schema.org/SiteNavigationElement">
+    <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
         <ul class="side-menu-list">
 
             <li><a href="/" class="side-menu-link" itemprop="url"><span itemprop="name">Главная</span></a></li>
-            <li><a href="/individualki-deshevye" class="side-menu-link" itemprop="url"><span itemprop="name">Дешевые</span></a></li>
-            <li><a href="/individualki-proverennye" class="side-menu-link" itemprop="url"><span itemprop="name">Проверенные</span></a></li>
-            <li><a href="/individualki-vip" class="side-menu-link" itemprop="url"><span itemprop="name">VIP</span></a></li>
-            <li><a href="/individualki-s-video" class="side-menu-link" itemprop="url"><span itemprop="name">С видео</span></a></li>
-            <li><a href="/individualki-novye" class="side-menu-link" itemprop="url"><span itemprop="name">Новые</span></a></li>
-            <li><a href="/zrelye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Зрелые</span></a></li>
-            <li><a href="/molodye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Молодые</span></a></li>
-            <li><a href="/tolstye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Толстые</span></a></li>
+            <li><a href="/individualki-deshevye" class="side-menu-link" itemprop="url"><span
+                        itemprop="name">Дешевые</span></a></li>
+            <li><a href="/individualki-proverennye" class="side-menu-link" itemprop="url"><span itemprop="name">Проверенные</span></a>
+            </li>
+            <li><a href="/individualki-vip" class="side-menu-link" itemprop="url"><span itemprop="name">VIP</span></a>
+            </li>
+            <li><a href="/individualki-s-video" class="side-menu-link" itemprop="url"><span
+                        itemprop="name">С видео</span></a></li>
+            <li><a href="/individualki-novye" class="side-menu-link" itemprop="url"><span
+                        itemprop="name">Новые</span></a></li>
+            <li><a href="/zrelye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Зрелые</span></a>
+            </li>
+            <li><a href="/molodye-individualki" class="side-menu-link" itemprop="url"><span
+                        itemprop="name">Молодые</span></a></li>
+            <li><a href="/tolstye-individualki" class="side-menu-link" itemprop="url"><span
+                        itemprop="name">Толстые</span></a></li>
 
-        @if($data['metro']->first())
+            <li>
+                <a class="side-menu-link" data-bs-toggle="collapse"
+                   href="#collapseCity"
+                   role="button"
+                   aria-expanded="false"
+                   aria-controls="collapseService">
+                    {{ $data['current_city']->city }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <div class="collapse" id="collapseCity">
+                    <ul class="list-unstyled ps-3">
+                        @foreach($data['city_list'] as $item)
+                            @php
+                                /* @var $item \App\Models\City */
+                            @endphp
+                            <li>
+                                <a itemprop="url"
+                                   title="Проститутки {{ $item->city }}"
+                                   href="https://{{ $item->url }}.{{ SITE }}"
+                                   class="side-menu-link">
+                                    <span itemprop="name">{{ $item->city }}</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </li>
+
+            @if($data['metro']->first())
                 <li>
                     <a class="side-menu-link" data-bs-toggle="collapse"
                        href="#collapseMetro"
