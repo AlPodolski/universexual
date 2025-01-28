@@ -41,7 +41,7 @@ class FilterController extends Controller
         $posts = $this->postRepository->getForFilterCatalog($cityInfo['id'], $search);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        $text = (new TextRepository())->getText($cityInfo['id'], $request->getRequestUri());
+        $text = (new TextRepository())->getText($cityInfo['id'], $request->getRequestUri(), $request);
 
         $path = (new Canonical())->get($request->getRequestUri());
 
@@ -66,10 +66,13 @@ class FilterController extends Controller
 
         }
 
+        $sort = $this->sort;
+
         $links = $this->linkRepository->getLink($search, $filterParams);
 
         return view('new.filter.index',
-            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro', 'links', 'serviceMicro', 'text')
+            compact('posts', 'data', 'meta', 'path', 'breadMicro', 'productMicro',
+                'links', 'serviceMicro', 'text', 'sort')
         );
     }
 

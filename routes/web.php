@@ -41,6 +41,7 @@ Route::middleware('redirect')->group(function () {
         Route::get('/individualka/{url}', \App\Http\Controllers\PostController::class);
         Route::get('/search', \App\Http\Controllers\SearchController::class);
         Route::get('/poisk-po-parametram', [\App\Http\Controllers\SearchController::class, 'filter']);
+        Route::post('/poisk-po-parametram', [\App\Http\Controllers\SearchController::class, 'more']);
 
         Route::post('/city/search', [\App\Http\Controllers\SearchController::class, 'city']);
 

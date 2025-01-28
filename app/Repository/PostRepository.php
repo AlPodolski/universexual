@@ -290,7 +290,7 @@ class PostRepository
 
         $posts = $posts
             ->orderByRaw($this->sort)
-            ->paginate($this->postLimit);
+            ->paginate($this->postLimit)->appends($data);
 
         return $posts;
     }

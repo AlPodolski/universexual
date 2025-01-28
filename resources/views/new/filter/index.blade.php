@@ -22,7 +22,17 @@
 
     <div class="row">
         <div class="col-12">
-            <h1 class="big-red-text margin-bottom-20">{{ $meta['h1'] }}</h1>
+            <div class="h1_sort d-flex">
+                <h1 class="big-red-text margin-bottom-20">{{ $meta['h1'] }}</h1>
+                <div class="sort custom-select">
+                    <select class="metro-select" name="limit" id="sort-select" onchange="setSort()">
+                        <option @if($sort == 'default') selected @endif value="default">Сортировать</option>
+                        <option @if($sort == 'price_asc') selected @endif value="price_asc">От дешевых к дорогим</option>
+                        <option @if($sort == 'price_desc') selected @endif value="price_desc">От дорогих к дешевым</option>
+                    </select>
+                </div>
+            </div>
+            <div class="total-posts">Всего найдено анкет: {{ $posts->total() }}</div>
         </div>
     </div>
     <div class="row posts">

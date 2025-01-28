@@ -45,6 +45,18 @@ class SearchController extends Controller
 
     }
 
+    public function more($city, Request $request)
+    {
+        $cityInfo = $this->cityRepository->getCity($city);
+        $data = $request->all();
+        $posts = $this->postRepository->getForFilter($cityInfo['id'], $data);
+
+        $data['posts'] = view(PATH.'.include.more', compact('posts', 'cityInfo'))->render();
+        $data['next_page'] = str_replace('http', 'https', $posts->nextPageUrl());
+
+        return json_encode($data);
+    }
+
     public function city(Request $request)
     {
         $city = $request->post('city');

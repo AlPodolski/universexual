@@ -20,11 +20,25 @@
         {!! $serviceMicro !!}
     @endif
 
+    @if(isset($webSiteMicro))
+        {!! $webSiteMicro !!}
+    @endif
+
     @include('new.include.filter')
 
     <div class="row">
         <div class="col-12">
-            <h1 class="big-red-text">{{ $meta['h1'] }}</h1>
+            <div class="h1_sort d-flex">
+                <h1 class="big-red-text">{{ $meta['h1'] }}</h1>
+                <div class="sort custom-select">
+                    <select class="metro-select" name="limit" id="sort-select" onchange="setSort()">
+                        <option @if($sort == 'default') selected @endif value="default">Сортировать</option>
+                        <option @if($sort == 'price_asc') selected @endif value="price_asc">От дешевых к дорогим</option>
+                        <option @if($sort == 'price_desc') selected @endif value="price_desc">От дорогих к дешевым</option>
+                    </select>
+                </div>
+            </div>
+
             <p class="small-black-text">
                 @if(isset($text->small_text) and $text->small_text)
                     {{ $text->small_text }}
@@ -85,7 +99,9 @@
     @endif
 
     @if(isset($text->text) and $text->text)
-        {!! $text->text !!}
+        <div class="text">
+            {!! $text->text !!}
+        </div>
     @endif
 
     @include('new.include.main-menu', compact('data'))

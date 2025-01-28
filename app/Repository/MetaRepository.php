@@ -27,6 +27,8 @@ class MetaRepository
 
         }
 
+        $value = $this->addPageAndSite($value, $request);
+
         return $value;
 
     }
@@ -160,7 +162,7 @@ class MetaRepository
 
         foreach ($meta as $key => &$item){
 
-            if ($key != 'h1')$item = $item . ' на сайте '. $_SERVER['SERVER_NAME'] . $pageText;
+            if ($key != 'h1')$item = $item . $pageText;
 
         }
 

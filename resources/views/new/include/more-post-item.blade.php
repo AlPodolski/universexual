@@ -3,7 +3,7 @@
 @endphp
 <div class="col-12 col-md-6 col-lg-3">
 <div class="more-post-item">
-    <img src="/400-500/thumbs/{{$item->avatar}}" alt="">
+    <a href="/individualka/{{ $item->url }}"><img src="/400-500/thumbs/{{$item->avatar}}" alt=""></a>
     <a href="/individualka/{{ $item->url }}"><p class="more-post-name">{{ $item->name }}</p></a>
     @if($metro = $item->metro->first())
         <a href="/{{ $metro->metro_url }}" class="more-post-metro">

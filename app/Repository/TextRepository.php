@@ -7,15 +7,20 @@ use Illuminate\Support\Facades\Cache;
 
 class TextRepository
 {
-    public function getText($cityId, $url)
+    public function getText($cityId, $url, $request)
     {
-        $text = Cache::remember("text_{$cityId}_{$url}", 86400, function () use ($cityId, $url) {
-            return Text::where('city_id', $cityId)
-                ->where('page_url', $url)
-                ->first();
-        });
 
-        return $text;
+        if (!$request->has('page')){
+
+            $text = Cache::remember("text_{$cityId}_{$url}", 86400, function () use ($cityId, $url) {
+                return Text::where('city_id', $cityId)
+                    ->where('page_url', $url)
+                    ->first();
+            });
+
+            return $text;
+
+        }
 
     }
 }

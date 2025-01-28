@@ -43,6 +43,12 @@
         @yield('open-graph')
     @endif
 
+    <script type="application/ld+json">
+
+    </script>
+
+    <meta name="googlebot" content="max-snippet:-1">
+
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/style.css?v=3">
@@ -69,7 +75,6 @@
             </div>
             <div class="col-2 col-lg-5 d-flex align-items-center">
                 <form id="search-name" action="/search" method="get" class="position-relative">
-                    @csrf
                     <input type="text" placeholder="Поиск" name="name">
                     <button type="submit" class="position-absolute">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,6 +101,8 @@
     <div class="container">
 
         @yield('content')
+
+        <div id="arrowTop"></div>
 
     </div>
 

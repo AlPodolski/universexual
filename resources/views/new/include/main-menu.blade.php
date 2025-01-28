@@ -6,20 +6,20 @@
             <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
     </div>
-    <nav>
+    <nav itemscope  itemtype="https://schema.org/SiteNavigationElement">
         <ul class="side-menu-list">
 
-            <li><a href="/" class="side-menu-link">Главная</a></li>
-            <li><a href="/individualki-deshevye" class="side-menu-link">Дешевые</a></li>
-            <li><a href="/individualki-proverennye" class="side-menu-link">Проверенные</a></li>
-            <li><a href="/individualki-vip" class="side-menu-link">VIP</a></li>
-            <li><a href="/individualki-s-video" class="side-menu-link">С видео</a></li>
-            <li><a href="/individualki-novye" class="side-menu-link">Новые</a></li>
-            <li><a href="/zrelye-individualki" class="side-menu-link">Зрелые</a></li>
-            <li><a href="/molodye-individualki" class="side-menu-link">Молодые</a></li>
-            <li><a href="/tolstye-individualki" class="side-menu-link">Толстые</a></li>
+            <li><a href="/" class="side-menu-link" itemprop="url"><span itemprop="name">Главная</span></a></li>
+            <li><a href="/individualki-deshevye" class="side-menu-link" itemprop="url"><span itemprop="name">Дешевые</span></a></li>
+            <li><a href="/individualki-proverennye" class="side-menu-link" itemprop="url"><span itemprop="name">Проверенные</span></a></li>
+            <li><a href="/individualki-vip" class="side-menu-link" itemprop="url"><span itemprop="name">VIP</span></a></li>
+            <li><a href="/individualki-s-video" class="side-menu-link" itemprop="url"><span itemprop="name">С видео</span></a></li>
+            <li><a href="/individualki-novye" class="side-menu-link" itemprop="url"><span itemprop="name">Новые</span></a></li>
+            <li><a href="/zrelye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Зрелые</span></a></li>
+            <li><a href="/molodye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Молодые</span></a></li>
+            <li><a href="/tolstye-individualki" class="side-menu-link" itemprop="url"><span itemprop="name">Толстые</span></a></li>
 
-            @if($data['metro']->first())
+        @if($data['metro']->first())
                 <li>
                     <a class="side-menu-link" data-bs-toggle="collapse"
                        href="#collapseMetro"
