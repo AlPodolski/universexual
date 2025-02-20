@@ -397,7 +397,6 @@
                                     <div class="review">
                                         <div class="name-and-date-wrap d-flex justify-content-between">
                                             <div class="review-name">{{ $review->name }}</div>
-                                            <div class="date">{{ $review->created_at }}</div>
                                         </div>
 
                                         <div class="review-text">{{ $review->text }}
