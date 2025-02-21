@@ -18,7 +18,6 @@
         </div>
         <div class="d-flex">
             <div class="page-review-author">{{ $item->name }}</div>
-            <div class="page-review-date">{{ $item->created_at }}</div>
         </div>
 
     </div>
