@@ -16,7 +16,7 @@ class BlogController extends Controller
 
         $meta = $metaRepository->getForBlog($request->url(), $cityInfo, $request);
 
-        $posts = BlogPost::paginate(20);
+        $posts = BlogPost::orderByDesc('id')->paginate(20);
 
         return view('blog.index', compact('meta', 'data', 'posts'));
     }
@@ -26,7 +26,7 @@ class BlogController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        $post = BlogPost::where('url', $url)->orderByDesc('id')->first();
+        $post = BlogPost::where('url', $url)->first();
 
         return view('blog.post', compact('post', 'data', 'cityInfo'));
     }
