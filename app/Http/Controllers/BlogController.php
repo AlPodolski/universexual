@@ -26,7 +26,7 @@ class BlogController extends Controller
         $cityInfo = $this->cityRepository->getCity($city);
         $data = $this->dataRepository->getData($cityInfo['id']);
 
-        $post = BlogPost::where('url', $url)->first();
+        $post = BlogPost::where('url', $url)->orderByDesc('id')->first();
 
         return view('blog.post', compact('post', 'data', 'cityInfo'));
     }
