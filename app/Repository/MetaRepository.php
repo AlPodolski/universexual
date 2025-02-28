@@ -97,6 +97,17 @@ class MetaRepository
 
         return $data;
     }
+    public function getForBlog($name = ''): array
+    {
+        $data = [
+            'title' => 'Блог – интересные статьи и советы для незабываемых встреч в Москве',
+            'des' => 'Читайте наш блог о лучших местах, элитных отелях, ресторанах и лайфхаках
+            для незабываемых встреч в Москве. Только полезная информация!',
+            'h1' => 'Блог – лучшие статьи и рекомендации для комфортного отдыха в Москве',
+        ];
+
+        return $data;
+    }
 
     private function replaceParams($meta, $filterParamsList)
     {

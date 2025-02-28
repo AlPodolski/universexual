@@ -35,6 +35,10 @@ Route::get('/pay/{id}', [\App\Http\Controllers\PayController::class, 'index']);
 Route::middleware('redirect')->group(function () {
 
     Route::domain('{city}.' . SITE)->group(function () {
+
+        Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index']);
+        Route::get('/blog/{url}', [\App\Http\Controllers\BlogController::class, 'post']);
+
         Route::get('/politika-konfidencialnosti', [\App\Http\Controllers\CustomController::class, 'politic']);
         Route::get('/', \App\Http\Controllers\IndexController::class);
         Route::post('/', [\App\Http\Controllers\IndexController::class, 'more']);

@@ -10,6 +10,11 @@
         <ul class="side-menu-list">
 
             <li><a href="/" class="side-menu-link" itemprop="url"><span itemprop="name">Главная</span></a></li>
+
+            @if($data['current_city']->id == 1)
+                <li><a href="/blog" class="side-menu-link" itemprop="url"><span itemprop="name">Блог</span></a></li>
+            @endif
+
             <li><a href="/individualki-deshevye" class="side-menu-link" itemprop="url"><span
                         itemprop="name">Дешевые</span></a></li>
             <li><a href="/individualki-proverennye" class="side-menu-link" itemprop="url"><span itemprop="name">Проверенные</span></a>

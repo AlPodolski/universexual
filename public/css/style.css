@@ -1006,6 +1006,31 @@ img {
     border-radius: 5px;
     margin-bottom: 20px;
 }
+.single-blog-post{
+    padding-top: 20px;
+}
+.blog-posts{
+    margin-top: 20px;
+}
+.blog-post-img{
+    margin-bottom: 5px;
+}
+.blog-post-heading{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 25px;
+    color: #000;
+    text-decoration: none;
+}
+.blog-post-text{
+    font-size: 14px;
+    line-height: 22px;
+    color: #85837b;
+}
+.blog-post{
+    margin-bottom: 30px;
+}
 .page-review-date{
     font-size: 12px;
     margin-left: auto;
