@@ -61,7 +61,10 @@ function show_sub_menu(obj) {
 var slider = document.getElementById('age');
 
 noUiSlider.create(slider, {
-    start: [18, 80],
+    start: [
+        document.getElementById('age-from').getAttribute('data-value'),
+        document.getElementById('age-to').getAttribute('data-value')
+    ],
     connect: true,
     step: 1,
     format: wNumb({
@@ -83,7 +86,10 @@ slider.noUiSlider.on('update', function (values, handle) {
 var sliderVes = document.getElementById('ves');
 
 noUiSlider.create(sliderVes, {
-    start: [40, 100],
+    start: [
+        document.getElementById('ves-from').getAttribute('data-value'),
+        document.getElementById('ves-to').getAttribute('data-value')
+    ],
     connect: true,
     step: 1,
     format: wNumb({
@@ -105,7 +111,10 @@ sliderVes.noUiSlider.on('update', function (values, handle) {
 var sliderGrud = document.getElementById('grud');
 
 noUiSlider.create(sliderGrud, {
-    start: [0, 8],
+    start: [
+        document.getElementById('grud-from').getAttribute('data-value'),
+        document.getElementById('grud-to').getAttribute('data-value')
+    ],
     connect: true,
     step: 1,
     format: wNumb({
@@ -128,7 +137,10 @@ sliderGrud.noUiSlider.on('update', function (values, handle) {
 var sliderPrice = document.getElementById('price');
 
 noUiSlider.create(sliderPrice, {
-    start: [1500, 50000],
+    start: [
+        document.getElementById('price-from').getAttribute('data-value'),
+        document.getElementById('price-to').getAttribute('data-value')
+    ],
     connect: true,
     step: 100,
     format: wNumb({
