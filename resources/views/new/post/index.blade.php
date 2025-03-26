@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-xl-7 single-post-info">
-                        <h1 class="big-red-text">{{ $post->name }} ID {{ $post->id }}</h1>
+                        <h1 class="big-red-text">{{ $meta['h1'] }}</h1>
 
                         @if($post->check_photo_status)
 
