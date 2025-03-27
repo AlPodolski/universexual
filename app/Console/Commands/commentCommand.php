@@ -33,6 +33,8 @@ class commentCommand extends Command
 
         }
 
+
+
         $reviewedPostIds = DB::table('reviews')->pluck('posts_id');
 
         $posts = Post::where('fake', Post::POST_FAKE)
