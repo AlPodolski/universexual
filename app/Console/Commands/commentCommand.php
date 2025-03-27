@@ -39,8 +39,6 @@ class commentCommand extends Command
             ->whereNotIn('id', $reviewedPostIds)
             ->get();
 
-
-
         $names = [
             // 90 русских имён (полные и сокращённые)
             'Александр', 'Саша',
