@@ -44,6 +44,7 @@ class SingleMetaService
         if ($post->metro->count()) {
 
             $des .= ', рядом с метро ' . $post->metro->first()->metro_value;
+
         }
 
         $des .=  'реальные фото, без посредников. Анкета №' . $post->id;
