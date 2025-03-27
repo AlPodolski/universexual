@@ -34,7 +34,7 @@ class SingleMetaService
 
     private function makeDesForIntimBox(Post $post, $cityInfo): string
     {
-        $des = '🔥 ' . $post->name . ' – настоящая находка для ценителей страсти в ' . $cityInfo['city3'] . '.';
+        $des = '🔥 ' . $post->name . ' – настоящая находка для ценителей страсти ' . $cityInfo['city3'] . '.';
 
         if ($post->age) $des .= ', ' . $this->pluralAge($post->age);
         if ($post->breast) $des .= ', грудь ' . $post->breast;
