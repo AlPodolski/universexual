@@ -42,6 +42,7 @@ class SingleMetaService
         if ($post->ves) $des .= ', вес ' . $post->ves . ' кг';
 
         if ($post->metro->count()) {
+
             $des .= ', рядом с метро ' . $post->metro->first()->metro_value;
         }
 
