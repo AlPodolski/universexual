@@ -6,7 +6,7 @@
 
     <div class="img-name-wrap d-flex">
         <a href="/individualka/{{ $post->url }}">
-            <img src="/104-120/thumbs/{{ $post->avatar }}" alt="">
+            <img src="/104-120/thumbs/{{ $post->avatar }}" alt="" loading="lazy">
         </a>
 
         <a href="/individualka/{{ $post->url }}" class="page-review-name">{{ $post->name }}, {{ $post->age }}</a>
