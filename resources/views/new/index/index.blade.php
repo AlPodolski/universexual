@@ -16,10 +16,6 @@
         {!! $productMicro !!}
     @endif
 
-    @if(isset($reviewMicro))
-        {!! $reviewMicro !!}
-    @endif
-
     @if(isset($serviceMicro))
         {!! $serviceMicro !!}
     @endif
