@@ -9,16 +9,19 @@ use App\Actions\GenerateWebSiteMicro;
 use App\Repository\MetaRepository;
 use App\Repository\TextRepository;
 use App\Repository\WebmasterRepository;
+use App\Services\ReviewMicrodataService;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
 
     private GenerateMicroDataForCatalog $microData;
+    private ReviewMicrodataService $microDataReview;
 
     public function __construct()
     {
         $this->microData = new GenerateMicroDataForCatalog();
+        $this->microDataReview = new ReviewMicrodataService();
         parent::__construct();
     }
 
@@ -46,9 +49,11 @@ class IndexController extends Controller
 
         $webmaster = $webmasterRepository->get($city);
 
+        $reviewMicro = $this->microDataReview->generate($posts);
+
         return view('new.index.index', compact(
             'posts', 'data', 'meta', 'path', 'productMicro',
-            'sort', 'webmaster', 'serviceMicro', 'text','webSiteMicro'
+            'sort', 'webmaster', 'serviceMicro', 'text','webSiteMicro', 'reviewMicro'
         ));
     }
 
