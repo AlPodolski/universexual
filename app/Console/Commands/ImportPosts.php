@@ -55,7 +55,7 @@ class ImportPosts extends Command
     public function handle()
     {
 
-        $stream = \fopen(storage_path('import_21_04_2025_part_2.csv'), 'r');
+        $stream = \fopen(storage_path('import_21_04_2025_part_3.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
