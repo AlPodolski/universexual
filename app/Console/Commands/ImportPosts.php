@@ -55,7 +55,7 @@ class ImportPosts extends Command
     public function handle()
     {
 
-        $stream = \fopen(storage_path('import_15_01_2025.csv'), 'r');
+        $stream = \fopen(storage_path('import_21_04_2025_part_1.csv'), 'r');
 
         $csv = Reader::createFromStream($stream);
         $csv->setDelimiter(';');
@@ -85,7 +85,7 @@ class ImportPosts extends Command
 
         $cityId = 1;
 
-        $path = '/';
+        $path = '/aa2/';
 
         $cityList = City::where('url', '<>', 'moskva')->get();
 
@@ -94,10 +94,6 @@ class ImportPosts extends Command
             $cityId = $city->id;
 
             shuffle($posts);
-
-            $maxPost = rand(360, 500);
-
-            $i = 0;
 
             foreach ($posts as $record) {
 
@@ -147,7 +143,7 @@ class ImportPosts extends Command
 
                     $post->url = \Str::slug($post->name) . '-' . $post->id;
 
-                    if ($record['metro'] and false) {
+                    if ($record['metro']) {
 
                         $dataList = explode(',', $record['metro']);
 
@@ -206,7 +202,7 @@ class ImportPosts extends Command
 
                     }
 
-                    if (isset($record['rayon']) and $record['rayon'] and false) {
+                    if (isset($record['rayon']) and $record['rayon']) {
 
                         if ($temp = Rayon::where(['value' => $record['rayon']])->get()->first()) {
 
@@ -276,18 +272,13 @@ class ImportPosts extends Command
 
                     $post->save();
 
-                    $i++;
-
-                    if ($i > $maxPost) break;
+                    exit();
 
                 }
 
             }
 
         }
-
-
-
 
     }
 
