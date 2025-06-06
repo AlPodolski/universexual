@@ -1,5 +1,11 @@
 body{
     font-family: Ubuntu;
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 .top-header{
     background: #F9F8F8;
@@ -87,6 +93,7 @@ body{
 }
 .form-item {
     margin-right: 25px;
+    margin-bottom: 20px;
 }
 .slider-text{
     color: #5C5C5C;
@@ -636,4 +643,213 @@ body{
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+}
+#filterClose{
+    display:  none;
+}
+#burger-menu{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.login-btn{
+    display: flex;
+    align-items: center;
+}
+
+
+.catalog {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.catalog.open {
+    left: 0;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #f74952;
+}
+
+/* Аккордеон */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-header {
+    padding: 12px 0;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-header::after {
+    transform: rotate(45deg); /* Плюсик превращается в крестик */
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content ul {
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.accordion-content li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Тёмный полупрозрачный фон */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 900; /* Меньше, чем у каталога (1000) */
+}
+
+/* Показать overlay */
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Небольшой апдейт каталога: увеличим z-index */
+.catalog {
+    z-index: 1001;
+}
+
+
+@media (max-width: 1399px) {
+    .bottom-header{
+        margin-bottom: 0;
+    }
+    .bottom-header{
+        border-bottom: none;
+    }
+    .header-top-menu{
+        display: none;
+    }
+    .red-btn{
+        padding: 5px;
+    }
+    #filterClose{
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        cursor:  pointer;
+    }
+    .filter {
+        position: fixed;
+        top: 0;
+        left: -300px; /* Скрыт за экраном */
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+        padding: 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .form-item{
+        margin-right: 0;
+    }
+
+    .filter.open {
+        left: 0; /* Выезжает */
+    }
+
+    #filterToggle {
+        margin: 0px;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: #f74952;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+}
+@media (max-width: 767px) {
+    .catalog {
+        width: 100%;
+        left: -100%;
+    }
+
+    .catalog.open {
+        left: 0;
+    }
+
+    .close-btn {
+        font-size: 32px;
+        top: 20px;
+        right: 20px;
+    }
+    .search-name-form{
+        display: none;
+    }
+    .logo svg{
+        width: 110px;
+    }
+    .login-btn{
+        margin-left: auto;
+    }
+}
+@media (max-width: 576px) {
+    .metro-location{
+        display: none!important;
+    }
 }

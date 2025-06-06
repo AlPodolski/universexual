@@ -47,7 +47,7 @@
     <div class="bottom-header">
         <div class="container">
             <div class="row bottom-header-items-wrap">
-                <div class="col-5 location d-flex">
+                <div class="col-4 col-sm-5 col-md-4 col-lg-5 location d-flex">
                     <div class="d-flex city-location">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 15 20" fill="none">
                             <path
@@ -68,7 +68,7 @@
                         Метро
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-5  col-sm-5 col-md-3 col-lg-2">
                     <a href="/" class="logo">
                         <svg width="131" height="24" viewBox="0 0 131 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-5 d-flex">
+                <div class="col-3 col-md-5 col-lg-5 d-flex">
                     <form class="search-name-form position-relative" action="#">
                         @csrf
                         <input placeholder="Найти..." type="text" class="text-input">
@@ -102,15 +102,25 @@
                         </button>
                     </form>
                     <a href="" class="login-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 35 35" fill="none">
-                            <path
-                                d="M17.5002 19.7141C6.98399 19.7141 1.19238 24.689 1.19238 33.7226C1.19238 34.4282 1.76421 35 2.46975 35H32.5306C33.2361 35 33.8079 34.4282 33.8079 33.7226C33.808 24.6895 28.0164 19.7141 17.5002 19.7141ZM3.79359 32.4453C4.29603 25.6909 8.90093 22.2689 17.5002 22.2689C26.0995 22.2689 30.7044 25.6909 31.2073 32.4453H3.79359Z"
-                                fill="#5C5C5C"/>
-                            <path
-                                d="M17.5001 0C12.6695 0 9.02686 3.71588 9.02686 8.64315C9.02686 13.7147 12.8279 17.8402 17.5001 17.8402C22.1722 17.8402 25.9733 13.7147 25.9733 8.64356C25.9733 3.71588 22.3307 0 17.5001 0ZM17.5001 15.2859C14.2364 15.2859 11.5816 12.3062 11.5816 8.64356C11.5816 5.11547 14.0708 2.55473 17.5001 2.55473C20.8745 2.55473 23.4186 5.17207 23.4186 8.64356C23.4186 12.3062 20.7638 15.2859 17.5001 15.2859Z"
-                                fill="#5C5C5C"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 18 18" fill="none">
+                            <g clip-path="url(#clip0_580_68)">
+                                <path d="M9.00015 10.1387C3.59182 10.1387 0.613281 12.6972 0.613281 17.3431C0.613281 17.7059 0.907363 18 1.27021 18H16.7301C17.0929 18 17.387 17.7059 17.387 17.3431C17.387 12.6974 14.4085 10.1387 9.00015 10.1387ZM1.95105 16.6861C2.20944 13.2125 4.57767 11.4526 9.00015 11.4526C13.4226 11.4526 15.7909 13.2125 16.0495 16.6861H1.95105Z" fill="#5C5C5C"/>
+                                <path d="M9.00023 0C6.51591 0 4.64258 1.91102 4.64258 4.44505C4.64258 7.05329 6.59741 9.17497 9.00023 9.17497C11.4031 9.17497 13.3579 7.05329 13.3579 4.44526C13.3579 1.91102 11.4845 0 9.00023 0ZM9.00023 7.86132C7.32177 7.86132 5.95644 6.3289 5.95644 4.44526C5.95644 2.63081 7.23658 1.31386 9.00023 1.31386C10.7356 1.31386 12.044 2.65992 12.044 4.44526C12.044 6.3289 10.6787 7.86132 9.00023 7.86132Z" fill="#5C5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_580_68">
+                                    <rect width="18" height="18" fill="white"/>
+                                </clipPath>
+                            </defs>
                         </svg>
                     </a>
+                    <div id="burger-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20" fill="none">
+                            <path d="M20 14.4448H0V16.6671H20V14.4448Z" fill="#F74952"/>
+                            <path d="M20 8.88916H0V11.1114H20V8.88916Z" fill="#F74952"/>
+                            <path d="M20 3.3335H0V5.55574H20V3.3335Z" fill="#F74952"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,7 +132,10 @@
         <div class="row">
 
             <div class="col-12">
-                <form class="filter d-flex">
+                <form class="filter d-flex" id="filterPanel">
+                    <div class="close-btn" id="filterClose">
+                        &times;
+                    </div>
                     <div class="form-item select position-relative">
                         <select name="metro" id="metro">
                             <option value="">Метро</option>
@@ -175,6 +188,7 @@
                     <button class="red-btn">Поиск</button>
 
                 </form>
+                <button id="filterToggle">Показать фильтр</button>
             </div>
 
             <div class="col-12 d-flex fast-links">
@@ -185,7 +199,44 @@
                 <h1 class="big-red-text page-h1">Проститутки Москвы</h1>
             </div>
         </div>
+
         @yield('content')
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="catalog" id="catalogPanel">
+            <button class="close-btn" id="catalogClose">&times;</button>
+            <h3>Каталог</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Категория 1</div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Подкатегория 1.1</li>
+                            <li>Подкатегория 1.2</li>
+                            <li>Подкатегория 1.3</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Категория 2</div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Подкатегория 2.1</li>
+                            <li>Подкатегория 2.2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Категория 3</div>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Подкатегория 3.1</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </main>

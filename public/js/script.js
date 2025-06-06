@@ -79,3 +79,66 @@ function init() {
 
     myMap.geoObjects.add(myPlacemark);
 }
+
+const toggleButton = document.getElementById('filterToggle');
+const closeButton = document.getElementById('filterClose');
+const filterPanel = document.getElementById('filterPanel');
+
+toggleButton.addEventListener('click', () => {
+    filterPanel.classList.toggle('open');
+});
+
+closeButton.addEventListener('click', () => {
+    filterPanel.classList.remove('open');
+});
+
+
+const catalogToggle = document.getElementById('burger-menu');
+const catalogClose = document.getElementById('catalogClose');
+const catalogPanel = document.getElementById('catalogPanel');
+const overlay = document.getElementById('overlay');
+
+// Открыть каталог
+catalogToggle.addEventListener('click', () => {
+    catalogPanel.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+});
+
+// Закрыть каталог
+function closeCatalog() {
+    catalogPanel.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = ''; // Возвращаем прокрутку страницы
+}
+
+catalogClose.addEventListener('click', closeCatalog);
+overlay.addEventListener('click', closeCatalog);
+
+// Аккордеон
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const content = header.nextElementSibling;
+
+        item.classList.toggle('active');
+
+        if (item.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        } else {
+            content.style.maxHeight = 0;
+        }
+
+        // Закрыть другие
+        accordionHeaders.forEach(otherHeader => {
+            if (otherHeader !== header) {
+                const otherItem = otherHeader.parentElement;
+                const otherContent = otherHeader.nextElementSibling;
+                otherItem.classList.remove('active');
+                otherContent.style.maxHeight = 0;
+            }
+        });
+    });
+});
