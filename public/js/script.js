@@ -53,3 +53,29 @@ createSlider('age', 'age-from', 'age-to', 18, 80, 1, '', '', true); // каст�
 createSlider('ves', 'ves-from', 'ves-to', 40, 100, 1, ' кг');
 createSlider('grud', 'grud-from', 'grud-to', 0, 8, 1, ' размер');
 createSlider('price', 'price-from', 'price-to', 1500, 50000, 100, ' ₽', ' ');
+
+var swiper = new Swiper(".mySwiper", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+    },
+});
+
+ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map("map", {
+        center: [55.751574, 37.573856], // Координаты центра карты (Москва, например)
+        zoom: 12
+    });
+
+    var myPlacemark = new ymaps.Placemark([55.751574, 37.573856], {
+        hintContent: 'Продавец',
+        balloonContent: 'Ваш адрес: Москва, Красная площадь'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+}

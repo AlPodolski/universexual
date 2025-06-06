@@ -2,214 +2,295 @@
     /* @var $post \App\Models\Post */
 @endphp
 
-<article class="col-12 col-md-6 col-lg-4 col-xl-3 listing-post">
-    <div class="article-top position-relative">
-        <a href="/individualka/{{ $post->url }}" class="">
-            <picture>
-                <source
-                    srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $post->avatar )}}"
-                    type="image/webp">
-                <source srcset="/400-500/thumbs/{{ $post->avatar }}" type="image/jpeg">
-                <img class="article-avatar" src="/400-500/thumbs/{{$post->avatar}}"
-                     alt="{{ $post->alt }}"
-                     @if(!isset($i) or $i > 2)
-                         loading="lazy"
-                     @endif
-                     title="{{ $post->title }}">
-            </picture>
-        </a>
-        <div class="article-top-info position-absolute">
-            <div class="name-age"><a href="/individualka/{{ $post->url }}">{{ $post->name }}</a>, {{ $post->age }}</div>
-
-            @if($metro = $post->metro->first())
-
-                @if(isset($data['current_metro']))
-
-                    @foreach($post->metro as $metroItem)
-
-                        @if($metroItem->id == $data['current_metro']->id)
-
-                            <div class="metro">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7"
-                                     fill="none">
-                                    <circle cx="3.5" cy="3.5" r="3.5" fill="#46E356"/>
-                                </svg>
-                                <a href="/{{ $metro->metro_url }}" class="metro-link">
-                                    {{ $metro->metro_value }}
-                                </a>
-                            </div>
-
-                        @endif
-
-                    @endforeach
-
-                @else
-
-                    <div class="metro">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="none">
-                            <circle cx="3.5" cy="3.5" r="3.5" fill="#46E356"/>
-                        </svg>
-                        <a href="/{{ $metro->metro_url }}" class="metro-link">
-                            {{ $metro->metro_value }}
-                        </a>
+<div class="col-3">
+    <div class="card">
+        <div class="top-info-wrap position-relative">
+            <a href="/user/{{ $post->url }}">
+                <img src="/img/img.png" alt="Фото">
+            </a>
+            <div class="top-info position-absolute">
+                <div class="card-title">
+                    <a href="tel:{{ $post->phone }}" class="card-phone">{{ $post->phone }}</a>
+                    <div class="photo-count-wrap d-flex">
+                        <div class="photo-icon d-flex">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 9 9" fill="none">
+                                <g clip-path="url(#clip0_215_470)">
+                                    <path d="M8.70057 2.06177C8.52091 1.87356 8.27281 1.76234 7.99049 1.76234H6.57034V1.74523C6.57034 1.53135 6.48479 1.32603 6.33935 1.18915C6.19392 1.04371 5.99715 0.95816 5.78327 0.95816H3.21673C2.9943 0.95816 2.79753 1.04371 2.65209 1.18915C2.50665 1.33459 2.4211 1.53135 2.4211 1.74523V1.76234H1.00951C0.727186 1.76234 0.479087 1.87356 0.29943 2.06177C0.119772 2.24143 0 2.49808 0 2.77185V7.0323C0 7.31462 0.111217 7.56272 0.29943 7.74238C0.479087 7.92204 0.735741 8.04181 1.00951 8.04181H7.99049C8.27281 8.04181 8.52091 7.93059 8.70057 7.74238C8.88023 7.56272 9 7.30607 9 7.0323V2.77185C9 2.48953 8.88878 2.24143 8.70057 2.06177ZM8.55513 7.0323H8.54658C8.54658 7.1863 8.48669 7.32318 8.38403 7.42584C8.28137 7.5285 8.14449 7.58839 7.99049 7.58839H1.00951C0.855513 7.58839 0.718631 7.5285 0.61597 7.42584C0.513308 7.32318 0.453422 7.1863 0.453422 7.0323V2.77185C0.453422 2.61786 0.513308 2.48097 0.61597 2.37831C0.718631 2.27565 0.855513 2.21576 1.00951 2.21576H2.66065C2.78897 2.21576 2.89164 2.1131 2.89164 1.98478V1.73668C2.89164 1.64257 2.92586 1.55702 2.98574 1.49713C3.04563 1.43725 3.13118 1.40303 3.22529 1.40303H5.78327C5.87738 1.40303 5.96293 1.43725 6.02281 1.49713C6.0827 1.55702 6.11692 1.64257 6.11692 1.73668V1.98478C6.11692 2.1131 6.21958 2.21576 6.34791 2.21576H7.99905C8.15304 2.21576 8.28992 2.27565 8.39259 2.37831C8.49525 2.48097 8.55513 2.61786 8.55513 2.77185V7.0323Z" fill="white"/>
+                                    <path d="M4.50007 2.79752C3.91832 2.79752 3.3879 3.03706 3.01148 3.41349C2.6265 3.79847 2.39551 4.32033 2.39551 4.90208C2.39551 5.48383 2.63505 6.01425 3.01148 6.39067C3.39646 6.77565 3.91832 7.00664 4.50007 7.00664C5.08182 7.00664 5.61224 6.7671 5.98867 6.39067C6.37365 6.00569 6.60464 5.48383 6.60464 4.90208C6.60464 4.32033 6.36509 3.78991 5.98867 3.41349C5.61224 3.03706 5.08182 2.79752 4.50007 2.79752ZM5.66357 6.07413C5.36414 6.36501 4.95349 6.55322 4.50007 6.55322C4.04665 6.55322 3.636 6.36501 3.33657 6.07413C3.03714 5.7747 2.85749 5.36406 2.85749 4.91063C2.85749 4.45721 3.0457 4.04657 3.33657 3.74714C3.636 3.44771 4.04665 3.26805 4.50007 3.26805C4.95349 3.26805 5.36414 3.45626 5.66357 3.74714C5.963 4.04657 6.14266 4.45721 6.14266 4.91063C6.15121 5.36406 5.963 5.7747 5.66357 6.07413Z" fill="white"/>
+                                    <path d="M7.54567 3.62741C7.77718 3.62741 7.96487 3.43972 7.96487 3.2082C7.96487 2.97668 7.77718 2.789 7.54567 2.789C7.31415 2.789 7.12646 2.97668 7.12646 3.2082C7.12646 3.43972 7.31415 3.62741 7.54567 3.62741Z" fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_215_470">
+                                        <rect width="9" height="9" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="photo-count">+30</span>
                     </div>
+                </div>
+                <div class="card-info card-white-text">
+                    <div class="city-location-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9" fill="none">
+                            <path d="M4.00017 0C2.52979 0 1.3335 1.34583 1.3335 3.00001C1.3335 3.49659 1.44386 3.98895 1.65365 4.42566L3.85434 8.90332C3.88364 8.96302 3.93947 9 4.00017 9C4.06087 9 4.1167 8.96302 4.146 8.90332L6.3475 4.42419C6.55648 3.98895 6.66684 3.49657 6.66684 2.99999C6.66684 1.34583 5.47054 0 4.00017 0ZM4.00017 4.5C3.26498 4.5 2.66684 3.82709 2.66684 3.00001C2.66684 2.17292 3.26498 1.50001 4.00017 1.50001C4.73536 1.50001 5.3335 2.17292 5.3335 3.00001C5.3335 3.82709 4.73536 4.5 4.00017 4.5Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <span>г. Москва</span>
+                </div>
+                <div class="card-info card-white-text">
+                    <span>м. Авиамоторная</span>
+                </div>
+
+                <div class="card-info">
+                    <div class="review-count-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                            <g clip-path="url(#clip0_215_442)">
+                                <path d="M7.9712 6.27882L7.50656 4.92658C7.73052 4.46874 7.84888 3.95955 7.84968 3.44722C7.85106 2.55639 7.5064 1.71409 6.87918 1.0755C6.25184 0.436777 5.41587 0.0772296 4.52524 0.0631202C3.60172 0.0485264 2.73366 0.399808 2.08105 1.0524C1.45177 1.68167 1.10274 2.51125 1.09169 3.39775C0.471471 3.86472 0.105393 4.59277 0.106596 5.37041C0.107174 5.73432 0.18908 6.09605 0.344284 6.42316L0.0242364 7.35454C-0.0307793 7.51465 0.00940825 7.68849 0.129127 7.80821C0.213377 7.89248 0.324455 7.93734 0.43869 7.93734C0.486752 7.93734 0.535377 7.9294 0.582799 7.9131L1.51419 7.59305C1.8413 7.74826 2.20303 7.83016 2.56694 7.83074C2.56825 7.83074 2.5695 7.83074 2.57082 7.83074C3.36004 7.83071 4.09363 7.45519 4.5589 6.81977C5.04307 6.80702 5.52212 6.68982 5.95519 6.47796L7.30745 6.94261C7.36379 6.96197 7.42157 6.97141 7.47868 6.97141C7.61443 6.97141 7.74643 6.9181 7.84657 6.81794C7.98882 6.67568 8.03657 6.4691 7.9712 6.27882ZM2.57079 7.35455C2.56977 7.35455 2.56869 7.35455 2.56768 7.35455C2.24558 7.35407 1.92572 7.27466 1.64274 7.12494C1.58455 7.09418 1.51624 7.08885 1.45402 7.11022L0.498971 7.4384L0.827143 6.48336C0.848518 6.42113 0.843206 6.35282 0.812424 6.29464C0.662706 6.01164 0.583299 5.6918 0.582799 5.36969C0.582002 4.85158 0.78355 4.3605 1.136 3.99278C1.25113 4.6946 1.58561 5.34132 2.10408 5.85057C2.61872 6.35605 3.26563 6.6779 3.96363 6.78311C3.59507 7.14638 3.09825 7.35455 2.57079 7.35455ZM7.50982 6.48122C7.49627 6.49477 7.48021 6.49846 7.46215 6.49224L6.01452 5.9948C5.98938 5.98616 5.96323 5.98188 5.93716 5.98188C5.89874 5.98188 5.86046 5.99118 5.82582 6.00952C5.41249 6.22818 4.94543 6.34415 4.47508 6.34486C4.47354 6.34486 4.47213 6.34486 4.47058 6.34486C2.8946 6.34486 1.59283 5.06464 1.56786 3.48903C1.55528 2.69551 1.85713 1.94975 2.41777 1.38911C2.97841 0.828465 3.7243 0.52673 4.51771 0.53923C6.09483 0.564246 7.37593 1.86842 7.37349 3.44647C7.37276 3.91681 7.2568 4.38389 7.03816 4.79719C7.00738 4.85536 7.00207 4.92367 7.02345 4.98591L7.52087 6.43354C7.52707 6.45166 7.52335 6.46771 7.50982 6.48122Z" fill="white"/>
+                                <path d="M5.88894 2.17987H3.05206C2.92056 2.17987 2.81396 2.28648 2.81396 2.41797C2.81396 2.54947 2.92057 2.65606 3.05206 2.65606H5.88894C6.02044 2.65606 6.12703 2.54945 6.12703 2.41797C6.12703 2.28648 6.02044 2.17987 5.88894 2.17987Z" fill="white"/>
+                                <path d="M5.88894 3.15912H3.05206C2.92056 3.15912 2.81396 3.26573 2.81396 3.39721C2.81396 3.5287 2.92057 3.63531 3.05206 3.63531H5.88894C6.02044 3.63531 6.12703 3.5287 6.12703 3.39721C6.12703 3.26573 6.02044 3.15912 5.88894 3.15912Z" fill="white"/>
+                                <path d="M4.79696 4.13831H3.05206C2.92056 4.13831 2.81396 4.24492 2.81396 4.3764C2.81396 4.5079 2.92057 4.61449 3.05206 4.61449H4.79694C4.92844 4.61449 5.03504 4.50788 5.03504 4.3764C5.03504 4.24492 4.92846 4.13831 4.79696 4.13831Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_215_442">
+                                    <rect width="8" height="8" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="review-count">15 отзывов</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="stats">
+                <div><span>5.6</span><br>Чистота</div>
+                <div><span>7.5</span><br>Качество</div>
+                <div><span>20</span><br>Жалобы</div>
+                <div><span>0</span><br>Довольные</div>
+            </div>
+            <div class="badges">
+                <div class="badge pink">индивидуалка</div>
+                <div class="badge blue">фото реальное</div>
+                <div class="badge blue">есть селфи</div>
+                <div class="badge red">нет видео</div>
+                <div class="badge pink">салон</div>
+            </div>
+        </div>
+        <div class="price">
+            от {{ $post->price }} руб.
+        </div>
+    </div>
+</div>
+
+@if(false)
+    <article class="col-12 col-md-6 col-lg-4 col-xl-3 listing-post">
+        <div class="article-top position-relative">
+            <a href="/user/{{ $post->url }}" class="">
+                <picture>
+                    <source
+                        srcset="/400-500/thumbs/{{str_replace('.jpg', '.webp', $post->avatar )}}"
+                        type="image/webp">
+                    <source srcset="/400-500/thumbs/{{ $post->avatar }}" type="image/jpeg">
+                    <img class="article-avatar" src="/400-500/thumbs/{{$post->avatar}}"
+                         alt="{{ $post->alt }}"
+                         @if(!isset($i) or $i > 2)
+                             loading="lazy"
+                         @endif
+                         title="{{ $post->title }}">
+                </picture>
+            </a>
+            <div class="article-top-info position-absolute">
+                <div class="name-age"><a href="/user/{{ $post->url }}">{{ $post->name }}</a>, {{ $post->age }}</div>
+
+                @if($metro = $post->metro->first())
+
+                    @if(isset($data['current_metro']))
+
+                        @foreach($post->metro as $metroItem)
+
+                            @if($metroItem->id == $data['current_metro']->id)
+
+                                <div class="metro">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7"
+                                         fill="none">
+                                        <circle cx="3.5" cy="3.5" r="3.5" fill="#46E356"/>
+                                    </svg>
+                                    <a href="/{{ $metro->metro_url }}" class="metro-link">
+                                        {{ $metro->metro_value }}
+                                    </a>
+                                </div>
+
+                            @endif
+
+                        @endforeach
+
+                    @else
+
+                        <div class="metro">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="7" viewBox="0 0 7 7" fill="none">
+                                <circle cx="3.5" cy="3.5" r="3.5" fill="#46E356"/>
+                            </svg>
+                            <a href="/{{ $metro->metro_url }}" class="metro-link">
+                                {{ $metro->metro_value }}
+                            </a>
+                        </div>
+
+                    @endif
 
                 @endif
 
-            @endif
-
-        </div>
-    </div>
-    <div class="article-bottom">
-        <div class="price-wrap d-flex">
-            <div class="price-item d-flex">
-                <div class="price-item-name">час</div>
-                <div class="price-item-cost">{{ $post->price }}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12"
-                         fill="none">
-                        <path
-                            d="M1.33333 12V10H0V8.66667H1.33333V7.33333H0V6H1.33333V0H5.66667C6.68889 0 7.55555 0.355555 8.26667 1.06667C8.97778 1.77778 9.33333 2.64444 9.33333 3.66667C9.33333 4.68889 8.97778 5.55555 8.26667 6.26667C7.55555 6.97778 6.68889 7.33333 5.66667 7.33333H2.66667V8.66667H5.33333V10H2.66667V12H1.33333ZM2.66667 6H5.66667C6.31111 6 6.86111 5.77222 7.31667 5.31667C7.77222 4.86111 8 4.31111 8 3.66667C8 3.02222 7.77222 2.47222 7.31667 2.01667C6.86111 1.56111 6.31111 1.33333 5.66667 1.33333H2.66667V6Z"
-                            fill="#FF005C"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="price-item price-item-item position-relative d-flex">
-                <div class="price-item-name">два</div>
-                <div class="price-item-cost">{{ $post->apartament_2_hour_price }}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12"
-                         fill="none">
-                        <path
-                            d="M1.33333 12V10H0V8.66667H1.33333V7.33333H0V6H1.33333V0H5.66667C6.68889 0 7.55555 0.355555 8.26667 1.06667C8.97778 1.77778 9.33333 2.64444 9.33333 3.66667C9.33333 4.68889 8.97778 5.55555 8.26667 6.26667C7.55555 6.97778 6.68889 7.33333 5.66667 7.33333H2.66667V8.66667H5.33333V10H2.66667V12H1.33333ZM2.66667 6H5.66667C6.31111 6 6.86111 5.77222 7.31667 5.31667C7.77222 4.86111 8 4.31111 8 3.66667C8 3.02222 7.77222 2.47222 7.31667 2.01667C6.86111 1.56111 6.31111 1.33333 5.66667 1.33333H2.66667V6Z"
-                            fill="#FF005C"/>
-                    </svg>
-                </div>
             </div>
         </div>
-        <div class="info-labels-wrap d-flex">
+        <div class="article-bottom">
+            <div class="price-wrap d-flex">
+                <div class="price-item d-flex">
+                    <div class="price-item-name">час</div>
+                    <div class="price-item-cost">{{ $post->price }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12"
+                             fill="none">
+                            <path
+                                d="M1.33333 12V10H0V8.66667H1.33333V7.33333H0V6H1.33333V0H5.66667C6.68889 0 7.55555 0.355555 8.26667 1.06667C8.97778 1.77778 9.33333 2.64444 9.33333 3.66667C9.33333 4.68889 8.97778 5.55555 8.26667 6.26667C7.55555 6.97778 6.68889 7.33333 5.66667 7.33333H2.66667V8.66667H5.33333V10H2.66667V12H1.33333ZM2.66667 6H5.66667C6.31111 6 6.86111 5.77222 7.31667 5.31667C7.77222 4.86111 8 4.31111 8 3.66667C8 3.02222 7.77222 2.47222 7.31667 2.01667C6.86111 1.56111 6.31111 1.33333 5.66667 1.33333H2.66667V6Z"
+                                fill="#FF005C"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="price-item price-item-item position-relative d-flex">
+                    <div class="price-item-name">два</div>
+                    <div class="price-item-cost">{{ $post->apartament_2_hour_price }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12"
+                             fill="none">
+                            <path
+                                d="M1.33333 12V10H0V8.66667H1.33333V7.33333H0V6H1.33333V0H5.66667C6.68889 0 7.55555 0.355555 8.26667 1.06667C8.97778 1.77778 9.33333 2.64444 9.33333 3.66667C9.33333 4.68889 8.97778 5.55555 8.26667 6.26667C7.55555 6.97778 6.68889 7.33333 5.66667 7.33333H2.66667V8.66667H5.33333V10H2.66667V12H1.33333ZM2.66667 6H5.66667C6.31111 6 6.86111 5.77222 7.31667 5.31667C7.77222 4.86111 8 4.31111 8 3.66667C8 3.02222 7.77222 2.47222 7.31667 2.01667C6.86111 1.56111 6.31111 1.33333 5.66667 1.33333H2.66667V6Z"
+                                fill="#FF005C"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="info-labels-wrap d-flex">
 
-            @if($post->type == \App\Models\Post::INDI_TYPE)
-                <a class="info-label">
-                    #инди
-                </a>
-            @endif
-            @if($post->service)
-                @foreach($post->service as $item)
-                    @if($item->id == 20)
-                        <a class="info-label" href="/{{ $item->filter_url  }}">#Анал</a>
-                    @endif
-                    @if($item->id == 12)
-                        <a class="info-label" href="/{{ $item->filter_url  }}">#Куни</a>
-                    @endif
-                    @if($item->id == 22)
-                        <a class="info-label" href="/{{ $item->filter_url  }}">#МБР</a>
-                    @endif
-                    @if($item->id == 7)
-                        <a class="info-label" href="/{{ $item->filter_url  }}">#МинетВМашине</a>
-                    @endif
+                @if($post->type == \App\Models\Post::INDI_TYPE)
+                    <a class="info-label">
+                        #инди
+                    </a>
+                @endif
+                @if($post->service)
+                    @foreach($post->service as $item)
+                        @if($item->id == 20)
+                            <a class="info-label" href="/{{ $item->filter_url  }}">#Анал</a>
+                        @endif
+                        @if($item->id == 12)
+                            <a class="info-label" href="/{{ $item->filter_url  }}">#Куни</a>
+                        @endif
+                        @if($item->id == 22)
+                            <a class="info-label" href="/{{ $item->filter_url  }}">#МБР</a>
+                        @endif
+                        @if($item->id == 7)
+                            <a class="info-label" href="/{{ $item->filter_url  }}">#МинетВМашине</a>
+                        @endif
+                    @endforeach
+                @endif
+                @foreach($post->place as $item)
+                    <a class="info-label" href="/{{ $item->places_url }}">#{{ $item->value }}</a>
                 @endforeach
-            @endif
-            @foreach($post->place as $item)
-                <a class="info-label" href="/{{ $item->places_url }}">#{{ $item->value }}</a>
-            @endforeach
-            @if($post->national)
-                <a class="info-label" href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>
-            @endif
+                @if($post->national)
+                    <a class="info-label" href="/{{ $post->national->filter_url }}">#{{ $post->national->value }}</a>
+                @endif
 
-        </div>
-        <div class="body-info d-flex">
-            <div class="body-info-item d-flex flex-column">
-                <div class="body-value">{{ $post->breast }}</div>
-                <div class="body-name">Грудь</div>
             </div>
-            <div class="body-info-item d-flex flex-column">
-                <div class="body-value">{{ $post->rost }}</div>
-                <div class="body-name">Рост</div>
+            <div class="body-info d-flex">
+                <div class="body-info-item d-flex flex-column">
+                    <div class="body-value">{{ $post->breast }}</div>
+                    <div class="body-name">Грудь</div>
+                </div>
+                <div class="body-info-item d-flex flex-column">
+                    <div class="body-value">{{ $post->rost }}</div>
+                    <div class="body-name">Рост</div>
+                </div>
+                <div class="body-info-item d-flex flex-column">
+                    <div class="body-value">{{ $post->ves }}</div>
+                    <div class="body-name">Вес</div>
+                </div>
             </div>
-            <div class="body-info-item d-flex flex-column">
-                <div class="body-value">{{ $post->ves }}</div>
-                <div class="body-name">Вес</div>
-            </div>
-        </div>
-        <div class="more-info-labels-wrap d-flex">
-            <div class="more-info-label d-flex @if($post->check_photo_status) label-check @endif ">
-                <div class="check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
-                        <g clip-path="url(#clip0_384_25)">
+            <div class="more-info-labels-wrap d-flex">
+                <div class="more-info-label d-flex @if($post->check_photo_status) label-check @endif ">
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                            <g clip-path="url(#clip0_384_25)">
+                                <path
+                                    d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                    fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_384_25">
+                                    <rect width="14" height="13" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="not-check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path
-                                d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
                                 fill="white"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_384_25">
-                                <rect width="14" height="13" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
+                        </svg>
+                    </div>
+                    <div class="label-text">фото</div>
                 </div>
-                <div class="not-check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
-                            fill="white"/>
-                    </svg>
-                </div>
-                <div class="label-text">фото</div>
-            </div>
-            <div class="more-info-label @if($post->video) label-check @endif d-flex">
-                <div class="check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
-                        <g clip-path="url(#clip0_384_25)">
+                <div class="more-info-label @if($post->video) label-check @endif d-flex">
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                            <g clip-path="url(#clip0_384_25)">
+                                <path
+                                    d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                    fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_384_25">
+                                    <rect width="14" height="13" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="not-check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path
-                                d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
                                 fill="white"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_384_25">
-                                <rect width="14" height="13" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
+                        </svg>
+                    </div>
+                    <div class="label-text">видео</div>
                 </div>
-                <div class="not-check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
-                            fill="white"/>
-                    </svg>
-                </div>
-                <div class="label-text">видео</div>
-            </div>
-            <div class="more-info-label @if($post->reviews->first()) label-check @endif d-flex">
-                <div class="check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
-                        <g clip-path="url(#clip0_384_25)">
+                <div class="more-info-label @if($post->reviews->first()) label-check @endif d-flex">
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                            <g clip-path="url(#clip0_384_25)">
+                                <path
+                                    d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                    fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_384_25">
+                                    <rect width="14" height="13" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="not-check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                             <path
-                                d="M12.5691 2.10503L7.2097 0.0388191C7.07544 -0.012927 6.92453 -0.0129524 6.7903 0.0388191L1.43093 2.10503C1.2268 2.18374 1.09375 2.36879 1.09375 2.57402V5.08579C1.09375 8.54432 3.34493 11.6554 6.79334 12.9623C6.92579 13.0125 7.07418 13.0125 7.20666 12.9623C10.655 11.6554 12.9062 8.54435 12.9062 5.08579V2.57402C12.9062 2.36879 12.7732 2.18374 12.5691 2.10503ZM11.8125 5.08579C11.8125 8.0259 9.95312 10.7325 7 11.9406C4.12579 10.7647 2.1875 8.10557 2.1875 5.08579V2.91304L7 1.05764L11.8125 2.91304V5.08579ZM6.39554 6.79747L8.74612 4.61482C8.95967 4.41652 9.30593 4.41649 9.51951 4.61482C9.73309 4.81315 9.73306 5.13467 9.51948 5.33297L6.78223 7.8747C6.56862 8.07305 6.22237 8.07297 6.00884 7.8747L4.48049 6.45551C4.26691 6.25719 4.26691 5.93567 4.48049 5.73736C4.69407 5.53906 5.04033 5.53904 5.25388 5.73736L6.39554 6.79747Z"
+                                d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
                                 fill="white"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_384_25">
-                                <rect width="14" height="13" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
+                        </svg>
+                    </div>
+                    <div class="label-text">отзыв</div>
                 </div>
-                <div class="not-check">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                            d="M5.51333 2L2 5.51333V10.4867L5.51333 14H10.4867C11.6667 12.8267 14 10.4867 14 10.4867V5.51333L10.4867 2M6.06667 3.33333H9.93333L12.6667 6.06667V9.93333L9.93333 12.6667H6.06667L3.33333 9.93333V6.06667M6.08 5.14L5.14 6.08L7.06 8L5.14 9.92L6.08 10.86L8 8.94L9.92 10.86L10.86 9.92L8.94 8L10.86 6.08L9.92 5.14L8 7.06"
-                            fill="white"/>
-                    </svg>
-                </div>
-                <div class="label-text">отзыв</div>
             </div>
         </div>
-    </div>
-    <div class="article-phone"
-         data-id="{{ $post->id }}"
-         data-city="{{ $post->city_id }}"
-         onclick="call(this)"
-    >Показать телефон
-    </div>
-</article>
-
+        <div class="article-phone"
+             data-id="{{ $post->id }}"
+             data-city="{{ $post->city_id }}"
+             onclick="call(this)"
+        >Показать телефон
+        </div>
+    </article>
+@endif
