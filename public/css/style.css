@@ -765,8 +765,14 @@ body{
     z-index: 1001;
 }
 
+#filterToggle{
+    display: none;
+}
 
 @media (max-width: 1399px) {
+    #filterToggle{
+        display: block;
+    }
     .bottom-header{
         margin-bottom: 0;
     }
@@ -847,9 +853,10 @@ body{
     .login-btn{
         margin-left: auto;
     }
-}
-@media (max-width: 576px) {
     .metro-location{
         display: none!important;
     }
+}
+@media (max-width: 576px) {
+
 }

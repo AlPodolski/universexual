@@ -2,7 +2,7 @@
     /* @var $post \App\Models\Post */
 @endphp
 
-<div class="col-12">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3">
     <div class="card">
         <div class="top-info-wrap position-relative">
             <a href="/user/{{ $post->url }}">

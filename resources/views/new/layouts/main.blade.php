@@ -81,7 +81,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-3 col-md-5 col-lg-5 d-flex">
+                <div class="col-3 col-sm-2 col-md-5 col-lg-5 d-flex">
                     <form class="search-name-form position-relative" action="#">
                         @csrf
                         <input placeholder="Найти..." type="text" class="text-input">
