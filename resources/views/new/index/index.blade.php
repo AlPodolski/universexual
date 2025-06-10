@@ -10,6 +10,15 @@
     @section('webmaster', $webmaster['tag'])
 @endif
 
+@section('filter')
+ @include('new.include.filter')
+@endsection
+
+
+@section('location_metro')
+    @include('new.include.location_metro')
+@endsection
+
 @section('content')
 
     @if(isset($productMicro))

@@ -829,6 +829,42 @@ body{
     margin: 0 auto;
 }
 
+.city-location,
+.metro-location {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    max-height: 380px; /* ограничение по высоте */
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    z-index: 10;
+}
+
+.city-location:hover .dropdown,
+.metro-location:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
 @media (max-width: 1399px) {
     #filterToggle{
         display: block;
