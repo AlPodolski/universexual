@@ -35,9 +35,10 @@
                 <div class="col-12">
                     <nav class="header-top-menu">
                         <ul class="d-flex">
-                            <li><a href="">Индивидуалки</a></li>
-                            <li><a href="">Проверенные</a></li>
-                            <li><a href="">Элитные</a></li>
+                            <li><a href="/zrelye-prostitutki">Зрелые</a></li>
+                            <li><a href="/elitnye-prostitutki">Элитные</a></li>
+                            <li><a href="/deshevye-prostitutki">Дешевые</a></li>
+                            <li><a href="/proverennye-prostitutki">Проверенные</a></li>
                         </ul>
                     </nav>
                 </div>
