@@ -1,5 +1,5 @@
 <div class="col-12">
-    <form class="filter d-flex" id="filterPanel">
+    <form class="filter d-flex" id="filterPanel" action="/poisk">
         <div class="close-btn" id="filterClose">
             &times;
         </div>

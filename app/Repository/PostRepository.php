@@ -262,6 +262,12 @@ class PostRepository
 
     public function getForFilter($cityId, $data)
     {
+
+        $data = array_map(function($item) {
+            // Удаляем все, кроме цифр (0-9)
+            return preg_replace('/[^0-9]/', '', $item);
+        }, $data);
+
         $posts = Post::where('age', '>=', $data['age-from'])
             ->where([ 'publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
