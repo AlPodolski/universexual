@@ -64,9 +64,9 @@
                     </a>
                 </div>
                 <div class="col-3 col-sm-2 col-md-5 col-lg-5 d-flex">
-                    <form class="search-name-form position-relative" action="#">
+                    <form class="search-name-form position-relative" action="/name">
                         @csrf
-                        <input placeholder="Найти..." type="text" class="text-input">
+                        <input placeholder="Найти..." type="text" class="text-input" name="name">
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
                                  fill="none">
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col-12">
-                <h1 class="big-red-text page-h1">Проститутки Москвы</h1>
+                @yield('h1')
             </div>
         </div>
 
