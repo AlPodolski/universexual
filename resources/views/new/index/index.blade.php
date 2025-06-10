@@ -57,3 +57,6 @@
 @section('open-graph')
     @include('new.include.open-graph', ['title' => $meta['title'], 'des' => $meta['des'], 'image' => '/images/logo.svg'])
 @endsection
+@section('catalog')
+    @include('new.include.catalog-menu')
+@endsection

@@ -128,39 +128,7 @@
 
         <div class="overlay" id="overlay"></div>
 
-        <div class="catalog" id="catalogPanel">
-            <button class="close-btn" id="catalogClose">&times;</button>
-            <h3>Каталог</h3>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">Категория 1</div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li>Подкатегория 1.1</li>
-                            <li>Подкатегория 1.2</li>
-                            <li>Подкатегория 1.3</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">Категория 2</div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li>Подкатегория 2.1</li>
-                            <li>Подкатегория 2.2</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">Категория 3</div>
-                    <div class="accordion-content">
-                        <ul>
-                            <li>Подкатегория 3.1</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @yield('catalog')
 
     </div>
 </main>
