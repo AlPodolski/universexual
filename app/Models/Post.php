@@ -138,6 +138,18 @@ class Post extends Model
             ->where('status', Review::PUBLICATION_STATUS);
     }
 
+    public function reviewSummary()
+    {
+        return $this->reviews()
+            ->selectRaw('
+            AVG(clean) as avg_clean,
+            AVG(rating) as avg_rating,
+            SUM(CASE WHEN is_happy = 0 THEN 1 ELSE 0 END) as complaints,
+            SUM(CASE WHEN is_happy = 1 THEN 1 ELSE 0 END) as happy_count
+        ')
+            ->first();
+    }
+
     public function photo(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Photo::class, 'posts_id', 'id')

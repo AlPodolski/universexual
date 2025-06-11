@@ -7,6 +7,7 @@ use App\Models\Filter;
 use App\Models\Post;
 use Cache;
 use Carbon\Carbon;
+use DB;
 
 class PostRepository
 {
@@ -22,9 +23,23 @@ class PostRepository
 
     public function getForMain($cityId)
     {
-        $posts = Post::where('city_id', $cityId)
+        $posts = Post::where('city_id', $cityId)->
+        withCount([
+            'reviews as avg_clean' => function ($query) {
+                $query->select(DB::raw('COALESCE(AVG(clean), 0)'))->where('status', 1);
+            },
+            'reviews as avg_rating' => function ($query) {
+                $query->select(DB::raw('COALESCE(AVG(rating), 0)'))->where('status', 1);
+            },
+            'reviews as complaints' => function ($query) {
+                $query->select(DB::raw('COUNT(*)'))->where('is_happy', 0)->where('status', 1);
+            },
+            'reviews as happy_count' => function ($query) {
+                $query->select(DB::raw('COUNT(*)'))->where('is_happy', 1)->where('status', 1);
+            },
+        ])
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'reviews', 'city', 'place', 'national', 'service')
+            ->with('metro', 'reviews', 'city', 'place', 'national', 'service', 'photo')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
 
@@ -232,7 +247,7 @@ class PostRepository
     public function getForMap($cityId): string
     {
         $posts = Post::where('city_id', $cityId)
-            ->where([ 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro')
             ->limit(2000)
             ->get();
@@ -263,13 +278,13 @@ class PostRepository
     public function getForFilter($cityId, $data)
     {
 
-        $data = array_map(function($item) {
+        $data = array_map(function ($item) {
             // Удаляем все, кроме цифр (0-9)
             return preg_replace('/[^0-9]/', '', $item);
         }, $data);
 
         $posts = Post::where('age', '>=', $data['age-from'])
-            ->where([ 'publication_status' => Post::POST_ON_PUBLICATION])
+            ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
             ->where('ves', '>=', $data['ves-from'])
             ->where('ves', '<=', $data['ves-to'])

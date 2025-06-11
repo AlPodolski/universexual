@@ -20,7 +20,7 @@
 @endsection
 
 @section('h1')
-    <h1 class="big-red-text page-h1">{{ $meta['title'] }}</h1>
+    <h1 class="big-red-text page-h1">{{ $meta['h1'] }}</h1>
 @endsection
 
 @section('content')

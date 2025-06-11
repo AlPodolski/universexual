@@ -7,6 +7,18 @@
     /* @var $post \App\Models\Post */
 @endphp
 
+@section('location_metro')
+    @include('new.include.location_metro')
+@endsection
+
+@section('filter')
+    @include('new.include.filter')
+@endsection
+
+@section('h1')
+    <h1 class="big-red-text page-h1">{{ $meta['h1'] }}</h1>
+@endsection
+
 @section('content')
 
 <div class="col-12 single-card">
@@ -14,9 +26,15 @@
         <div class="col-12 col-lg-5">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/img/img.png" alt="Фото"></div>
-                    <div class="swiper-slide"><img src="/img/img.png" alt="Фото"></div>
-                    <div class="swiper-slide"><img src="/img/img.png" alt="Фото"></div>
+                    <div class="swiper-slide"><img src="/storage{{$post->avatar}}" alt="Фото"></div>
+
+                    @if($post->photo->first())
+
+                        @foreach($post->photo as $item)
+                            <div class="swiper-slide"><img src="/storage{{ $item->file }}" alt="Фото"></div>
+                        @endforeach
+
+                    @endif
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -227,4 +245,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('catalog')
+    @include('new.include.catalog-menu')
 @endsection
