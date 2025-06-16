@@ -10,7 +10,7 @@ class Review extends Model
     const MODERATION_STATUS = 0;
     const PUBLICATION_STATUS = 1;
 
-    public $fillable = ['posts_id', 'name', 'text', 'rating'];
+    public $fillable = ['posts_id', 'name', 'text', 'rating', 'clean', 'is_happy'];
 
     public function post(): \Illuminate\Database\Eloquent\Relations\HasOne
     {

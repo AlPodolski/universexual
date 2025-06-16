@@ -64,21 +64,29 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
-ymaps.ready(init);
+document.addEventListener("DOMContentLoaded", function () {
+    const mapElement = document.getElementById("map");
 
-function init() {
-    var myMap = new ymaps.Map("map", {
-        center: [55.751574, 37.573856], // Координаты центра карты (Москва, например)
-        zoom: 12
+    if (!mapElement) return;
+
+    const lat = parseFloat(mapElement.dataset.y);
+    const lng = parseFloat(mapElement.dataset.x);
+
+    if (isNaN(lat) || isNaN(lng)) return;
+
+    ymaps.ready(function () {
+        const myMap = new ymaps.Map("map", {
+            center: [lat, lng],
+            zoom: 12
+        });
+
+        const myPlacemark = new ymaps.Placemark([lat, lng], {
+            hintContent: 'Продавец'
+        });
+
+        myMap.geoObjects.add(myPlacemark);
     });
-
-    var myPlacemark = new ymaps.Placemark([55.751574, 37.573856], {
-        hintContent: 'Продавец',
-        balloonContent: 'Ваш адрес: Москва, Красная площадь'
-    });
-
-    myMap.geoObjects.add(myPlacemark);
-}
+});
 
 const toggleButton = document.getElementById('filterToggle');
 const closeButton = document.getElementById('filterClose');
@@ -140,5 +148,60 @@ accordionHeaders.forEach(header => {
                 otherContent.style.maxHeight = 0;
             }
         });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.star-rating').forEach(container => {
+        const inputName = container.dataset.inputName;
+        const hiddenInput = document.querySelector(`input[name="${inputName}"]`);
+        let currentRating = 0;
+
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.dataset.index = i;
+
+            star.innerHTML = `
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22
+                    9.24l-7.19-.61L12 2 9.19 8.63
+                    2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+            `;
+
+            star.addEventListener('mousemove', (e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const isLeft = (e.clientX - rect.left) < rect.width / 2;
+                updateStars(container, i - 1 + (isLeft ? 0.5 : 1));
+            });
+
+            star.addEventListener('mouseleave', () => {
+                updateStars(container, currentRating);
+            });
+
+            star.addEventListener('click', (e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const isLeft = (e.clientX - rect.left) < rect.width / 2;
+                currentRating = (i - 1 + (isLeft ? 0.5 : 1)) * 2;
+                hiddenInput.value = currentRating;
+            });
+
+            container.appendChild(star);
+        }
+
+        function updateStars(container, value) {
+            const stars = container.querySelectorAll('.star');
+            stars.forEach((star, i) => {
+                star.classList.remove('full', 'half');
+                const starValue = i + 1;
+                if (value >= starValue) {
+                    star.classList.add('full');
+                } else if (value >= starValue - 0.5) {
+                    star.classList.add('half');
+                }
+            });
+        }
     });
 });
