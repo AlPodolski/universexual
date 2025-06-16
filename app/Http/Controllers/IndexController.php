@@ -59,10 +59,10 @@ class IndexController extends Controller
 
         $posts = $this->postRepository->getForMain($cityInfo['id']);
 
-        $data['posts'] = view('new.include.more', compact('posts', 'cityInfo'))->render();
-        $data['next_page'] = str_replace('http', 'https', $posts->nextPageUrl());
-
-        return json_encode($data);
+        return response()->json([
+            'posts' => view('new.include.more', compact('posts', 'cityInfo'))->render(),
+            'next_page' => str_replace('http', 'https', $posts->nextPageUrl()),
+        ]);
     }
 
 }
