@@ -354,7 +354,6 @@
                                             @endfor
                                         </div>
                                     </div>
-                                    <div class="time">2 дня назад</div>
                                 </div>
                                 <div class="review-text">
                                     {{ $item->text }}

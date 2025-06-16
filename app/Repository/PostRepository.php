@@ -154,7 +154,7 @@ class PostRepository
             if (strpos($search, 'individualki-vip') !== false)
                 $posts = $posts->where('price', '>', 4999);
 
-            if (strpos($search, 'individualki-deshevye') !== false)
+            if (strpos($search, 'deshevye-prostitutki') !== false)
                 $posts = $posts->where('price', '<', 3001);
 
             if (strpos($search, 'individualki-proverennye') !== false)
