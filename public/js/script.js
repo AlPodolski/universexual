@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!mapElement) return;
 
-    const lat = parseFloat(mapElement.dataset.y);
-    const lng = parseFloat(mapElement.dataset.x);
+    const lng = parseFloat(mapElement.dataset.y);
+    const lat = parseFloat(mapElement.dataset.x);
 
     if (isNaN(lat) || isNaN(lng)) return;
 
