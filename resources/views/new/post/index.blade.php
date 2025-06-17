@@ -15,10 +15,6 @@
     @include('new.include.filter')
 @endsection
 
-@section('h1')
-    <h1 class="big-red-text page-h1">{{ $meta['h1'] }}</h1>
-@endsection
-
 @section('content')
 
     <div class="col-12 single-card">
