@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="breadcrumb-item">
-                {{ \Illuminate\Support\Str::ucfirst($meta['h1']) }}
+                {{ mb_ucfirst(trim($meta['h1'])) }}
             </li>
         </ul>
     </nav>

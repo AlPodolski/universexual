@@ -64,13 +64,22 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-3 col-sm-2 col-md-5 col-lg-5 d-flex">
-                    <form class="search-name-form position-relative" action="/name">
+                <div class="col-3 col-sm-2 col-md-5 col-lg-5 d-flex" itemscope itemtype="https://schema.org/WebSite">
+                    <meta itemprop="url" content="{{ url('/') }}"/>
+
+                    <form class="search-name-form position-relative"
+                          itemprop="potentialAction"
+                          itemscope
+                          itemtype="https://schema.org/SearchAction"
+                          action="/name"
+                          method="GET">
+
+                        <meta itemprop="target" content="{{ url('/name') }}?name={name}"/>
+
                         @csrf
-                        <input placeholder="Найти..." type="text" class="text-input" name="name">
+                        <input placeholder="Найти..." type="text" class="text-input" name="name" itemprop="query-input" required>
                         <button type="submit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"
-                                 fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                                 <g clip-path="url(#clip0_212_148)">
                                     <path
                                         d="M16.8962 15.8946L11.9579 10.9563C12.8945 9.79989 13.4583 8.32978 13.4583 6.72919C13.4583 3.01873 10.4396 0 6.72916 0C3.0187 0 0 3.01873 0 6.72919C0 10.4396 3.01873 13.4584 6.72919 13.4584C8.32978 13.4584 9.79989 12.8945 10.9563 11.9579L15.8946 16.8963C16.033 17.0346 16.2572 17.0346 16.3955 16.8963L16.8963 16.3955C17.0346 16.2572 17.0346 16.0329 16.8962 15.8946ZM6.72919 12.0417C3.79971 12.0417 1.41668 9.65868 1.41668 6.72919C1.41668 3.79971 3.79971 1.41668 6.72919 1.41668C9.65868 1.41668 12.0417 3.79971 12.0417 6.72919C12.0417 9.65868 9.65868 12.0417 6.72919 12.0417Z"
