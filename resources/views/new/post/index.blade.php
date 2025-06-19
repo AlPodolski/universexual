@@ -110,7 +110,8 @@
                             <div class="metro-label">Метро:</div>
                             @foreach($post->metro as $item)
                                 <div class="metro-name">
-                                    {{ $item->metro_value }}@if($item != $post->metro->last())
+                                    <a href="/{{ $item->metro_url }}">{{ $item->metro_value }}</a>
+                                    @if($item != $post->metro->last())
                                         ,
                                     @endif
                                 </div>
@@ -121,13 +122,15 @@
                     @if($post->rayon)
                         <div class="metro-wrap d-flex">
                             <div class="metro-label">Район:</div>
-                            <div class="metro-name">{{ $post->rayon->value }}</div>
+                            <div class="metro-name"><a href="/{{ $post->rayon->url}}">{{ $post->rayon->value }}</a></div>
                         </div>
                     @endif
 
                     <div class="metro-wrap d-flex">
                         <div class="metro-label">Национальность:</div>
-                        <div class="metro-name">{{ $post->national->value }}</div>
+                        <div class="metro-name">
+                            <a href="/{{ $post->national->url}}">{{ $post->national->value }}</a>
+                        </div>
                     </div>
                     <div class="price-container">
                         <div class="price-block">
@@ -256,7 +259,8 @@
                                 <span class="label">Место встречи:</span>
                                 @foreach($post->place as $item)
                                     <span class="metro-name">
-                                        {{ $item->value }}@if($item != $post->place->last())
+                                        <a href="/{{ $item->places_url }}">{{ $item->value }}</a>
+                                        @if($item != $post->place->last())
                                             ,
                                         @endif
                                     </span>
@@ -268,7 +272,8 @@
                                 <span class="label">Услуги:</span>
                                 @foreach($post->service as $item)
                                     <span class="metro-name">
-                                        {{ $item->value }}@if($item != $post->service->last())
+                                        <a href="/{{ $item->filter_url }}">{{ $item->value }}</a>
+                                        @if($item != $post->service->last())
                                             ,
                                         @endif
                                     </span>

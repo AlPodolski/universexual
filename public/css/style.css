@@ -928,7 +928,7 @@ body{
     }
 
     #filterToggle {
-        margin: 0px;
+        margin: 0px auto;
         margin-bottom: 20px;
         padding: 10px 20px;
         background: #f74952;
@@ -1009,6 +1009,10 @@ body{
     margin: 0 8px;
     color: #ccc;
     font-size: 16px;
+}
+.metro-name a{
+    text-decoration: none;
+    color: #000;
 }
 @media (max-width: 767px) {
     .catalog {

@@ -15,12 +15,12 @@
             ];
         @endphp
 
-        <a class="sidebar-link" href="/prostitutki-na-vyezd">Выезд</a>
-        <a class="sidebar-link" href="/intim-karta-prostitutok">Интим карта</a>
-        <a class="sidebar-link" href="/zrelye-prostitutki">Зрелые</a>
-        <a class="sidebar-link" href="/elitnye-prostitutki">Элитные</a>
-        <a class="sidebar-link" href="/deshevye-prostitutki">Дешевые</a>
-        <a class="sidebar-link" href="/proverennye-prostitutki">Проверенные</a>
+        <a class="sidebar-link" href="/vyezd">Выезд</a>
+        <a class="sidebar-link" href="/intim-karta">Интим карта</a>
+        <a class="sidebar-link" href="/zrelye">Зрелые</a>
+        <a class="sidebar-link" href="/elitnye">Элитные</a>
+        <a class="sidebar-link" href="/deshevye">Дешевые</a>
+        <a class="sidebar-link" href="/proverennye">Проверенные</a>
 
         @foreach($categories as $key => $title)
             @if(isset($data[$key]) && $data[$key]->first())
