@@ -26,6 +26,24 @@
     <link rel="stylesheet" href="/css/nouislider.min.css">
     <link rel="stylesheet" href="/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="/css/style.css?v=2">
+
+
+    <meta property="og:title" content="@yield('title')" />
+    <meta property="og:description" content="@yield('des')" />
+    <meta property="og:url" content="{{ $_SERVER['REQUEST_URI'] }}" />
+
+    @hasSection('open_img')
+        <meta property="og:image" content="@yield('open_img') " />
+    @else
+        <meta property="og:image" content="/img/logo.svg" />
+    @endif
+
+
+
+    <meta property="og:site_name" content="sex-teamo.com" />
+    <meta property="og:locale" content="ru_RU" />
+
+
 </head>
 <body>
 <header>
@@ -34,12 +52,22 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="header-top-menu">
-                        <ul class="d-flex">
-                            <li><a href="/zrelye-prostitutki">Зрелые</a></li>
-                            <li><a href="/elitnye-prostitutki">Элитные</a></li>
-                            <li><a href="/deshevye-prostitutki">Дешевые</a></li>
-                            <li><a href="/proverennye-prostitutki">Проверенные</a></li>
-                        </ul>
+                        <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+                            <ul class="d-flex">
+                                <li itemprop="name">
+                                    <a href="/zrelye-prostitutki" itemprop="url">Зрелые</a>
+                                </li>
+                                <li itemprop="name">
+                                    <a href="/elitnye-prostitutki" itemprop="url">Элитные</a>
+                                </li>
+                                <li itemprop="name">
+                                    <a href="/deshevye-prostitutki" itemprop="url">Дешевые</a>
+                                </li>
+                                <li itemprop="name">
+                                    <a href="/proverennye-prostitutki" itemprop="url">Проверенные</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </nav>
                 </div>
             </div>

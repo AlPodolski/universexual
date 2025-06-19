@@ -15,6 +15,10 @@
     @include('new.include.filter')
 @endsection
 
+@section('open_img')
+    /storage{{$post->avatar}}
+@endsection
+
 @section('content')
 
     <div class="col-12 single-card">
@@ -22,7 +26,10 @@
             <div class="col-12 col-lg-5">
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="/storage{{$post->avatar}}" alt="Фото {{ $post->id }}"></div>
+                        <div class="swiper-slide">
+
+                            <img src="/storage{{$post->avatar}}" alt="Фото {{ $post->id }}">
+                        </div>
 
                         @if($post->photo->first())
 
