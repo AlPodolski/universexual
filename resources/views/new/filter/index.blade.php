@@ -18,6 +18,10 @@
     @include('new.include.location_metro')
 @endsection
 
+@section('links')
+    @include('new.include.link')
+@endsection
+
 @section('content')
 
     @if(isset($productMicro))

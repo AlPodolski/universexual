@@ -120,11 +120,7 @@
 
             @yield('filter')
 
-            @if(false)
-                <div class="col-12 d-flex fast-links">
-                    <a href="#" class="fast-link">Дешевые</a>
-                </div>
-            @endif
+            @yield('links')
 
             <div class="col-12">
                 @yield('h1')

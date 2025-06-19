@@ -1,8 +1,8 @@
 @if($links)
-    <div class="links-wrap">
+    <div class="col-12 d-flex fast-links">
         @foreach($links as $item)
             @if($item['text'])
-                <a class="tag" href="/{{ $item['to'] }}">
+                <a href="/{{ $item['to'] }}">
                     #{{ $item['text'] }}
                 </a>
             @endif
