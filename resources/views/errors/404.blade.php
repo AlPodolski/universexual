@@ -18,10 +18,44 @@
         </ul>
     </nav>
 
-    <h1>404</h1>
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 40px;
+        }
+        .error-code {
+            font-size: 96px;
+            font-weight: bold;
+            color: #ff4d4f;
+        }
+        .error-message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .error-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .error-link {
+            display: inline-block;
+            background: #ff4d4f;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .error-link:hover {
+            background: #e84142;
+        }
+    </style>
 
-    <p>Неправильно набран адрес или такой страницы не существует на сайте</p>
-
-    <a href="/">На главную</a>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <div class="error-message">Упс! Страница не найдена</div>
+        <div class="error-description">Возможно, страница была удалена или вы ошиблись адресом.</div>
+        <a href="{{ url('/') }}" class="error-link">Вернуться на главную</a>
+    </div>
 
 @endsection

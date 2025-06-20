@@ -169,7 +169,7 @@ class MetaRepository
 
         $pageText = '';
 
-        if($page = $request->get('page')) $pageText = ' Страница '.$page;
+        if($page = $request->get('page')) $pageText = ' Страница №'.$page;
 
         foreach ($meta as $key => &$item){
 

@@ -1,6 +1,6 @@
 <div class="catalog" id="catalogPanel">
     <button class="close-btn" id="catalogClose">&times;</button>
-    <h3>Каталог</h3>
+    <p class="catalog-heading">Каталог</p>
     <div class="accordion">
         @php
             $categories = [

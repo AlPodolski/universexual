@@ -247,3 +247,38 @@ function getMorePosts(button) {
             console.error('Ошибка при запросе:', error);
         });
 }
+
+let lastScrollTop = window.scrollY;
+const header = document.querySelector('.bottom-header');
+
+function handleScroll() {
+    if (window.innerWidth >= 768) {
+        header.classList.remove('fixed'); // сброс фиксированного состояния на десктопе
+        return;
+    }
+
+    const currentScroll = window.scrollY;
+
+    if (currentScroll < lastScrollTop - 10) {
+        // Прокрутка вверх
+        header.classList.add('fixed');
+    } else if (currentScroll > lastScrollTop + 10) {
+        // Прокрутка вниз
+        header.classList.remove('fixed');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}
+
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('resize', handleScroll); // обработка изменения ширины
+
+const scrollBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 900);
+});
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
