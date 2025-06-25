@@ -14,6 +14,7 @@ use App\Repository\FilterRepository;
 use App\Repository\LinkRepository;
 use App\Repository\MetaRepository;
 use App\Repository\TextRepository;
+use Illuminate\Filesystem\Cache;
 use Illuminate\Http\Request;
 
 class FilterController extends Controller

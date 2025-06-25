@@ -161,6 +161,16 @@
 
             <div class="col-12">
                 @yield('h1')
+                @if(isset($sort))
+                    <div class="set-sort-wrap custom-select">
+                        Сортировать:
+                        <select class="custom-select" name="limit" id="sort" onchange="selectSorting()">
+                            <option @if($sort == 'default') selected @endif value="default">По умолчанию</option>
+                            <option @if($sort == 'price_asc') selected @endif value="price_asc">От дешевых к дорогим</option>
+                            <option @if($sort == 'price_desc') selected @endif value="price_desc">От дорогих к дешевым</option>
+                        </select>
+                    </div>
+                @endif
             </div>
         </div>
 

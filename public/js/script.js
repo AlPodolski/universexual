@@ -282,3 +282,15 @@ window.addEventListener('scroll', () => {
 scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function selectSorting() {
+
+    var select = document.getElementById('sort');
+
+    if (select.value) {
+        document.cookie = 'sort=' + select.value;
+    }
+
+    window.location.href = location.pathname + location.search;
+
+}

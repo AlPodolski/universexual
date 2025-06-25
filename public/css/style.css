@@ -975,8 +975,8 @@ body{
 }
 .breadcrumbs {
     font-size: 16px;
-    padding: 10px 0;
     color: #666;
+    margin-bottom:  10px;
 }
 
 .breadcrumbs ul {
@@ -1045,6 +1045,18 @@ body{
 .scroll-to-top.show {
     opacity: 1;
     visibility: visible;
+}
+#sort{
+    padding: 6px 10px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 10px;
+}
+.set-sort-wrap{
+    margin-bottom: 25px;
 }
 @media (max-width: 767px) {
     .bottom-header {
