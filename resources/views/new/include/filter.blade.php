@@ -32,7 +32,7 @@
             </select>
         </div>
 
-        <div class="form-item">
+        <div class="form-item" >
             <div class="slider-text">Цена</div>
             <div class="filter-item-slide" id="price"></div>
             <div class="inputs">
@@ -43,7 +43,7 @@
 
         <div class="form-item">
             <div class="slider-text">Возраст</div>
-            <div class="filter-item-slide" id="age"></div>
+            <div class="filter-item-slide" id="age" data-slider></div>
             <div class="inputs">
                 <input type="text" data-value="{{ $dataSearch['age-from'] ?? 18 }}" readonly id="age-from" name="age-from">
                 <input type="text" data-value="{{ $dataSearch['age-to'] ?? 80 }}" readonly class="right-input" id="age-to" name="age-to">

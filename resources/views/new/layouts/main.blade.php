@@ -21,10 +21,9 @@
     @if(View::hasSection('open-graph'))
         @yield('open-graph')
     @endif
+
     <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css">
     <link rel="stylesheet" href="/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="/css/nouislider.min.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="/css/style.css?v=2">
 
 
@@ -187,13 +186,6 @@
         </svg>
     </button>
 </main>
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-<script defer src="/js/nouislider.min.js"></script>
-<script src="/js/wNumb.min.js" defer></script>
-<script src="/js/swiper-bundle.min.js" defer></script>
-<script defer src="/js/script.js?v=1"></script>
-@if(View::hasSection('yandex_script'))
-    <script defer src="@yield('yandex_script')"></script>
-@endif
+<script defer src="/js/script.js?v=2"></script>
 </body>
 </html>
