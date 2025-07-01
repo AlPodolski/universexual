@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,12 @@ Route::post('/claim/add', [\App\Http\Controllers\ClaimController::class, 'index'
 
 Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 'store']);
 
-Route::get('/{size}/thumbs/{path}', ImageController::class)
-    ->where('size', '.*')->where('path', '.*');
+Route::get('/thumbnail/{size}/{filename}', 'ThumbnailController@make')
+    ->where('path', '.*');;
+
+
+Route::get('/thumbnail/{size}/{path}', [ThumbnailController::class, 'make'])
+    ->where('path', '.*'); // позволяет захватывать путь с подкаталогами
 
 Route::get('/pay/{id}', [\App\Http\Controllers\PayController::class, 'index']);
 
