@@ -34,13 +34,13 @@ class LinkRepository
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/deshevye-prostitutki',
+                    'to' => $url.'/deshevye',
                     'text' => 'Дешевые',
                 );
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/dorogie-prostitutki',
+                    'to' => $url.'/dorogie',
                     'text' => 'Элитные',
                 );
 
@@ -68,7 +68,7 @@ class LinkRepository
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/deshevye-prostitutki',
+                    'to' => $url.'/deshevye',
                     'text' => 'Дешевые',
                 );
 
@@ -78,7 +78,7 @@ class LinkRepository
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/deshevye-prostitutki',
+                    'to' => $url.'/deshevye',
                     'text' => 'Дешевые',
                 );
 
