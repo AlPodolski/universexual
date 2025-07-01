@@ -979,6 +979,10 @@ body{
     margin-bottom:  10px;
 }
 
+.top-info-wrap{
+    min-height: 350px;
+}
+
 .breadcrumbs ul {
     display: flex;
     flex-wrap: wrap;
