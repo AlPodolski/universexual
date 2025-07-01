@@ -82,89 +82,35 @@ class PostRepository
 
     public function getForFilterCatalog($cityId, $searchData)
     {
-
         $salon = false;
         $indi = false;
 
         $searchData = explode('/', $searchData);
 
-        $posts = Post::where(['city_id' => $cityId])
-            ->where(['publication_status' => Post::POST_ON_PUBLICATION]);
+        $posts = Post::where(['city_id' => $cityId, 'publication_status' => Post::POST_ON_PUBLICATION]);
 
         foreach ($searchData as $search) {
-
-            if (strpos($search, 'intim-salony') !== false)
-                $salon = true;
-
-            if (strpos($search, 'individualki') !== false)
-                $indi = true;
-
-            if (strpos($search, 'tolstye-individualki') !== false)
-                $posts = $posts->where('ves', '>=', 80);
-
-            if (strpos($search, 'hudye') !== false)
-                $posts = $posts->where('ves', '<', 60);
-
-            if (strpos($search, 'visokie') !== false)
-                $posts = $posts->where('rost', '>=', 170);
-
-            if (strpos($search, 'nizkie') !== false)
-                $posts = $posts->where('rost', '<', 170);
-
-            if (strpos($search, '18-let') !== false)
-                $posts = $posts->where('age', '=', 18);
-
-            if (strpos($search, 'do-20-let') !== false)
-                $posts = $posts->where('age', '<', 21);
-
-            if (strpos($search, 'molodye-individualki') !== false)
-                $posts = $posts->where('age', '<', 26);
-
-            if (strpos($search, 'zrelye-individualki') !== false) {
-                $posts = $posts->where('age', '>', 34);
-                $posts = $posts->where('age', '<', 46);
-            }
-
-            if (strpos($search, 'prostitutki-21-25-let') !== false) {
-                $posts = $posts->where('age', '>', 20);
-                $posts = $posts->where('age', '<', 26);
-            }
-
-            if (strpos($search, 'prostitutki-26-30-let') !== false) {
-                $posts = $posts->where('age', '>', 25);
-                $posts = $posts->where('age', '<', 31);
-            }
-
-            if (strpos($search, 'prostitutki-31-40-let') !== false) {
-                $posts = $posts->where('age', '>', 30);
-                $posts = $posts->where('age', '<', 41);
-            }
-
-            if (strpos($search, 'prostitutki-40-50-let') !== false) {
-                $posts = $posts->where('age', '>', 39);
-                $posts = $posts->where('age', '<', 51);
-            }
-
-            if (strpos($search, 'starye-prostitutki') !== false)
-                $posts = $posts->where('age', '>', 45);
-
-            if (strpos($search, 'prostitutki-ot-50-let') !== false)
-                $posts = $posts->where('age', '>', 49);
-
-            if (strpos($search, 'individualki-vip') !== false)
-                $posts = $posts->where('price', '>', 4999);
-
-            if (strpos($search, 'deshevye-prostitutki') !== false)
-                $posts = $posts->where('price', '<', 3001);
-
-            if (strpos($search, 'individualki-proverennye') !== false)
-                $posts = $posts->where('check_photo_status', 1);
-
-            if (strpos($search, 'individualki-s-video') !== false)
-                $posts = $posts->where('video', '<>', null);
-
-            if (strpos($search, 'individualki-novye') !== false)
-                $posts = $posts->orderByDesc('id');
+            if (strpos($search, 'intim-salony') !== false) $salon = true;
+            if (strpos($search, 'individualki') !== false) $indi = true;
+            if (strpos($search, 'tolstye-individualki') !== false) $posts->where('ves', '>=', 80);
+            if (strpos($search, 'hudye') !== false) $posts->where('ves', '<', 60);
+            if (strpos($search, 'visokie') !== false) $posts->where('rost', '>=', 170);
+            if (strpos($search, 'nizkie') !== false) $posts->where('rost', '<', 170);
+            if (strpos($search, '18-let') !== false) $posts->where('age', '=', 18);
+            if (strpos($search, 'do-20-let') !== false) $posts->where('age', '<', 21);
+            if (strpos($search, 'molodye-individualki') !== false) $posts->where('age', '<', 26);
+            if (strpos($search, 'zrelye-individualki') !== false) $posts->whereBetween('age', [35, 45]);
+            if (strpos($search, 'prostitutki-21-25-let') !== false) $posts->whereBetween('age', [21, 25]);
+            if (strpos($search, 'prostitutki-26-30-let') !== false) $posts->whereBetween('age', [26, 30]);
+            if (strpos($search, 'prostitutki-31-40-let') !== false) $posts->whereBetween('age', [31, 40]);
+            if (strpos($search, 'prostitutki-40-50-let') !== false) $posts->whereBetween('age', [40, 50]);
+            if (strpos($search, 'starye-prostitutki') !== false) $posts->where('age', '>', 45);
+            if (strpos($search, 'prostitutki-ot-50-let') !== false) $posts->where('age', '>', 49);
+            if (strpos($search, 'individualki-vip') !== false) $posts->where('price', '>', 4999);
+            if (strpos($search, 'deshevye-prostitutki') !== false) $posts->where('price', '<', 3001);
+            if (strpos($search, 'individualki-proverennye') !== false) $posts->where('check_photo_status', 1);
+            if (strpos($search, 'individualki-s-video') !== false) $posts->whereNotNull('video');
+            if (strpos($search, 'individualki-novye') !== false) $posts->orderByDesc('id');
 
             $expire = Carbon::now()->addHours(1200);
 
@@ -173,62 +119,31 @@ class PostRepository
             });
 
             if ($filter) {
-
-                if ($filter->related_table == 'post_services') {
-
-                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_services` where ' . $filter->related_column . ' =  ? and `city_id` = ? AND `not_available` = 0) ',
-                        [$filter->related_id, $cityId]);
-
+                switch ($filter->related_table) {
+                    case 'post_services':
+                    case 'post_metros':
+                    case 'post_places':
+                    case 'post_times':
+                        $posts->whereRaw("id IN (select posts_id from {$filter->related_table} where {$filter->related_column} = ? and city_id = ? and not_available = 0)", [$filter->related_id, $cityId]);
+                        break;
+                    case 'rayons':
+                    case 'nationals':
+                    case 'hair_color':
+                    case 'intim_hair':
+                        $posts->where($filter->related_column, $filter->related_id);
+                        break;
                 }
-                if ($filter->related_table == 'post_metros') {
-
-                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_metros` where ' . $filter->related_column . ' =  ?  and `city_id` = ?) ',
-                        [$filter->related_id, $cityId]);
-
-                }
-                if ($filter->related_table == 'post_places') {
-
-                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_places` where ' . $filter->related_column . ' =  ?  and `city_id` = ?) ',
-                        [$filter->related_id, $cityId]);
-
-                }
-                if ($filter->related_table == 'post_times') {
-
-                    $posts = $posts->whereRaw(' id IN (select `posts_id` from `post_times` where ' . $filter->related_column . ' =  ?  and `city_id` = ?) ',
-                        [$filter->related_id, $cityId]);
-
-                }
-                if ($filter->related_table == 'rayons') {
-                    $posts = $posts->where($filter->related_column, $filter->related_id);
-                }
-
-                if ($filter->related_table == 'nationals') {
-                    $posts = $posts->where($filter->related_column, $filter->related_id);
-                }
-
-                if ($filter->related_table == 'hair_color') {
-                    $posts = $posts->where($filter->related_column, $filter->related_id);
-                }
-
-                if ($filter->related_table == 'intim_hair') {
-                    $posts = $posts->where($filter->related_column, $filter->related_id);
-                }
-
             }
-
         }
 
-        //dd($posts->getQuery()->wheres);
+        if (count($posts->getQuery()->wheres) <= 1) {
+            abort(404);
+        }
 
-        if (count($posts->getQuery()->wheres) <= 2 and !$posts->getQuery()->orders) abort(404);
-
-        $posts = $posts
-            ->with('place', 'reviews', 'city', 'metro', 'national', 'service')
+        return $posts
+            ->with(['place', 'reviews', 'city', 'metro', 'national', 'service'])
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
-
-        return $posts;
-
     }
 
     public function getForSearch($cityId, $name)
