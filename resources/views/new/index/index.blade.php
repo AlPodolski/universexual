@@ -11,7 +11,7 @@
 @endif
 
 @section('filter')
- @include('new.include.filter')
+    @include('new.include.filter')
 @endsection
 
 
@@ -38,8 +38,14 @@
     @endif
 
     <div class="row content">
+        @php
+        $i = 0;
+        @endphp
         @foreach($posts as $post)
             @include('new.include.item')
+            @php
+                $i++;
+            @endphp
         @endforeach
     </div>
 
