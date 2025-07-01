@@ -6,7 +6,7 @@
     <div class="card">
         <div class="top-info-wrap position-relative">
             <a href="/user/{{ $post->url }}">
-                <img src="/thumbnail/360-490{{ $post->avatar }}" alt="Фото">
+                <img src="/thumbnail/500-700{{ $post->avatar }}" alt="Фото">
             </a>
             <div class="top-info position-absolute">
                 <div class="card-title">
