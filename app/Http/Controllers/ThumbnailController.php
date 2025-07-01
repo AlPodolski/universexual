@@ -23,7 +23,7 @@ class ThumbnailController extends Controller
             $image = Image::make(Storage::path($originalPath))
                 ->fit((int) $width, (int) $height);
 
-            Storage::put($thumbPath, (string) $image->encode('jpg', 80));
+            Storage::put($thumbPath, (string) $image->encode('jpg', 90));
         }
 
         return response()->file(Storage::path($thumbPath));
