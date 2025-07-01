@@ -23,6 +23,14 @@
     <h1 class="big-red-text page-h1">{{ $meta['h1'] }}</h1>
 @endsection
 
+@php
+    $post = $posts->first();
+@endphp
+
+@section('preload_img')
+    <link rel="preload" as="image" href="/thumbnail/600-800{{ $post->avatar }}" type="image/jpeg">
+@endsection
+
 @section('content')
 
     @if(isset($productMicro))

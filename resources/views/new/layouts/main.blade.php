@@ -37,6 +37,10 @@
         <meta property="og:image" content="/img/logo.svg" />
     @endif
 
+    @hasSection('preload_img')
+        @yield('preload_img')
+    @endif
+
     <meta property="og:site_name" content="sex-teamo.com" />
     <meta property="og:locale" content="ru_RU" />
 

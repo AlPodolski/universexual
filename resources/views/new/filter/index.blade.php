@@ -22,6 +22,14 @@
     @include('new.include.link')
 @endsection
 
+@php
+$post = $posts->first();
+@endphp
+
+@section('preload_img')
+    <link rel="preload" as="image" href="/thumbnail/600-800{{ $post->avatar }}" type="image/jpeg">
+@endsection
+
 @section('content')
 
     @if(isset($productMicro))
