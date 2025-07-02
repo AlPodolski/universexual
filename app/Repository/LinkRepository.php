@@ -40,19 +40,19 @@ class LinkRepository
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/dorogie',
+                    'to' => $url.'/elitnye-prostitutki',
                     'text' => 'Элитные',
                 );
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/proverennye',
+                    'to' => $url.'/proverennye-prostitutki',
                     'text' => 'Проверенные',
                 );
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/video',
+                    'to' => $url.'/individualki-s-video',
                     'text' => 'С видео',
                 );
 
