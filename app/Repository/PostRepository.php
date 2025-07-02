@@ -121,10 +121,12 @@ class PostRepository
             if ($filter) {
                 switch ($filter->related_table) {
                     case 'post_services':
+                        $posts->whereRaw("id IN (select posts_id from {$filter->related_table} where {$filter->related_column} = ? and city_id = ? and not_available = 0)", [$filter->related_id, $cityId]);
+                        break;
                     case 'post_metros':
                     case 'post_places':
                     case 'post_times':
-                        $posts->whereRaw("id IN (select posts_id from {$filter->related_table} where {$filter->related_column} = ? and city_id = ? and not_available = 0)", [$filter->related_id, $cityId]);
+                        $posts->whereRaw("id IN (select posts_id from {$filter->related_table} where {$filter->related_column} = ? and city_id = ?)", [$filter->related_id, $cityId]);
                         break;
                     case 'rayons':
                     case 'nationals':
