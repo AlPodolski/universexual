@@ -32,7 +32,7 @@
                     <div class="accordion-content">
                         <ul>
                             @foreach($data[$key] as $item)
-                                <li><a href="/{{ $item->url }}">{{ $item->value }}</a></li>
+                                <li><a href="/{{ $item->filter_url }}">{{ $item->value }}</a></li>
                             @endforeach
                         </ul>
                     </div>
