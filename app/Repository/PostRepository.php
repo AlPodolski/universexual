@@ -92,25 +92,25 @@ class PostRepository
         foreach ($searchData as $search) {
             if (strpos($search, 'intim-salony') !== false) $salon = true;
             if (strpos($search, 'individualki') !== false) $indi = true;
-            if (strpos($search, 'tolstye') !== false) $posts->where('ves', '>=', 80);
+            if (strpos($search, 'tolstye-prostitutki') !== false) $posts->where('ves', '>=', 80);
             if (strpos($search, 'hudye') !== false) $posts->where('ves', '<', 60);
             if (strpos($search, 'visokie') !== false) $posts->where('rost', '>=', 170);
             if (strpos($search, 'nizkie') !== false) $posts->where('rost', '<', 170);
             if (strpos($search, '18-let') !== false) $posts->where('age', '=', 18);
             if (strpos($search, 'do-20-let') !== false) $posts->where('age', '<', 21);
-            if (strpos($search, 'molodye') !== false) $posts->where('age', '<', 26);
-            if (strpos($search, 'zrelye') !== false) $posts->whereBetween('age', [35, 45]);
+            if (strpos($search, 'molodye-prostitutki') !== false) $posts->where('age', '<', 26);
+            if (strpos($search, 'zrelye-prostitutki') !== false) $posts->whereBetween('age', [35, 45]);
             if (strpos($search, '21-25-let') !== false) $posts->whereBetween('age', [21, 25]);
             if (strpos($search, '26-30-let') !== false) $posts->whereBetween('age', [26, 30]);
             if (strpos($search, '31-40-let') !== false) $posts->whereBetween('age', [31, 40]);
             if (strpos($search, '40-50-let') !== false) $posts->whereBetween('age', [40, 50]);
             if (strpos($search, 'starye') !== false) $posts->where('age', '>', 45);
             if (strpos($search, 'ot-50-let') !== false) $posts->where('age', '>', 49);
-            if (strpos($search, 'vip') !== false) $posts->where('price', '>', 4999);
+            if (strpos($search, 'elitnye-prostitutki') !== false) $posts->where('price', '>', 4999);
             if (strpos($search, 'deshevye') !== false) $posts->where('price', '<', 3001);
-            if (strpos($search, 'proverennye') !== false) $posts->where('check_photo_status', 1);
-            if (strpos($search, 'video') !== false) $posts->whereNotNull('video');
-            if (strpos($search, 'novye') !== false) $posts->orderByDesc('id');
+            if (strpos($search, 'proverennye-prostitutki') !== false) $posts->where('check_photo_status', 1);
+            if (strpos($search, 'individualki-s-video') !== false) $posts->whereNotNull('video');
+            if (strpos($search, 'novye-prostitutki') !== false) $posts->orderByDesc('id');
 
             $expire = Carbon::now()->addHours(1200);
 
