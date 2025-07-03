@@ -18,36 +18,38 @@ class SingleMetaService
 
     private function makeTitleForIntimBox(Post $post, $cityInfo): string
     {
-        $title = $post->name . ' – жаркая индивидуалка ' . $cityInfo['city3'];
+
+        if ($post->price < 3001) $price = ' дешевая ';
+        else $price = ' дорогая ';
+
+        $national = '';
+
+        if ($post->national) $national = $post->national->value;
+
+        $metro = $post->metro->first();
+
+        $title = $post->name . ' ' . $post->id . ' -' . $price . 'проститутка ' . $national . ' ' . $cityInfo['city3'];
+
+        if ($metro) $title .= ', метро ' . $metro->metro_value;
 
         if ($post->age) $title .= ', ' . $this->pluralAge($post->age);
-        if ($post->breast) $title .= ', грудь ' . $post->breast;
-        if ($post->rost) $title .= ', рост ' . $post->rost . ' см';
-        if ($post->ves) $title .= ', вес ' . $post->ves . ' кг';
-
-        if ($post->price) $title .= ' | от ' . $post->price . '₽';
-
-        $title .= ' | анкета №' . $post->id;
 
         return $title;
     }
 
     private function makeDesForIntimBox(Post $post, $cityInfo): string
     {
-        $des = '🔥 ' . $post->name . ' – настоящая находка для ценителей страсти ' . $cityInfo['city3'] . '.';
 
-        if ($post->age) $des .= ', ' . $this->pluralAge($post->age);
-        if ($post->breast) $des .= ', грудь ' . $post->breast;
-        if ($post->rost) $des .= ', рост ' . $post->rost . ' см';
-        if ($post->ves) $des .= ', вес ' . $post->ves . ' кг';
+        $national = '';
+        $age = '';
 
-        if ($post->metro->count()) {
+        if ($post->national) $national = $post->national->value;
+        if ($post->age) $age =  $this->pluralAge($post->age);
 
-            $des .= ', рядом с метро ' . $post->metro->first()->metro_value;
+        $des = 'Проститутка ' . $post->name . ' ' .$national. ' '.$age. ' '. $cityInfo['city3'];
+        $des .= ' удовлетворит ваши самые потайные желания. На сайте подробная анкета с номером телефона, фотографиями и отзывами.';
 
-        }
-
-        $des .=  'реальные фото, без посредников. Анкета №' . $post->id;
+        $des .= ' ID анкеты '.$post->id;
 
         return $des;
     }
@@ -78,10 +80,10 @@ class SingleMetaService
     private function makeTitle(Post $post, $cityInfo): string
     {
 
-        $title = 'Проститутка '.$post->name;
+        $title = 'Проститутка ' . $post->name;
 
-        if ($post->metro->count()) $title .= ' рядом с метро '.$post->metro->first()->metro_value;
-        $title .= ' '.$cityInfo['city3'] . ' '.$post->phone . ' цена '.$post->price .' ID '.$post->id;
+        if ($post->metro->count()) $title .= ' рядом с метро ' . $post->metro->first()->metro_value;
+        $title .= ' ' . $cityInfo['city3'] . ' ' . $post->phone . ' цена ' . $post->price . ' ID ' . $post->id;
 
         return $title;
 
@@ -90,12 +92,12 @@ class SingleMetaService
     private function makeDes(Post $post, $cityInfo): string
     {
 
-        if (mb_strlen($post->about) > 200) $des = mb_substr($post->about, 0, 200). ' ID '.$post->id;
+        if (mb_strlen($post->about) > 200) $des = mb_substr($post->about, 0, 200) . ' ID ' . $post->id;
 
-        else{
+        else {
 
-            $des = 'Проститутка '.$post->name . ' '.$cityInfo['city3'] .' номер телефона '.$post->phone;
-            $des .= ' лучшие индивидуалки '.$cityInfo['city3'].' ID анкеты'.' '.$post->id;
+            $des = 'Проститутка ' . $post->name . ' ' . $cityInfo['city3'] . ' номер телефона ' . $post->phone;
+            $des .= ' лучшие индивидуалки ' . $cityInfo['city3'] . ' ID анкеты' . ' ' . $post->id;
 
         }
 
