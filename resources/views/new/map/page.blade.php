@@ -9,7 +9,7 @@
 
 
     <url>
-        <loc>https://{{ $_SERVER['HTTP_HOST'] }}/individualki-deshevye</loc>
+        <loc>https://{{ $_SERVER['HTTP_HOST'] }}/deshevye-prostitutki</loc>
         <lastmod>{{ \Carbon\Carbon::now()->format('Y-m-d') }}</lastmod>
         <priority>0.9</priority>
     </url>

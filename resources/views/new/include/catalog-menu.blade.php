@@ -22,7 +22,7 @@
         <a class="sidebar-link" href="/elitnye-prostitutki">Элитные проститутки</a>
         <a class="sidebar-link" href="/molodye-prostitutki">Молодые проститутки</a>
         <a class="sidebar-link" href="/tolstye-prostitutki">Толстые проститутки</a>
-        <a class="sidebar-link" href="/deshevye">Дешевые</a>
+        <a class="sidebar-link" href="/deshevye-prostitutki">Дешевые</a>
         <a class="sidebar-link" href="/proverennye-prostitutki">Проверенные проститутки</a>
 
         @foreach($categories as $key => $title)

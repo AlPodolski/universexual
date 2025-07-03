@@ -107,7 +107,7 @@ class PostRepository
             if (strpos($search, 'starye') !== false) $posts->where('age', '>', 45);
             if (strpos($search, 'ot-50-let') !== false) $posts->where('age', '>', 49);
             if (strpos($search, 'elitnye-prostitutki') !== false) $posts->where('price', '>', 4999);
-            if (strpos($search, 'deshevye') !== false) $posts->where('price', '<', 3001);
+            if (strpos($search, 'deshevye-prostitutki') !== false) $posts->where('price', '<', 3001);
             if (strpos($search, 'proverennye-prostitutki') !== false) $posts->where('check_photo_status', 1);
             if (strpos($search, 'individualki-s-video') !== false) $posts->whereNotNull('video');
             if (strpos($search, 'novye-prostitutki') !== false) $posts->orderByDesc('id');
