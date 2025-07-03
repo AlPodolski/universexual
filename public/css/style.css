@@ -172,7 +172,6 @@ body{
     height: 36px;
 }
 .fast-link{
-    width: 137px;
     height: 32px;
     flex-shrink: 0;
     border-radius: 50px;
@@ -189,6 +188,7 @@ body{
     justify-content: center;
     text-decoration: none;
     display: flex;
+    padding: 0 13px;
 }
 .fast-link:hover{
     border-radius: 50px;

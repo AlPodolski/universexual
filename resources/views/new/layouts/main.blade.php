@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css">
     <link rel="stylesheet" href="/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 
 
     <meta property="og:title" content="@yield('title')" />
@@ -63,7 +63,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/img/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
 
 </head>
 <body>

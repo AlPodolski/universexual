@@ -138,7 +138,7 @@ class PostRepository
             }
         }
 
-        if (count($posts->getQuery()->wheres) <= 1) {
+        if ((count($posts->getQuery()->wheres) <= 1) and empty($posts->getQuery()->orders) ) {
             abort(404);
         }
 
