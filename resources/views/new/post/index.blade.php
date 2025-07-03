@@ -48,7 +48,7 @@
             <div class="col-12 col-lg-7 ">
                 <div class="right-single-content">
                     <h1 class="big-red-text single-name">{{ $post->name }} от {{ $post->price }} руб/час</h1>
-                    <a class="single-phone" href="tel:{{ $post->phone }}">{{ $post->phone }}</a>
+                    <a class="single-phone" href="tel:+{{ $post->phone }}">{{ formatPhone($post->phone) }}</a>
                     <div class="photo-count-wrap single-photo-count-wrap d-flex">
                         <div class="photo-icon d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 9 9"

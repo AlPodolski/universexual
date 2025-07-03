@@ -67,4 +67,17 @@ function mb_ucfirst($string, $encoding = 'UTF-8') {
         mb_substr($string, 1, null, $encoding);
 }
 
+function formatPhone($phone) {
+    // Удаляем всё, кроме цифр
+    $digits = preg_replace('/\D+/', '', $phone);
+
+    // Проверим длину
+    if (strlen($digits) === 11 && $digits[0] == '7') {
+        return '+7 (' . substr($digits, 1, 3) . ') ' . substr($digits, 4, 3) . '-' . substr($digits, 7, 2) . '-' . substr($digits, 9, 2);
+    }
+
+    // Если невалидный — вернем как есть
+    return $phone;
+}
+
 return $app;

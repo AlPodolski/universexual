@@ -10,7 +10,7 @@
             </a>
             <div class="top-info position-absolute">
                 <div class="card-title">
-                    <a href="tel:{{ $post->phone }}" class="card-phone">{{ $post->phone }}</a>
+                    <a href="tel:+{{ $post->phone }}" class="card-phone">{{ formatPhone($post->phone) }}</a>
                     <div class="photo-count-wrap d-flex">
                         <div class="photo-icon d-flex">
                             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 9 9"
