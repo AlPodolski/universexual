@@ -129,14 +129,14 @@
                     @if($post->rayon)
                         <div class="metro-wrap d-flex">
                             <div class="metro-label">Район:</div>
-                            <div class="metro-name"><a href="/{{ $post->rayon->url}}">{{ $post->rayon->value }}</a></div>
+                            <div class="metro-name"><a href="/{{ $post->rayon->filter->url}}">{{ $post->rayon->value }}</a></div>
                         </div>
                     @endif
 
                     <div class="metro-wrap d-flex">
                         <div class="metro-label">Национальность:</div>
                         <div class="metro-name">
-                            <a href="/{{ $post->national->url}}">{{ $post->national->value }}</a>
+                            <a href="/{{ $post->national->url}}">{{ $post->national->filter_url }}</a>
                         </div>
                     </div>
                     <div class="price-container">
