@@ -24,7 +24,7 @@
     Метро
     <div class="dropdown">
         @foreach($data['metro'] as $metro)
-            <a href="{{ $metro->filter_url }}">{{ $metro->value }}</a>
+            <a href="/{{ $metro->filter_url }}">{{ $metro->value }}</a>
         @endforeach
         <a href="#">Кропоткинская</a>
     </div>
