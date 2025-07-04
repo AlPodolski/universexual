@@ -25,7 +25,7 @@ class PostRepository
     {
         $posts = Post::where('city_id', $cityId)
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('metro', 'reviews', 'city', 'place', 'national', 'service', 'photo')
+            ->with('metro', 'city', 'photo', 'checkPhoto')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
 
@@ -129,7 +129,7 @@ class PostRepository
         }
 
         return $posts
-            ->with(['place', 'reviews', 'city', 'metro', 'national', 'service'])
+            ->with(['metro', 'city', 'photo', 'checkPhoto'])
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
     }
@@ -139,7 +139,7 @@ class PostRepository
         $posts = Post::where('city_id', $cityId)
             ->where('name', 'like', '%' . $name . '%')
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
-            ->with('reviews', 'city', 'national', 'service')
+            ->with('metro', 'city', 'photo', 'checkPhoto')
             ->orderByRaw($this->sort)
             ->paginate($this->postLimit);
 
@@ -187,6 +187,7 @@ class PostRepository
         }, $data);
 
         $posts = Post::where('age', '>=', $data['age-from'])
+            ->with(['metro', 'city', 'photo', 'checkPhoto'])
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->where('age', '<=', $data['age-to'])
             ->where('ves', '>=', $data['ves-from'])
