@@ -1,17 +1,18 @@
-
-<div class="d-flex city-location">
-    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 15 20" fill="none">
-        <path
-            d="M9.5 4C6.46736 4 4 6.19033 4 8.88247C4 9.69065 4.22762 10.492 4.66032 11.2027L9.19923 18.49C9.25966 18.5872 9.3748 18.6474 9.5 18.6474C9.6252 18.6474 9.74035 18.5872 9.80077 18.49L14.3414 11.2003C14.7724 10.492 15 9.69063 15 8.88244C15 6.19033 12.5326 4 9.5 4ZM9.5 11.3237C7.98368 11.3237 6.75002 10.2285 6.75002 8.88247C6.75002 7.5364 7.98368 6.44125 9.5 6.44125C11.0163 6.44125 12.25 7.5364 12.25 8.88247C12.25 10.2285 11.0163 11.3237 9.5 11.3237Z"
-            fill="#F74952"/>
-    </svg>
-    {{ $data['current_city']->city }}
-    <div class="dropdown">
-        @foreach($data['city_list'] as $cityItem)
-            <a href="https://{{ $cityItem->url }}.{{ SITE }}">{{ $cityItem->city }}</a>
-        @endforeach
+@if(false)
+    <div class="d-flex city-location">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 15 20" fill="none">
+            <path
+                d="M9.5 4C6.46736 4 4 6.19033 4 8.88247C4 9.69065 4.22762 10.492 4.66032 11.2027L9.19923 18.49C9.25966 18.5872 9.3748 18.6474 9.5 18.6474C9.6252 18.6474 9.74035 18.5872 9.80077 18.49L14.3414 11.2003C14.7724 10.492 15 9.69063 15 8.88244C15 6.19033 12.5326 4 9.5 4ZM9.5 11.3237C7.98368 11.3237 6.75002 10.2285 6.75002 8.88247C6.75002 7.5364 7.98368 6.44125 9.5 6.44125C11.0163 6.44125 12.25 7.5364 12.25 8.88247C12.25 10.2285 11.0163 11.3237 9.5 11.3237Z"
+                fill="#F74952"/>
+        </svg>
+        {{ $data['current_city']->city }}
+        <div class="dropdown">
+            @foreach($data['city_list'] as $cityItem)
+                <a href="https://{{ $cityItem->url }}.{{ SITE }}">{{ $cityItem->city }}</a>
+            @endforeach
+        </div>
     </div>
-</div>
+@endif
 <div class="d-flex metro-location">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 26 26" fill="none">
         <path
