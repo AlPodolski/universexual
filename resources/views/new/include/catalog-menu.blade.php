@@ -15,7 +15,7 @@
             ];
         @endphp
 
-        <a class="sidebar-link" href="/vyezd">Выезд</a>
+        <a class="sidebar-link" href="/na-vyezd">Выезд</a>
         <a class="sidebar-link" href="/novye-prostitutki">Новые проститутки</a>
         <a class="sidebar-link" href="/individualki-s-video">Индивидуалки с видео</a>
         <a class="sidebar-link" href="/zrelye-prostitutki">Зрелые проститутки</a>
