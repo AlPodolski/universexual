@@ -61,10 +61,10 @@
         <div class="card-body">
             <div class="stats">
 
-                <div><span>{{ number_format($post->avg_clean, 1) }}</span><br>Чистота</div>
-                <div><span>{{ number_format($post->avg_rating, 1) }}</span><br>Качество</div>
-                <div><span>{{ $post->complaints }}</span><br>Жалобы</div>
-                <div><span>{{ $post->happy_count }}</span><br>Довольные</div>
+                <div><span>{{ $post->age  }}</span><br>Возраст</div>
+                <div><span>{{ $post->rost }}</span><br>Рост</div>
+                <div><span>{{ $post->ves }}</span><br>Вес</div>
+                <div><span>{{ $post->breast }}</span><br>Грудь</div>
             </div>
             <div class="badges">
                 @if($post->type == \App\Models\Post::INDI_TYPE)

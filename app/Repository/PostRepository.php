@@ -23,21 +23,7 @@ class PostRepository
 
     public function getForMain($cityId)
     {
-        $posts = Post::where('city_id', $cityId)->
-        withCount([
-            'reviews as avg_clean' => function ($query) {
-                $query->select(DB::raw('COALESCE(AVG(clean), 0)'))->where('status', 1);
-            },
-            'reviews as avg_rating' => function ($query) {
-                $query->select(DB::raw('COALESCE(AVG(rating), 0)'))->where('status', 1);
-            },
-            'reviews as complaints' => function ($query) {
-                $query->select(DB::raw('COUNT(*)'))->where('is_happy', 0)->where('status', 1);
-            },
-            'reviews as happy_count' => function ($query) {
-                $query->select(DB::raw('COUNT(*)'))->where('is_happy', 1)->where('status', 1);
-            },
-        ])
+        $posts = Post::where('city_id', $cityId)
             ->where(['publication_status' => Post::POST_ON_PUBLICATION])
             ->with('metro', 'reviews', 'city', 'place', 'national', 'service', 'photo')
             ->orderByRaw($this->sort)
