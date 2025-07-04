@@ -263,7 +263,7 @@
 
                     @if($post->video)
                         <div class="video">
-                            <span class="label">Видео:</span>
+                            <div class="label">Видео:</div>
                             <video controls="controls" class="">
                                 <source src="/storage{{ $post->video }}">
                             </video>

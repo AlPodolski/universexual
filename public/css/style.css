@@ -193,6 +193,9 @@ body{
 .video{
     margin-top: 30px;
 }
+.video label{
+    margin-bottom: 10px;
+}
 .fast-link:hover{
     border-radius: 50px;
     background: #F74952;
