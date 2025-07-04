@@ -261,6 +261,15 @@
                         </div>
                     </div>
 
+                    @if($post->video)
+                        <div class="video">
+                            <span class="label">Видео:</span>
+                            <video controls="controls" class="">
+                                <source src="/storage{{ $post->video }}">
+                            </video>
+                        </div>
+                    @endif
+
                     <div class="profile-details">
                         @if($post->place->first())
                             <div class="profile-row">
