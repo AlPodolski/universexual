@@ -193,7 +193,7 @@ body{
 .video{
     margin-top: 30px;
 }
-.video label{
+.video .label{
     margin-bottom: 10px;
 }
 .fast-link:hover{
