@@ -52,12 +52,6 @@ class LinkRepository
 
                 $link[] = array(
                     'from' => $url,
-                    'to' => $url.'/individualki-s-video',
-                    'text' => 'С видео',
-                );
-
-                $link[] = array(
-                    'from' => $url,
                     'to' => $url.'/uzbechki',
                     'text' => 'Узбечки',
                 );
