@@ -129,7 +129,8 @@
                     @if($post->rayon)
                         <div class="metro-wrap d-flex">
                             <div class="metro-label">Район:</div>
-                            <div class="metro-name"><a href="/{{ $post->rayon->filter->url}}">{{ $post->rayon->value }}</a></div>
+                            <div class="metro-name"><a
+                                    href="/{{ $post->rayon->filter->url}}">{{ $post->rayon->value }}</a></div>
                         </div>
                     @endif
 
@@ -278,12 +279,14 @@
                             <div class="profile-row">
                                 <span class="label">Услуги:</span>
                                 @foreach($post->service as $item)
-                                    <span class="metro-name">
+                                    @if($item->not_available == 0)
+                                        <span class="metro-name">
                                         <a href="/{{ $item->filter_url }}">{{ $item->value }}</a>
                                         @if($item != $post->service->last())
-                                            ,
-                                        @endif
+                                                ,
+                                            @endif
                                     </span>
+                                    @endif
                                 @endforeach
                             </div>
                         @endif
