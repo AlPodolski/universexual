@@ -187,6 +187,8 @@ class MetaRepository
         foreach ($meta as &$metaItem){
 
             $metaItem = preg_replace('#\[.*?\]#', '', $metaItem);
+            $metaItem = preg_replace('/\s{2,}/', ' ', $metaItem);
+            $metaItem = mb_ucfirst(trim($metaItem));
 
         }
 
