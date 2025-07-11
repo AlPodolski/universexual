@@ -3,6 +3,8 @@
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,14 @@ Route::post('/review/add', \App\Http\Controllers\ReviewController::class);
 Route::post('/claim/add', [\App\Http\Controllers\ClaimController::class, 'index']);
 
 Route::post('/message/add', [\App\Http\Controllers\MessagesController::class, 'store']);
+
+// Настраиваем лимит (опционально)
+RateLimiter::for('phone-message', function ($request) {
+    return Limit::perMinute(5)->by($request->ip()); // 5 запросов в минуту с одного IP
+});
+
+Route::post('/message/phone', [\App\Http\Controllers\MessagesController::class, 'phone'])
+    ->middleware('throttle:phone-message');
 
 Route::get('/thumbnail/{size}/{filename}', 'ThumbnailController@make')
     ->where('path', '.*');;

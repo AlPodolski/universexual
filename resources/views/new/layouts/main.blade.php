@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="/fonts/ubuntu/ubuntu.css">
     <link rel="stylesheet" href="/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="/css/style.css?v=7">
+    <link rel="stylesheet" href="/css/style.css?v=8">
 
 
     <meta property="og:title" content="@yield('title')" />
@@ -212,6 +212,6 @@
         </svg>
     </button>
 </main>
-<script defer src="/js/script.js?v=2"></script>
+<script defer src="/js/script.js?v=3"></script>
 </body>
 </html>

@@ -357,3 +357,25 @@ function selectSorting() {
     window.location.href = location.pathname + location.search;
 
 }
+
+// Открытие
+document.querySelectorAll('[data-target]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-target');
+        document.getElementById(id).style.display = 'block';
+    });
+});
+
+// Закрытие
+document.querySelectorAll('.close').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.modal').style.display = 'none';
+    });
+});
+
+// Закрытие при клике вне окна
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        e.target.style.display = 'none';
+    }
+});

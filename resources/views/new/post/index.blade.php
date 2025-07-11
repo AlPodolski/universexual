@@ -21,6 +21,14 @@
 
 @section('content')
 
+    @if (session('success'))
+        <div class="col-12">
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+
     <div class="col-12 single-card">
         <div class="row">
             <div class="col-12 col-lg-5">
@@ -112,6 +120,29 @@
                         <span class="review-count">{{ $post->reviews->count() }} отзывов</span>
                     </div>
 
+                    <div class="message-btn-wrap" data-target="message-modal">
+                        <div class="yellow-btn">
+                            Написать сообщение
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.5 2.5L2 11.2c-.5.2-.5.9 0 1.1l5.2 1.7 1.8 5.4c.2.6.9.6 1.2.1l2.5-4.1 4.7 3.5c.4.3 1 .1 1.1-.4L23.5 3.5c.1-.6-.5-1.1-1-.9z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div id="message-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form action="/message/phone" method="post" class="phone-message-form">
+                                @csrf
+                                <input type="hidden" name="posts_id" value="{{ $post->id }}">
+                                <input type="text" class="review-input" name="name" placeholder="Ваше имя" required>
+                                <input type="text" class="review-input" name="phone" placeholder="Ваш телефон" required>
+                                <textarea placeholder="Комментарий" name="text"></textarea>
+                                <button type="submit" class="red-btn">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+
                     @if($post->metro->first())
                         <div class="metro-wrap d-flex">
                             <div class="metro-label">Метро:</div>
@@ -140,6 +171,8 @@
                             <a href="/{{ $post->national->url}}">{{ $post->national->value }}</a>
                         </div>
                     </div>
+
+
                     <div class="price-container">
                         <div class="price-block">
                             <div class="price-list">

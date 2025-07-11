@@ -196,6 +196,59 @@ body{
 .video .label{
     margin-bottom: 10px;
 }
+.yellow-btn{
+    border-radius: 34px;
+    background: linear-gradient(90deg, #F74952 2.8%, #F0C612 100%);
+    color: #fff;
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+}
+.message-btn-wrap{
+    margin-bottom: 20px;
+    display: flex;
+}
+.yellow-btn svg{
+    margin-left: 10px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Содержимое окна */
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
 .fast-link:hover{
     border-radius: 50px;
     background: #F74952;
@@ -211,6 +264,11 @@ body{
 .page-h1{
     margin: 0;
     margin-bottom: 25px;
+}
+
+.phone-message-form{
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -581,7 +639,7 @@ body{
     border-radius: 10px;
     margin-bottom: 15px;
 }
-.add-review textarea{
+.add-review textarea, .phone-message-form textarea{
     max-width: 400px;
     min-height: 90px;
     padding: 9px;
@@ -590,7 +648,19 @@ body{
     margin-bottom: 15px;
 }
 
+.alert {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+}
 
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
 
 .review-card {
     padding: 20px;
