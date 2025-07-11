@@ -36,14 +36,14 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
 
-                            <img src="/storage{{$post->avatar}}" alt="Фото {{ $post->id }}">
+                            <img src="/storage{{$post->avatar}}" alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
                         </div>
 
                         @if($post->photo->first())
 
                             @foreach($post->photo as $item)
                                 <div class="swiper-slide"><img src="/storage{{ $item->file }}"
-                                                               alt="Фото {{ $item->id }}"></div>
+                                                               alt="Индивидуалка {{ $post->name }}, доступна для личного знакомства от {{ $post->price }} руб"></div>
                             @endforeach
 
                         @endif

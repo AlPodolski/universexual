@@ -7,7 +7,7 @@
         <div class="top-info-wrap position-relative">
             <a href="/user/{{ $post->url }}">
                 <img @if(isset($i) and $i > 0) loading="lazy" @endif src="/thumbnail/600-800{{ $post->avatar }}"
-                     alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }}">
+                     alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
             </a>
             <div class="top-info position-absolute">
                 <div class="card-title">
