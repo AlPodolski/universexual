@@ -2,92 +2,46 @@
     /* @var $post \App\Models\Post */
 @endphp
 
-<div class="col-12 col-md-6 col-lg-4 col-xl-3">
-    <div class="card">
-        <div class="top-info-wrap position-relative">
-            <a href="/user/{{ $post->url }}">
-                <img @if(isset($i) and $i > 0) loading="lazy" @endif src="/thumbnail/600-800{{ $post->avatar }}"
-                     alt="{{ $post->name }} привлекальеная девушка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
-            </a>
-            <div class="top-info position-absolute">
-                <div class="card-title">
-                    <a href="tel:+{{ $post->phone }}" class="card-phone">{{ formatPhone($post->phone) }}</a>
-                    <div class="photo-count-wrap d-flex">
-                        <div class="photo-icon d-flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 9 9"
-                                 fill="none">
-                                <g clip-path="url(#clip0_215_470)">
-                                    <path
-                                        d="M8.70057 2.06177C8.52091 1.87356 8.27281 1.76234 7.99049 1.76234H6.57034V1.74523C6.57034 1.53135 6.48479 1.32603 6.33935 1.18915C6.19392 1.04371 5.99715 0.95816 5.78327 0.95816H3.21673C2.9943 0.95816 2.79753 1.04371 2.65209 1.18915C2.50665 1.33459 2.4211 1.53135 2.4211 1.74523V1.76234H1.00951C0.727186 1.76234 0.479087 1.87356 0.29943 2.06177C0.119772 2.24143 0 2.49808 0 2.77185V7.0323C0 7.31462 0.111217 7.56272 0.29943 7.74238C0.479087 7.92204 0.735741 8.04181 1.00951 8.04181H7.99049C8.27281 8.04181 8.52091 7.93059 8.70057 7.74238C8.88023 7.56272 9 7.30607 9 7.0323V2.77185C9 2.48953 8.88878 2.24143 8.70057 2.06177ZM8.55513 7.0323H8.54658C8.54658 7.1863 8.48669 7.32318 8.38403 7.42584C8.28137 7.5285 8.14449 7.58839 7.99049 7.58839H1.00951C0.855513 7.58839 0.718631 7.5285 0.61597 7.42584C0.513308 7.32318 0.453422 7.1863 0.453422 7.0323V2.77185C0.453422 2.61786 0.513308 2.48097 0.61597 2.37831C0.718631 2.27565 0.855513 2.21576 1.00951 2.21576H2.66065C2.78897 2.21576 2.89164 2.1131 2.89164 1.98478V1.73668C2.89164 1.64257 2.92586 1.55702 2.98574 1.49713C3.04563 1.43725 3.13118 1.40303 3.22529 1.40303H5.78327C5.87738 1.40303 5.96293 1.43725 6.02281 1.49713C6.0827 1.55702 6.11692 1.64257 6.11692 1.73668V1.98478C6.11692 2.1131 6.21958 2.21576 6.34791 2.21576H7.99905C8.15304 2.21576 8.28992 2.27565 8.39259 2.37831C8.49525 2.48097 8.55513 2.61786 8.55513 2.77185V7.0323Z"
-                                        fill="white"/>
-                                    <path
-                                        d="M4.50007 2.79752C3.91832 2.79752 3.3879 3.03706 3.01148 3.41349C2.6265 3.79847 2.39551 4.32033 2.39551 4.90208C2.39551 5.48383 2.63505 6.01425 3.01148 6.39067C3.39646 6.77565 3.91832 7.00664 4.50007 7.00664C5.08182 7.00664 5.61224 6.7671 5.98867 6.39067C6.37365 6.00569 6.60464 5.48383 6.60464 4.90208C6.60464 4.32033 6.36509 3.78991 5.98867 3.41349C5.61224 3.03706 5.08182 2.79752 4.50007 2.79752ZM5.66357 6.07413C5.36414 6.36501 4.95349 6.55322 4.50007 6.55322C4.04665 6.55322 3.636 6.36501 3.33657 6.07413C3.03714 5.7747 2.85749 5.36406 2.85749 4.91063C2.85749 4.45721 3.0457 4.04657 3.33657 3.74714C3.636 3.44771 4.04665 3.26805 4.50007 3.26805C4.95349 3.26805 5.36414 3.45626 5.66357 3.74714C5.963 4.04657 6.14266 4.45721 6.14266 4.91063C6.15121 5.36406 5.963 5.7747 5.66357 6.07413Z"
-                                        fill="white"/>
-                                    <path
-                                        d="M7.54567 3.62741C7.77718 3.62741 7.96487 3.43972 7.96487 3.2082C7.96487 2.97668 7.77718 2.789 7.54567 2.789C7.31415 2.789 7.12646 2.97668 7.12646 3.2082C7.12646 3.43972 7.31415 3.62741 7.54567 3.62741Z"
-                                        fill="white"/>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_215_470">
-                                        <rect width="9" height="9" fill="white"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
-                        <span class="photo-count">+{{ $post->photo->count() }}</span>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <span class="card-name card-white-text">{{ $post->name }}</span>
-                </div>
-                <div class="card-info card-white-text">
-                    <div class="city-location-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9" fill="none">
-                            <path
-                                d="M4.00017 0C2.52979 0 1.3335 1.34583 1.3335 3.00001C1.3335 3.49659 1.44386 3.98895 1.65365 4.42566L3.85434 8.90332C3.88364 8.96302 3.93947 9 4.00017 9C4.06087 9 4.1167 8.96302 4.146 8.90332L6.3475 4.42419C6.55648 3.98895 6.66684 3.49657 6.66684 2.99999C6.66684 1.34583 5.47054 0 4.00017 0ZM4.00017 4.5C3.26498 4.5 2.66684 3.82709 2.66684 3.00001C2.66684 2.17292 3.26498 1.50001 4.00017 1.50001C4.73536 1.50001 5.3335 2.17292 5.3335 3.00001C5.3335 3.82709 4.73536 4.5 4.00017 4.5Z"
-                                fill="white"/>
-                        </svg>
-                    </div>
-                    <span>г. {{ $post->city->city }}</span>
-                </div>
+<div class="profile-card">
 
-                @if($metro = $post->metro->first())
-                    <div class="card-info card-white-text">
-                        <span>м. {{ $metro->metro_value }}</span>
-                    </div>
-                @endif
+    <a class="profile-image" href="/post/{{ $post->url }}">
+        <img @if(isset($i) and $i > 0) loading="lazy" @endif src="/thumbnail/300-400{{ $post->avatar }}"
+             alt="{{ $post->name }} красивая индивидуалка из {{ $post->city->city2 }} цена от {{ $post->price }} руб">
+    </a>
 
+    <div class="profile-info">
+        <a href="/post/{{ $post->url }}" class="profile-name">{{ $post->name }}, {{ $post->age }}</a>
+        @if($metro = $post->metro->first())
+            <div class="profile-location">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"/>
+                    <path d="M6 17V7H8.5L12 13L15.5 7H18V17H16V11L13 17H11L8 11V17H6Z" fill="white"/>
+                </svg>
+                {{ $metro->metro_value }}
+            </div>
+        @endif
+        <div class="profile-rates">
+            <div class="rate-item">
+                <div class="rate-value">час {{ $post->price }} ₽</div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="stats">
-
-                <div><span>{{ $post->age  }}</span><br>Возраст</div>
-                <div><span>{{ $post->rost }}</span><br>Рост</div>
-                <div><span>{{ $post->ves }}</span><br>Вес</div>
-                <div><span>{{ $post->breast }}</span><br>Грудь</div>
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-value">{{ $post->breast }}</div>
+                <div class="stat-label">Грудь</div>
             </div>
-            <div class="badges">
-                @if($post->type == \App\Models\Post::INDI_TYPE)
-                    <div class="badge blue">индивидуалка</div>
-                @else
-                    <div class="badge blue">салон</div>
-                @endif
-
-                @if($post->check_photo_status)
-                    <div class="badge blue">фото реальное</div>
-                @endif
-
-                @if($post->video)
-                    <div class="badge blue">есть видео</div>
-                @else
-                    <div class="badge red">нет видео</div>
-                @endif
-
+            <div class="stat-item">
+                <div class="stat-value">{{ $post->ves }}</div>
+                <div class="stat-label">Вес</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">{{ $post->rost }}</div>
+                <div class="stat-label">Рост</div>
             </div>
         </div>
-        <div class="price">
-            от {{ $post->express ?? $post->price }} руб.
+        <div class="profile-actions">
+            <a href="tel:+{{ $post->phone }}" class="action-btn primary">Позвонить</a>
+            <a href="/post/{{ $post->url }}" class="action-btn secondary">Детали</a>
         </div>
     </div>
 </div>

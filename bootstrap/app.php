@@ -11,13 +11,11 @@
 |
 */
 
-if (strpos($_SERVER['HTTP_HOST'], '6.local')){
-    define("SITE", '6.local');
-    define("PATH", 'new');
+if (strpos($_SERVER['HTTP_HOST'], 'universal.local')){
+    define("SITE", 'universal.local');
 }
 else{
     define("SITE", '');
-    define("PATH", '');
 }
 
 

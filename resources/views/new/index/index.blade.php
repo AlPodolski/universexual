@@ -19,10 +19,6 @@
     @include('new.include.location_metro')
 @endsection
 
-@section('h1')
-    <h1 class="big-red-text page-h1">{{ $meta['h1'] }}</h1>
-@endsection
-
 @php
     $post = $posts->first();
 @endphp
@@ -45,26 +41,31 @@
         {!! $webSiteMicro !!}
     @endif
 
-    <div class="row content">
-        @php
-        $i = 0;
-        @endphp
-        @foreach($posts as $post)
-            @include('new.include.item')
-            @php
-                $i++;
-            @endphp
-        @endforeach
-    </div>
-
-    @if($posts and $posts->total() > $posts->count())
-
-        <div data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
-             class="more-posts">Показать еще
+    <main class="content">
+        <div class="content-header">
+            <h1>{{ $meta['h1'] }}</h1>
         </div>
 
-        {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
-    @endif
+        <div class="profile-grid">
+            @php
+                $i = 0;
+            @endphp
+            @foreach($posts as $post)
+                @include('new.include.item')
+                @php
+                    $i++;
+                @endphp
+            @endforeach
+        </div>
+        @if($posts and $posts->total() > $posts->count())
+
+            <span data-url="{{ str_replace('http', 'https', $posts->nextPageUrl()) }}" onclick="getMorePosts(this)"
+                 class="action-btn primary more-posts">Показать еще
+            </span>
+
+            {!! str_replace('http', 'https', $posts->links('vendor.pagination.bootstrap-4')) !!}
+        @endif
+    </main>
 
 @endsection
 

@@ -1,4 +1,4 @@
-@extends(PATH.'.layouts.main')
+@extends('new.layouts.main')
 
 @section('title', '404')
 @section('des', '404')
