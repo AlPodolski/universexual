@@ -77,3 +77,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.head.appendChild(script);
 });
+
+function getMorePosts(button) {
+    const url = button.getAttribute('data-url');
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token
+        },
+        credentials: 'same-origin', // сохраняет куки
+    })
+        .then(response => response.text())
+        .then(text => {
+            let data;
+
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.error('Ошибка парсинга JSON:', e);
+                return;
+            }
+
+            if (data) {
+                window.history.pushState('', document.title, url);
+
+                if (data.posts) {
+                    document.querySelector('.profile-grid').insertAdjacentHTML('beforeend', data.posts);
+                }
+
+                if (data.next_page) {
+                    button.setAttribute('data-url', data.next_page);
+                } else {
+                    button.remove();
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка при запросе:', error);
+        });
+}

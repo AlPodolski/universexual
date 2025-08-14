@@ -14,7 +14,7 @@ class PostRepository
 
     protected string $sort;
 
-    private $postLimit = 20;
+    private $postLimit = 21;
 
     public function __construct()
     {
