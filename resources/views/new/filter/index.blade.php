@@ -23,7 +23,7 @@
 @endsection
 
 @php
-$post = $posts->first();
+    $post = $posts->first();
 @endphp
 
 @if($post)
@@ -42,28 +42,34 @@ $post = $posts->first();
         {!! $serviceMicro !!}
     @endif
 
-    @include('new.include.breadcrumb')
+    <main class="content">
 
-    <div class="row content">
+        @include('new.include.breadcrumb')
+
+        <div class="content-header">
+            <h1>{{ $meta['h1'] }}</h1>
+        </div>
 
         @php
             $i = 0;
             $review = false;
         @endphp
 
-        @if($posts)
-            @foreach($posts as $post)
-                @include('new.include.item')
-                @php
-                    $i ++;
-                    if ($post->reviews->first()){
-                        $review = true;
-                    }
-                @endphp
-            @endforeach
-        @endif
+        <div class="profile-grid">
+            @if($posts)
+                @foreach($posts as $post)
+                    @include('new.include.item')
+                    @php
+                        $i ++;
+                        if ($post->reviews->first()){
+                            $review = true;
+                        }
+                    @endphp
+                @endforeach
+            @endif
+        </div>
 
-    </div>
+    </main>
 
     @if($posts and $posts->total() > $posts->count())
 
