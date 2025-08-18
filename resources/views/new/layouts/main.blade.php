@@ -38,7 +38,7 @@
 
     <meta property="og:site_name" content="universal-lady.com" />
     <meta property="og:locale" content="ru_RU" />
-    <link rel="stylesheet" href="/css/style.css?v=8">
+    <link rel="stylesheet" href="/css/style.css?v=9">
 </head>
 <body>
 <!-- Header -->
