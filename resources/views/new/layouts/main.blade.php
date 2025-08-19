@@ -38,7 +38,7 @@
 
     <meta property="og:site_name" content="universal-lady.com" />
     <meta property="og:locale" content="ru_RU" />
-    <link rel="stylesheet" href="/css/style.css?v=9">
+    <link rel="stylesheet" href="/css/style.css?v=10">
 </head>
 <body>
 <!-- Header -->
@@ -47,7 +47,7 @@
         <div class="header-content">
             <a href="/" class="logo">
 
-                <img src="/img/lips.svg" alt="">
+                <img src="/img/lips.svg" id="left-logo-img" alt="">
                 <img src="/img/logo.png" alt="">
 
             </a>
@@ -58,6 +58,13 @@
             </form>
             <div class="auth-buttons">
                 <a href="#" class="btn btn-primary">Кабинет</a>
+            </div>
+            <div class="burger" id="burger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="22" viewBox="0 0 30 22" fill="none">
+                    <rect width="30" height="4" rx="2" fill="white"/>
+                    <rect y="9" width="30" height="4" rx="2" fill="white"/>
+                    <rect y="18" width="30" height="4" rx="2" fill="white"/>
+                </svg>
             </div>
         </div>
     </div>

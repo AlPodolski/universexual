@@ -119,3 +119,25 @@ function getMorePosts(button) {
             console.error('Ошибка при запросе:', error);
         });
 }
+
+const catalogToggle = document.getElementById('burger');
+const catalogClose = document.getElementById('catalogClose');
+const catalogPanel = document.getElementById('catalogPanel');
+const overlay = document.getElementById('overlay');
+
+// Открыть каталог
+catalogToggle.addEventListener('click', () => {
+    catalogPanel.classList.add('open');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+});
+
+// Закрыть каталог
+function closeCatalog() {
+    catalogPanel.classList.remove('open');
+    overlay.classList.remove('active');
+    document.body.style.overflow = ''; // Возвращаем прокрутку страницы
+}
+
+catalogClose.addEventListener('click', closeCatalog);
+overlay.addEventListener('click', closeCatalog);
