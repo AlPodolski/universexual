@@ -67,23 +67,21 @@
                     @if($post->metro->first())
                         <div class="info-item d-flex">
                             <span class="label">Метро:</span>
-                            @foreach($post->metro as $item)
-                                <div class="metro-items-wrap d-flex">
-                                    <a class="orange-text d-flex" href="/{{ $item->metro_url }}">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"></circle>
-                                            <path d="M6 17V7H8.5L12 13L15.5 7H18V17H16V11L13 17H11L8 11V17H6Z"
-                                                  fill="white"></path>
-                                        </svg>
-                                        {{ $item->metro_value }}
-                                        @if($item != $post->metro->last())
-                                            ,
-                                        @endif
-                                    </a>
-
-                                </div>
-                            @endforeach
+                            <div class="metro-items-wrap d-flex">
+                                @foreach($post->metro as $item)
+                                    <div class="d-flex">
+                                        <a class="orange-text d-flex" href="/{{ $item->metro_url }}">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="11" stroke="white" stroke-width="2"></circle>
+                                                <path d="M6 17V7H8.5L12 13L15.5 7H18V17H16V11L13 17H11L8 11V17H6Z"
+                                                      fill="white"></path>
+                                            </svg>
+                                            {{ $item->metro_value }}@if($item != $post->metro->last()),@endif
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     @endif
 
@@ -140,7 +138,7 @@
                     </div>
 
                     <p class="params-heading">Дополнительные параметры:</p>
-                    <div class="params-grid">
+                    <div class="params-grid more-params-wrap">
                         <div><span class="value">{{ $post->hair_color }}</span><span class="label">Цвет волос</span>
                         </div>
                         <div><span class="value">{{ $post->national_value }}</span><span
